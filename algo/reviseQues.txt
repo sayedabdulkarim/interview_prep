@@ -1,0 +1,386 @@
+Arrays:
+
+### Easy
+- Find the Maximum Element: Given an array of integers, find the maximum element.
+- Find the Minimum Element: Given an array of integers, find the minimum element.
+- Reverse an Array: Given an array, reverse it. ( without using extra space )
+- Move Zeroes: Move all 0's to the end of an array while maintaining the relative order of the non-zero elements.
+- Sort an Array (ascending, descending)
+- Remove Duplicate from an array
+- Contains Duplicate in an array
+- Repeat String Num Times
+- Truncate String
+- Chunk Array
+
+
+### Medium
+- Two Sum: Given an array of integers, find two numbers such that they add up to a specific target number.
+- Single Number: Given an array of integers, every element appears twice except for one. Find that single one.
+- Rotate an Array: Given an array, rotate it to the right by k steps.
+- Second Largest Number In An Array
+- Get Obj - Item Counts `{ 1: 5, 2: 4 }` - cover with anagrams
+- Objects Are Equal - cover with anagrams
+- Is Anagram
+- Kth Largest Element: Find the kth largest element in an array.
+- productExceptSelf
+- maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
+*- Max Subarray
+*- Longest Subarray with Sum K: Given an array, find the length of the longest subarray that sums to `K`.
+*- Majority Element: Find the element that appears more than `n/2` times in an array of size `n`.
+- Remove Element: Given an array and a value, remove all instances of that value and return the new length.
+*- Find Common Elements: Given two arrays, write a function to compute their intersection.
+*- Merge Sorted Array: Given two sorted integer arrays, merge them into one sorted array.
+
+### Hard
+*- Merge Intervals: Given a collection of intervals, merge any overlapping intervals.
+*- Find the "K" Most Frequent Elements: Given a non-empty array of integers, return the k most frequent elements.
+*- Longest Increasing Subsequence: Find the length of the longest increasing subsequence in an array of integers.
+*- Find All Duplicates: Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once, find all the elements that appear twice.
+*- Next Permutation: Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+
+Strings:
+
+#### Easy
+- **Reverse a String**: Reverse the given string.
+- **Check Palindrome**: Determine if a string is a palindrome.
+- **First Unique Character**: Find the first non-repeating character in a string and return its index.
+- **Length of Last Word**: Given a string, find the length of the last word.
+*- **Valid Parentheses**: Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+  
+#### Medium
+*- **String to Integer (atoi)**: Implement the atoi function which converts a string to an integer.
+- **Anagrams**: Check if two given strings are anagrams of each other.
+*- **Count and Say**: The "Count and Say" sequence is the sequence of integers with the first five terms as 1, 11, 21, 1211, 111221, ...
+*- **Longest Common Prefix**: Write a function to find the longest common prefix string amongst an array of strings.
+*- **Longest Substring Without Repeating Characters**: Given a string, find the length of the longest substring without repeating characters.
+- **String Multiplication**: Given two non-negative integers represented as strings, return their product, also as a string.
+
+#### Hard
+*- **Regular Expression Matching**: Given an input string and a pattern, implement regular expression matching with support for '.' and '*'.
+*- **Wildcard Matching**: Given an input string and a pattern, implement wildcard pattern matching with support for '?' and '*'.
+
+LinkedList: 
+
+### Single Linked List
+
+#### Easy
+- **Push**: Add an element to the end.
+- **Traverse**: Go through each element.
+- **Pop**: Remove an element from the end.
+- **Shift**: Remove an element from the front.
+- **Unshift**: Add an element to the front.
+- **Get**: Retrieve an element at a specific index.
+- **Set**: Modify an element at a specific index.
+- **Print**: Print all elements.
+  
+#### Medium
+- **Insert**: Insert an element at a specific index.
+- **Delete**: Delete an element at a specific index.
+- **Reverse**: Reverse the list.
+- **Find Kth From Back**: Find the Kth node from the end.
+- **Find Middle Node**: Find the middle node of the linked list.
+*- **Remove Duplicates**: Remove duplicate elements from the list.
+
+#### Hard
+*- **Reverse Recursive**: Reverse the list using recursion.
+*- **Cycle Detection**: Determine if the linked list has a cycle.
+*- **Merge Two Sorted Lists**: Merge two sorted linked lists into a new sorted list.
+*- **Intersection Point**: Find the intersection point of two linked lists.
+
+For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, get, and set would be similar to Single Linked Lists in terms of difficulty. However, Doubly Linked Lists provide some additional complexities and opportunities for interesting problems.
+
+### Doubly Linked List
+
+#### Easy
+- **Push**: Add an element to the end.
+- **Pop**: Remove an element from the end.
+- **Shift**: Remove an element from the front.
+- **Unshift**: Add an element to the front.
+- **Get**: Retrieve an element at a specific index.
+- **Set**: Modify an element at a specific index.
+  
+#### Medium
+- **Insert**: Insert an element at a specific index.
+- **Delete**: Delete an element at a specific index.
+- **Traverse Forward**: Traverse the list from head to tail.
+- **Traverse Backward**: Traverse the list from tail to head.
+*- **Remove Duplicates**: Remove duplicate elements from the list.
+
+*#### Hard
+- **Reverse**: Reverse the list.
+- **Rotate by K**: Rotate the list to the right by K steps, where rotation includes both backward and forward rotation.
+- **Find the Loop**: Determine if there is a loop in the Doubly Linked List.
+- **Palindrome Check**: Check if the list is a palindrome.
+- **Merge Two Sorted Doubly Linked Lists**: Merge two sorted doubly linked lists into a new sorted doubly linked list.
+
+###Circular Linked List
+
+### Easy
+* **Insertion**: Insert an element at the beginning, middle, or end of a circular linked list.
+* **Deletion**: Delete an element from the beginning, middle, or end of a circular linked list.
+* **Traversal**: Traverse through a circular linked list and print all elements.
+* **Search**: Search for an element in a circular linked list.
+
+### Medium
+* **Cycle Detection**: Determine if a linked list is circular.
+* **Loop Length**: If there is a cycle, find the length of the loop.
+* **Find Middle**: Find the middle element in a single pass.
+* **Split into Two Halves**: Divide the circular linked list into two halves.
+* **Sorted Insert**: Insert an element into a sorted circular linked list.
+
+### Hard
+* **Josephus Problem**: Given the number of persons `n` and a number `k`, the task is to find the last remaining person after every `k-th` person is eliminated in a circle.
+* **Convert Sorted List to Balanced BST**: Convert a sorted circular linked list to a balanced binary search tree.
+* **Merge Two Sorted Circular Linked Lists**: Combine two sorted circular linked lists into a single sorted circular linked list.
+
+### Stack
+#### Easy
+1. Implement Stack
+2. Implement pop operation
+3. Implement push operation
+4. Implement peek operation
+
+#### Medium
+1. Implement a stack using arrays/linked list
+*2. Balanced Parentheses check ( same as valid Parentheses)
+*3. Evaluate Reverse Polish Notation
+
+#### Hard
+*1. Implement multiple stacks in an array
+*2. Implement a stack that sorts itself
+
+### Queue
+#### Easy
+1. Implement Queue
+2. Implement Enqueue
+3. Implement Dequeue
+
+#### Medium
+*1. Implement a Queue using Stacks
+*2. Generate Binary Numbers from 1 to N using a Queue
+
+#### Hard
+*1. Implement a Double Ended Queue (Deque)
+2. Circular Queue implementation
+
+///////////////////////////////////////////////////////////////////////////
+
+###Solving pattern
+    - Frequency
+    - Two Pointers
+    - Sliding Window
+    - divide n conquer
+
+### Frequency Counter
+
+#### Easy
+1. Count the frequency of each character in a string.
+2. Find the first non-repeating character in a string.
+
+#### Medium
+1. Check if two strings are anagrams of each other.
+2. Find all duplicates in an array where elements are between 1 and n.
+
+#### Hard
+*1. Count the number of smaller elements to the right of each element in an array.
+*2. Given an array of integers, find all the subsets that sum up to a particular target.
+
+---
+
+### Two Pointers
+
+#### Easy
+1. Find if a sorted array contains any two numbers that sum up to a target.
+*2. Determine if a linked list has a cycle.
+
+#### Medium
+*1. Remove all occurrences of a specific value in a sorted array in-place.
+*2. Implement a function to reverse a linked list.
+
+#### Hard
+*1. Given a sorted array and a target, find all unique triplets that sum up to the target. ( three sum )
+*2. Find the longest palindromic substring.
+
+---
+
+### Sliding Window
+
+#### Easy
+1. Find the maximum sum subarray of size `k`.
+2. Find the length of the longest substring with unique characters.
+
+#### Medium
+1. Given an array of integers, find all contiguous subarrays that sum up to `k`.
+2. Find the shortest substring that contains all distinct characters of the input string.
+
+#### Hard
+1. Implement a data structure to calculate the moving average of the last `n` elements added.
+2. Find the longest substring with at most `k` distinct characters.
+
+---
+
+### Divide and Conquer
+
+#### Easy
+1. Implement binary search on a sorted array.
+*2. Calculate the height of a balanced binary tree.
+
+#### Medium
+1. Implement quick sort.
+2. Find the `kth` smallest/largest element in an array.
+
+#### Hard
+1. Implement an efficient algorithm for matrix multiplication.
+2. Solve the "Skyline Problem" where you have to draw the outline of a city represented by rectangles.
+
+
+###Recursion
+
+### Easy
+* **Factorial**: Compute the factorial of a given number.
+* **Fibonacci Series**: Generate the nth Fibonacci number.
+* **Sum of Array**: Calculate the sum of an array using recursion.
+* **Reverse a String**: Reverse a string using recursion.
+* **Count Vowels**: Count the number of vowels in a string.
+
+### Medium
+* **Tower of Hanoi**: Solve the Tower of Hanoi problem.
+* **Binary Search**: Implement binary search algorithm using recursion.
+* **Merge Sort**: Implement the merge sort algorithm using recursion.
+* **Generate Parentheses**: Generate all combinations of well-formed parentheses.
+* **Depth of Binary Tree**: Find the depth/height of a binary tree.
+
+### Hard
+* **N-Queens**: Solve the N-Queens puzzle.
+* **Permutations**: Generate all possible permutations of a given array/string.
+* **Dynamic Programming**: Solve problems like "Coin Change", "Longest Increasing Subsequence" etc., using recursion (and possibly memoization).
+* **Graph Traversals**: DFS and BFS using recursion.
+* **Regular Expression Matching**: Implement a regular expression matching function.
+
+
+###Searching Algorithms
+    - linearSearch
+    - binarySearch
+    - Naive Search
+
+### Easy
+* **Linear Search**: Search for an element in an unsorted array.
+  
+### Medium
+* **Binary Search**: Search for an element in a sorted array. Understand variations like finding the first or last occurrence of an element.
+
+### Hard
+* **Naive String Search**: Find all occurrences of a small string (needle) in a big string (haystack). Although naive, it can be tricky to implement without errors.
+
+### Additional Questions
+
+#### Medium
+* **Jump Search**: Like binary search, but jumps ahead by sqrt(n) steps before doing local searching. Good for sorted arrays.
+  
+* **Exponential Search**: Another variant for sorted arrays, it works by determining a range where the element could be and then applying binary search within that range.
+
+#### Hard
+* **Interpolation Search**: This one is good for uniformly distributed sorted arrays. It estimates where the desired value will be.
+  
+* **Fibonacci Search**: Uses Fibonacci series to divide the array into blocks and then searches within the appropriate block.
+
+
+###Sorting Algorithms 
+    - bubble sort
+    - selection sort
+    - insertion sort
+    - merge sort
+    - quick sort
+    - radix sort
+
+### Easy
+* **Bubble Sort**: Simplest sorting algorithm. Good for understanding the basics, but not efficient for large data sets.
+* **Selection Sort**: Another simple algorithm. Like Bubble Sort, it's mainly educational and not used much in practice.
+
+### Medium
+* **Insertion Sort**: A bit more advanced than Bubble and Selection but still quite simple. Efficient for nearly sorted arrays.
+* **Merge Sort**: A divide-and-conquer algorithm. It's more efficient than the easy sorts and is stable.
+* **Quick Sort**: Another divide-and-conquer algorithm. It's in-place but not stable.
+
+### Hard
+* **Radix Sort**: A non-comparative sort that works by distributing elements into buckets. Used for integers or strings and requires understanding of more complex data structures.
+
+### Additional Suggestions
+
+#### Medium
+* **Heap Sort**: A sorting algorithm based on binary heap data structure. It's similar to selection sort but more efficient.
+  
+#### Hard
+* **Counting Sort**: Efficient for sorting integers in a specific range. Understand how and when to use it.
+* **Bucket Sort**: Used when input is uniformly distributed over a range. It's similar to Radix Sort but uses a different kind of bucketing.
+
+### Must Know Sort:
+1. **Quick Sort**: In-place and average time complexity is \(O(n \log n)\).
+2. **Merge Sort**: Not in-place but stable and guarantees \(O(n \log n)\).
+3. **Bubble Sort**: Simple but inefficient, mostly to understand the basics.
+
+### Good to Know:
+1. **Insertion Sort**: Useful for nearly sorted data or small datasets.
+2. **Selection Sort**: Simple but inefficient, another one good for foundational understanding.
+3. **Binary Search**: Though not a sorting algorithm, it's often used in conjunction with sorted arrays.
+
+### Special Cases:
+1. **Radix Sort**: Useful for integers or strings, linear time complexity but not comparison-based.
+2. **Counting Sort**: When you know the range of the target values is limited.
+
+
+### Trees
+#### Easy
+1. Binary Tree Inorder, Preorder, Postorder traversal
+2. Level Order Traversal
+3. Insertion in a Binary Tree
+
+#### Medium
+1. Check if a binary tree is balanced
+2. Convert a binary tree to a doubly linked list
+3. Diameter of a Binary Tree
+
+#### Hard
+1. Serialize and Deserialize a Binary Tree
+2. Lowest Common Ancestor in a Binary Tree
+3. Check if a tree is a subtree of another tree
+
+### Trie
+#### Easy
+1. Implement Trie
+2. Search in a Trie
+
+#### Medium
+1. Delete from a Trie
+2. Implement Autocomplete
+
+#### Hard
+1. Implement a T9 dictionary
+2. Longest Common Prefix of an array of words
+
+### Graphs
+#### Easy
+1. Represent a Graph (Adjacency Matrix, Adjacency List)
+2. Implement BFS
+3. Implement DFS
+
+#### Medium
+1. Implement Dijkstra's Algorithm
+2. Implement a Topological Sort
+
+#### Hard
+1. Implement Bellman-Ford Algorithm
+2. Find Strongly Connected Components (Kosaraju's algorithm)
+
+### Hash Table
+#### Easy
+1. Implement Hash Table
+2. Handle Collisions
+
+#### Medium
+1. Implement Resizing operation
+2. Open Addressing
+
+#### Hard
+1. Implement a distributed hash table
+2. Implement caching (LRU Cache, for example)

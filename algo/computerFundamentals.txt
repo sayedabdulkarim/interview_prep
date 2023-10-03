@@ -1,0 +1,51 @@
+Certainly, fundamental computer science concepts often come up during technical interviews. Here's a list of common interview questions covering computer fundamentals:
+
+### Operating Systems
+1. What is an operating system? Explain its functions.
+2. Explain the difference between multitasking, multithreading, and multiprocessing.
+3. What is a deadlock and how can it be prevented?
+4. Describe the concepts of paging and segmentation.
+  
+### Data Structures and Algorithms
+1. Explain the difference between an array and a linked list.
+2. Describe various types of sorting algorithms.
+3. What are trees and graphs? Explain with examples.
+4. Explain the concept of Big O notation.
+  
+### Computer Networks
+1. Explain the OSI model.
+2. What is the difference between TCP and UDP?
+3. Describe what a firewall is and how it works.
+4. Explain the concept of DNS and how it works.
+
+### Databases
+1. What is a database management system (DBMS)?
+2. Explain the ACID properties in a database.
+3. What is the difference between SQL and NoSQL?
+4. Describe normalization and denormalization.
+
+### Software Engineering
+1. What are the different software development methodologies?
+2. Describe the Agile methodology.
+3. What is version control? Give examples.
+4. Explain CI/CD pipelines.
+
+### Web Technologies
+1. Describe how the HTTP protocol works.
+2. What are RESTful web services?
+3. What is the DOM?
+4. Explain cookies and sessions in web development.
+
+### Programming Concepts
+1. What are pointers? Explain with an example.
+2. Describe recursion and when you would use it.
+3. What are closures in JavaScript?
+4. Explain what OOP (Object-Oriented Programming) is.
+
+### Cybersecurity
+1. What is a VPN and how does it work?
+2. Explain what a DDoS attack is.
+3. What is phishing?
+4. How does public-key cryptography work?
+
+This is not an exhaustive list, but it should give you a good starting point for preparing for interviews that cover computer fundamentals.

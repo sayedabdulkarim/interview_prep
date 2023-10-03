@@ -1,0 +1,35 @@
+Certainly, here are some example questions for different divide and conquer algorithms and problem types. These range from basic to more advanced, and can be good practice for understanding the divide and conquer paradigm.
+
+### Merge Sort
+1. Implement the merge sort algorithm.
+2. Modify merge sort to count the number of inversions in an array.
+
+### Quick Sort
+1. Implement the quick sort algorithm.
+2. Implement a three-way quick sort that sorts elements smaller, equal to, and greater than the pivot.
+
+### Binary Search
+1. Implement the binary search algorithm.
+2. Given a sorted array that has been rotated, find an element in it. (Use a variant of binary search.)
+
+### Matrix Multiplication
+1. Implement standard matrix multiplication.
+2. Implement Strassen's algorithm for matrix multiplication.
+
+### Closest Pair of Points
+1. Implement the closest pair of points algorithm in 2D.
+2. Extend it to 3D.
+
+### K-th Statistic
+1. Find the \( k \)-th smallest element in an unsorted array in \( O(n) \) time.
+  
+### Advanced Problems
+1. Implement Karatsuba multiplication algorithm.
+2. Solve the Skyline Problem.
+3. Solve the Tiling Problem using divide and conquer.
+
+### Medium and Hard Problems
+1. Implement an efficient algorithm to multiply two polynomials.
+2. Implement the Fast Fourier Transform (FFT) algorithm.
+
+These are just a few examples to help you understand and get started with divide and conquer algorithms. Solving these problems will give you a good grasp of how to break a problem down into smaller, more manageable pieces. Would you like the code for any of these algorithms or problems?

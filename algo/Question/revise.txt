@@ -1,0 +1,52 @@
+//
+Array
+
+String 
+
+Linked List
+
+Doubly Linked List
+
+Circular Linked List
+
+Stack
+
+Queues
+
+Recursion
+
+Searching Algorithms
+    - linearSearch
+    - binarySearch
+    - Naive Search
+
+Sorting Algorithms 
+    - bubble sort
+    - selection sort
+    - insertion sort
+    - merge sort
+    - quick sort
+    - radix sort
+
+Solving pattern
+    - Frequency
+    - Two Pointers
+    - Sliding Window
+    - divide n conquer
+
+///
+Trees
+
+BST 
+
+Tree Traversal
+
+Binary Heaps 
+
+Hash Table
+
+Graph
+
+Graph Traversal
+
+DP

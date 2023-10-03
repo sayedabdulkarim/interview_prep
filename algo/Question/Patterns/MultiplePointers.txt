@@ -1,0 +1,29 @@
+The Multiple Pointers pattern involves creating pointers or values that correspond to an index or position and move towards the beginning, end, or middle based on a certain condition. This pattern can be useful for solving problems efficiently with minimal use of extra data structures. Below are some interview questions based on this pattern, ranging from easy to medium in difficulty.
+
+### Easy Questions
+
+1. **Two Sum Sorted**: Given a sorted array of integers, find two numbers that add up to a specific target sum.
+   
+2. **Count Unique Values**: Given a sorted array, count the unique values in it. 
+
+### Medium Questions
+
+3. **Is Subsequence**: Given two strings `s` and `t`, check if `s` is a subsequence of `t`.
+
+4. **Three Sum**: Given an array, find all unique triplets in the array which gives the sum of zero.
+
+5. **Smallest Difference**: Given two arrays, find the pair of values (one value from each array) with the smallest (non-negative) difference.
+
+6. **Longest Word in Dictionary Through Deleting**: Given a string and a string dictionary, find the longest string in the dictionary that can be formed by deleting some characters of the given string. 
+
+7. **Move Zeroes**: Write a function to move all `0's` to the end of an array, maintaining the relative order of the non-zero elements, without using extra space.
+
+8. **Dutch National Flag Problem**: Given an array of \( n \) objects colored Red, White, or Blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order Red, White, and Blue.
+
+9. **Max Area**: Given \( n \) non-negative integers \( a_1, a_2, \ldots, a_n \), where each represents a point at coordinate \( (i, a_i) \), draw \( n \) vertical lines. Find two lines, which, together with the x-axis, forms a container that contains the most water.
+
+### Hard Questions
+
+10. **Longest Subarray with Sum K**: Given an array of integers, find the length of the longest sub-array with sum equals to \( K \).
+
+Feel free to give these questions a try, and if you have any questions or need hints, don't hesitate to ask!

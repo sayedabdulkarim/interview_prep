@@ -1,0 +1,52 @@
+Certainly! Here are some questions that can be tackled using the Frequency Counter pattern:
+
+### 1. Check Anagrams
+Write a function to check if two strings are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another word.
+
+### 2. Find Duplicates in an Array
+Write a function that takes an array of integers and returns an array of all duplicate integers.
+
+### 3. Count Unique Values in Sorted Array
+Write a function that counts the unique values in a sorted array.
+
+### 4. Sum of Zero
+Write a function that takes an array of integers and finds two distinct elements that sum to zero.
+
+### 5. Valid Sequence
+Write a function to determine if an array can be formed by a subsequence of another array, without changing the order of elements.
+
+### 6. Same Frequency
+Write a function that takes two positive integers and returns true if the two numbers have the same frequency of digits.
+
+### 7. Check if N and its Double Exist
+Write a function that checks if there exists two integers N and M such that N is the double of M in an array.
+
+### 8. Ransom Note
+Write a function to check if a ransom note can be constructed from a magazine; that is, if the words in the ransom note are all present in the magazine.
+
+### 9. Find all Anagrams in a String
+Write a function that finds all the start indices of the anagrams of a word in a text.
+
+### 10. Group Anagrams
+Write a function that takes an array of strings and groups anagrams together.
+
+
+////HARD
+For example, a more advanced problem might ask you to:
+
+Find the Longest Subarray With a Given Sum: Write a function that finds the longest contiguous subarray in an array that adds up to a given sum.
+
+Least Recently Used Cache (LRU Cache): Implement an LRU Cache with a specific size limit. When the cache reaches its limit, the least recently used item should be removed.
+
+Longest Substring Without Repeating Characters: Write a function to find the length of the longest substring without repeating characters.
+
+Sliding Window Maximum: Given an array of integers and a number 
+�
+k, find the maximum element for each and every contiguous subarray of size 
+�
+k.
+
+First Unique Character in a String: Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
+
+
+

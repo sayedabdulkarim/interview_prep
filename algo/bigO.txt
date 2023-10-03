@@ -1,0 +1,27 @@
+* The time complexity is O(1) because the function performs a fixed number of operations, regardless of the value of ( n ). 
+Specifically, it performs one multiplication, one addition, and one division to compute the sum of all integers from 1 to ( n ).
+
+These operations are not dependent on the size of ( n ); 
+they are executed a fixed number of times—just once in this case. This is why the time complexity is considered constant, denoted as (O(1)).
+
+function sum(n){
+    return (n * ( n + 1 )) / 2
+}
+
+
+* 
+Exactly, the time complexity is ( O(n)) because the loop runs as many times as there are elements in the array `arr`. 
+As the size ( n ) of the array grows, the number of iterations of the loop—and hence the time taken by the function—will grow linearly. 
+Therefore, the time complexity is ( O(n) ), indicating that the function's runtime grows linearly with the size of the input array.
+ 
+function calc(arr){
+
+    var res = ""
+
+    for(i of arr){
+        res += i
+    }
+
+    return res;
+}
+

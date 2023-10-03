@@ -1,0 +1,42 @@
+
+//////////////////////////
+BIG O
+
+Week 1-2: Introduction, and Arrays and String 
+Day 1-3: Understanding what DSA is and why it's important
+Day 4-7: Basics of Arrays
+Day 8-14: Advanced operations on Arrays (rotations, searching, etc.)
+Resources: Basics of Data Structures video, Array tutorials from chosen course
+
+Week 3-4: Linked Lists
+Day 1-7: Introduction to Linked Lists and basic operations (insert, delete)
+Day 8-14: Advanced topics like Doubly Linked Lists, Circular Linked Lists
+Resources: Linked List tutorials from chosen course
+
+Week 5-6: Stacks and Queues
+Day 1-7: Stacks and basic operations (push, pop)
+Day 8-14: Queues and Dequeues
+Resources: Stacks and Queues section from the chosen course
+
+Week 7-8: Trees and Graphs
+Day 1-7: Basic Tree structures, Binary Trees, Tree traversals
+Day 8-14: Graphs, Graph traversal algorithms (DFS, BFS)
+Resources: Trees and Graphs section from chosen course
+
+Week 9-10: Hash Tables
+Day 1-4: Basics of Hashing, Hash Functions
+Day 5-10: Collision handling, Dynamic resizing
+Day 11-14: Advanced topics and applications
+Resources: Hash Tables section from chosen course
+
+Week 11: Sorting and Searching Algorithms
+Day 1-3: Basic Sorting Algorithms (Bubble, Insertion, Selection)
+Day 4-7: Advanced Sorting (Quick sort, Merge sort)
+Day 8-14: Basic and Advanced Searching Algorithms
+Resources: Sorting and Searching section from chosen course
+
+Week 12: Final Week, Review, and Project
+Day 1-7: Review all the topics covered
+Day 8-14: Mini project to implement learned algorithms and data structures
+Resources: Practice problems, LeetCode, HackerRank, or any other coding challenges
+

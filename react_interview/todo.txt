@@ -1,0 +1,14 @@
+
+//publicis sapient front end developer interview questions
+    - https://www.youtube.com/watch?v=hrk-1aDP3X8 
+    - https://www.youtube.com/watch?v=uBwSAElaZco
+
+
+- STRIVER = https://takeuforward.org/strivers-a2z-dsa-course/must-do-pattern-problems-before-starting-dsa/
+
+ - https://www.youtube.com/watch?v=wp-NEcAck1k
+
+ -https://topmate.io/akash_ingole - discuss with him
+
+
+ caching implementation in react

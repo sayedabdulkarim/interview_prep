@@ -1,0 +1,26 @@
+Certainly, here are a few more binary search-related questions:
+
+1. Find the first occurrence of a given element in a sorted array.
+2. Find the last occurrence of a given element in a sorted array.
+3. Given a sorted array that can contain duplicates, find the range `[start, end]` where a given element occurs.
+4. Search for a given element in a sorted and rotated array.
+5. Find the "peak element" in an array where adjacent elements are always less than the peak.
+6. Find the square root of a given integer, rounded down to the nearest integer, using binary search.
+7. Implement an "Exponential Search" where the range doubles at each step before a binary search is performed.
+
+Feel free to select any of these for deeper study or practice.
+
+
+function binarySearch(arr, x) {
+  let left = 0,
+    right = arr.length - 1;
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (arr[mid] === x) return mid;
+    else if (arr[mid] < x) left = mid + 1;
+    else right = mid - 1;
+  }
+  return -1;
+}
+
+console.log(binarySearch([2, 4, 5, 6, 7, 8, 9], 5));

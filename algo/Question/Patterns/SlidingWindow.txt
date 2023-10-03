@@ -1,0 +1,19 @@
+Certainly! Here are some problems that are commonly solved using the sliding window technique, ranging from basic to more challenging:
+
+### Basic
+1. Find the maximum/minimum sum subarray of a fixed size `k`.
+2. Find the maximum/minimum product subarray of a fixed size `k`.
+3. Find the longest substring with `k` distinct characters.
+4. Find the first negative integer in every window of size `k`.
+
+### Medium
+5. Given an array of integers, find the maximum sum of any of its `k` consecutive elements.
+6. Given a string, find the length of the longest substring without repeating characters.
+7. Given a string, find the length of the longest substring with at most `k` distinct characters.
+8. Given an array of integers, find all the continuous subarrays whose sum equals a specific target number.
+
+### Hard
+9. Given an array of integers, find the smallest subarray length that sums up to a given number.
+10. Given a string and a pattern, find all the anagrams of the pattern in the string.
+
+You can solve these questions to get a good grasp of the sliding window technique. They cover various use-cases and complexities. Would you like a detailed explanation or code for any specific problem?
