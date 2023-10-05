@@ -12,16 +12,31 @@ class CircularLinkedList {
     this.length = 0;
   }
 
-  push(val) {
-    const newNode = new Node(val);
+  // push(val) {
+  //   const newNode = new Node(val);
+  //   if (!this.head) {
+  //     this.head = newNode;
+  //     this.tail = newNode;
+  //     newNode.next = newNode; // Make it circular here
+  //   } else {
+  //     newNode.next = this.head; // Point to head to make it circular
+  //     this.tail.next = newNode; // Update tail's next before moving tail
+  //     this.tail = newNode;
+  //   }
+  //   ++this.length;
+  // }
+
+  push(value) {
+    const newNode = new Node(value);
+
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
-      newNode.next = newNode; // Make it circular here
+      this.tail.next = this.head;
     } else {
-      newNode.next = this.head; // Point to head to make it circular
-      this.tail.next = newNode; // Update tail's next before moving tail
-      this.tail = newNode;
+      this.tail.next = newNode; // Connect old tail to new node
+      this.tail = newNode; // Update tail
+      this.tail.next = this.head; // Point new tail back to head
     }
     ++this.length;
   }

@@ -35,10 +35,14 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Explain how code sharing between files can be accomplished.
 🔍 Define what a promise is and describe its applications.
 🔍 Explore how Object-Oriented Programming (OOP) principles can be applied when coding in JavaScript.
+🔍 Web Components ( https://www.youtube.com/watch?v=STZA_qtm1XU&list=PLEtjGa9VEukPRU9N_qHL-OAq5PZGVunNB&index=6&ab_channel=AnujSingla )
 🔍 shadow DOM
 🔍 create slots in DOM ( reusable component like react )
+🔍 Lifecycle of Web component
+🔍 TodoList with Web component
 
 
+//////
 https://www.youtube.com/@Learnersbucket/playlists
 
 https://www.youtube.com/watch?v=CPXf8Yv3I0A&list=PL8p2I9GklV45z6Cov4omIOsbptPR1kxpg
