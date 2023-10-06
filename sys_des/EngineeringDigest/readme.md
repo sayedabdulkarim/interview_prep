@@ -85,7 +85,19 @@ In the diagram, Each "Service" is an independently deployable unit centered arou
           |  Database                  |    |  Database              |
           +----------------------------+    +-----------------------+
 
-Pros - - Scalable
+- PROS
+
+  - Scalable ( we can scale it horizontally, means we can add more machines to improve its capabilty.)
+  - No SPOF ( Single Point Of Failure ) means if one fails it will rely on others machines.
+  - Low Latency
+    - Latency refers to the time it takes for a signal or packet of data to travel from the source to the destination. In computing and networking, latency often describes the delay between a user's action and the system's response to that action. For example, network latency might refer to the delay between clicking a link and the webpage loading.
+
+- CONS
+  - Complex
+  - Addition Management Required ( e.g Load Balancing, Deployment and Maintenance, Cost )
+    - Load balancing is a technique used to distribute incoming network traffic across multiple servers. This ensures that no single server bears too much demand, making it possible to serve more users more efficiently. Load balancing improves responsiveness and availability of applications, as it helps to prevent any one of the servers from becoming a bottleneck, which would slow down service.
+  - Security: As there are different nodes ( server ), which needs to secure independently. Hence it will need additional time and resources.
+  - Cost: The overhead of managing a distributed system, both in terms of hardware and human resources, can be significantly higher than that of a centralized system.
 
 # Different types of distributed system architecture.
 
@@ -211,3 +223,5 @@ The type of graph used can impact the system's performance, fault tolerance, and
                    |                           |    |                          |
                    |  Shared Database          |    |  Shared Database         |
                    +---------------------------+    +--------------------------+
+
+4 - Latency
