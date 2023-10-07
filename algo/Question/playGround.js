@@ -1,30 +1,7 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
+function fibonacci(n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-class Queue {
-  constructor(params) {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
-
-  enqueue(value) {
-    const newNode = new Node(value);
-
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
-    } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
-    }
-    ++this.length;
-  }
-}
-
-const queueOne = new Queue();
-console.log(queueOne, " qqqq");
+console.log(fibonacci(5));
