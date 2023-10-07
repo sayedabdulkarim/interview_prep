@@ -1,2 +1,3 @@
 - renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
-    
+- useMemo, UseCallBack, React.memo
+- count timer
