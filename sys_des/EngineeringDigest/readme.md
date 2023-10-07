@@ -225,3 +225,63 @@ The type of graph used can impact the system's performance, fault tolerance, and
                    +---------------------------+    +--------------------------+
 
 4 - Latency
+
+    - Defn: It represents the total time it takes for a request to go from the client to the server and for the server's response to get back to the client.
+
+            - Or we can say ( networkDelay +  computation delay )
+
+                -  Network Delay: The time taken for the data packet to travel through the network from the client to the server and back. This includes time for routing, buffering, and all other forms of network-related delays.
+
+                -  Server Processing Time (Computation Delay): The time the server takes to process the request and generate a response. This could include time for database queries, computations, or any other server-side operations needed to fulfill the request.
+
+                -  RTT = Network Delay (Client to Server) + Server Processing Time + Network Delay (Server to Client)
+
+    - Latency comparison between Monolithic n Micro Architecture
+
+        - Monolithic architectures generally have lower latency for in-app operations because everything runs in the same process.
+
+        - Microservices architectures might experience higher latencies due to network communication, service chaining, and data distribution across multiple databases.
+
+            - How to reduce latency in micro ??
+
+              - Caching
+              - CDN
+
+    - Calculation ( RTT (ms) ) Round Trip Time
+
+      |
+      | .
+      120-------|---------.
+      | \
+      | .
+      | \
+      110---------------------.
+      | \
+      | .
+      | \
+      | .
+      | \
+      90-----------------------------.
+      | \
+      | .
+      0------1------2------3------4------5 (Time in seconds)
+
+
+
+    - Capturing time before sending the request
+      const t1 = new Date().getTime();
+
+      // Making an HTTP request (example using fetch API)
+      fetch('http://yourserver.com/api/data')
+      .then(response => response.json())
+      .then(data => {
+      // Capturing time after receiving the response
+      const t2 = new Date().getTime();
+
+          // Calculating round-trip time
+          const rtt = t2 - t1;
+
+          // Send this data to a database or a service where you can later retrieve it for graphing
+          sendRTTtoDB(rtt);
+
+    });
