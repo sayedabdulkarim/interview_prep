@@ -12,6 +12,8 @@ import Memoize from "./components/machineCoding/memoize";
 
 //Patterns
 import RenderProps from "./components/patterns/renderProps";
+import WithBackgroundColorHoc from "./components/patterns/hoc";
+import CompoundPatternToggle from "./components/patterns/compoundPattern";
 
 const App = () => {
   return (
@@ -21,13 +23,15 @@ const App = () => {
       {/* <CountdownTimer initialMinutes={2} initialSeconds={30} /> */}
       {/* <CountdownTimerTest timeLimit={5} /> */}
       {/* <UseMemoCbMemo /> */}
-      <UseInput />
+      {/* <UseInput /> */}
       {/* machine coding ////////////////////////////////////////////////////////////*/}
       {/* <Todo /> */}
       {/* <Memoize /> */}
 
       {/* Patterns /////////////////////////////////////////////////////////////////*/}
       {/* <RenderProps /> */}
+      {/* <WithBackgroundColorHoc /> */}
+      <CompoundPatternToggle />
     </div>
   );
 };

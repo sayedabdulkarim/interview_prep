@@ -3,3 +3,83 @@
 - count timer hooks
 - memoization like useMemo
 - useInput hook
+- compound pattern 
+- hoc
+
+
+
+///React Router
+
+### Basic Questions
+
+1. **What is React Router?**
+    - Explain what React Router is and why it's used in React applications.
+
+2. **How do you install React Router?**
+    - Mention the npm or yarn command to install it.
+
+3. **Explain the difference between `BrowserRouter` and `HashRouter`.**
+    - When would you use one over the other?
+
+4. **What is the purpose of the `Route` component?**
+    - Explain how it's used to define routes.
+
+5. **What is `Link` and how is it different from `a` tags?**
+    - Explain the advantages of using `Link` for navigation.
+
+6. **How do you perform route redirection?**
+    - Explain how to use the `Redirect` component.
+
+7. **What is `Switch` and why is it used?**
+    - Discuss how `Switch` renders the first child `Route` that matches.
+
+8. **How do you pass parameters to a route?**
+    - Show how to define a route with parameters and how to access those parameters in the target component.
+
+### Intermediate Questions
+
+9. **What are route guards and how would you implement them?**
+    - Discuss how to restrict access to certain routes based on some condition (like authentication).
+
+10. **What is `withRouter`, and when would you use it?**
+    - Explain HOCs and how `withRouter` injects router props.
+
+11. **Explain Nested Routing.**
+    - Discuss how to define routes within routes.
+
+12. **What is lazy loading, and how can you implement it with React Router?**
+    - Explain how to use React's `React.lazy()` and `Suspense` with React Router.
+
+13. **What is `useHistory`, `useLocation`, `useParams`, and `useRouteMatch`?**
+    - Explain these hooks and give examples of when to use them.
+
+14. **How do you handle 404 or not-found routes?**
+    - Explain how to catch all unmatched routes and render a 404 page.
+
+15. **How can you programmatically navigate to another route?**
+    - Explain how to use the `history` object to navigate programmatically.
+
+### Advanced Questions
+
+16. **Explain how to handle query parameters.**
+    - How would you parse and manipulate query parameters?
+
+17. **How do you perform route transitions?**
+    - Discuss how to implement animations when routes change.
+
+18. **How can you make React Router work with Redux?**
+    - Discuss patterns for keeping routing state in a Redux store.
+
+19. **What are the performance considerations with React Router?**
+    - Discuss potential issues and how to mitigate them.
+
+20. **How would you handle authentication flows in a React application using React Router?**
+    - Discuss how to manage authentication state and restrict/allow routes.
+
+
+//Redux
+    - Defn: 
+        - allows to write action creators that return a function instead of an action. 
+        - gives delay
+    
+     we use for handling asynchronous actions.
