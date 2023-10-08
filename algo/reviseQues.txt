@@ -263,15 +263,25 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 
 
 ###Searching Algorithms
-    - linearSearch
-    - binarySearch
-    - Naive Search
+    - linearSearch - Typically used for searching an element in an unsorted array.
+    - binarySearch - Used for searching an element in a sorted array.
+    - Naive Search - Commonly used for searching a substring within a larger string.
 
 ### Easy
 * **Linear Search**: Search for an element in an unsorted array.
   
 ### Medium
 * **Binary Search**: Search for an element in a sorted array. Understand variations like finding the first or last occurrence of an element.
+    
+    - Find the first occurrence of a given element in a sorted array.
+    - Find the last occurrence of a given element in a sorted array.
+    - Given a sorted array that can contain duplicates, find the range `[start, end]` where a given element occurs.
+
+    - Search for a given element in a sorted and rotated array.
+    - Find the "peak element" in an array where adjacent elements are always less than the peak.
+    - Find the square root of a given integer, rounded down to the nearest integer, using binary search.
+    - Implement an "Exponential Search" where the range doubles at each step before a binary search is performed.
+
 
 ### Hard
 * **Naive String Search**: Find all occurrences of a small string (needle) in a big string (haystack). Although naive, it can be tricky to implement without errors.
