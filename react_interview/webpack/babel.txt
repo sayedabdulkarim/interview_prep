@@ -1,0 +1,44 @@
+### Webpack
+
+#### Easy
+
+- **What is Webpack?**: Can you explain what Webpack is and what problems it solves?
+- **Basic Configuration**: What are some essential fields in a Webpack configuration file?
+- **Loaders vs Plugins**: What is the difference between a loader and a plugin in Webpack?
+- **Entry and Output**: How do you specify the entry point and output configuration in Webpack?
+
+#### Medium
+
+- **Code Splitting**: How would you implement code splitting in Webpack?
+- **Lazy Loading**: How can you achieve lazy loading with Webpack?
+- **Webpack Dev Server**: What is Webpack Dev Server and how is it used?
+- **Optimizations**: How can you optimize the build size using Webpack?
+
+#### Hard
+
+- **HMR**: What is Hot Module Replacement (HMR) and how can you set it up?
+- **Tree Shaking**: Can you explain what tree shaking is and how to configure it in Webpack?
+- **Custom Loaders**: How would you go about writing a custom loader for Webpack?
+- **Environment Variables**: How do you manage environment variables in a Webpack build?
+
+### Babel
+
+#### Easy
+
+- **What is Babel?**: Can you explain what Babel is and why it's important in modern web development?
+- **Basic Usage**: How do you use Babel to transpile ES6 to ES5?
+- **Presets**: What is a Babel preset and can you name a few commonly used ones?
+
+#### Medium
+
+- **Plugins**: What is the role of plugins in Babel and can you name a few commonly used ones?
+- **Babel Configuration**: How do you configure Babel for a project?
+- **Polyfills**: How do you include polyfills using Babel?
+
+#### Hard
+
+- **Custom Plugins**: How would you write a custom Babel plugin?
+- **Transpilation vs Polyfilling**: What's the difference between transpiling code and polyfilling features?
+- **Optimization**: Are there any performance considerations to keep in mind when using Babel in a large project?
+
+Feel free to expand or adapt these questions based on the specific needs of your interview.

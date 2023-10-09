@@ -1,3 +1,8 @@
+https://learnersbucket.com/
+
+REACT
+================
+
 - renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
 - useMemo, UseCallBack, React.memo
 - count timer hooks
@@ -6,6 +11,9 @@
 - compound pattern 
 - hoc
 - error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
+- ssr / ssg( static side generation )
+- service worker
+
 
 VDOS
 ----
@@ -14,6 +22,7 @@ VDOS
 - https://www.youtube.com/@uncommongeeks/playlists
 
 ///React Router
+===============
 
 ### Basic Questions
 
@@ -82,12 +91,25 @@ VDOS
     - Discuss how to manage authentication state and restrict/allow routes.
 
 
-//Redux
+Redux
+==========
     - Defn: 
         - allows to write action creators that return a function instead of an action. 
         - gives delay
     
      we use for handling asynchronous actions.
+
+
+REACT TESTING
+===============
+react testing - gave me to write a sample test for a input with a div where value of input  is displayed
+
+
+
+
+/////////////////////////////////
+    move the below to above , as pet question type
+///////////////////////////////////////////////////////////     
 
 1 - how react compiler works -
     - https://www.youtube.com/watch?v=OMRdBKinfmA
@@ -95,7 +117,7 @@ VDOS
 //
 2 - Babel tutorial - https://www.youtube.com/watch?v=AE-TfB6jGtw&list=PL_euSNU_eLbejfEUD0msUF8xf_Zjz2f8r
 
-THINGS TO FIND : (
+THINGS TO CHECK as per new version : (
     babel is only for react for transpiling jsx into browsser readable code ???
     ///
     in babel website enter <h1></h1> , it will show React.createElement

@@ -25,32 +25,100 @@ const obj2 = {
   three: 223,
 };
 
-/**
- * https://www.youtube.com/watch?v=iCaDhMEhmz0&t=1944s
- *
- * sort An array ( ascending, descending )
- * secondLargestNumberInAnArray
- * rotateArrayBy "k"
- * removeDuplicate from an array
- *
- *https://www.youtube.com/watch?v=hRt9qadriyQ&list=PLe3J6mZBq1xWLBJG-uUwxpJ8cUpTzoFvU ( check the parent playlist for the below sets of ques )
- *
- * getObj (item counts { 1: 5, 2: 4 }
- * containsDuplicate in an array
- * objects are equal
- * isAnagram
- * twoSum
- * repeatStringNumTimes
- * truncateString
- * chunkArray
- * maxSubArr
- * productExceptSelf
- * console.log(maxArea([1,8,6,2,5,4,8,3,7]));  // Output should be 49
- * insertInterval
- * mergeInterval
- */
-
 /////////////////
+function maxElem(nums) {
+  if (nums.length === 0) return null; // Handle empty array
+  let max = nums[0]; // Initialize with the first element
+
+  for (let i = 1; i < nums.length; i++) {
+    // Start loop from 1 as nums[0] is already in max
+    if (nums[i] > max) max = nums[i];
+  }
+  return max;
+}
+
+function maxElem(arr) {
+  if (!arr.length) return null;
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > arr[0]) {
+      // Swap the elements
+      [arr[0], arr[i]] = [arr[i], arr[0]];
+      // [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+    }
+  }
+  return arr[0];
+  // return arr[arr.length - 1];
+}
+
+console.log(maxElem([5, 1, 8, 19, 2, 5, 7])); // Should output 19
+
+function minElem(nums) {
+  if (nums.length === 0) return null; // Handle empty array
+  let min = nums[0]; // Initialize with the first element
+
+  for (let i = 1; i < nums.length; i++) {
+    // Start loop from 1 as nums[0] is already in min
+    if (nums[i] < min) min = nums[i];
+  }
+  return min;
+}
+
+function reverseArr(arr) {
+  let n = arr.length;
+  for (let i = 0; i < Math.floor(n / 2); i++) {
+    // [arr[i], arr[n - 1 - i]] = [arr[n - 1 - i], arr[i]];
+    [arr[i], arr[n - i - 1]] = [arr[n - i - 1], arr[i]];
+  }
+  return arr;
+}
+
+function reverseArr(arr) {
+  let n = arr.length;
+  for (let i = 0; i < n / 2; i++) {
+    console.log(i, " ii");
+    let temp = arr[i];
+    arr[i] = arr[n - i - 1];
+    arr[n - i - 1] = temp;
+  }
+  return arr;
+}
+
+function moveZeroesInPlace(nums) {
+  let pos = 0; // position to place the next non-zero element
+
+  // First, loop through the array to move all non-zero elements to the front
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      nums[pos] = nums[i];
+      pos++;
+    }
+  }
+
+  // Then, fill the remaining positions with zeros
+  for (let i = pos; i < nums.length; i++) {
+    nums[i] = 0;
+  }
+}
+
+function moveZeroesNotInPlace(nums) {
+  let pos = 0;
+  let res = [];
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] !== 0) {
+      res.push(nums[i]);
+      pos++;
+    }
+  }
+
+  for (let i = pos; i < nums.length; i++) {
+    res.push((nums[i] = 0));
+  }
+
+  return res;
+}
+
 function sort(arr) {
   var isSorted = false;
 
@@ -68,17 +136,6 @@ function sort(arr) {
     }
   }
 
-  return arr;
-}
-
-function reverseArr(arr) {
-  let n = arr.length;
-  for (let i = 0; i < n / 2; i++) {
-    console.log(i, " ii");
-    let temp = arr[i];
-    arr[i] = arr[n - i - 1];
-    arr[n - i - 1] = temp;
-  }
   return arr;
 }
 
@@ -417,27 +474,6 @@ function maxArea(height) {
 }
 
 ///////////////////////////////////////
-function minElem(nums) {
-  if (nums.length === 0) return null; // Handle empty array
-  let min = nums[0]; // Initialize with the first element
-
-  for (let i = 1; i < nums.length; i++) {
-    // Start loop from 1 as nums[0] is already in min
-    if (nums[i] < min) min = nums[i];
-  }
-  return min;
-}
-
-function maxElem(nums) {
-  if (nums.length === 0) return null; // Handle empty array
-  let max = nums[0]; // Initialize with the first element
-
-  for (let i = 1; i < nums.length; i++) {
-    // Start loop from 1 as nums[0] is already in max
-    if (nums[i] > max) max = nums[i];
-  }
-  return max;
-}
 
 function reverse(nums) {
   if (!nums.length) return null;
@@ -446,41 +482,6 @@ function reverse(nums) {
 
   for (i = nums.length; i > 0; i--) {
     res.push(nums[i - 1]);
-  }
-
-  return res;
-}
-
-function moveZeroesInPlace(nums) {
-  let pos = 0; // position to place the next non-zero element
-
-  // First, loop through the array to move all non-zero elements to the front
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0) {
-      nums[pos] = nums[i];
-      pos++;
-    }
-  }
-
-  // Then, fill the remaining positions with zeros
-  for (let i = pos; i < nums.length; i++) {
-    nums[i] = 0;
-  }
-}
-
-function moveZeroesNotInPlace(nums) {
-  let pos = 0;
-  let res = [];
-
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0) {
-      res.push(nums[i]);
-      pos++;
-    }
-  }
-
-  for (let i = pos; i < nums.length; i++) {
-    res.push((nums[i] = 0));
   }
 
   return res;

@@ -12,7 +12,6 @@ Arrays:
 - Truncate String
 - Chunk Array
 
-
 ### Medium
 - Two Sum: Given an array of integers, find two numbers such that they add up to a specific target number.
 - Single Number: Given an array of integers, every element appears twice except for one. Find that single one.

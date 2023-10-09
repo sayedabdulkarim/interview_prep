@@ -1,0 +1,139 @@
+TYPESCRIPT
+=========
+1 - features
+===========
+TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. It adds several important features that help in developing robust applications, including:
+
+1. **Static Type Checking**: TypeScript allows you to define types for your variables, function parameters, and returned values. This helps to catch errors at compile time rather than runtime.
+
+2. **Interfaces**: Interfaces allow you to define the structure of an object, ensuring that the object conforms to a specific shape.
+
+3. **Generics**: Generics enable you to write reusable and type-safe functions and classes by providing type variables.
+
+4. **Enums**: Enums allow you to define a set of named constants, making the code more readable and descriptive.
+
+5. **Type Inference**: TypeScript can automatically infer types in many situations, reducing the need for explicit type annotations.
+
+6. **Access Modifiers**: TypeScript supports access modifiers like `private`, `protected`, and `public`, which control the visibility of class members.
+
+7. **Decorators**: Decorators provide a way to add metadata and modify classes and class members.
+
+8. **Optional Types**: You can mark types as optional using the `?` symbol, allowing them to be undefined.
+
+9. **Union and Intersection Types**: TypeScript allows you to define complex types using unions (`|`) and intersections (`&`), combining multiple types into one.
+
+10. **Type Guards**: Type guards allow you to narrow down the type of an object within a specific block of code.
+
+11. **Null and Undefined Checks**: TypeScript provides strict null checking features to prevent calling methods on or accessing properties of a `null` or `undefined` value.
+
+12. **Async/Await**: Although this is a JavaScript feature, TypeScript provides better type safety around async functions and promises.
+
+13. **Mapped Types**: You can use mapped types to create new types based on existing ones by applying a set of transformations.
+
+14. **Conditional Types**: Conditional types allow you to express non-uniform type mappings, where the type that is mapped to depends on a condition.
+
+15. **Tuple Types**: Tuples enable you to express an array with a fixed number of elements of known types.
+
+
+2 - access modifiers
+================
+ - public`, private`, protected`
+ 
+3 - different types in typescript
+===================================
+
+TypeScript provides a rich set of types that enable you to define the structure and type constraints of your code. Here's an overview of some of the main types in TypeScript:
+
+1. **Basic Types**:
+   - `number`: Any numeric value.
+   - `string`: Any string value.
+   - `boolean`: True or false.
+
+2. **Array Types**:
+   - `number[]`: Array of numbers.
+   - `Array<string>`: Array of strings.
+
+3. **Tuple**:
+   - `[string, number]`: An array with a fixed number of elements whose types are known.
+
+4. **Enum**:
+   - `enum Color {Red, Green, Blue}`: A custom type that can take one of several named constants.
+
+5. **Any**:
+   - `any`: A type that could be anything. Use it sparingly as it bypasses type checking.
+
+6. **Unknown**:
+   - `unknown`: Similar to `any` but more restrictive. You must perform some type of checking before using a value.
+
+7. **Void**:
+   - `void`: Used as a return type for functions that don't return a value.
+
+8. **Null and Undefined**:
+   - `null`: Represents a null value.
+   - `undefined`: Represents an undefined value.
+
+9. **Never**:
+   - `never`: Represents a value that never occurs (e.g., a function that always throws an error).
+
+10. **Object**:
+    - `object`: Represents a non-primitive type.
+
+11. **Union Types**:
+    - `number | string`: A value that can be either a number or a string.
+
+12. **Intersection Types**:
+    - `Type1 & Type2`: A value that must be both `Type1` and `Type2`.
+
+13. **Type Aliases**:
+    - `type CustomType = number | string`: Create a new name for a type.
+
+14. **Literal Types**:
+    - `"small" | "medium" | "large"`: A type that can take one of the specified literal values.
+
+15. **Index Types**:
+    - `{ [key: string]: number }`: An object with string keys and number values.
+
+16. **Mapped Types**:
+    - `{ [K in keyof Type]: string }`: A mapped type transforms the properties in `Type`.
+
+17. **Conditional Types**:
+    - `T extends U ? X : Y`: A type that depends on a condition related to types.
+
+18. **Generics**:
+    - `<T>`: Type variables that enable you to write reusable and flexible functions and classes.
+
+19. **Utility Types**:
+    - `Partial<T>`, `Readonly<T>`, `Pick<T, K>`, etc.: Built-in utility types that transform types in specific ways.
+
+
+4 - what are the difference btween type and interface and when should we use
+==========================================================
+
+5 - how to choose never, null , any in typescript
+================================================
+	- never
+		- The never type represents a value that never occurs. Use never when you are writing a function that will never return a value, such as when throwing an error.
+		
+		function error(message: string): never {
+		  throw new Error(message);
+		}
+
+		
+	- null
+		- The null type is used when a value can be null. If you have the strictNullChecks option enabled in your TypeScript configuration, 
+		you'll need to explicitly mark properties that may be null.
+
+		function greet(name: string | null) {
+		  if (name === null) {
+			console.log('Hello, Guest!');
+		  } else {
+			console.log(`Hello, ${name}!`);
+		  }
+		}
+
+
+
+
+6 - declare keyword typescript - https://www.youtube.com/watch?v=sy3wISB7Wgw
+==================================
+when typescript doesnot know type of a certain method or the library which we r importing doesnt hv type 
