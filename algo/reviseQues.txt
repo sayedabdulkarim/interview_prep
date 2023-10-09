@@ -301,11 +301,43 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 
 ###Sorting Algorithms 
     - bubble sort
-    - selection sort
-    - insertion sort
     - merge sort
     - quick sort
+    //
+    - selection sort
+    - insertion sort
     - radix sort
+
+### Easy
+* **Sort an Array of Integers**: 
+  - **Question**: Sort the given array of integers in ascending order.
+  - **Input**: `[3, 1, 4, 1, 5, 9, 2, 6, 5]`
+  - **Output**: `[1, 1, 2, 3, 4, 5, 5, 6, 9]`
+
+* **Check If an Array Is Sorted**: 
+  - **Question**: Determine if the given array is sorted.
+  - **Input**: `[1, 2, 3, 4, 5]`
+  - **Output**: `True`
+
+### Medium
+* **Sort an Almost Sorted Array**: 
+  - **Question**: Sort the nearly sorted array where each number is at most \(k\) places away from its sorted position.
+  - **Input**: `[6, 5, 3, 2, 8, 10, 9]`, \(k = 3\)
+  - **Output**: `[2, 3, 5, 6, 8, 9, 10]`
+
+* **Find the "Kth" Max/Min Element of an Array**: 
+  - **Question**: Find the \(k\)th smallest element in the array.
+  - **Input**: `[7, 10, 4, 3, 20, 15]`, \(k = 3\)
+  - **Output**: `7`
+
+### Hard
+* **External Sorting**: 
+  - **Question**: How would you sort a 200 GB file on a machine that has only 2 GB of RAM?
+
+* **Sort a Linked List**: 
+  - **Question**: Sort a given linked list.
+  - **Input**: `4 -> 2 -> 1 -> 3`
+  - **Output**: `1 -> 2 -> 3 -> 4`
 
 ### Easy
 * **Bubble Sort**: Simplest sorting algorithm. Good for understanding the basics, but not efficient for large data sets.
@@ -329,9 +361,9 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 * **Bucket Sort**: Used when input is uniformly distributed over a range. It's similar to Radix Sort but uses a different kind of bucketing.
 
 ### Must Know Sort:
-1. **Quick Sort**: In-place and average time complexity is \(O(n \log n)\).
+1. **Bubble Sort**: Simple but inefficient, mostly to understand the basics.
 2. **Merge Sort**: Not in-place but stable and guarantees \(O(n \log n)\).
-3. **Bubble Sort**: Simple but inefficient, mostly to understand the basics.
+3. **Quick Sort**: In-place and average time complexity is \(O(n \log n)\).
 
 ### Good to Know:
 1. **Insertion Sort**: Useful for nearly sorted data or small datasets.

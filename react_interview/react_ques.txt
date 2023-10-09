@@ -6,7 +6,11 @@
 - compound pattern 
 - hoc
 
+VDOS
+----
 
+- https://www.youtube.com/watch?v=s-b-txm_Gvk&list=PLmcRO0ZwQv4SNhbW4CI4vc-6IHBHCKzZN&index=2
+- https://www.youtube.com/@uncommongeeks/playlists
 
 ///React Router
 

@@ -244,8 +244,10 @@ The type of graph used can impact the system's performance, fault tolerance, and
 
             - How to reduce latency in micro ??
 
-              - Caching
+              - Caching ( Radis )
               - CDN
+                - It's a system of distributed servers that deliver web content, media files, and other resources to users based on their geographical location.
+                - When a user requests a resource (like an image, JavaScript file, or a CSS file), the request goes to the nearest CDN edge server rather than going all    the way to the website's original server. This significantly reduces the latency and makes the website load faster.
 
     - Calculation ( RTT (ms) ) Round Trip Time
 
@@ -269,6 +271,7 @@ The type of graph used can impact the system's performance, fault tolerance, and
 
 
     - Capturing time before sending the request
+
       const t1 = new Date().getTime();
 
       // Making an HTTP request (example using fetch API)
@@ -285,3 +288,105 @@ The type of graph used can impact the system's performance, fault tolerance, and
           sendRTTtoDB(rtt);
 
     });
+
+5 - Throughput
+
+    - Defn:
+
+       - refers to the amount of data or number of transactions that can be processed by a system or component in a given time period.
+
+    - Key Factors That Affect Throughput
+       - Resource Availability: Limited CPU, memory, or network bandwidth can reduce throughput.
+       - Latency: The time it takes to complete a single operation can impact overall throughput.
+       - Concurrency: Systems that can effectively perform multiple operations simultaneously usually have higher throughput.
+       - System Overheads: Additional tasks like logging, security checks, etc., can reduce the effective throughput.
+
+    - Importance
+       - Capacity Planning: Knowing throughput helps in making informed decisions about scaling resources.
+       - Performance Benchmarking: Throughput is often used as a metric to compare the performance of different systems or configurations.
+       - Cost Optimization: Increasing throughput can often lead to cost savings, as you accomplish more with the same or fewer resources.
+
+    +---------------------+        +---------------------+         +----------------------+
+    |                     |        |                     |         |                      |
+    |    User Requests    +------->+    Processing Unit  +-------->+      Data Output      |
+    |                     |        |                     |         |                      |
+    +---------------------+        +---------+-----------+         +----------------------+
+                                          |
+                                          |
+                                          v
+                                +---------+-----------+
+                                |                     |
+                                |   Throughput Meter  |
+                                |                     |
+                                +---------------------+
+
+      Diag:
+
+      - User Requests: The initial input or demand.
+      - Processing Unit: Where the actual work gets done.
+      - Data Output: The final output after processing.
+      - Throughput Meter: Measures the amount of Data Output per unit time or the number of User Requests processed per unit time.
+
+
+    Latency Vs Throughput
+    ====================
+        - Latency
+          -  Definition: Time it takes for a single request to travel from the sender to the receiver and back. In API context, it's the time between sending a request and receiving a response.
+          - Unit of Measurement: Measured in milliseconds (ms).
+          - Impact: High latency results in slower response times for each individual request.
+
+        - Throughput
+         -  Definition: Number of requests that can be handled over a specific period of time.
+         -  Unit of Measurement: Measured in requests per second (RPS) or transactions per second (TPS).
+         -  Impact: Low throughput means the system can handle fewer requests overall, leading to potential bottlenecks when demand is high.
+
+        So, in summary:
+
+        Latency: Concerns individual requests.
+        Throughput: Concerns the system's overall capacity to handle requests.
+
+    Comparison Throughput between Mono and Micro
+    =============================================
+
+      - Mono
+        - So, in mono we r doing all in one.
+        - limited resources.
+
+      - Micro
+        - Here elements or components are distributed.So we can divide the work or task.
+        - can scale horizontally.
+        - can add load balancer.
+
+      Summary:
+
+      Monolithic: Potentially higher throughput for simpler, less distributed systems due to lower operational overhead.
+      Microservices: Potentially higher throughput for complex, distributed systems that require different resources and scaling requirements for different components.
+
+    Difference between response and Transaction
+    ==========================================
+
+      - Transaction
+        -  Broader Scope: A transaction usually involves multiple operations that need to be processed as a single unit. For example, in a banking system, transferring money from one account to another involves subtracting the amount from one account and adding it to another.
+        -  ACID Properties: In databases, a transaction must satisfy ACID (Atomicity, Consistency, Isolation, Durability) properties.
+        -  Commit/Rollback: Transactions generally have the capability to be rolled back if some operation fails, ensuring system consistency.
+
+      - Request
+
+        -  Simpler Scope: A request typically refers to a single operation like retrieving, inserting, or deleting a data item.
+        -  HTTP Requests: In web services, requests are often HTTP methods like GET, POST, PUT, DELETE.
+        -  Stateless: Unlike transactions, individual requests are often stateless, meaning they are processed independently of each other.
+
+      - Throughput Context
+        - Transaction Throughput: This would refer to the number of complete transactions that a system can handle per unit of time. For example, how many money transfers can be completed per second.
+        - Request Throughput: This would refer to the number of individual requests that a system can handle per unit of time. For example, how many HTTP GET requests can be processed per second.
+
+     explain what is the difference between Transaction throughput and Request Throughput.
+     ====================================================================================
+      Transaction Throughput
+        Let's say you want to build a little house with your blocks. To make a house, you need to stack some blocks for walls and some for the roof, right? So, you do several things to make one little house. In grown-up words, that whole process of making a house is like a "transaction." So, "Transaction Throughput" is like seeing how many little houses you can build in, let's say, one minute!
+
+      Request Throughput
+        Now, what if you just want to stack a single block on top of another block? Just one action, like placing one block on the table. That's like a "request." So, "Request Throughput" is like seeing how many single blocks you can stack up in that same one minute.
+
+      The Difference
+        So, building a whole house takes more steps and is a bit like a "transaction." Just stacking one block is simpler and is like a "request." And "throughput" is just a fancy way of asking, "How many can you do in a minute?"

@@ -1,25 +1,3 @@
-const arr = [22, 14, 5, 26, 57, 18, 29];
-
-function sortDes(nums) {
-  let isSorted = false;
-
-  while (!isSorted) {
-    isSorted = true;
-
-    for (i = 0; i < nums.length; i++) {
-      if (arr[i] < arr[i + 1]) {
-        const temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
-        isSorted = false;
-      }
-    }
-  }
-  return arr;
-}
-
-// console.log(sortDes(arr));
-
 function sortDes(arr) {
   if (arr.length <= 1) {
     return arr;
@@ -45,5 +23,5 @@ function merge(left, right) {
 }
 
 // Example usage
-// const arr = [22, 14, 5, 26, 57, 18, 29];
+const arr = [22, 14, 5, 26, 57, 18, 29];
 console.log(sortDes(arr)); // Output should be [57, 29, 26, 22, 18, 14, 5]
