@@ -119,6 +119,37 @@ function moveZeroesNotInPlace(nums) {
   return res;
 }
 
+function removeDup(arr) {
+  //create Var
+  var uniArr = [];
+
+  //loop ( check if uniArr.indexOf(i) !== -1) the push
+
+  for (i of arr) {
+    if (uniArr.indexOf(i) == "-1") {
+      uniArr.push(i);
+    }
+  }
+
+  return uniArr;
+}
+
+//without extra space
+function removeDuplicatesFromUnsortedArray(arr) {
+  arr.sort((a, b) => a - b);
+
+  let i = 0;
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[j] !== arr[i]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  // Trim the remaining array
+  arr.length = i + 1;
+  return arr;
+}
+
 function sort(arr) {
   var isSorted = false;
 
@@ -166,37 +197,6 @@ function rotateArrByK(arr, k) {
   //slice - merge.slice(merge.length, marge.length-k)
   return merge.slice(0, arr.length);
   // return res;
-}
-
-function removeDup(arr) {
-  //create Var
-  var uniArr = [];
-
-  //loop ( check if uniArr.indexOf(i) !== -1) the push
-
-  for (i of arr) {
-    if (uniArr.indexOf(i) == "-1") {
-      uniArr.push(i);
-    }
-  }
-
-  return uniArr;
-}
-
-//without extra space
-function removeDuplicatesFromUnsortedArray(arr) {
-  arr.sort((a, b) => a - b);
-
-  let i = 0;
-  for (let j = 1; j < arr.length; j++) {
-    if (arr[j] !== arr[i]) {
-      i++;
-      arr[i] = arr[j];
-    }
-  }
-  // Trim the remaining array
-  arr.length = i + 1;
-  return arr;
 }
 
 ////////////////////////
