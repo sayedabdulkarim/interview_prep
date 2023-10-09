@@ -9,6 +9,7 @@ import UseInput from "./components/hooksExamples/useInput";
 //machineCoding
 import Todo from "./components/machineCoding/todoApp";
 import Memoize from "./components/machineCoding/memoize";
+import ErrorBoundary from "./components/machineCoding/errorBoundary";
 
 //Patterns
 import RenderProps from "./components/patterns/renderProps";
@@ -24,14 +25,16 @@ const App = () => {
       {/* <CountdownTimerTest timeLimit={5} /> */}
       {/* <UseMemoCbMemo /> */}
       {/* <UseInput /> */}
+
       {/* machine coding ////////////////////////////////////////////////////////////*/}
       {/* <Todo /> */}
       {/* <Memoize /> */}
+      <ErrorBoundary />
 
       {/* Patterns /////////////////////////////////////////////////////////////////*/}
       {/* <RenderProps /> */}
       {/* <WithBackgroundColorHoc /> */}
-      <CompoundPatternToggle />
+      {/* <CompoundPatternToggle /> */}
     </div>
   );
 };

@@ -5,6 +5,7 @@
 - useInput hook
 - compound pattern 
 - hoc
+- error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
 
 VDOS
 ----
@@ -87,3 +88,160 @@ VDOS
         - gives delay
     
      we use for handling asynchronous actions.
+
+1 - how react compiler works -
+    - https://www.youtube.com/watch?v=OMRdBKinfmA
+    - https://www.youtube.com/watch?v=TjnyFNxQ67Y&t=316s
+//
+2 - Babel tutorial - https://www.youtube.com/watch?v=AE-TfB6jGtw&list=PL_euSNU_eLbejfEUD0msUF8xf_Zjz2f8r
+
+THINGS TO FIND : (
+    babel is only for react for transpiling jsx into browsser readable code ???
+    ///
+    in babel website enter <h1></h1> , it will show React.createElement
+)
+
+3 - difference between arrow function and normal function javascript - https://www.youtube.com/watch?v=Wdlu_wlj6as
+
+4 - useCallback, useMemo, React.memo - https://www.youtube.com/watch?v=uojLJFt9SzY
+
+// //////////////////
+    React.memo 
+
+    a - create two file Parent and child.js, and in child , add a console to check whether the child component is calling or not.
+    b - 
+    In the Parent component, create one state variable const i.e [ number, setNumber ] = useState(0) ;
+    Then create on handle to increase the number.
+    so now on clicking on button the number will increase and we see the child component is 
+    also calling as per the button clicks.
+
+    So for this we wrap our child component in React.memo i.e
+    //
+    import React, { memo } from 'react'
+
+    const Child1 = React.memo(() => {
+        console.log(" child called")
+        return (
+        <div>Child1</div>
+        )
+    })
+
+    export default Child1
+
+    or we can use     export default memo(Child1)
+////////////////////////////////////////////////////////////
+
+5- router v6 - https://www.youtube.com/watch?v=UjHT_NKR_gU
+
+6- react new version changes 
+    R18 - https://www.youtube.com/watch?v=N0DhCV_-Qbg&t=9s
+    R17 - https://www.youtube.com/watch?v=8D-rWP3c088&t=399s
+
+7- ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
+
+8- encapsulating react - check
+
+9 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
+
+10 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
+
+11- code splitting - https://www.youtube.com/watch?v=IBrmsyy9R94
+
+12 - ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
+    - https://www.youtube.com/watch?v=NwyQONeqRXA
+
+13 - event delegation react 
+    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS )
+    - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s ( REACT )
+
+14 - synthetic event
+    - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s - 14.00
+    - https://www.youtube.com/watch?v=gsTLQMTPz-g
+
+15 - FE 
+///
+    
+    a - security
+    b - performance
+    c - seo
+    d - server side
+    e - socket 
+    f - web-socket
+    g - cookie 
+    h - implement redis
+
+////////////////////////////////////////////////////////
+
+16- Pros and Cons of ReactJS - k
+
+17 - Infinite Scroll - https://www.youtube.com/watch?v=lVgF2OziomM - k
+
+18 - Debouncing / Throttling - https://www.youtube.com/watch?v=cxi25srbYX8 ( check with nodwin, when we click the button does it allow to click  )
+
+19 - How to cancel the api resquest ( axios, fetch ) - https://www.youtube.com/watch?v=cIwpavIhI84 ( check with MERN )
+
+20 - all hooks - https://www.youtube.com/watch?v=LlvBzyy-558&t=7s
+
+21 - shadow DOM vs virtual DOM
+    * shadow -  https://www.youtube.com/watch?v=5AK98MpCc30
+
+22 - why to use functional component instead of class component
+
+23 - context Api and multiple context api
+
+24 - what are render props // https://www.youtube.com/watch?v=7VZcTYdoK54
+
+25 - check useffect without giving [], how much time it is rendering - https://www.youtube.com/watch?v=0ZJgIjIuY7U&t=9s
+
+26 -  cleanup function in useffect - https://www.youtube.com/watch?v=5gCtW7RCtQA
+
+////////////////////////////////////////////
+https://www.youtube.com/watch?v=7YhdqIR2Yzo&list=PLxRVWC-K96b0ktvhd16l3xA6gncuGP7gJ
+27 - reconciliation ( https://www.youtube.com/watch?v=osL7c1Ug7qo&t=65s ), diffing algo, 
+
+28 - react fiber
+
+29 - RXJS & Websockets
+
+30 - TypeScript interview question
+
+31 - useTransition() vs useDeferredValue - https://www.youtube.com/watch?v=lDukIAymutM&t=693s
+
+32 - React Batching - https://www.youtube.com/watch?v=f1lFVZCREZ0
+
+33 - shadow dom vs virtual dom react
+
+34 - why react uses node
+
+35 - react error boundaries
+////////////////////////
+
+# - CHECKOUT VIDEOS
+    1 - https://www.youtube.com/channel/UCnQkfv879sarKeKm7eMH_dg/playlists
+    2 - https://www.youtube.com/watch?v=FgXFoSr2Db8&list=PLXQpH_kZIxTWQfh_krE4sI_8etq5rH_z6
+    3 - https://www.youtube.com/watch?v=N-572SrMThE&list=PLGZJDzu5NntRgpuqVtEb9e2tDaRYXRZFG&index=6
+    4 - https://www.youtube.com/watch?v=abbdJ4Yfm54
+    5 - google calendar react
+    6 - typehead
+    7 - microsoft excel  like spreadsheet
+    8 - dynamic form config react with validation 
+    9 - implement progressbar , multiple
+    10 - star rating widget ( how to show case 4.7 or decimal number)
+    11 - Twitter post like text area
+    12 - todo - ( how to remove multiple checked items from the list)
+    13 - design cart page
+    14 - design product listing page withn filters ( pagination, sorting, filtering )
+    15 - tic-tac-toe
+    16 - https://www.youtube.com/watch?v=O2dTW3uNAeQ&list=PLKmmzLM3RgQWCNh6ZxmvKKZOGHH2CYyqm
+    17 - https://www.youtube.com/watch?v=HhpbzPMCKDc - toast library
+    18 - https://www.youtube.com/watch?v=QQYeipc_cik&t=182s
+    19 - https://www.youtube.com/watch?v=DAWWf7q8sqM&list=PL-J2q3Ga50oMQa1JdSJxYoZELwOJAXExP&index=20
+    20 - https://www.youtube.com/watch?v=b7nrXjS6Dqs
+    21 - https://docs.google.com/document/d/13yliGfXu73TW4AgOU4aNkXlyTIox0YthzOEOOZ89tM0/edit#
+    22 - https://www.youtube.com/watch?v=5jiTVkTkPlw&list=PL4ruoTJ8LTT--I8qPdGlyWJdymkJdpTB4
+    23 - https://www.youtube.com/watch?v=4b9LSUZjtzE
+
+# interview question
+    1 - https://www.youtube.com/watch?v=hrk-1aDP3X8
+
+//////
