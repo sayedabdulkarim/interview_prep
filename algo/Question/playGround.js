@@ -1,18 +1,38 @@
-function removeDup(arr) {
-  arr.sort((a, b) => a - b);
-  if (!arr.length) return false;
+function cleanedStr(str) {
+  let cleaned = "";
 
-  let pos = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== arr[pos]) {
-      pos++;
-      arr[pos] = arr[i];
+  for (i of str) {
+    i = i.toLowerCase();
+    if ((i >= "a" && i <= "z") || (i <= "9" && i >= "0")) {
+      cleaned += i;
     }
   }
 
-  arr.length = pos + 1;
-  return arr;
+  return cleaned;
 }
 
-console.log(removeDup([1, 2, 2, 3, 4, 3, 5])); // Output:
+function isPalindrome(str) {
+  return [...cleanedStr(str)].reverse().join("") == str.toLowerCase();
+}
+
+// function cleanString(str) {
+//   let cleanedStr = "";
+//   for (let i = 0; i < str.length; i++) {
+//     const char = str[i].toLowerCase();
+//     if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
+//       cleanedStr += char;
+//     }
+//   }
+//   return cleanedStr;
+// }
+
+// function isPalindrome(str) {
+//   const cleanedStr = cleanString(str);
+//   console.log(cleanedStr, " cleaned");
+//   const reversedStr = cleanedStr.split("").reverse().join("");
+//   return cleanedStr === reversedStr;
+// }
+
+console.log(isPalindrome("radar")); // Output: true
+console.log(isPalindrome("hello")); // Output: false
+console.log(isPalindrome("Was it a car or a cat I saw")); // Output: true

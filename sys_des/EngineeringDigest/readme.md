@@ -390,3 +390,23 @@ The type of graph used can impact the system's performance, fault tolerance, and
 
       The Difference
         So, building a whole house takes more steps and is a bit like a "transaction." Just stacking one block is simpler and is like a "request." And "throughput" is just a fancy way of asking, "How many can you do in a minute?"
+
+6 - Availability refers to the ability of a system to remain operational and accessible when needed.
+
+    - Replication vs Redundancy
+
+      Both replication and redundancy are strategies to improve availability, but they work in slightly different ways:
+
+      - Replication
+
+        - What: Replication involves making multiple copies of data or services and distributing them across different parts of a system or different geographical locations.
+        - Why: The goal is to serve user requests more efficiently and to ensure availability even if one or more instances fail.
+        - How: In a database, for example, replication can be synchronous or asynchronous. Synchronous replication ensures that all copies are updated immediately, while asynchronous replication might involve a slight delay.
+        - Example: A database can be replicated across multiple servers so that if one server goes down, the application can still continue to function by retrieving data from the other servers.
+
+      - Redundancy
+
+      - What: Redundancy involves having extra components that can take over in case the primary ones fail.
+      - Why: The goal is to provide a failover option to maintain availability.
+      - How: This can involve anything from having an extra hard drive in a RAID configuration to having a completely redundant data center.
+      - Example: In a server cluster, multiple power supplies might be used so that if one fails, the others can take over, ensuring that the server remains operational.

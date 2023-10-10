@@ -119,37 +119,6 @@ function moveZeroesNotInPlace(nums) {
   return res;
 }
 
-function removeDup(arr) {
-  //create Var
-  var uniArr = [];
-
-  //loop ( check if uniArr.indexOf(i) !== -1) the push
-
-  for (i of arr) {
-    if (uniArr.indexOf(i) == "-1") {
-      uniArr.push(i);
-    }
-  }
-
-  return uniArr;
-}
-
-//without extra space
-function removeDuplicatesFromUnsortedArray(arr) {
-  arr.sort((a, b) => a - b);
-
-  let i = 0;
-  for (let j = 1; j < arr.length; j++) {
-    if (arr[j] !== arr[i]) {
-      i++;
-      arr[i] = arr[j];
-    }
-  }
-  // Trim the remaining array
-  arr.length = i + 1;
-  return arr;
-}
-
 function sort(arr) {
   var isSorted = false;
 
@@ -168,6 +137,82 @@ function sort(arr) {
   }
 
   return arr;
+}
+
+function removeDup(arr) {
+  //create Var
+  var uniArr = [];
+
+  //loop ( check if uniArr.indexOf(i) !== -1) the push
+
+  for (i of arr) {
+    if (uniArr.indexOf(i) == "-1") {
+      uniArr.push(i);
+    }
+  }
+
+  return uniArr;
+}
+
+//without extra space
+function removeDup(arr) {
+  if (!arr.length) return [];
+
+  arr.sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  });
+
+  let i = 0;
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[j] !== arr[i]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+  // Trim the remaining array
+  arr.length = i + 1;
+  return arr;
+}
+
+function containsDuplicate(nums) {
+  let sets = new Set(nums);
+  let changedToArr = Array.from(sets);
+
+  console.log(nums, " numss");
+  console.log(changedToArr, " changeddd");
+
+  return changedToArr.length == nums.length ? false : true;
+}
+
+function containsDuplicate(nums) {
+  let sets = new Set(nums);
+
+  return sets.size !== nums.length;
+}
+
+function containsDuplicate(arr) {
+  function getObj(arr) {
+    var obj = {};
+
+    for (let i in arr) {
+      obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+    }
+
+    return obj;
+  }
+
+  ///
+  var getKeyNObj = getObj(arr);
+
+  for (i in getKeyNObj) {
+    if (getKeyNObj[i] >= 2) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 // console.log(reverseArr([1, 2, 3])); // Output should be [3, 2, 1]
@@ -200,39 +245,6 @@ function rotateArrByK(arr, k) {
 }
 
 ////////////////////////
-
-function containsDuplicate(nums) {
-  let sets = new Set(nums);
-  let changedToArr = Array.from(sets);
-
-  console.log(nums, " numss");
-  console.log(changedToArr, " changeddd");
-
-  return changedToArr.length == nums.length ? false : true;
-}
-
-function containsDuplicate(arr) {
-  function getObj(arr) {
-    var obj = {};
-
-    for (let i in arr) {
-      obj[arr[i]] = (obj[arr[i]] || 0) + 1;
-    }
-
-    return obj;
-  }
-
-  ///
-  var getKeyNObj = getObj(arr);
-
-  for (i in getKeyNObj) {
-    if (getKeyNObj[i] >= 2) {
-      return false;
-    }
-  }
-
-  return true;
-}
 
 function getObj(arr) {
   var obj = {};
@@ -400,7 +412,10 @@ function repeatStringNumTimes(str, num) {
 }
 
 function truncateString(str, num) {
-  return `${str.slice(0, num)}...`;
+  if (str.length > num) {
+    return `${str.slice(0, num)} ...`;
+  }
+  return str;
 }
 
 function chunkArray(arr, size) {

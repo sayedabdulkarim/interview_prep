@@ -1,3 +1,14 @@
+//easy
+function revStr(str) {
+  str = [...str];
+  // console.log(str);
+  for (i = 0; i < Math.floor(str.length / 2); i++) {
+    [str[i], str[str.length - i - 1]] = [str[str.length - i - 1], str[i]];
+  }
+  return str.join("");
+}
+
+//easy end
 function cleanString(str) {
   let cleanedStr = "";
   for (let i = 0; i < str.length; i++) {
