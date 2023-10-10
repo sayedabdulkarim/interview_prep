@@ -410,3 +410,17 @@ The type of graph used can impact the system's performance, fault tolerance, and
       - Why: The goal is to provide a failover option to maintain availability.
       - How: This can involve anything from having an extra hard drive in a RAID configuration to having a completely redundant data center.
       - Example: In a server cluster, multiple power supplies might be used so that if one fails, the others can take over, ensuring that the server remains operational.
+
+7 - Consistency
+
+    - Defn:
+       "Consistency" means making sure that all the computers in a network agree on what information they have. For example, if you save a photo on one computer, every other computer should also know that this photo exists and what it looks like.
+
+      There are different types of consistency, each with its own rules for how quickly and accurately the computers must update each other. But the main goal is always the same: to make sure everyone has the same, correct information.
+
+    - Dirty Read:
+      When more than one client request the system, for all such requests, when different client get different responses due to some recent update,
+      that has not been committed to all system yet, this reading operation we called as "Dirty Read".
+
+
+    - Types:
