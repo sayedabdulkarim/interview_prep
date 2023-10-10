@@ -426,8 +426,10 @@ The type of graph used can impact the system's performance, fault tolerance, and
     - Types:
 
       - Strong Consistency:  "strong" consistency ensures that once new data is written and confirmed, everyone sees the new data and nobody sees the old data anymore.
+      e.g, Train seats books, or movie seats booking
 
       - Eventual Consistency: unlike "strong" consistency where everyone sees the new data  immediately, in eventual "consistency", it takes some time for the new data to propagate and be seen by everyone. But eventually, all users or components will see the same data.
+      e.g, Social Media
 
       - Weak Consistency: In a system with weak consistency, there's no guarantee about when the new data will be seen by all parts of the system. After a write operation, some users or components may see the new data quickly, while others may see it much later, and some may even see a mix of old and new data. There are no strict rules ensuring that all parts of the system will eventually see the same version of the data.
 
