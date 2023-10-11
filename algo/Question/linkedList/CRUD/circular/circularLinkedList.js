@@ -127,4 +127,33 @@ class CircularLinkedList {
     }
     this.head.next = this.tail;
   }
+
+  traverse(idx) {
+    let currentNode = this.head;
+
+    for (i = 0; i < idx; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+  insertion(value, idx) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+      this.tail.next = this.head;
+    } else if (idx == 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+    } else if (idx == this.length - 1) {
+      newNode.next = this.head;
+      this.tail.next = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    ++this.length;
+  }
 }
