@@ -1,5 +1,9 @@
-https://learnersbucket.com/
-https://www.youtube.com/@InterviewAddaOffical/videos
+VDOS
+----
+- https://www.youtube.com/watch?v=s-b-txm_Gvk&list=PLmcRO0ZwQv4SNhbW4CI4vc-6IHBHCKzZN&index=2
+- https://www.youtube.com/@uncommongeeks/playlists
+- https://learnersbucket.com/
+- https://www.youtube.com/@InterviewAddaOffical/videos
 
 REACT
 ================
@@ -18,11 +22,6 @@ REACT
     - in React
 - tree shaking/ babel/ propTypes
 
-VDOS
-----
-
-- https://www.youtube.com/watch?v=s-b-txm_Gvk&list=PLmcRO0ZwQv4SNhbW4CI4vc-6IHBHCKzZN&index=2
-- https://www.youtube.com/@uncommongeeks/playlists
 
 ///React Router
 ===============

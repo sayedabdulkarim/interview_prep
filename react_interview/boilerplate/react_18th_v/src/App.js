@@ -19,7 +19,7 @@ import CompoundPatternToggle from "./components/patterns/compoundPattern";
 const App = () => {
   return (
     <div>
-      <h1>App.js</h1>
+      <h1>App.js 18</h1>
       {/* hooks ////////////////////////////////////////////////////////////////////*/}
       {/* <CountdownTimer initialMinutes={2} initialSeconds={30} /> */}
       {/* <CountdownTimerTest timeLimit={5} /> */}
