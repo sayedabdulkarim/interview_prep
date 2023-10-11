@@ -14,7 +14,9 @@ REACT
 - error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
 - ssr / ssg( static side generation )
 - service worker
-
+    - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
+    - in React
+- tree shaking/ babel/ propTypes
 
 VDOS
 ----

@@ -32,37 +32,26 @@ function isPalindrome(str) {
 // console.log(isPalindrome("A man a plan a canal Panama")); // Should return true
 
 function firstUni(str) {
-  function getObj(arr) {
+  function getObjCount(nums) {
     const obj = {};
-
-    for (i of arr) {
+    for (i of nums) {
       obj[i] = (obj[i] || 0) + 1;
     }
-
     return obj;
   }
-
-  let uniIndex = -1;
-  const getObjCount = getObj(str);
-
-  for (i = 0; i < str.length; i++) {
-    if (getObjCount[str[i]] == 1) {
-      uniIndex = i;
-      break;
+  const getCount = getObjCount(str);
+  for (let i = 0; i < str.length; i++) {
+    if (getCount[str[i]] === 1) {
+      return i;
     }
   }
-
-  return uniIndex;
+  return -1;
 }
 
-function lastWordLength(word) {
-  const trimmedWord = word.trim(); // Remove leading and trailing spaces
-  const splitWord = trimmedWord.split(" ");
-  const lastWord = splitWord[splitWord.length - 1];
-
-  return lastWord.length;
+function lengthOfLastWord(str) {
+  str = str.trim().split(" ");
+  return str[str.length - 1].length;
 }
-
 function isValidParntheses(s) {
   const stack = [];
   const map = {
