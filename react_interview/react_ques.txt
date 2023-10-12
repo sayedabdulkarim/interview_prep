@@ -9,7 +9,8 @@ REACT
 ================
 
 - renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
-- useMemo, UseCallBack, React.memo
+- useMemo, UseCallBack, React.memo 
+    - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep )
 - count timer hooks
 - memoization like useMemo
 - useInput hook
