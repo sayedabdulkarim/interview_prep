@@ -1,12 +1,7 @@
 import React from "react";
-import ParentComp from "./components/ParentComp";
 
 const App = () => {
-  return (
-    <div>
-      <ParentComp />
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
