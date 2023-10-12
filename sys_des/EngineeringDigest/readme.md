@@ -434,3 +434,35 @@ The type of graph used can impact the system's performance, fault tolerance, and
       - Weak Consistency: In a system with weak consistency, there's no guarantee about when the new data will be seen by all parts of the system. After a write operation, some users or components may see the new data quickly, while others may see it much later, and some may even see a mix of old and new data. There are no strict rules ensuring that all parts of the system will eventually see the same version of the data.
 
       So, unlike strong consistency where everyone sees the new data immediately, and unlike eventual consistency where everyone will eventually see the new data, in weak consistency, it's a bit like the "Wild West"—there's no clear timeline for when the data will become consistent across all parts.
+
+8 - CAP's Theorem:
+
+      The CAP theorem, also known as Brewer's theorem, is a fundamental principle in the field of distributed systems. It states that it is impossible for a distributed system to simultaneously provide all three of the following guarantees:
+
+        - **Consistency (C)**: Every read receives the most recent write. All nodes see the same data at the same time, which implies that every read returns the most recent write.
+
+        - **Availability (A)**: Every request receives a response, without guarantee that it contains the most recent version of the information. The system remains operational and available for reads and writes, even when some nodes are unavailable.
+
+        - **Partition tolerance (P)**: The system continues to function and upholds its consistency and availability guarantees in spite of network partitions, which are scenarios where communication between nodes breaks down.
+
+      The CAP theorem posits that a distributed system can only achieve two of the three guarantees at any given time. This leads to three types of systems:
+
+                          C
+                          ***
+                        *   *
+                        *     *
+                      A*       *P
+
+        - In this representation:
+
+        - The vertices of the triangle are labeled with the three guarantees: Consistency (C), Availability (A), and Partition tolerance (P).
+        - The sides of the triangle represent the trade-offs:
+        - The line between C and A represents systems that are both Consistent and Available (CA).
+        - The line between C and P represents systems that are both Consistent and Partition-tolerant (CP).
+        - The line between A and P represents systems that are both Available and Partition-tolerant (AP).
+
+      - **CA (Consistent and Available)**: These systems prioritize consistency and availability over partition tolerance. They are not suitable for environments where network partitions are a common occurrence.
+
+      - **CP (Consistent and Partition-tolerant)**: These systems prioritize consistency and partition tolerance over availability. They ensure data consistency across all nodes, even during network partitions, but may become unavailable during such events.
+
+      -**AP (Available and Partition-tolerant)**: These systems prioritize availability and partition tolerance over consistency. They ensure the system remains available during network partitions, but the data may become inconsistent across nodes.
