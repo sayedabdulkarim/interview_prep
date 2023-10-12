@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-//hook
-const useTimer = (initialMinute = 1, initialSeconds = 0) => {
+const UseTimer = ({ initialMinute = 1, initialSeconds = 0 }) => {
+  // min/ sec
   const [minutes, setMinutes] = useState(initialMinute);
   const [seconds, setSeconds] = useState(initialSeconds);
 
@@ -30,13 +30,6 @@ const useTimer = (initialMinute = 1, initialSeconds = 0) => {
     };
   });
 
-  return { minutes, seconds };
-};
-
-//Comp
-const TimerComponent = () => {
-  const { minutes, seconds } = useTimer(2, 0);
-
   return (
     <div>
       <h1>Hello Timer</h1>
@@ -50,4 +43,4 @@ const TimerComponent = () => {
   );
 };
 
-export default TimerComponent;
+export default UseTimer;

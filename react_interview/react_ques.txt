@@ -10,24 +10,68 @@ REACT
 
 - renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
 - useMemo, UseCallBack, React.memo 
-    - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep )
-- count timer hooks
+    - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep, https://www.youtube.com/watch?v=uojLJFt9SzY )
 - memoization like useMemo
-- useInput hook
-- compound pattern 
-- hoc
+
 - error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
+
+- propTypes
+
+- how react compiler works -
+    - https://www.youtube.com/watch?v=OMRdBKinfmA
+    - https://www.youtube.com/watch?v=TjnyFNxQ67Y&t=316s
+
+- difference between arrow function and normal function javascript - https://www.youtube.com/watch?v=Wdlu_wlj6as
+
+
+- react new version changes 
+    R18 - https://www.youtube.com/watch?v=N0DhCV_-Qbg&t=9s
+    R17 - https://www.youtube.com/watch?v=8D-rWP3c088&t=399s
+
+- ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
+
+- event delegation react 
+    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS )
+    - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s ( REACT )
+
+- synthetic event
+    - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s - 14.00
+    - https://www.youtube.com/watch?v=gsTLQMTPz-g
+
+- encapsulating react - check
+
+- code splitting - https://www.youtube.com/watch?v=IBrmsyy9R94
+
+- tree shaking/ babel/ 
+
 - ssr / ssg( static side generation )
+
 - service worker
     - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
     - in React
-- tree shaking/ babel/ propTypes
+- ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
+    - https://www.youtube.com/watch?v=NwyQONeqRXA
+
+
+
+///MACHINE_CODING////
+
+*- count timer hooks
+- useInput hook
+- compound pattern 
+- hoc
+- infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
+- notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
+
+
 
 
 ///React Router
 ===============
 
 ### Basic Questions
+
+- router v6 - https://www.youtube.com/watch?v=UjHT_NKR_gU
 
 1. **What is React Router?**
     - Explain what React Router is and why it's used in React applications.
@@ -114,10 +158,7 @@ react testing - gave me to write a sample test for a input with a div where valu
     move the below to above , as pet question type
 ///////////////////////////////////////////////////////////     
 
-1 - how react compiler works -
-    - https://www.youtube.com/watch?v=OMRdBKinfmA
-    - https://www.youtube.com/watch?v=TjnyFNxQ67Y&t=316s
-//
+
 2 - Babel tutorial - https://www.youtube.com/watch?v=AE-TfB6jGtw&list=PL_euSNU_eLbejfEUD0msUF8xf_Zjz2f8r
 
 THINGS TO CHECK as per new version : (
@@ -126,62 +167,6 @@ THINGS TO CHECK as per new version : (
     in babel website enter <h1></h1> , it will show React.createElement
 )
 
-3 - difference between arrow function and normal function javascript - https://www.youtube.com/watch?v=Wdlu_wlj6as
-
-4 - useCallback, useMemo, React.memo - https://www.youtube.com/watch?v=uojLJFt9SzY
-
-// //////////////////
-    React.memo 
-
-    a - create two file Parent and child.js, and in child , add a console to check whether the child component is calling or not.
-    b - 
-    In the Parent component, create one state variable const i.e [ number, setNumber ] = useState(0) ;
-    Then create on handle to increase the number.
-    so now on clicking on button the number will increase and we see the child component is 
-    also calling as per the button clicks.
-
-    So for this we wrap our child component in React.memo i.e
-    //
-    import React, { memo } from 'react'
-
-    const Child1 = React.memo(() => {
-        console.log(" child called")
-        return (
-        <div>Child1</div>
-        )
-    })
-
-    export default Child1
-
-    or we can use     export default memo(Child1)
-////////////////////////////////////////////////////////////
-
-5- router v6 - https://www.youtube.com/watch?v=UjHT_NKR_gU
-
-6- react new version changes 
-    R18 - https://www.youtube.com/watch?v=N0DhCV_-Qbg&t=9s
-    R17 - https://www.youtube.com/watch?v=8D-rWP3c088&t=399s
-
-7- ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
-
-8- encapsulating react - check
-
-9 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
-
-10 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
-
-11- code splitting - https://www.youtube.com/watch?v=IBrmsyy9R94
-
-12 - ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
-    - https://www.youtube.com/watch?v=NwyQONeqRXA
-
-13 - event delegation react 
-    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS )
-    - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s ( REACT )
-
-14 - synthetic event
-    - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s - 14.00
-    - https://www.youtube.com/watch?v=gsTLQMTPz-g
 
 15 - FE 
 ///
