@@ -1,30 +1,49 @@
-function findTheMax(arr) {
-  if (!arr.length) return null;
+// function isValidParntheses(s) {
+//   const stack = [];
+//   const map = {
+//     ")": "(",
+//     "}": "{",
+//     "]": "[",
+//   };
 
-  for (i = 0; i < arr.length; i++) {
-    if (arr[0] < arr[i]) {
-      [arr[0], arr[i]] = [arr[i], arr[0]];
+//   for (const char of s) {
+//     if (["(", "{", "["].includes(char)) {
+//       stack.push(char);
+//     } else {
+//       const topElement = stack.pop();
+//       if (map[char] !== topElement) {
+//         console.log(stack, " sss");
+//         return false;
+//       }
+//     }
+//   }
+
+//   console.log(stack, " stackk");
+//   return stack.length === 0;
+// }
+
+function isValidParentheses(str) {
+  const arr = [];
+
+  const map = {
+    ")": "(",
+    "}": "{",
+    "]": "[",
+  };
+
+  for (let i of str) {
+    if (["(", "{", "["].includes(i)) {
+      arr.push(i);
+    } else {
+      // const poppedElem = arr.pop();
+      // console.log(poppedElem, " pop");
     }
   }
   return arr;
 }
-function findTheMin(arr) {
-  if (!arr.length) return null;
 
-  for (i = 0; i < arr.length; i++) {
-    if (arr[0] > arr[i]) {
-      [arr[0], arr[i]] = [arr[i], arr[0]];
-    }
-  }
-  return arr;
-}
-
-console.log(findTheMin([1, 2, 3, 4, 5])); // Output: 1
-console.log(findTheMin([-1, -2, -3, -4, -5])); // Output: -5
-console.log(findTheMin([0, 0, 0, 0, 0])); // Output: 0
-console.log(findTheMin([])); // Output: Error: Array cannot be empty (assuming the function checks for an empty array)
-
-// console.log(findTheMax([1, 2, 3, 4, 5])); // Output: 5
-// console.log(findTheMax([-1, -2, -3, -4, -5])); // Output: -1
-// console.log(findTheMax([0, 0, 0, 0, 0])); // Output: 0
-// console.log(findTheMax([])); // Output: Error: Array cannot be empty (assuming the function checks for an empty array)
+console.log(isValidParentheses("()")); // Output: true
+// console.log(isValidParentheses("()[]{}")); // Output: true
+// console.log(isValidParentheses("(]")); // Output: false
+// console.log(isValidParentheses("([)]")); // Output: false
+// console.log(isValidParentheses("{[]}")); // Output: true

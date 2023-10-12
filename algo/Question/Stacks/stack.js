@@ -35,9 +35,13 @@ class Stack {
   }
 
   pop() {
-    if (this.first === null) return "Underflow";
-    const top = this.first;
-    this.first = top.next;
+    if (!this.first) return null;
+    else if (this.length == 1) {
+      this.first = null;
+      this.last = null;
+    } else {
+      this.first = this.first.next;
+    }
     --this.length;
   }
 
