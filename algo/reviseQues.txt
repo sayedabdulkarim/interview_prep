@@ -241,10 +241,9 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 * rangeOfNums - return in an []
 * rangeOfNums - return + value
 * **Factorial**: Compute the factorial of a given number.
-* **Fibonacci Series**: Generate the nth Fibonacci number.
-* **Sum of Array**: Calculate the sum of an array using recursion.
 * **Reverse a String**: Reverse a string using recursion.
 * isPalindrome
+* **Fibonacci Series**: Generate the nth Fibonacci number.
 * **Count Vowels**: Count the number of vowels in a string.
 
 ### Medium

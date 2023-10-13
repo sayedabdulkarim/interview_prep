@@ -54,6 +54,46 @@ function sumOfArr(arr) {
   return elem + sumOfArr(arr);
 }
 
+//rangeOfNums
+function rangeOfNums(start, end, arr = []) {
+  if (start > end) return arr;
+
+  let prevStart = start;
+
+  start++;
+
+  // console.log(prevStart);
+  arr.push(prevStart);
+
+  return rangeOfNums(start, end, arr);
+}
+
+function rangeOfNums(start, end, arr = []) {
+  if (end < start) return [];
+  else {
+    let endNum = end - 1;
+    // --end;
+    const numbers = rangeOfNums(start, endNum);
+    numbers.push(end);
+
+    console.log({
+      end,
+      numbers,
+    });
+
+    return numbers;
+  }
+}
+
+function rangeOfNums(start, end) {
+  if (start === end) return start;
+
+  let firstElem = start;
+  start++;
+
+  return [firstElem].concat(rangeOfNums(start, end));
+}
+
 //factorial
 function factorial(num) {
   if (num == 1) return 1;
@@ -145,61 +185,12 @@ function multiplyArr(arr) {
   return lastElem * multiplyArr(arr);
 }
 
-//
-function reverse(str) {
-  str = [...str];
-
-  // console.log(str);
-  if (str.length <= 0) return "";
-  else {
-    let lastElem = str[str.length - 1];
-    str.length = str.length - 1;
-    let revStr = lastElem + reverse(str);
-    console.log({
-      revStr,
-    });
-    return revStr;
-  }
-}
-
-//
-function rangeOfNums(start, end, arr = []) {
-  if (start > end) return arr;
-
-  let prevStart = start;
-
-  start++;
-
-  // console.log(prevStart);
-  arr.push(prevStart);
-
-  return rangeOfNums(start, end, arr);
-}
-
-function rangeOfNums(start, end, arr = []) {
-  if (end < start) return [];
-  else {
-    let endNum = end - 1;
-    // --end;
-    const numbers = rangeOfNums(start, endNum);
-    numbers.push(end);
-
-    console.log({
-      end,
-      numbers,
-    });
-
-    return numbers;
-  }
-}
-
-function rangeOfNums(start, end) {
-  if (start === end) return start;
-
-  let firstElem = start;
-  start++;
-
-  return [firstElem].concat(rangeOfNums(start, end));
+//revStr
+function revStr(str) {
+  if (str.length == 0) return "";
+  let currentElem = str[str.length - 1];
+  str = str.slice(0, str.length - 1);
+  return currentElem + revStr(str);
 }
 
 function isPalindrome(str) {
