@@ -1,49 +1,35 @@
-// function isValidParntheses(s) {
-//   const stack = [];
-//   const map = {
-//     ")": "(",
-//     "}": "{",
-//     "]": "[",
-//   };
+function add(num) {
+  if (num == 0) return 0;
 
-//   for (const char of s) {
-//     if (["(", "{", "["].includes(char)) {
-//       stack.push(char);
-//     } else {
-//       const topElement = stack.pop();
-//       if (map[char] !== topElement) {
-//         console.log(stack, " sss");
-//         return false;
-//       }
-//     }
-//   }
+  let prevNum = num;
+  // num--;
 
-//   console.log(stack, " stackk");
-//   return stack.length === 0;
-// }
-
-function isValidParentheses(str) {
-  const arr = [];
-
-  const map = {
-    ")": "(",
-    "}": "{",
-    "]": "[",
-  };
-
-  for (let i of str) {
-    if (["(", "{", "["].includes(i)) {
-      arr.push(i);
-    } else {
-      // const poppedElem = arr.pop();
-      // console.log(poppedElem, " pop");
-    }
-  }
-  return arr;
+  // return prevNum + add(num);
+  return num + add(num - 1);
 }
 
-console.log(isValidParentheses("()")); // Output: true
-// console.log(isValidParentheses("()[]{}")); // Output: true
-// console.log(isValidParentheses("(]")); // Output: false
-// console.log(isValidParentheses("([)]")); // Output: false
-// console.log(isValidParentheses("{[]}")); // Output: true
+// console.log(add(5));
+
+function addArr(arr) {
+  if (arr.length == 0) return 0;
+
+  // let lastElem = arr[arr.length - 1];
+  // arr.length = arr.length - 1;
+  arr.length--;
+  return arr[arr.length - 1] + addArr(arr);
+}
+
+// console.log(addArr([1, 2, 3, 5, 6]));
+let res = [];
+
+function rangeOfNums(start, end) {
+  if (start === end) return start;
+
+  let firstElem = start;
+  start++;
+
+  return [firstElem].concat(rangeOfNums(start, end));
+}
+
+console.log(rangeOfNums(2, 4));
+// console.log(res);

@@ -238,7 +238,8 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 ### Easy
 * add(num) && add(array) 
 * multi(num) && multi(array)
-* rangeOfNums
+* rangeOfNums - return in an []
+* rangeOfNums - return + value
 * **Factorial**: Compute the factorial of a given number.
 * **Fibonacci Series**: Generate the nth Fibonacci number.
 * **Sum of Array**: Calculate the sum of an array using recursion.

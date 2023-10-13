@@ -1,6 +1,6 @@
 import React from "react";
 
-import Timer from "./components/useTimer";
+import Timer from "./components/useMemoize";
 
 const App = () => {
   return (

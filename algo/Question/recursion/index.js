@@ -193,6 +193,15 @@ function rangeOfNums(start, end, arr = []) {
   }
 }
 
+function rangeOfNums(start, end) {
+  if (start === end) return start;
+
+  let firstElem = start;
+  start++;
+
+  return [firstElem].concat(rangeOfNums(start, end));
+}
+
 function isPalindrome(str) {
   if (str.length <= 0) return true;
   if (str[0] !== str[str.length - 1]) return false;
