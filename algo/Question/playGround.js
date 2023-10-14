@@ -1,112 +1,33 @@
-function add(num) {
-  if (num == 0) return 0;
+// function twoSum(arr, k) {
+//   const obj = {};
 
-  let prevNum = num;
-  num--;
+//   for (let i = 0; i < arr.length; i++) {
+//     const temp = k - arr[i];
+//     if (obj[temp] !== undefined) {
+//       return [i, obj[temp]];
+//     }
 
-  return prevNum + add(num);
-}
-
-// console.log(add(5));
-function addArr(arr) {
-  if (arr.length == 0) return 0;
-
-  let lastElem = arr[arr.length - 1];
-  arr.length = arr.length - 1;
-
-  return lastElem + addArr(arr);
-}
-
-// console.log(addArr([1, 2, 3, 4]));
-
-function multiply(num) {
-  if (num == 0) return 1;
-  let lastNum = num;
-  num--;
-
-  return lastNum * multiply(num);
-}
-
-// console.log(multiply(5));
-
-function multiplyArr(arr) {
-  if (arr.length == 0) return 1;
-
-  let lastElem = arr[arr.length - 1];
-  arr.length = arr.length - 1;
-  return lastElem * multiplyArr(arr);
-}
-
-// console.log(multiplyArr([1, 2, 4]));
-
-function rangeOfNums(start, end) {
-  if (start > end) return 0;
-
-  let elem = start;
-  start++;
-
-  return elem + rangeOfNums(start, end);
-}
-
-// console.log(rangeOfNums(2, 7));
-
-function rangeOfNumsArr(start, end) {
-  if (start == end) return end;
-
-  let currentElem = start;
-  start++;
-
-  return [currentElem].concat(rangeOfNumsArr(start, end));
-}
-
-// console.log(rangeOfNumsArr(2, 7));
-
-function factorial(num) {
-  if (num == 0) return 1;
-
-  let currentElem = num;
-  num--;
-
-  return currentElem * factorial(num);
-}
-
-// console.log(factorial(5));
-function revStr(str) {
-  if (str.length == 0) return "";
-  let currentElem = str[str.length - 1];
-  str = str.slice(0, str.length - 1);
-  return currentElem + revStr(str);
-}
-
-// console.log(revStr("Hello"));
-
-function isPalindrome(str) {
-  if (str.length == 0) return true;
-  if (str[0] !== str[str.length - 1]) return false;
-  else {
-    const sliced = str.slice(1, str.length - 1);
-    console.log(sliced, " sliced");
-    return isPalindrome(sliced);
-  }
-}
-
-// function isPalindrome(str) {
-//   if (str.length <= 0) return true;
-//   if (str[0] !== str[str.length - 1]) return false;
-//   let sliced = str.slice(1, str.length - 1);
-//   console.log(sliced);
-//   return isPalindrome(sliced);
+//     obj[arr[i]] = i;
+//   }
 // }
 
-// console.log(isPalindrome(""));
+console.log(twoSum([2, 7, 11, 15], 22));
 
-function fibonacci(n) {
-  if (n === 0) return 0;
-  if (n === 1) return 1;
-  console.log(n);
-  return fibonacci(n - 1) + fibonacci(n - 2);
+function twoSum(arr, target) {
+  let left = 0;
+  let right = arr.length - 1;
+
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+
+    if (sum === target) {
+      return [left, right];
+    } else if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return null;
 }
-
-console.log(fibonacci(4));
-
-// 0 1 1 2 3 5 8 13 21

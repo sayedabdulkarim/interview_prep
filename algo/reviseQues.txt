@@ -74,7 +74,9 @@ LinkedList:
 - **Get**: Retrieve an element at a specific index.
 - **Set**: Modify an element at a specific index.
 - **Print**: Print all elements.
-  
+*- **Cycle Detection**: Determine if the linked list has a cycle.
+- **Reverse**: Reverse the list.
+
 #### Medium
 - **Insert**: Insert an element at a specific index.
 - **Delete**: Delete an element at a specific index.
@@ -85,7 +87,6 @@ LinkedList:
 
 #### Hard
 *- **Reverse Recursive**: Reverse the list using recursion.
-*- **Cycle Detection**: Determine if the linked list has a cycle.
 *- **Merge Two Sorted Lists**: Merge two sorted linked lists into a new sorted list.
 *- **Intersection Point**: Find the intersection point of two linked lists.
 
@@ -100,6 +101,8 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 - **Unshift**: Add an element to the front.
 - **Get**: Retrieve an element at a specific index.
 - **Set**: Modify an element at a specific index.
+- has Cycle
+- **Reverse**: Reverse the list.
   
 #### Medium
 - **Insert**: Insert an element at a specific index.
@@ -109,7 +112,6 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 *- **Remove Duplicates**: Remove duplicate elements from the list.
 
 *#### Hard
-- **Reverse**: Reverse the list.
 - **Rotate by K**: Rotate the list to the right by K steps, where rotation includes both backward and forward rotation.
 - **Find the Loop**: Determine if there is a loop in the Doubly Linked List.
 - **Palindrome Check**: Check if the list is a palindrome.
