@@ -1,15 +1,11 @@
 import React from "react";
 
-import Timer from "./components/useMemoize";
+import ErrorTest from "./components/errorBoundaries";
 
 const App = () => {
   return (
     <>
-      <h1>Timer</h1>
-      <Timer
-        initialMinute={2}
-        // initialSeconds={}
-      />
+      <ErrorTest />
     </>
   );
 };

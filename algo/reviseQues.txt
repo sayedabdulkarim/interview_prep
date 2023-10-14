@@ -1,3 +1,6 @@
+Questions to check: 
+https://interviewready.io/course-page/data-structures-and-algorithms
+
 Arrays:
 
 ### Easy
