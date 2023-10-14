@@ -1,33 +1,19 @@
-// function twoSum(arr, k) {
-//   const obj = {};
+function maxSumSubarray(arr, k) {
+  let maxSum = 0;
+  let windowStart = 0;
+  let windowSum = 0;
 
-//   for (let i = 0; i < arr.length; i++) {
-//     const temp = k - arr[i];
-//     if (obj[temp] !== undefined) {
-//       return [i, obj[temp]];
-//     }
+  for (let windowEnd = 0; windowEnd < arr.length; windowEnd++) {
+    windowSum += arr[windowEnd];
 
-//     obj[arr[i]] = i;
-//   }
-// }
-
-console.log(twoSum([2, 7, 11, 15], 22));
-
-function twoSum(arr, target) {
-  let left = 0;
-  let right = arr.length - 1;
-
-  while (left < right) {
-    const sum = arr[left] + arr[right];
-
-    if (sum === target) {
-      return [left, right];
-    } else if (sum < target) {
-      left++;
-    } else {
-      right--;
+    if (windowEnd >= k - 1) {
+      maxSum = Math.max(maxSum, windowSum);
+      windowSum -= arr[windowStart];
+      windowStart++;
     }
   }
 
-  return null;
+  return maxSum;
 }
+
+console.log(maxSumSubarray([2, 1, 5, 1, 3, 2], 3)); // Output: 9 (because 5 + 1 + 3 = 9)

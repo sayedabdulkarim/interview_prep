@@ -49,6 +49,7 @@ REACT
 - service worker
     - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
     - in React
+
 - ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
     - https://www.youtube.com/watch?v=NwyQONeqRXA
 
