@@ -272,7 +272,8 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
     - Naive Search - Commonly used for searching a substring within a larger string.
 
 ### Easy
-* **Linear Search**: Search for an element in an unsorted array.
+* **Linear Search**: Search for an element in an unsorted array. console.log(linearSearch([2, 4, 5, 6, 7, 8, 9], 5));
+
   
 ### Medium
 * **Binary Search**: Search for an element in a sorted array. Understand variations like finding the first or last occurrence of an element.
