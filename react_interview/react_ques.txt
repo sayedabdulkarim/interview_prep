@@ -26,6 +26,8 @@ REACT
 
 - react new version changes 
     R18 - https://www.youtube.com/watch?v=N0DhCV_-Qbg&t=9s
+        - useTransition is often used with state, and useDeferredValue can be used to control prop values or derived data.
+        
     R17 - https://www.youtube.com/watch?v=8D-rWP3c088&t=399s
 
 - ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
@@ -44,7 +46,7 @@ REACT
 
 - tree shaking/ babel/ 
 
-- ssr / ssg( static side generation )
+- ssr / ssg( static side generation ) - https://www.youtube.com/results?search_query=ssg+react
 
 - service worker
     - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
