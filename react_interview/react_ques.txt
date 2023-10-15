@@ -32,8 +32,8 @@ REACT
 
 - ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
 
-- event delegation react 
-    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS )
+- event delegation 
+    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS ) - https://www.youtube.com/watch?v=rS_4YfbEo2U&ab_channel=RoadsideCoder
     - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s ( REACT )
 
 - synthetic event
@@ -44,16 +44,18 @@ REACT
 
 - code splitting - https://www.youtube.com/watch?v=IBrmsyy9R94
 
-- tree shaking/ babel/ 
 
 - ssr / ssg( static side generation ) - https://www.youtube.com/results?search_query=ssg+react
+
+
+- ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
+    - https://www.youtube.com/watch?v=NwyQONeqRXA
+
+- tree shaking/ babel/ 
 
 - service worker
     - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
     - in React
-
-- ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
-    - https://www.youtube.com/watch?v=NwyQONeqRXA
 
 
 
