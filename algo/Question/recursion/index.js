@@ -193,7 +193,19 @@ function revStr(str) {
   return currentElem + revStr(str);
 }
 
+function cleanedStr(str) {
+  str = str.toLowerCase();
+  let res = "";
+  for (i of str) {
+    if ((i >= "a" && i <= "z") || (i >= "0" && i <= "9")) {
+      res += i;
+    }
+  }
+  return res;
+}
+
 function isPalindrome(str) {
+  str = cleanedStr(str);
   if (str.length <= 0) return true;
   if (str[0] !== str[str.length - 1]) return false;
   let sliced = str.slice(1, str.length - 1);
