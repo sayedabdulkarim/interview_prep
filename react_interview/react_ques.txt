@@ -4,6 +4,7 @@ VDOS
 - https://www.youtube.com/@uncommongeeks/playlists
 - https://learnersbucket.com/
 - https://www.youtube.com/@InterviewAddaOffical/videos
+- https://www.youtube.com/@AllThingsJavaScript/playlists
 
 REACT
 ================
@@ -33,7 +34,11 @@ REACT
 - ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
 
 - event delegation 
-    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS ) - https://www.youtube.com/watch?v=rS_4YfbEo2U&ab_channel=RoadsideCoder
+    - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS ) 
+        
+        - https://www.youtube.com/watch?v=rS_4YfbEo2U&ab_channel=RoadsideCoder
+        - https://www.youtube.com/watch?v=pKzf80F3O0U&t=57s&ab_channel=dcode
+
     - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s ( REACT )
 
 - synthetic event
