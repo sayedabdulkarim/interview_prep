@@ -215,96 +215,34 @@ function containsDuplicate(arr) {
   return true;
 }
 
+function repeatStringNumTimes(str, num) {
+  return str.repeat(num);
+}
+
+function truncateString(str, num) {
+  if (str.length > num) {
+    return `${str.slice(0, num)} ...`;
+  }
+  return str;
+}
+
+function chunkArray(arr, size) {
+  const result = [];
+
+  for (let i = 0; i < arr.length; i += size) {
+    console.log(i, " arrr[i]");
+    result.push(arr.slice(i, i + size));
+    //  i <= arr.length - size && result.push(arr.slice(i, i + size)); // for not adding the last index as well
+  }
+
+  return result;
+}
+
+////////////////////////////
+
 // console.log(reverseArr([1, 2, 3])); // Output should be [3, 2, 1]
 
-function secondLargestNumberInAnArray(arr) {
-  //sort
-  var sortArr = arr.sort((a, b) => a - b);
-  //Sets
-  var uni = new Set(sortArr);
-  //changed to Arr
-  var changedToArr = Array.from(uni);
-  //(length -1)
-  return changedToArr[changedToArr.length - 2];
-}
-
-function rotateArrByK(arr, k) {
-  var res = [];
-
-  ///push the k numbers upto k count from the last
-  for (i = arr.length - k; i <= arr.length - 1; i++) {
-    res.push(arr[i]);
-  }
-
-  //merge [...res, ...arr]
-  const merge = [...res, ...arr]; // [5,4,3,1,2,3,4,5]
-
-  //slice - merge.slice(merge.length, marge.length-k)
-  return merge.slice(0, arr.length);
-  // return res;
-}
-
-////////////////////////
-
-function getObj(arr) {
-  var obj = {};
-
-  for (let i in arr) {
-    obj[arr[i]] = (obj[arr[i]] || 0) + 1;
-  }
-
-  return obj;
-}
-
-//Sorting algorithms like quicksort, mergesort, or the native JavaScript .sort() method generally have a time complexity of O(n log n).
-function isAnagram(s, t) {
-  //helper for checking objects are equal ?
-  function objectsAreEqual(a, b) {
-    const aKeys = Object.keys(a).sort();
-    const bKeys = Object.keys(b).sort();
-
-    if (aKeys.length !== bKeys.length) {
-      return false;
-    }
-
-    for (let i = 0; i < aKeys.length; i++) {
-      if (aKeys[i] !== bKeys[i] || a[aKeys[i]] !== b[bKeys[i]]) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-  ////////////////////////////////////////////////////////
-
-  function getObj(arr) {
-    var obj = {};
-
-    for (i in arr) {
-      obj[arr[i]] = (obj[arr[i]] || 0) + 1;
-    }
-
-    return obj;
-  }
-
-  ///////////////////////////////
-
-  const sObj = getObj(s);
-  const tObj = getObj(t);
-
-  console.log({
-    sObj,
-    tObj,
-  });
-
-  return objectsAreEqual(sObj, tObj);
-}
-
-//Sorting algorithms like quicksort, mergesort, or the native JavaScript .sort() method generally have a time complexity of O(n log n).
-function isAnagram(str1, str2) {
-  return [...str1].sort().join("") === [...str2].sort().join("");
-}
-
+///////////MEDIUM/////////////
 function twoSum(arr, t) {
   // [2,7,5,9]
 
@@ -380,54 +318,141 @@ function threeSum(nums, target) {
 
 // console.log(twoSumSorted([2, 3, 5, 7], 9));  // Should return [0, 3]
 
-function productExceptSelf(nums) {
-  const n = nums.length;
-  const output = new Array(n).fill(1);
+function singleNumber(nums) {
+  function getObj(arr) {
+    const obj = {};
 
-  // Left to right pass to fill in products from elements to the left
-  let leftProduct = 1;
+    for (i of arr) {
+      obj[i] = (obj[i] || 0) + 1;
+    }
 
-  for (let i = 0; i < n; i++) {
-    output[i] *= leftProduct;
-    leftProduct *= nums[i];
-
-    console.log(leftProduct, " leftttt");
+    return obj;
   }
 
-  console.log(output, " output after left pass"); // This should print [1, 1, 2]
-
-  //  Right to left pass to fill in products from elements to the right
-  let rightProduct = 1;
-  for (let i = n - 1; i >= 0; i--) {
-    output[i] *= rightProduct;
-    rightProduct *= nums[i];
+  const getCount = getObj(nums);
+  for (i in getCount) {
+    if (getCount[i] == 1) {
+      return i;
+    }
   }
-
-  console.log(output, " final output"); // This should print [1, 3, 12]
-  return output;
+  return false;
 }
 
-function repeatStringNumTimes(str, num) {
-  return str.repeat(num);
-}
+function rotateArrByK(arr, k) {
+  var res = [];
 
-function truncateString(str, num) {
-  if (str.length > num) {
-    return `${str.slice(0, num)} ...`;
-  }
-  return str;
-}
-
-function chunkArray(arr, size) {
-  const result = [];
-
-  for (let i = 0; i < arr.length; i += size) {
-    console.log(i, " arrr[i]");
-    result.push(arr.slice(i, i + size));
-    //  i <= arr.length - size && result.push(arr.slice(i, i + size)); // for not adding the last index as well
+  ///push the k numbers upto k count from the last
+  for (i = arr.length - k; i <= arr.length - 1; i++) {
+    res.push(arr[i]);
   }
 
-  return result;
+  //merge [...res, ...arr]
+  const merge = [...res, ...arr]; // [5,4,3,1,2,3,4,5]
+
+  //slice - merge.slice(merge.length, marge.length-k)
+  return merge.slice(0, arr.length);
+  // return res;
+}
+
+function secondLargestNumberInAnArray(arr) {
+  //sort
+  var sortArr = arr.sort((a, b) => a - b);
+  //Sets
+  var uni = new Set(sortArr);
+  //changed to Arr
+  var changedToArr = Array.from(uni);
+  //(length -1)
+  return changedToArr[changedToArr.length - 2];
+}
+
+function getObj(arr) {
+  var obj = {};
+
+  for (let i in arr) {
+    obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+  }
+
+  return obj;
+}
+
+//Sorting algorithms like quicksort, mergesort, or the native JavaScript .sort() method generally have a time complexity of O(n log n).
+function isAnagram(s, t) {
+  //helper for checking objects are equal ?
+  function objectsAreEqual(a, b) {
+    const aKeys = Object.keys(a).sort();
+    const bKeys = Object.keys(b).sort();
+
+    if (aKeys.length !== bKeys.length) {
+      return false;
+    }
+
+    for (let i = 0; i < aKeys.length; i++) {
+      if (aKeys[i] !== bKeys[i] || a[aKeys[i]] !== b[bKeys[i]]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+  ////////////////////////////////////////////////////////
+
+  function getObj(arr) {
+    var obj = {};
+
+    for (i in arr) {
+      obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+    }
+
+    return obj;
+  }
+
+  ///////////////////////////////
+
+  const sObj = getObj(s);
+  const tObj = getObj(t);
+
+  console.log({
+    sObj,
+    tObj,
+  });
+
+  return objectsAreEqual(sObj, tObj);
+}
+
+//Sorting algorithms like quicksort, mergesort, or the native JavaScript .sort() method generally have a time complexity of O(n log n).
+function isAnagram(str1, str2) {
+  return [...str1].sort().join("") === [...str2].sort().join("");
+}
+
+function KthLargest(nums, n) {
+  //sort
+  function dSort(arr) {
+    let isSorted = false;
+
+    while (!isSorted) {
+      isSorted = true;
+      for (i = 0; i < arr.length; i++) {
+        if (arr[i] < arr[i + 1]) {
+          const temp = arr[i];
+
+          arr[i] = arr[i + 1];
+          arr[i + 1] = temp;
+
+          isSorted = false;
+        }
+      }
+    }
+    return arr;
+  }
+
+  //uniObj
+  const getSortedArr = dSort(nums);
+  const uniObj = new Set(getSortedArr);
+
+  //change to arr
+  const getArr = Array.from(uniObj);
+
+  return getArr[n - 1];
 }
 
 //brute force
@@ -488,6 +513,35 @@ function maxArea(height) {
   return max;
 }
 
+function productExceptSelf(nums) {
+  const n = nums.length;
+  const output = new Array(n).fill(1);
+
+  // Left to right pass to fill in products from elements to the left
+  let leftProduct = 1;
+
+  for (let i = 0; i < n; i++) {
+    output[i] *= leftProduct;
+    leftProduct *= nums[i];
+
+    console.log(leftProduct, " leftttt");
+  }
+
+  console.log(output, " output after left pass"); // This should print [1, 1, 2]
+
+  //  Right to left pass to fill in products from elements to the right
+  let rightProduct = 1;
+  for (let i = n - 1; i >= 0; i--) {
+    output[i] *= rightProduct;
+    rightProduct *= nums[i];
+  }
+
+  console.log(output, " final output"); // This should print [1, 3, 12]
+  return output;
+}
+
+//////////MEDIUM END ///////////
+
 ///////////////////////////////////////
 
 function reverse(nums) {
@@ -510,57 +564,6 @@ function truncateString(nums, n) {
     str += nums[i];
   }
   return str;
-}
-
-function singleNumber(nums) {
-  function getObj(arr) {
-    const obj = {};
-
-    for (i of arr) {
-      obj[i] = (obj[i] || 0) + 1;
-    }
-
-    return obj;
-  }
-
-  const getCount = getObj(nums);
-  for (i in getCount) {
-    if (getCount[i] == 1) {
-      return i;
-    }
-  }
-  return false;
-}
-
-function KthLargest(nums, n) {
-  //sort
-  function dSort(arr) {
-    let isSorted = false;
-
-    while (!isSorted) {
-      isSorted = true;
-      for (i = 0; i < arr.length; i++) {
-        if (arr[i] < arr[i + 1]) {
-          const temp = arr[i];
-
-          arr[i] = arr[i + 1];
-          arr[i + 1] = temp;
-
-          isSorted = false;
-        }
-      }
-    }
-    return arr;
-  }
-
-  //uniObj
-  const getSortedArr = dSort(nums);
-  const uniObj = new Set(getSortedArr);
-
-  //change to arr
-  const getArr = Array.from(uniObj);
-
-  return getArr[n - 1];
 }
 
 function longestSubarrayWithSumK(nums, K) {

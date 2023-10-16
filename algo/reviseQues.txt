@@ -17,6 +17,7 @@ Arrays:
 
 ### Medium
 - Two Sum: Given an array of integers, find two numbers such that they add up to a specific target number.
+- Two Sum: sorted
 - Single Number: Given an array of integers, every element appears twice except for one. Find that single one.
 - Rotate an Array: Given an array, rotate it to the right by k steps.
 - Second Largest Number In An Array
@@ -24,9 +25,16 @@ Arrays:
 - Objects Are Equal - cover with anagrams
 - Is Anagram
 - Kth Largest Element: Find the kth largest element in an array.
-- productExceptSelf
-- maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
+
+- Three Sum
 *- Max Subarray
+- maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
+- Longest Consecutive Sequence
+
+- productExceptSelf
+
+
+//
 
 *- Longest Subarray with Sum K: Given an array, find the length of the longest subarray that sums to `K`.
 *- Majority Element: Find the element that appears more than `n/2` times in an array of size `n`.
