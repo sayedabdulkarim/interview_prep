@@ -1,20 +1,15 @@
 import React from "react";
 
-const EventDelegationComp = () => {
-  const handleClick = (e) => {
-    console.log(e.target, " e.target");
-  };
-  return (
-    <div>
-      <ul onClick={handleClick}>
-        <li>One</li>
-        <li>Two</li>
-        <li>Three</li>
-        <li>Four</li>
-        <li>Five</li>
-      </ul>
-    </div>
-  );
-};
+function App() {
+  const handleClick = (event) => {
+    // Log the synthetic event object
+    console.log(event);
 
-export default EventDelegationComp;
+    // Log the synthetic event class constructor name
+    console.log(event.constructor.name);
+  };
+
+  return <button onClick={handleClick}>Click Me</button>;
+}
+
+export default App;
