@@ -1,13 +1,11 @@
 import React from "react";
 
-import ErrorTest from "./components/errorBoundaries";
-import FilterComponent from "./components/ConcurrencyComp/FilterComponent";
-
+import EventDelegationComp from "./components/EventDelegationComp";
 const App = () => {
   return (
     <>
       {/* <ErrorTest /> */}
-      <FilterComponent />
+      <EventDelegationComp />
     </>
   );
 };
