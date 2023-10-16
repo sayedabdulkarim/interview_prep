@@ -9,7 +9,7 @@ Arrays:
 - Reverse an Array: Given an array, reverse it. ( without using extra space )
 - Move Zeroes: Move all 0's to the end of an array while maintaining the relative order of the non-zero elements.
 - Sort an Array (ascending, descending)
-- Remove Duplicate from an array
+*- Remove Duplicate from an array
 - Contains Duplicate in an array
 - Repeat String Num Times
 - Truncate String
@@ -27,6 +27,7 @@ Arrays:
 - productExceptSelf
 - maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
 *- Max Subarray
+
 *- Longest Subarray with Sum K: Given an array, find the length of the longest subarray that sums to `K`.
 *- Majority Element: Find the element that appears more than `n/2` times in an array of size `n`.
 - Remove Element: Given an array and a value, remove all instances of that value and return the new length.
