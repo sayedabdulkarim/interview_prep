@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
-function App() {
-  const handleClick = (event) => {
-    // Log the synthetic event object
-    console.log(event);
+const EventDelegationComp = () => {
+  const [count, setCount] = useState(0);
 
-    // Log the synthetic event class constructor name
-    console.log(event.constructor.name);
+  const handleCount = () => {
+    // setCount(count + 1);
+    // setCount(count + 1);
+    // setCount(count + 1);
+    setCount((prev) => prev + 1);
+    setCount((prev) => prev + 1);
+    setCount((prev) => prev + 1);
   };
 
-  return <button onClick={handleClick}>Click Me</button>;
-}
+  return (
+    <div>
+      <h1>Count - {count}</h1>
+      <button onClick={() => handleCount()}>handleCount</button>
+    </div>
+  );
+};
 
-export default App;
+export default EventDelegationComp;
