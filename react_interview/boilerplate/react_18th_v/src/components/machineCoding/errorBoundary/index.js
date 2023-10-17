@@ -28,7 +28,7 @@ class ErrorBoundary extends React.Component {
 
 // Functional Component that may throw an error
 const ButtonThatBreaks = () => {
-  const [shouldBreak, setShouldBreak] = useState(true);
+  const [shouldBreak, setShouldBreak] = useState(false);
 
   if (shouldBreak) {
     throw new Error("I broke!");

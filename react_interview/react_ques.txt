@@ -72,7 +72,10 @@ REACT
 - hoc
 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
-
+- https://leetcode.com/discuss/interview-question/742791/Front-End-Interview-Questions
+//Ques
+- https://bigfrontend.dev/problem
+- https://www.youtube.com/watch?v=4s7wew3dGHY&list=PLAjOh0819rC3R8orm7bOag7ENKlRXJN4x&ab_channel=AkashIngole
 
 
 
