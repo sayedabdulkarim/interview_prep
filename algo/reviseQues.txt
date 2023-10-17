@@ -30,7 +30,6 @@ Arrays:
 *- Max Subarray
 - maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
 - Longest Consecutive Sequence
-
 - productExceptSelf
 
 

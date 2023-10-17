@@ -76,6 +76,26 @@ function isValidParntheses(s) {
   return stack.length === 0;
 }
 
+function validParenthesesOwn(str) {
+  const stack = [];
+  const map = {
+    "{": "}",
+    "[": "]",
+    "(": ")",
+  };
+
+  for (i of str) {
+    if (Object.keys(map).includes(i)) {
+      stack.push(i);
+    } else {
+      const popped = stack.pop();
+      if (map[popped] !== i) return false;
+    }
+  }
+
+  return stack.length == 0;
+}
+
 // console.log(isValidParntheses("()"));  // Output: true
 // console.log(isValidParntheses("{[]}"));  // Output: true
 // console.log(isValidParntheses("(]"));  // Output: false
