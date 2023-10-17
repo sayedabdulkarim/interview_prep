@@ -1,12 +1,26 @@
 import React from "react";
+import ChildOne from "./components/ChildOne";
+import ChildTwo from "./components/ChildTwo";
+import RenderPropsComp from "./components/RenderPropsComp";
 
-import EventDelegationComp from "./components/EventDelegationComp";
 const App = () => {
   return (
-    <>
-      {/* <ErrorTest /> */}
-      <EventDelegationComp />
-    </>
+    <div>
+      {/* <ChildOne />
+      <ChildTwo /> */}
+
+      {/* one */}
+      <RenderPropsComp
+        render={(count, handleClickCount) => (
+          <ChildOne count={count} handleClickCount={handleClickCount} />
+        )}
+      />
+      <RenderPropsComp
+        render={(count, handleClickCount) => (
+          <ChildTwo count={count} handleClickCount={handleClickCount} />
+        )}
+      />
+    </div>
   );
 };
 
