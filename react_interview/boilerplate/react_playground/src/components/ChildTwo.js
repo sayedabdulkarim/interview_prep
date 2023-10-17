@@ -1,18 +1,12 @@
-import React, { useState } from "react";
+import React, { memo } from "react";
 
-const ChildTwo = ({ count, handleClickCount }) => {
-  //   const [count, setCount] = useState(0);
-
-  //   const handleClickCount = () => {
-  //     setCount((prev) => prev + 1);
-  //   };
-
+const ChildTwo = () => {
+  console.log("child twoooo");
   return (
     <div>
-      <h1>Child Two : {count}</h1>
-      <button onClick={() => handleClickCount()}>Click One</button>
+      <h1>Child Two</h1>
     </div>
   );
 };
 
-export default ChildTwo;
+export default memo(ChildTwo);
