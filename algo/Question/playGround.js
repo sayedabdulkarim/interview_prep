@@ -5,28 +5,26 @@ class Node {
   }
 }
 
-class SingleLinkedList {
-  constructor(params) {
+class CircularLinked {
+  constructor() {
     this.head = null;
     this.tail = null;
     this.length = 0;
   }
-
   push(value) {
     const newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
+      newNode.next = this.head;
       this.tail.next = newNode;
       this.tail = newNode;
     }
     ++this.length;
   }
-
   traverse(idx) {
-    if (!this.head) return null;
-
+    if (!this.head || idx < 0 || idx > this.length) return null;
     let currentNode = this.head;
 
     for (let i = 0; i < idx; i++) {
@@ -34,59 +32,24 @@ class SingleLinkedList {
     }
     return currentNode;
   }
-  addCycle(index) {
-    const node = this.traverse(index);
-    if (!node) {
-      console.log("Invalid index");
-      return;
+  deletion(idx) {
+    if (!this.head || idx < 0 || idx > this.length) return null;
+    else if (idx == 0) {
+      this.head = this.head.next;
+    } else if (idx == this.length - 1) {
+      const currentNode = this.traverse(this.length - 2);
+      currentNode.next = this.head;
+      this.tail = currentNode;
+    } else {
+      const currentPrevNode = this.traverse(idx - 1);
+      currentPrevNode.next = currentPrevNode.next.next;
     }
-    this.tail.next = node;
-  }
-  hasCycle(head) {
-    let tortoise = head;
-    let hare = head;
-
-    while (hare !== null && hare.next !== null) {
-      tortoise = tortoise.next;
-      hare = hare.next.next;
-
-      if (tortoise === hare) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  hasCycle() {
-    let slow = this.head; // tortoise
-    let fast = this.head; //hare
-
-    while (fast !== null && fast.next !== null) {
-      slow = slow.next;
-      fast = fast.next.next;
-
-      if (slow === fast) {
-        return true;
-      }
-    }
-    return false;
+    --this.length;
   }
 }
 
-const singleOne = new SingleLinkedList();
-
-singleOne.push(11);
-singleOne.push(22);
-singleOne.push(33);
-// singleOne.push(44);
-// singleOne.push(55);
-
-// Add a cycle at index 2 (Value 3 will be the start of the cycle)
-// console.log(singleOne, " b444");
-// console.log(singleOne.traverse(singleOne.length - 2), " sss");
-// singleOne.addCycle(1);
-
-console.log(singleOne.hasCycle(singleOne.head));
-// singleOne.shift();
-// console.log(singleOne.traverse(0), " afterr");
+const circleOne = new CircularLinked();
+circleOne.push(11);
+circleOne.push(22);
+circleOne.push(33);
+console.log(circleOne);

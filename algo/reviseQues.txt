@@ -88,12 +88,13 @@ LinkedList:
 - **Get**: Retrieve an element at a specific index.
 - **Set**: Modify an element at a specific index.
 - **Print**: Print all elements.
-*- **Cycle Detection**: Determine if the linked list has a cycle.
-- **Reverse**: Reverse the list.
-
-#### Medium
 - **Insert**: Insert an element at a specific index.
 - **Delete**: Delete an element at a specific index.
+- add cycle
+- **Cycle Detection**: Determine if the linked list has a cycle.
+
+#### Medium
+
 - **Reverse**: Reverse the list.
 - **Find Kth From Back**: Find the Kth node from the end.
 - **Find Middle Node**: Find the middle node of the linked list.
@@ -103,6 +104,7 @@ LinkedList:
 *- **Reverse Recursive**: Reverse the list using recursion.
 *- **Merge Two Sorted Lists**: Merge two sorted linked lists into a new sorted list.
 *- **Intersection Point**: Find the intersection point of two linked lists.
+
 
 For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, get, and set would be similar to Single Linked Lists in terms of difficulty. However, Doubly Linked Lists provide some additional complexities and opportunities for interesting problems.
 
@@ -115,12 +117,13 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 - **Unshift**: Add an element to the front.
 - **Get**: Retrieve an element at a specific index.
 - **Set**: Modify an element at a specific index.
+- add Cycle
 - has Cycle
-- **Reverse**: Reverse the list.
-  
-#### Medium
 - **Insert**: Insert an element at a specific index.
 - **Delete**: Delete an element at a specific index.
+  
+#### Medium
+- **Reverse**: Reverse the list.
 - **Traverse Forward**: Traverse the list from head to tail.
 - **Traverse Backward**: Traverse the list from tail to head.
 *- **Remove Duplicates**: Remove duplicate elements from the list.

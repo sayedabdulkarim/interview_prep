@@ -274,6 +274,15 @@ class SingleLinkedList {
     return null; // No intersection point
   }
 
+  addCycle(index) {
+    const node = this.traverse(index);
+    if (!node) {
+      console.log("Invalid index");
+      return;
+    }
+    this.tail.next = node;
+  }
+
   static hasCycle(head) {
     let tortoise = head;
     let hare = head;
