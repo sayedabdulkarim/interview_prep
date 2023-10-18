@@ -8,14 +8,6 @@ VDOS
 
 REACT
 ================
-
-- renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
-- useMemo, UseCallBack, React.memo 
-    - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep, https://www.youtube.com/watch?v=uojLJFt9SzY )
-- memoization like useMemo
-
-- error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
-
 - propTypes
 
 - how react compiler works -
@@ -72,8 +64,14 @@ REACT
 - hoc
 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
-- https://leetcode.com/discuss/interview-question/742791/Front-End-Interview-Questions
+- renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
+- useMemo, UseCallBack, React.memo 
+    - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep, https://www.youtube.com/watch?v=uojLJFt9SzY )
+- memoization like useMemo
+- error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
+
 //Ques
+- https://leetcode.com/discuss/interview-question/742791/Front-End-Interview-Questions
 - https://bigfrontend.dev/problem
 - https://www.youtube.com/watch?v=4s7wew3dGHY&list=PLAjOh0819rC3R8orm7bOag7ENKlRXJN4x&ab_channel=AkashIngole
 
