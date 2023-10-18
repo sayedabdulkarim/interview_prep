@@ -1,34 +1,92 @@
-function threeSum(nums, target) {
-  const res = [];
-  nums.sort((a, b) => a - b);
-
-  for (let i = 0; i < nums.length - 2; i++) {
-    // if (i > 0 && nums[i] === nums[i - 1]) continue;
-
-    let left = i + 1;
-    let right = nums.length - 1;
-
-    while (left < right) {
-      const sum = nums[i] + nums[left] + nums[right];
-
-      if (sum === target) {
-        res.push([nums[i], nums[left], nums[right]]);
-        while (left < right && nums[left] === nums[left + 1]) left++;
-        while (left < right && nums[right] === nums[right - 1]) right--;
-        left++;
-        right--;
-      } else if (sum < target) {
-        left++;
-      } else {
-        right--;
-      }
-    }
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
   }
-
-  return res;
 }
 
-console.log(threeSum([1, 1, 2, 3, 4, 5], 6)); // Output: [ [ 1, 1, 4 ], [ 1, 2, 3 ] ]
-// console.log(threeSum([-1, 0, 1, 2, -1, -4], 0));  // Output: [ [ -1, -1, 2 ], [ -1, 0, 1 ] ]
+class SingleLinkedList {
+  constructor(params) {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
 
-// console.log(twoSumSorted([2, 3, 5, 7], 9));  // Should return [0, 3]
+  push(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    ++this.length;
+  }
+
+  traverse(idx) {
+    if (!this.head) return null;
+
+    let currentNode = this.head;
+
+    for (let i = 0; i < idx; i++) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+  addCycle(index) {
+    const node = this.traverse(index);
+    if (!node) {
+      console.log("Invalid index");
+      return;
+    }
+    this.tail.next = node;
+  }
+  hasCycle(head) {
+    let tortoise = head;
+    let hare = head;
+
+    while (hare !== null && hare.next !== null) {
+      tortoise = tortoise.next;
+      hare = hare.next.next;
+
+      if (tortoise === hare) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  hasCycle() {
+    let slow = this.head; // tortoise
+    let fast = this.head; //hare
+
+    while (fast !== null && fast.next !== null) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow === fast) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+const singleOne = new SingleLinkedList();
+
+singleOne.push(11);
+singleOne.push(22);
+singleOne.push(33);
+// singleOne.push(44);
+// singleOne.push(55);
+
+// Add a cycle at index 2 (Value 3 will be the start of the cycle)
+// console.log(singleOne, " b444");
+// console.log(singleOne.traverse(singleOne.length - 2), " sss");
+// singleOne.addCycle(1);
+
+console.log(singleOne.hasCycle(singleOne.head));
+// singleOne.shift();
+// console.log(singleOne.traverse(0), " afterr");

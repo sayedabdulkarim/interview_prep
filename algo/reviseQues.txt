@@ -26,13 +26,6 @@ Arrays:
 - Is Anagram
 - Kth Largest Element: Find the kth largest element in an array.
 
-- Three Sum
-*- Max Subarray
-- maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
-- Longest Consecutive Sequence
-- productExceptSelf
-
-
 //
 
 *- Longest Subarray with Sum K: Given an array, find the length of the longest subarray that sums to `K`.
@@ -47,6 +40,15 @@ Arrays:
 *- Longest Increasing Subsequence: Find the length of the longest increasing subsequence in an array of integers.
 *- Find All Duplicates: Given an array of integers, 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once, find all the elements that appear twice.
 *- Next Permutation: Implement next permutation, which rearranges numbers into the lexicographically next greater permutation of numbers.
+
+To Check
+===
+- Three Sum
+- Max Subarray
+- maxArea([1,8,6,2,5,4,8,3,7]);  // Output should be 49
+- Longest Consecutive Sequence
+- productExceptSelf
+
 
 Strings:
 
@@ -68,6 +70,10 @@ Strings:
 #### Hard
 *- **Regular Expression Matching**: Given an input string and a pattern, implement regular expression matching with support for '.' and '*'.
 *- **Wildcard Matching**: Given an input string and a pattern, implement wildcard pattern matching with support for '?' and '*'.
+
+To Check
+===
+- **String to Integer (atoi)**: Implement the atoi function which converts a string to an integer.
 
 LinkedList: 
 

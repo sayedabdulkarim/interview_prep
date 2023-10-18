@@ -289,6 +289,21 @@ class SingleLinkedList {
 
     return false;
   }
+
+  hasCycle() {
+    let slow = this.head; // tortoise
+    let fast = this.head; //hare
+
+    while (fast !== null && fast.next !== null) {
+      slow = slow.next;
+      fast = fast.next.next;
+
+      if (slow === fast) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
 
 const single = new SingleLinkedList();
