@@ -13,6 +13,14 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Describe the Function.prototype.bind method.
 🔍 Explain the differences between feature detection, feature inference, and utilizing the User Agent (UA) string.
 🔍 Define the concept of "hoisting."
+    - Its a way of moving variables and function to the top of the scope, so the compiler can understand properly like they belong.
+    But ther is a caveat like the hoisting behaves differently for var, let n const.
+    So if we r using var, it moves to the top and before ny code executes, it will assign the value as undefined.
+    But in the case of let n const , they will hoist to the top but they will wait for reinitialozation or redifing.
+    So this waiting phase we clled as temporal dead zone.
+    So because of this , if we r trying to get the values or result of var before initializing we get an undefined, but in let and const 
+    we get a reference error .
+
 🔍 What is type coercion, and what are some common pitfalls associated with relying on it in JavaScript code?
 🔍 Describe event bubbling and event capturing.
 🔍 What distinguishes an "attribute" from a "property"?
