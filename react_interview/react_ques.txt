@@ -53,7 +53,9 @@ REACT
 - service worker
     - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
     - in React - https://www.youtube.com/watch?v=u39sdT5okpM&list=PL8p2I9GklV44pmaVnDH2-rl_0Mhs5AHW2&index=2&ab_channel=CodeStepByStep
-     ( pwa code step by step hindi ) search query 
+     ( pwa code step by step ) search query 
+        
+        - A service worker is a script that runs in the background of a user's web browser, separate from a web page, enabling features that don't require a web page or user interaction. 
 
 
 
