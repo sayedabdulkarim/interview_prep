@@ -8,6 +8,13 @@
 <body>
     <h1>S/ W example</h1>
 
-    <script src="./sw.js"></script>
+    <!-- <script src="./sw.js"></script> -->
+    <script>
+        if("serviceWorker" in navigator){
+            navigator.serviceWorker.register("./sw.js")
+                .then(res => console.log(res, " ress"))
+                .catch(err => console.log(err, " errr"))
+        } else console.log("service worker not working.")
+    </script>
 </body>
 </html>
