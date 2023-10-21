@@ -86,15 +86,35 @@ REACT
 ### Basic Questions
 
 - router v6 - https://www.youtube.com/watch?v=UjHT_NKR_gU
+      OLD   -   NEW
+        =======
+    - Switch => Routes
+    - to => href
+    - useHistory => useNavigate 
+    - Outlet ( Share Layout )
+    - Nested Routes
 
 1. **What is React Router?**
     - Explain what React Router is and why it's used in React applications.
+        -  is a library used for routing in React applications. It allows developers to set up single-page applications (SPAs) with navigation capabilities without the page being refreshed. 
+        features
+        =========
+        * SPA Navigation
+        * Dynamic Routing
+        * URL Parameters & Query Strings
+        * Route Protection
 
 2. **How do you install React Router?**
     - Mention the npm or yarn command to install it.
 
 3. **Explain the difference between `BrowserRouter` and `HashRouter`.**
     - When would you use one over the other?
+
+    - So HashRouter added an hashtag to the route.
+    So suppose we r deploying our app to lets say github with BrowserRouter, in that scenario we dont have access for the server code, so in this case we hv to use HashRouter, because 
+    after # the queries are handle by the client side code, so as in react we r calling the request only to / , and on changing route we r not caling any request and we r just unmounting n mounting the component as per route.
+
+    But BrowserRouter uses  uses HTML5 history API , and if we hv access to backend code, then we can configure like app.get("*", res.sendFile("index.html"))
 
 4. **What is the purpose of the `Route` component?**
     - Explain how it's used to define routes.
