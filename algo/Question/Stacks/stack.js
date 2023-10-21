@@ -30,6 +30,10 @@ class Stack {
       const top = this.first;
       this.first = newNode;
       this.first.next = top;
+
+      //OR
+      newNode.next = this.first;
+      this.first = newNode;
     }
     ++this.length;
   }

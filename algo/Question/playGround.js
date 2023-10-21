@@ -1,3 +1,11 @@
+//STACK - LIFO
+/**
+ * push
+ * pop
+ * print
+ * peek
+ */
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -5,51 +13,84 @@ class Node {
   }
 }
 
-class CircularLinked {
+class Stack {
   constructor() {
-    this.head = null;
-    this.tail = null;
+    this.first = null;
+    this.last = null;
     this.length = 0;
   }
+
   push(value) {
-    const newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
-      this.tail = newNode;
+    let newNode = new Node(value);
+
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
     } else {
-      newNode.next = this.head;
-      this.tail.next = newNode;
-      this.tail = newNode;
+      //OR
+      newNode.next = this.first;
+      this.first = newNode;
     }
     ++this.length;
   }
-  traverse(idx) {
-    if (!this.head || idx < 0 || idx > this.length) return null;
-    let currentNode = this.head;
 
-    for (let i = 0; i < idx; i++) {
-      currentNode = currentNode.next;
-    }
-    return currentNode;
-  }
-  deletion(idx) {
-    if (!this.head || idx < 0 || idx > this.length) return null;
-    else if (idx == 0) {
-      this.head = this.head.next;
-    } else if (idx == this.length - 1) {
-      const currentNode = this.traverse(this.length - 2);
-      currentNode.next = this.head;
-      this.tail = currentNode;
+  pop() {
+    if (!this.first) return null;
+    else if (this.length == 1) {
+      this.first = null;
+      this.last = null;
     } else {
-      const currentPrevNode = this.traverse(idx - 1);
-      currentPrevNode.next = currentPrevNode.next.next;
+      this.first = this.first.next;
+    }
+    --this.length;
+  }
+  //
+}
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.length = 0;
+  }
+
+  enqueue(value) {
+    let newNode = new Node(value);
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    ++this.length;
+  }
+
+  dequeue() {
+    if (!this.first) return "Underflow";
+    const firstNode = this.first;
+    this.first = firstNode.next;
+    if (this.first === null) {
+      this.last = null; // if queue is now empty, last should also be null
     }
     --this.length;
   }
 }
 
-const circleOne = new CircularLinked();
-circleOne.push(11);
-circleOne.push(22);
-circleOne.push(33);
-console.log(circleOne);
+const stackOne = new Stack();
+stackOne.push(11);
+stackOne.push(22);
+stackOne.push(33);
+console.log(stackOne);
+stackOne.pop();
+console.log(stackOne, " afterr");
+
+console.log("==========================================================");
+
+const queueOne = new Queue();
+queueOne.enqueue(11);
+queueOne.enqueue(22);
+queueOne.enqueue(33);
+console.log(queueOne);
+queueOne.dequeue();
+console.log(queueOne, " afterr");
