@@ -1,11 +1,3 @@
-//STACK - LIFO
-/**
- * push
- * pop
- * print
- * peek
- */
-
 class Node {
   constructor(value) {
     this.value = value;
@@ -14,66 +6,70 @@ class Node {
 }
 
 class Stack {
-  constructor() {
+  constructor(params) {
     this.first = null;
     this.last = null;
-    this.length = 0;
+    this.size = 0;
   }
 
   push(value) {
-    let newNode = new Node(value);
-
+    const newNode = new Node(value);
     if (!this.first) {
       this.first = newNode;
       this.last = newNode;
     } else {
-      //OR
       newNode.next = this.first;
       this.first = newNode;
     }
-    ++this.length;
+    ++this.size;
   }
 
   pop() {
     if (!this.first) return null;
-    else if (this.length == 1) {
+    else if (this.size === 1) {
       this.first = null;
       this.last = null;
     } else {
       this.first = this.first.next;
     }
-    --this.length;
+    --this.size;
   }
-  //
 }
 
-class Queue {
+class QueueUsingStacks {
   constructor() {
-    this.first = null;
-    this.last = null;
-    this.length = 0;
+    this.s1 = new Stack();
+    this.s2 = new Stack();
   }
 
+  // Enqueue operation
   enqueue(value) {
-    let newNode = new Node(value);
-    if (!this.first) {
-      this.first = newNode;
-      this.last = newNode;
-    } else {
-      this.last.next = newNode;
-      this.last = newNode;
-    }
-    ++this.length;
+    this.s1.push(value);
   }
 
+  // Dequeue operation
   dequeue() {
-    if (!this.first) return "Underflow";
-    const firstNode = this.first;
-    this.first = firstNode.next;
-    if (this.first === null) {
-      this.last = null; // if queue is now empty, last should also be null
+    if (this.s2.isEmpty()) {
+      while (!this.s1.isEmpty()) {
+        this.s2.push(this.s1.pop());
+      }
     }
-    --this.length;
+    return this.s2.pop();
+  }
+
+  // Peek operation (optional)
+  peek() {
+    if (this.s2.isEmpty()) {
+      while (!this.s1.isEmpty()) {
+        this.s2.push(this.s1.pop());
+      }
+    }
+    return this.s2.peek();
+  }
+
+  // Check if the queue is empty (optional)
+  isEmpty() {
+    return this.s1.isEmpty() && this.s2.isEmpty();
   }
 }
 
@@ -81,16 +77,38 @@ const stackOne = new Stack();
 stackOne.push(11);
 stackOne.push(22);
 stackOne.push(33);
-console.log(stackOne);
+console.log(stackOne, " b44");
+
 stackOne.pop();
 console.log(stackOne, " afterr");
 
-console.log("==========================================================");
+class Queue {
+  constructor(params) {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
 
-const queueOne = new Queue();
-queueOne.enqueue(11);
-queueOne.enqueue(22);
-queueOne.enqueue(33);
-console.log(queueOne);
-queueOne.dequeue();
-console.log(queueOne, " afterr");
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    ++this.size;
+  }
+
+  dequeue() {
+    if (!this.first) return null;
+    else if (this.size === 1) {
+      this.first = null;
+      this.last = null;
+    } else {
+      this.first = this.first.next;
+    }
+    --this.size;
+  }
+}

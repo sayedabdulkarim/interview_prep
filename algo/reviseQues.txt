@@ -154,7 +154,8 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 * **Convert Sorted List to Balanced BST**: Convert a sorted circular linked list to a balanced binary search tree.
 * **Merge Two Sorted Circular Linked Lists**: Combine two sorted circular linked lists into a single sorted circular linked list.
 
-### Stack
+### Stack ( LIFO )
+( For both Stack n Queues implementation, think what add or remove from 0th index)
 #### Easy
 1. Implement Stack
 2. Implement pop operation
@@ -170,7 +171,7 @@ For Doubly Linked Lists, the basic operations like push, pop, shift, unshift, ge
 *1. Implement multiple stacks in an array
 *2. Implement a stack that sorts itself
 
-### Queue
+### Queue ( FIFO )
 #### Easy
 1. Implement Queue
 2. Implement Enqueue
