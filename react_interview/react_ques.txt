@@ -93,6 +93,7 @@ REACT
     - useHistory => useNavigate 
     - Nested Routes -  all the routes which we r defining 
     - Outlet ( Shared Layout ) - all the defined routes , we r inheriting with using "Outlet".
+    - Redirect => Navigate
 
 1. **What is React Router?**
     - Explain what React Router is and why it's used in React applications.
@@ -128,12 +129,21 @@ REACT
 7. **What is `Switch` and why is it used?**
     - Discuss how `Switch` renders the first child `Route` that matches.
 
+    Ans: The Switch component is part of the React Router library and is used to render only the first child Route or Redirect that matches the current location.
+
 8. **How do you pass parameters to a route?**
     - Show how to define a route with parameters and how to access those parameters in the target component.
 
+    Ans: 
+        <Route path="/user/:id" component={UserProfile} />
+
+        import { useParams } from 'react-router-dom';
+        const { id } = useParams();
+
+
 ### Intermediate Questions
 
-9. **What are route guards and how would you implement them?**
+9. **What are route guards ( Protected Routes ) and how would you implement them?**
     - Discuss how to restrict access to certain routes based on some condition (like authentication).
 
 10. **What is `withRouter`, and when would you use it?**
@@ -144,6 +154,30 @@ REACT
 
 12. **What is lazy loading, and how can you implement it with React Router?**
     - Explain how to use React's `React.lazy()` and `Suspense` with React Router.
+
+    implementation: 
+    
+    import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+    import React, { Suspense } from 'react';
+
+    const Home = React.lazy(() => import('./routes/Home'));
+    const About = React.lazy(() => import('./routes/About'));
+
+    function App() {
+    return (
+        <Router>
+        <Suspense fallback={<div>Loading...</div>}>
+            <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            </Switch>
+        </Suspense>
+        </Router>
+    );
+    }
+
+    export default App;
+
 
 13. **What is `useHistory`, `useLocation`, `useParams`, and `useRouteMatch`?**
     - Explain these hooks and give examples of when to use them.

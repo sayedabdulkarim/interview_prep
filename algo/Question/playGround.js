@@ -1,114 +1,74 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
+function add(num) {
+  if (num == 1) return 1;
+
+  let lastNum = num;
+  num--;
+  return lastNum + add(num);
 }
 
-class Stack {
-  constructor(params) {
-    this.first = null;
-    this.last = null;
-    this.size = 0;
-  }
+// console.log(add(5));
 
-  push(value) {
-    const newNode = new Node(value);
-    if (!this.first) {
-      this.first = newNode;
-      this.last = newNode;
-    } else {
-      newNode.next = this.first;
-      this.first = newNode;
-    }
-    ++this.size;
-  }
+function addArr(arr) {
+  if (arr.length === 0) return 0;
 
-  pop() {
-    if (!this.first) return null;
-    else if (this.size === 1) {
-      this.first = null;
-      this.last = null;
-    } else {
-      this.first = this.first.next;
-    }
-    --this.size;
-  }
+  let lastIdx = arr[arr.length - 1];
+  arr.length = arr.length - 1;
+
+  return lastIdx + addArr(arr);
 }
 
-class QueueUsingStacks {
-  constructor() {
-    this.s1 = new Stack();
-    this.s2 = new Stack();
-  }
+// console.log(addArr([1, 2, 3]));
+function multi(num) {
+  if (num === 1) return 1;
 
-  // Enqueue operation
-  enqueue(value) {
-    this.s1.push(value);
-  }
+  let lastNum = num;
+  num--;
 
-  // Dequeue operation
-  dequeue() {
-    if (this.s2.isEmpty()) {
-      while (!this.s1.isEmpty()) {
-        this.s2.push(this.s1.pop());
-      }
-    }
-    return this.s2.pop();
-  }
-
-  // Peek operation (optional)
-  peek() {
-    if (this.s2.isEmpty()) {
-      while (!this.s1.isEmpty()) {
-        this.s2.push(this.s1.pop());
-      }
-    }
-    return this.s2.peek();
-  }
-
-  // Check if the queue is empty (optional)
-  isEmpty() {
-    return this.s1.isEmpty() && this.s2.isEmpty();
-  }
+  return lastNum * multi(num);
 }
 
-const stackOne = new Stack();
-stackOne.push(11);
-stackOne.push(22);
-stackOne.push(33);
-console.log(stackOne, " b44");
+// console.log(multi(5));
 
-stackOne.pop();
-console.log(stackOne, " afterr");
+function multiArr(arr) {
+  if (arr.length === 0) return 1;
 
-class Queue {
-  constructor(params) {
-    this.first = null;
-    this.last = null;
-    this.size = 0;
-  }
+  let lastIdx = arr[arr.length - 1];
+  console.log(lastIdx, "lll");
+  arr.length = arr.length - 1;
 
-  enqueue(value) {
-    const newNode = new Node(value);
-    if (!this.first) {
-      this.first = newNode;
-      this.last = newNode;
-    } else {
-      this.last.next = newNode;
-      this.last = newNode;
-    }
-    ++this.size;
-  }
-
-  dequeue() {
-    if (!this.first) return null;
-    else if (this.size === 1) {
-      this.first = null;
-      this.last = null;
-    } else {
-      this.first = this.first.next;
-    }
-    --this.size;
-  }
+  return lastIdx * multiArr(arr);
 }
+
+// console.log(multiArr([1, 2, 3, 6]));
+
+function rangeOfNums(start, end) {
+  if (end === start) return end;
+
+  let num = end;
+  end--;
+  // return [num].concat(rangeOfNums(start, end));
+  return num + rangeOfNums(start, end);
+}
+
+// console.log(rangeOfNums(2, 4));
+
+// function revStr(str) {
+//   str = [...str];
+
+//   if (str.length == 0) return "";
+
+//   let lastLetter = str[str.length - 1];
+//   str.length = str.length - 1;
+
+//   let res = [lastLetter].concat(revStr(str));
+//   return res.join("");
+// }
+
+function revStr(str) {
+  if (str.length == 0) return "";
+  let currentElem = str[str.length - 1];
+  str = str.slice(0, str.length - 1);
+  return currentElem + revStr(str);
+}
+
+console.log(revStr("hello"));
