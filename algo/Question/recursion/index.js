@@ -218,3 +218,49 @@ function fibonacci(n) {
   if (n === 1) return 1;
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
+
+function fibonacci(n) {
+  if (n <= 1) return n;
+
+  let a = 0,
+    b = 1;
+
+  for (let i = 2; i <= n; i++) {
+    let temp = a + b;
+    a = b;
+    b = temp;
+  }
+
+  return b;
+}
+
+console.log(fibonacci(5)); // 5 (because F(5) = 5)
+
+function countVowels(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+
+  for (let char of str.toLowerCase()) {
+    if (vowels.includes(char)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels("Hello, World!")); // Output: 3
+
+function countVowels(str) {
+  if (str.length == 0) return 0;
+  str = str.toLowerCase();
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+  let lastElem = str[str.length - 1];
+
+  if (vowels.includes(lastElem)) {
+    count++;
+  }
+  str = str.slice(0, str.length - 1);
+  return count + countVowels(str);
+}

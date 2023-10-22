@@ -1,75 +1,42 @@
-function add(num) {
-  if (num == 1) return 1;
-
-  let lastNum = num;
-  num--;
-  return lastNum + add(num);
+function fibonacci(n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-// console.log(add(5));
+// console.log(fibonacci(7));
 
-function addArr(arr) {
-  if (arr.length === 0) return 0;
+// 0, 1, 1, 2, 3, 5, 8, 13;
 
-  let lastIdx = arr[arr.length - 1];
-  arr.length = arr.length - 1;
+function countVowels(str) {
+  if (str.length == 0) return 0;
+  str = str.toLowerCase();
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+  let lastElem = str[str.length - 1];
 
-  return lastIdx + addArr(arr);
-}
-
-// console.log(addArr([1, 2, 3]));
-function multi(num) {
-  if (num === 1) return 1;
-
-  let lastNum = num;
-  num--;
-
-  return lastNum * multi(num);
-}
-
-// console.log(multi(5));
-
-function multiArr(arr) {
-  if (arr.length === 0) return 1;
-
-  let lastIdx = arr[arr.length - 1];
-  console.log(lastIdx, "lll");
-  arr.length = arr.length - 1;
-
-  return lastIdx * multiArr(arr);
-}
-
-// console.log(multiArr([1, 2, 3, 6]));
-
-function rangeOfNums(start, end) {
-  if (end === start) return end;
-
-  let num = end;
-  end--;
-  // return [num].concat(rangeOfNums(start, end));
-  return num + rangeOfNums(start, end);
-}
-
-// console.log(rangeOfNums(2, 4));
-
-// function revStr(str) {
-//   str = [...str];
-
-//   if (str.length == 0) return "";
-
-//   let lastLetter = str[str.length - 1];
-//   str.length = str.length - 1;
-
-//   let res = [lastLetter].concat(revStr(str));
-//   return res.join("");
-// }
-function revStr(str) {
-  if (str.length === 0) return "";
-
-  let lastLetter = str[str.length - 1];
+  if (vowels.includes(lastElem)) {
+    count++;
+  }
   str = str.slice(0, str.length - 1);
-
-  return lastLetter + revStr(str);
+  return count + countVowels(str);
 }
 
-console.log(revStr("hello"));
+// function countVowels(str) {
+//   if (str.length == 0) return 0; // Base case: return 0 when string is empty
+//   str = str.toLowerCase();
+//   const vowels = ["a", "e", "i", "o", "u"];
+//   let count = 0;
+//   let lastElem = str[str.length - 1];
+
+//   if (vowels.includes(lastElem)) {
+//     count++;
+//   }
+
+//   // Accumulate counts by adding the current count to the recursive call's result
+//   return count + countVowels(str.slice(0, str.length - 1));
+// }
+
+console.log(countVowels("Hello, World!")); // Output: 3
+
+// console.log(countVowels("Hello, World!")); // Output: 3
