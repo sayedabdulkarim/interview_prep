@@ -63,12 +63,13 @@ function rangeOfNums(start, end) {
 //   let res = [lastLetter].concat(revStr(str));
 //   return res.join("");
 // }
-
 function revStr(str) {
-  if (str.length == 0) return "";
-  let currentElem = str[str.length - 1];
+  if (str.length === 0) return "";
+
+  let lastLetter = str[str.length - 1];
   str = str.slice(0, str.length - 1);
-  return currentElem + revStr(str);
+
+  return lastLetter + revStr(str);
 }
 
 console.log(revStr("hello"));
