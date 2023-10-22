@@ -50,7 +50,7 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 TodoList with Web component
 
 
-//////
+//////MOCK 
 https://www.youtube.com/@Learnersbucket/playlists
-
 https://www.youtube.com/watch?v=CPXf8Yv3I0A&list=PL8p2I9GklV45z6Cov4omIOsbptPR1kxpg
+https://www.youtube.com/watch?v=FjnHF3CXEaM&ab_channel=RohanPrasad
