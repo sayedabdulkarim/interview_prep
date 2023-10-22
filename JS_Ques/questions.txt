@@ -1,14 +1,29 @@
 Important list of questions to prepare for JavaScript interviews.
 
 🔍 What is event delegation, and how does it function in JavaScript?
+    
+    - In JS Event delegation is a technique in JavaScript for handling events efficiently by taking advantage of the event bubbling mechanism. Instead of assigning event listeners directly to individual elements, you attach a single event listener to a common parent of those elements. Then, when the event occurs on any of the child elements, the event bubbles up to the parent, where it's handled.
+    
+    - In React implements its own event system called the synthetic event system. When you attach an event handler in a React component, you're actually attaching it to a virtual representation of the DOM element, not the real DOM element itself. React wraps native browser events into instances of synthetic events to ensure events have consistent properties and behaviors across different browsers.
+
+
 🔍 Can you provide an illustration of how ES6 has altered the approach to working with "this" in JavaScript?
+    - https://www.youtube.com/watch?v=rv7Q11KWmKU&ab_channel=RoadsideCoder
+
 🔍 Explain the concept of prototypal inheritance.
+
 🔍 Differentiate between a variable that is null, undefined, or undeclared.
+
 🔍 Define what a closure is and describe its uses and advantages.
+
 🔍 Explain the primary distinction between the Array.forEach() loop and Array.map() method, as well as when to choose one over the other.
+
 🔍 What is a common scenario for employing anonymous functions?
+
 🔍 Distinguish between host objects and native objects.
-🔍Clarify the distinctions among 'function User(){}', 'var user = User()', and 'var user = new User()
+
+🔍 Clarify the distinctions among 'function User(){}', 'var user = User()', and 'var user = new User()
+
 🔍 Can you elucidate the purposes of Function.call and Function.apply, along with their notable differences?
 🔍 Describe the Function.prototype.bind method.
 🔍 Explain the differences between feature detection, feature inference, and utilizing the User Agent (UA) string.
