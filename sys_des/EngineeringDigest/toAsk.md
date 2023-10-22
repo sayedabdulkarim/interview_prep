@@ -9,3 +9,6 @@ Read Lock: Multiple operations can read the data simultaneously but cannot write
 Write Lock: A write operation obtains a lock that prevents any other read or write operations until it releases the lock.
 
 Ques: how to implement read or write lock in othersystem without caling ny api ??
+
+///
+while answering system design interviews do we need to know all the concepts whatever we r delivering ?????

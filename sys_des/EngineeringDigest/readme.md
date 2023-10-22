@@ -99,6 +99,40 @@ In the diagram, Each "Service" is an independently deployable unit centered arou
   - Security: As there are different nodes ( server ), which needs to secure independently. Hence it will need additional time and resources.
   - Cost: The overhead of managing a distributed system, both in terms of hardware and human resources, can be significantly higher than that of a centralized system.
 
+# Horizonal Vs Vertical Scaling
+
+==================================
+
+- Horizontal Scaling (Scale Out/In):
+
+  - Involves adding more nodes (machines/servers) to the system.
+  - Aims to distribute the load across multiple servers.
+  - Common in distributed systems like Cassandra, MongoDB, etc.
+    - Examples:
+      If a database is struggling to manage the volume of requests on a single server, adding more servers and distributing the database (like sharding) is horizontal scaling.
+      In cloud environments, spawning new instances to handle increased traffic is horizontal scaling.
+
+- Vertical Scaling (Scale Up/Down):
+
+  - Involves adding more resources (CPU, RAM, storage) to an existing node.
+  - Does not add more machines, but rather upgrades the existing one.
+  - Has an upper limit based on the hardware capabilities of the machine.
+    - Examples:
+      If a server runs out of RAM, adding more RAM to that server is vertical scaling.
+      Upgrading a server's CPU to a faster one is also vertical scaling.
+
+- Considerations:
+
+  - Horizontal Scaling:
+
+  Pros: Can provide high availability, can often scale more extensively since you can keep adding nodes, can improve redundancy and fault tolerance.
+  Cons: Complexity can increase, especially for databases where data needs to be consistent across nodes. Can require more sophisticated load balancing.
+
+  - Vertical Scaling:
+
+  Pros: Often simpler than horizontal scaling since there's no distribution of data or load.
+  Cons: Has an upper limit, potential single point of failure, downtime might be needed to scale, can become expensive as high-end hardware is required.
+
 # Different types of distributed system architecture.
 
 ====================================================
