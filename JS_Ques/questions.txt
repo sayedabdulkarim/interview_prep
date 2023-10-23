@@ -97,9 +97,12 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Enumerate the benefits and drawbacks of immutability and explain how you can achieve it in your code.
 
 🔍 Differentiate between synchronous and asynchronous functions and elucidate the event loop.
+
 🔍 Explain the disparities between variables created using let, var, or const.
+
 🔍 Compare ES6 classes and ES5 function constructors, and furnish a use case for the arrow (=>) function syntax.
 🔍 Describe the advantages of using the arrow syntax for methods in constructors.
+
 🔍 Define a higher-order function and provide an example of object or array destructuring.
 🔍 Give an example of generating a string using ES6 Template Literals and explain their benefits.
 🔍 Provide an example of a curry function and clarify why this syntax can be advantageous.
