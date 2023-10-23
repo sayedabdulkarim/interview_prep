@@ -500,3 +500,7 @@ The type of graph used can impact the system's performance, fault tolerance, and
       - **CP (Consistent and Partition-tolerant)**: These systems prioritize consistency and partition tolerance over availability. They ensure data consistency across all nodes, even during network partitions, but may become unavailable during such events.
 
       -**AP (Available and Partition-tolerant)**: These systems prioritize availability and partition tolerance over consistency. They ensure the system remains available during network partitions, but the data may become inconsistent across nodes.
+
+9 - Lamport Logical Clock ?
+
+    A Lamport clock is a way to order events in a distributed system. It was introduced by computer scientist Leslie Lamport in 1978. The main idea behind Lamport clocks is to provide a partial ordering of events in a distributed system to help with tasks like debugging and ensuring the consistency of distributed data.
