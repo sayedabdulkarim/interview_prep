@@ -25,8 +25,46 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Clarify the distinctions among 'function User(){}', 'var user = User()', and 'var user = new User()
 
 🔍 Can you elucidate the purposes of Function.call and Function.apply, along with their notable differences?
+
 🔍 Describe the Function.prototype.bind method.
+
+    function greet() {
+        console.log("Hello, " + this.name);
+    }
+
+    let person = {name: "Alice"};
+    let boundGreet = greet.bind(person);
+
+    boundGreet();  // Output: "Hello, Alice"
+
+
 🔍 Explain the differences between feature detection, feature inference, and utilizing the User Agent (UA) string.
+
+    1. Feature Detection:
+        What it is: Feature detection involves checking directly whether a specific feature or method is supported in the browser/runtime environment.
+
+        if ('querySelector' in document) {
+            document.querySelector("#id");
+        } else {
+            document.getElementById("id");
+        }
+
+    2. Feature Inference:
+        What it is: Feature inference is about making an assumption that if one feature exists, another related feature probably exists too.    
+
+        if (document.querySelector) {
+            // If querySelector exists, then probably querySelectorAll also exists
+            var elements = document.querySelectorAll(".class");
+        }
+
+    3 - 3. Using the User Agent (UA) String:
+        What it is: The User Agent string is a text identifier sent with the HTTP headers that provides information about the browser, its version, and the operating system.
+
+        if (navigator.userAgent.indexOf("MSIE") !== -1) {
+            // Code specific to Internet Explorer
+        }
+
+
 🔍 Define the concept of "hoisting."
     - Its a way of moving variables and function to the top of the scope, so the compiler can understand properly like they belong.
     But ther is a caveat like the hoisting behaves differently for var, let n const.
@@ -37,16 +75,27 @@ Important list of questions to prepare for JavaScript interviews.
     we get a reference error .
 
 🔍 What is type coercion, and what are some common pitfalls associated with relying on it in JavaScript code?
+
 🔍 Describe event bubbling and event capturing.
+
 🔍 What distinguishes an "attribute" from a "property"?
+
 🔍 List the advantages and disadvantages of extending built-in JavaScript objects.
+
 🔍 Explain the differences between == and ===.
+
 🔍 Discuss the same-origin policy's implications for JavaScript.
+
 🔍 Why is it referred to as a "Ternary operator," and what does the term "Ternary" signify?
+
 🔍 Define strict mode and outline some of its advantages and disadvantages.
+
 🔍 Analyze the pros and cons of writing JavaScript code in a language that compiles to JavaScript.
+
 🔍 What tools and techniques do you employ for debugging JavaScript code?
+
 🔍 Enumerate the benefits and drawbacks of immutability and explain how you can achieve it in your code.
+
 🔍 Differentiate between synchronous and asynchronous functions and elucidate the event loop.
 🔍 Explain the disparities between variables created using let, var, or const.
 🔍 Compare ES6 classes and ES5 function constructors, and furnish a use case for the arrow (=>) function syntax.
@@ -69,3 +118,4 @@ Important list of questions to prepare for JavaScript interviews.
 https://www.youtube.com/@Learnersbucket/playlists
 https://www.youtube.com/watch?v=CPXf8Yv3I0A&list=PL8p2I9GklV45z6Cov4omIOsbptPR1kxpg
 https://www.youtube.com/watch?v=FjnHF3CXEaM&ab_channel=RohanPrasad
+https://www.youtube.com/watch?v=msWLFE5K1sQ&list=PLNYURJT_hZOlW-ZV1osN3fHJDYiK-Jx8A&ab_channel=CodingScenes

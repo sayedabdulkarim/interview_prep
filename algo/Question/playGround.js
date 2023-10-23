@@ -1,2 +1,5 @@
-var obj = new Object({ name: "sdfg" });
-console.log(obj.name);
+"use strict";
+
+const a = 10;
+
+console.log(a);
