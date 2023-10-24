@@ -194,7 +194,14 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 
 
 
-🔍 Explore how Object-Oriented Programming (OOP) principles can be applied when coding in JavaScript.
+🔍 How JavaScript Works - ( https://www.youtube.com/watch?v=VaBP6_pBOgM&t=41s&ab_channel=ThapaTechnical )
+
+     - js 
+            => parser ( checkig everylines, and if ny issue, stop there and throws the error, otherwise  if everything goes well move to AST ) 
+                => AST ( Abstract Syntax Tree )
+                    => Conversion to machine code 
+                        => code runs  
+
 🔍 Web Components ( https://www.youtube.com/watch?v=STZA_qtm1XU&list=PLEtjGa9VEukPRU9N_qHL-OAq5PZGVunNB&index=6&ab_channel=AnujSingla )
 🔍 shadow DOM
 🔍 create slots in DOM ( reusable component like react )
