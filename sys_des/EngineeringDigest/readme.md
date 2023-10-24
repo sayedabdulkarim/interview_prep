@@ -431,7 +431,7 @@ The type of graph used can impact the system's performance, fault tolerance, and
 
       Both replication and redundancy are strategies to improve availability, but they work in slightly different ways:
 
-      - Replication
+      - Replication ( means redundanct + synchronizaton )
 
         - What: Replication involves making multiple copies of data or services and distributing them across different parts of a system or different geographical locations.
         - Why: The goal is to serve user requests more efficiently and to ensure availability even if one or more instances fail.
