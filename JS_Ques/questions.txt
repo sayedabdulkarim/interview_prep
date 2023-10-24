@@ -145,6 +145,55 @@ Important list of questions to prepare for JavaScript interviews.
 
 🔍 Define what a promise is and describe its applications. ( https://www.youtube.com/watch?v=59PZr-2Mi90&ab_channel=RethinkingUI )
 
+
+🔍 Define request lifecycle of a web server ??
+
+    Certainly! Here's a simplified ASCII diagram illustrating the basic request lifecycle of a web server:
+
+```
+Client (e.g., Web Browser)              Web Server (e.g., Node.js, Apache, Nginx)
+
+  |              HTTP Request               |
+  | --------------------------------------> |
+  |                                          |
+  |          Routing and Middleware          |
+  | --------------------------------------> |
+  |                                          |
+  |        Request Handling (Controller)     |
+  | --------------------------------------> |
+  |                                          |
+  |           Response Generation            |
+  | <-------------------------------------- |
+  |                                          |
+  |          Sending HTTP Response           |
+  | <-------------------------------------- |
+  |                                          |
+  |        Client Processing (Browser)       |
+  |                                          |
+  |               Request Lifecycle Complete |
+  |                                          |
+```
+
+Explanation:
+
+- The process begins when the client (e.g., a web browser) sends an HTTP request to the web server.
+
+- The web server's routing system determines how to handle the request, including which part of the application should process it. Middleware functions may also run at this stage.
+
+- The main request handler, often referred to as a controller in web frameworks, processes the request. This step may involve accessing databases, executing business logic, or performing other tasks to generate a response.
+
+- The server generates an HTTP response, which includes the requested content, status codes, headers, and any necessary data. This response can be in various formats (e.g., HTML, JSON).
+
+- The server sends the response back to the client over the network.
+
+- The client (web browser) receives the response and processes it, rendering HTML content, executing JavaScript, and handling additional resources.
+
+- The request lifecycle is considered complete when the client has fully processed the response. Depending on the client's behavior, additional actions may follow, such as user interactions or making subsequent requests.
+
+This diagram provides a high-level overview of the request lifecycle, illustrating the flow of data and interactions between the client and the web server during the request and response process.
+
+
+
 🔍 Explore how Object-Oriented Programming (OOP) principles can be applied when coding in JavaScript.
 🔍 Web Components ( https://www.youtube.com/watch?v=STZA_qtm1XU&list=PLEtjGa9VEukPRU9N_qHL-OAq5PZGVunNB&index=6&ab_channel=AnujSingla )
 🔍 shadow DOM
