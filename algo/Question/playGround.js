@@ -1,28 +1,52 @@
-function isValidParntheses(str) {
-  const stack = [];
+function removeDup(arr) {
+  if (!arr.length) return [];
+  let count = 0;
 
-  const map = {
-    "{": "}",
-    "[": "]",
-    "(": ")",
-  };
-
-  for (let i = 0; i < str.length; i++) {
-    if (Object.keys(map).includes(str[i])) {
-      stack.push(str[i]);
-    } else {
-      const poppedNode = stack.pop();
-      if (map[poppedNode] !== str[i]) {
-        return false;
-      }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[count] !== arr[i]) {
+      count++;
+      arr[count] = arr[i];
     }
   }
 
-  return stack.length === 0;
+  arr.length = count + 1;
+  return arr;
 }
 
-console.log(isValidParntheses("()")); // Output: true
-console.log(isValidParntheses("{[]}")); // Output: true
-console.log(isValidParntheses("(]")); // Output: false
-console.log(isValidParntheses("([)]")); // Output: false
-console.log(isValidParntheses("([)]{}}{")); // Output: false
+// console.log(removeDup([2, 4, 3, 1, 2, 3]));
+
+function twoSum(arr, k) {
+  if (!arr.length) return null;
+  const obj = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const temp = k - arr[i];
+    if (obj[temp] !== undefined) {
+      return [i, obj[temp]];
+    }
+
+    obj[arr[i]] = i;
+  }
+}
+
+// console.log(twoSum([1, 1, 2, 2, 3, 4, 5, 5], 2));
+
+function twoSumSorted(arr, k) {
+  if (!arr.length) return null;
+
+  let left = 0;
+  let right = arr.length;
+
+  while (left < right) {
+    let sum = arr[left] + arr[right];
+
+    if (sum === k) {
+      return [left, right];
+    } else if (sum < k) {
+      left++;
+    } else right--;
+  }
+  return null;
+}
+
+console.log(twoSumSorted([1, 1, 2, 2, 3, 4, 5, 5], 2));
