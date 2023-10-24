@@ -1,14 +1,28 @@
-function currying(...args) {
-  const add = (...newArgs) => {
-    if (newArgs.length === 0) {
-      return args.reduce((a, b) => a + b, 0);
-    } else {
-      return currying(...args, ...newArgs);
-    }
+function isValidParntheses(str) {
+  const stack = [];
+
+  const map = {
+    "{": "}",
+    "[": "]",
+    "(": ")",
   };
 
-  return add;
+  for (let i = 0; i < str.length; i++) {
+    if (Object.keys(map).includes(str[i])) {
+      stack.push(str[i]);
+    } else {
+      const poppedNode = stack.pop();
+      if (map[poppedNode] !== str[i]) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length === 0;
 }
 
-const result = currying(4)(5)(6)(7)();
-console.log(result); // Output: 22
+console.log(isValidParntheses("()")); // Output: true
+console.log(isValidParntheses("{[]}")); // Output: true
+console.log(isValidParntheses("(]")); // Output: false
+console.log(isValidParntheses("([)]")); // Output: false
+console.log(isValidParntheses("([)]{}}{")); // Output: false
