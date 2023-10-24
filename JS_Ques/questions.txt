@@ -104,11 +104,47 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Describe the advantages of using the arrow syntax for methods in constructors.
 
 🔍 Define a higher-order function and provide an example of object or array destructuring.
+
 🔍 Give an example of generating a string using ES6 Template Literals and explain their benefits.
+
 🔍 Provide an example of a curry function and clarify why this syntax can be advantageous.
+
+        function currying(...args) {
+            const add = (...newArgs) => {
+                if (newArgs.length === 0) {
+                    return args.reduce((a, b) => a + b, 0);
+                } else {
+                    return currying(...args, ...newArgs);
+                }
+            };
+
+            return add;
+        }
+
+        const result = currying(4)(5)(6)(7)();
+        console.log(result); // Output: 22
+
+
 🔍 Discuss the benefits of using spread syntax and differentiate it from rest syntax.
+    - Spread ( cloning )
+        const originalArray = [1, 2, 3];
+        const copyArray = [...originalArray];
+
+    - Rest
+
+        //Collecting Remaining Arguments: 
+        - function sum(...args) {
+            return args.reduce((total, num) => total + num, 0);
+          }
+
+        //Collecting Remaining Array Elements: 
+        - const [first, second, ...rest] = [1, 2, 3, 4, 5];
+
+
 🔍 Explain how code sharing between files can be accomplished.
-🔍 Define what a promise is and describe its applications.
+
+🔍 Define what a promise is and describe its applications. ( https://www.youtube.com/watch?v=59PZr-2Mi90&ab_channel=RethinkingUI )
+
 🔍 Explore how Object-Oriented Programming (OOP) principles can be applied when coding in JavaScript.
 🔍 Web Components ( https://www.youtube.com/watch?v=STZA_qtm1XU&list=PLEtjGa9VEukPRU9N_qHL-OAq5PZGVunNB&index=6&ab_channel=AnujSingla )
 🔍 shadow DOM
