@@ -92,10 +92,10 @@ LinkedList:
 - **Delete**: Delete an element at a specific index.
 - add cycle
 - **Cycle Detection**: Determine if the linked list has a cycle.
+- **Reverse**: Reverse the list.
 
 #### Medium
 
-- **Reverse**: Reverse the list.
 - **Find Kth From Back**: Find the Kth node from the end.
 - **Find Middle Node**: Find the middle node of the linked list.
 *- **Remove Duplicates**: Remove duplicate elements from the list.

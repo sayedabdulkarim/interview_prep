@@ -1,112 +1,117 @@
-function removeDup(arr) {
-  if (!arr.length) return [];
-  let count = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[count] !== arr[i]) {
-      count++;
-      arr[count] = arr[i];
-    }
-  }
-
-  arr.length = count + 1;
-  return arr;
-}
-
-// console.log(removeDup([2, 4, 3, 1, 2, 3]));
-
-function twoSum(arr, k) {
-  if (!arr.length) return null;
-  const obj = {};
-
-  for (let i = 0; i < arr.length; i++) {
-    const temp = k - arr[i];
-    if (obj[temp] !== undefined) {
-      return [i, obj[temp]];
-    }
-
-    obj[arr[i]] = i;
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.prev = null;
+    this.next = null;
   }
 }
 
-// console.log(twoSum([1, 1, 2, 2, 3, 4, 5, 5], 2));
-
-function twoSumSorted(arr, k) {
-  if (!arr.length) return null;
-
-  let left = 0;
-  let right = arr.length;
-
-  while (left < right) {
-    let sum = arr[left] + arr[right];
-
-    if (sum === k) {
-      return [left, right];
-    } else if (sum < k) {
-      left++;
-    } else right--;
-  }
-  return null;
-}
-
-// console.log(twoSumSorted([1, 1, 2, 2, 3, 4, 5, 5], 2));
-
-function maxSubArr(arr) {
-  if (!arr.length) return [];
-
-  let maxCurrent = arr[0];
-  let maxGlobal = arr[0];
-
-  for (let i = 1; i < arr.length; i++) {
-    maxCurrent = Math.max(arr[i], maxCurrent + arr[i]);
-    if (maxCurrent > maxGlobal) {
-      maxGlobal = maxCurrent;
-    }
-  }
-  return maxGlobal;
-}
-
-// console.log(maxSubArr([1, 1, 2, 2, 3, 4, 5, 5]));
-
-function reversedStr(str) {
-  str = [...str];
-
-  for (let i = 0; i < Math.round(str.length / 2); i++) {
-    [str[i], str[str.length - i - 1]] = [str[str.length - i - 1], str[i]];
+class DoubleLinked {
+  constructor(params) {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
   }
 
-  return str.join("");
-}
-
-// console.log(reversedStr("qwerty"));
-
-function isValidParntheses(str) {
-  if (!str.length) return null;
-
-  const map = {
-    "{": "}",
-    "[": "]",
-    "(": ")",
-  };
-
-  const stack = [];
-
-  for (i of str) {
-    if (Object.keys(map).includes(i)) {
-      stack.push(i);
+  push(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
     } else {
-      let popped = stack.pop();
-      if (map[popped] !== i) {
-        return false;
+      newNode.prev = this.head;
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    ++this.length;
+  }
+
+  traverse(idx) {
+    if (!this.head || idx < 0 || idx > this.length) return null;
+
+    let currentNode = this.head;
+
+    for (let i = 0; i < idx; i++) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
+
+  pop() {
+    if (!this.head) return null;
+    else if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      const secondLastNode = this.tail.prev;
+      secondLastNode.next = null;
+      this.tail = secondLastNode;
+    }
+    --this.length;
+  }
+
+  shift() {
+    if (!this.head) return null;
+    else if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      const secondNode = this.head.next;
+      secondNode.prev = null;
+      this.head = secondNode;
+    }
+    --this.length;
+  }
+
+  unshift(value) {
+    const newNode = new Node(value);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.head.prev = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    ++this.length;
+  }
+
+  addCycle(idx) {
+    const getNode = this.traverse(idx);
+
+    if (!getNode) return null;
+    else {
+      this.tail.next = getNode;
+      ++this.length;
+    }
+  }
+
+  hasCycle() {
+    if (!this.head) return null;
+
+    let tortoise = this.head;
+    let hare = this.head;
+
+    while (hare !== null && hare.next !== null) {
+      tortoise = tortoise.next;
+      hare = hare.next.next;
+
+      if (tortoise === hare) {
+        return true;
       }
     }
+    return false;
   }
-
-  return stack.length === 0;
 }
 
-console.log(isValidParntheses("()")); // Output: true
-console.log(isValidParntheses("{[]}")); // Output: true
-console.log(isValidParntheses("(]")); // Output: false
-console.log(isValidParntheses("([)]")); // Output: false
-console.log(isValidParntheses("([)]{}}{")); // Output: false
+const double = new DoubleLinked();
+double.push(11);
+double.push(22);
+double.push(33);
+
+console.log(double);
+
+// double.addCycle(1);
+
+console.log(double.hasCycle(), " affffff");
