@@ -1,14 +1,9 @@
 import React from "react";
 import { useInput } from "./components/useInput";
-// import useInput from "./components/useInput";
 
 const App = () => {
-  const {
-    value: userName,
-    handleChange: handleUserName,
-    handleReset: resetUserName,
-  } = useInput("");
-  const { userEmail, handleUserEmail, resetUserEmail } = useInput("");
+  const [userName, handleUserName, resetUserName] = useInput("");
+  const [userEmail, handleUserEmail, resetUserEmail] = useInput("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,25 +17,24 @@ const App = () => {
     <form onSubmit={handleSubmit}>
       <input
         type={"text"}
-        placeholder={"Enter Name "}
-        value={userName}
+        placeholder={"Enter Name"}
         onChange={handleUserName}
+        value={userName}
       />
-
+      <button type={"button"} onClick={resetUserName}>
+        Reset Name
+      </button>
       <input
-        type={"text"}
-        placeholder={"Enter Email "}
-        value={userEmail}
+        type={"email"}
+        placeholder={"Enter Email"}
         onChange={handleUserEmail}
+        value={userEmail}
       />
+      <button type={"button"} onClick={resetUserEmail}>
+        Reset Name
+      </button>
 
       <button type={"submit"}>Submit</button>
-      <button type={"button"} onClick={resetUserName}>
-        reset Name
-      </button>
-      <button type={"button"} onClick={resetUserEmail}>
-        reset email
-      </button>
     </form>
   );
 };

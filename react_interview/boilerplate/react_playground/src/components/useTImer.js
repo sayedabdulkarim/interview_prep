@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 
-export const useTimer = (initialSeconds = 0, initialMinutes = 1) => {
+export const useCountdownTimer = (initialSeconds = 0, initialMinutes = 1) => {
   const [seconds, setSeconds] = useState(initialSeconds);
   const [minutes, setMinutes] = useState(initialMinutes);
 
   const handleTimer = () => {
     const timer = setInterval(() => {
-      //
       if (seconds > 0) {
         setSeconds((prev) => prev - 1);
       }
@@ -19,14 +18,20 @@ export const useTimer = (initialSeconds = 0, initialMinutes = 1) => {
         }
       }
     }, 1000);
+
     return timer;
   };
 
   useEffect(() => {
     const timer = handleTimer();
+
     return () => clearInterval(timer);
   });
 
-  // return { seconds, minutes };
+  // return {
+  //   seconds,
+  //   minutes,
+  // };
+
   return [seconds, minutes];
 };
