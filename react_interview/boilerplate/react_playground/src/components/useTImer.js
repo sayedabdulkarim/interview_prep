@@ -27,5 +27,6 @@ export const useTimer = (initialSeconds = 0, initialMinutes = 1) => {
     return () => clearInterval(timer);
   });
 
-  return { seconds, minutes };
+  // return { seconds, minutes };
+  return [seconds, minutes];
 };
