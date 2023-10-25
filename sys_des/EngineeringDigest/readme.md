@@ -504,3 +504,65 @@ The type of graph used can impact the system's performance, fault tolerance, and
 9 - Lamport Logical Clock ?
 
     A Lamport clock is a way to order events in a distributed system. It was introduced by computer scientist Leslie Lamport in 1978. The main idea behind Lamport clocks is to provide a partial ordering of events in a distributed system to help with tasks like debugging and ensuring the consistency of distributed data.
+
+10 - Load Balancer
+
+    Defn :
+
+    Its primary purpose is to evenly distribute incoming network traffic, such as web requests or application traffic, across multiple servers or resources. This distribution ensures that no single server or resource is overwhelmed with too much traffic, thus optimizing performance, availability, and reliability.
+
+    OR
+
+    Load Balancing is the process of efficient distribution of network traffic across all nodes in a distributed system.
+
+        Diag:
+
+        Client
+          |
+          |
+          V
+        Load Balancer (VIP)
+          |
+          |  (Balancing Algorithm)
+          |       |
+          |       V
+        Server 1 <--> Server 2
+
+      Steps:
+
+        - The "Load Balancer" is associated with a Virtual IP (VIP), which is essentially a single IP address or DNS hostname.
+        - Clients send their requests to this VIP ( Load Balancer ).
+        - The load balancer uses its balancing algorithm to route incoming requests to one of the backend servers, such as "Server 1" or "Server 2."
+        - The VIP abstracts the actual server addresses from clients, ensuring that clients don't need to know the specific IP addresses of individual servers.
+        - The VIP also allows for flexibility in managing the backend server pool. New servers can be added or removed without changing the VIP that clients connect to, which simplifies scalability and maintenance.
+
+
+
+    Here's how a load balancer works or Roles of Load Balancer:
+
+    - Traffic Distribution: When a client, such as a web browser, sends a request to access a website or application, the request is received by a load balancer. The load  balancer acts as a traffic cop, deciding which server or resource should handle the request.
+
+    - Health Checks: Load balancers continuously monitor the health and availability of the servers in the pool. If a server becomes unresponsive or fails a health check, the load balancer stops sending traffic to it, ensuring that only healthy servers handle requests.
+
+    - Load Balancer ensures high scalability, high throughput and high availability.
+
+    - Server Pool: Load balancers manage a pool of servers or resources, often referred to as a server farm or server cluster. These servers host the same application or website, which means that they can handle the same requests.
+
+    - Load Balancing Algorithms: Load balancers use various load balancing algorithms to determine how to distribute incoming traffic. Common algorithms include:
+
+      -  Round Robin: Requests are distributed in a cyclic order to each server in the pool.
+      -  Least Connections: Traffic is sent to the server with the fewest active connections.
+      -  Weighted Round Robin/Least Connections: Assigning weights to servers based on their capacity, allowing some servers to receive more traffic than others.
+      -  IP Hash: Using the client's IP address to consistently direct requests to the same server (useful for maintaining session state).
+
+    - Load Balancing Issues or Challenges
+      ===================================
+        - Single Point of Failure. To solve this issue we can use Redundancy. The system can have "active" load balancer and "one passive" load balance.
+
+    - Advantages
+      ==========
+        - Optimisation: Load Balancer helps in resource utilisation and lower response time, thereby optimising the system in a high traffic environment.
+        - Better User Experience: It helps in reducing latency and increasing availability.
+        - Prevents Downtime ,
+          - Downtime refers to the period during which a system, service, application, or equipment is unavailable or not functioning as expected. It is a measure of the time when a system or service is not operational, often due to planned maintenance, unplanned outages, hardware or software failures, or other issues.
+        - uses its balancing algorithm to route incoming requests to one of the backend servers, such as "Server 1" or "Server 2."
