@@ -1,5 +1,6 @@
 import { Component, useState } from "react";
 
+//error Boundary
 class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
@@ -8,64 +9,48 @@ class ErrorBoundary extends Component {
     };
   }
 
-  static getDerivedStateFromError(error) {
-    if (error) {
-      return { hasError: true };
-    }
+  componentDidCatch(err) {
+    console.log(err);
   }
 
-  // static getDerivedStateFromError(error) {
-  //   if (error) {
-  //     return { hasError: true };
-  //   }
-  // }
-
-  componentDidCatch(error, info) {
-    console.log({
-      error,
-      info,
-    });
+  static GetDerivedStateFromError(err) {
+    return { hasError: true };
   }
 
   render() {
-    return this.state.hasError ? (
-      <h1>Something went wrong.</h1>
-    ) : (
-      this.props.children
+    return (
+      <>
+        {this.state.err ? <h1>Something went wrong.</h1> : this.props.children}
+      </>
     );
   }
-
-  // render() {
-  //   if (this.state.hasError) {
-  //     return <h1>Something went wrong.</h1>;
-  //   }
-
-  //   return this.props.children;
-  // }
 }
 
-function ButtonComp() {
-  const [createError, setCreateError] = useState(false);
+//component
+const ButtonThatBreaks = () => {
+  const [isError, setIsError] = useState(false);
 
-  if (createError) {
-    throw new Error("I brokeeee");
+  if (isError) {
+    throw new Error("errrorrrrrrrrrrrrrrrrrrrrrrrrr");
   }
 
   return (
-    <div>
-      <h1>Button Component</h1>
-      <button onClick={() => setCreateError(true)}>createError</button>
-    </div>
+    <>
+      <h1>Error Component</h1>
+      <button onClick={() => setIsError(true)}>Throw Error</button>
+    </>
   );
-}
+};
 
-export default function App() {
+const App = () => {
   return (
     <div>
-      <h1>Hellllo APPPP</h1>
+      <h1>Hello</h1>
       <ErrorBoundary>
-        <ButtonComp />
+        <ButtonThatBreaks />
       </ErrorBoundary>
     </div>
   );
-}
+};
+
+export default App;
