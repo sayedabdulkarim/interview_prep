@@ -1,8 +1,27 @@
 import { useEffect, useState } from "react";
 
-export const useCountdownTimer = (initialSeconds = 0, initialMinutes = 1) => {
+export const useTimer = (initialSeconds = 0, initialMinutes = 0) => {
+  //
   const [seconds, setSeconds] = useState(initialSeconds);
   const [minutes, setMinutes] = useState(initialMinutes);
+
+  //
+  // const handleTimer = setInterval(() => {
+  //   const timer = () => {
+  //     if (seconds > 0) {
+  //       setSeconds((prev) => prev - 1);
+  //     }
+  //     if (seconds === 0) {
+  //       if (minutes === 0) {
+  //         clearInterval(timer);
+  //       } else {
+  //         setSeconds(59);
+  //         setMinutes((prev) => prev - 1);
+  //       }
+  //     }
+  //   };
+  //   return timer;
+  // }, 1000);
 
   const handleTimer = () => {
     const timer = setInterval(() => {
@@ -13,8 +32,8 @@ export const useCountdownTimer = (initialSeconds = 0, initialMinutes = 1) => {
         if (minutes === 0) {
           clearInterval(timer);
         } else {
-          setMinutes((prev) => prev - 1);
           setSeconds(59);
+          setMinutes((prev) => prev - 1);
         }
       }
     }, 1000);
@@ -22,16 +41,12 @@ export const useCountdownTimer = (initialSeconds = 0, initialMinutes = 1) => {
     return timer;
   };
 
+  //
   useEffect(() => {
     const timer = handleTimer();
 
     return () => clearInterval(timer);
   });
-
-  // return {
-  //   seconds,
-  //   minutes,
-  // };
 
   return [seconds, minutes];
 };

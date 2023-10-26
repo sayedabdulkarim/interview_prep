@@ -1,10 +1,11 @@
 import React from "react";
-import ErrorComponent from "./components/ErrorBoundaries";
+
+import ErrorCheck from "./components/ErrorBoundaries";
 
 const App = () => {
   return (
     <div>
-      <ErrorComponent />
+      <ErrorCheck />
     </div>
   );
 };

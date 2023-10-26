@@ -1,54 +1,53 @@
-import { Component, useState } from "react";
+import React, { Component, useState } from "react";
 
-//error Boundary
-class ErrorBoundary extends Component {
+class ErrorBoundaries extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       hasError: false,
     };
   }
 
   componentDidCatch(err) {
-    console.log(err);
+    console.log("Something went wrong.");
   }
 
-  static GetDerivedStateFromError(err) {
+  getDerivedStateFromError(err) {
     return { hasError: true };
   }
 
   render() {
     return (
-      <>
-        {this.state.err ? <h1>Something went wrong.</h1> : this.props.children}
-      </>
+      <div>
+        {this.state.hasError ? "Something went wrong " : this.props.children}
+      </div>
     );
   }
 }
 
-//component
-const ButtonThatBreaks = () => {
-  const [isError, setIsError] = useState(false);
+const ButtonComp = () => {
+  const [isBreak, setIsBreak] = useState(false);
 
-  if (isError) {
-    throw new Error("errrorrrrrrrrrrrrrrrrrrrrrrrrr");
+  if (isBreak) {
+    throw new Error("Error break");
   }
 
   return (
-    <>
-      <h1>Error Component</h1>
-      <button onClick={() => setIsError(true)}>Throw Error</button>
-    </>
+    <div>
+      <h1>ErrorBoundaries</h1>
+      <button onClick={() => setIsBreak(true)}>Error CLick</button>
+    </div>
   );
 };
 
 const App = () => {
   return (
     <div>
-      <h1>Hello</h1>
-      <ErrorBoundary>
-        <ButtonThatBreaks />
-      </ErrorBoundary>
+      <h1>App Component</h1>
+      <ErrorBoundaries>
+        <ButtonComp />
+      </ErrorBoundaries>
     </div>
   );
 };
