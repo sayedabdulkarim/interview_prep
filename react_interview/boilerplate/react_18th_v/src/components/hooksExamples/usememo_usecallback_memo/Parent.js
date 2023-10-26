@@ -38,6 +38,19 @@ const Parent = () => {
   //     return Math.max(...numbers);
   //   };
 
+  // OR ( NOte - on clicking parent the console inside the getMax func called, but after using useMemo it is not rendering )
+  //memo
+  const arr = [2, 3, 1, 3, 5, 4, 22, 3, 1, 1, 5, 55, 4, 5, 2, 3, 6, 8, 9, 4];
+
+  //   const getMax = () => {
+  //     console.log("get max called ");
+  //     return Math.max(...arr);
+  //   };
+  const getMax = useMemo(() => {
+    console.log("get max called ");
+    return Math.max(...arr);
+  }, [arr]);
+
   return (
     <div>
       <h1>Name: {showName}</h1>

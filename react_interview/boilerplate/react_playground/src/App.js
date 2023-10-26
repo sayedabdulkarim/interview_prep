@@ -1,11 +1,11 @@
 import React from "react";
-
-import ErrorCheck from "./components/ErrorBoundaries";
+import Parent from "./components/callback_memo/Parent";
 
 const App = () => {
   return (
     <div>
-      <ErrorCheck />
+      <h1>App</h1>
+      <Parent />
     </div>
   );
 };
