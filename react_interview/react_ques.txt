@@ -15,8 +15,8 @@ VDOS
 - useMemo, UseCallBack, React.memo 
     - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep, https://www.youtube.com/watch?v=uojLJFt9SzY )
 - memoization like useMemo
-- hoc
 - renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
+- hoc
 
 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc

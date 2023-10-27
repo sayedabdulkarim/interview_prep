@@ -1,5 +1,6 @@
 Questions to check: 
 https://interviewready.io/course-page/data-structures-and-algorithms
+https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/#reviews
 
 Arrays:
 
