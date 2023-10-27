@@ -193,6 +193,17 @@ function revStr(str) {
   return currentElem + revStr(str);
 }
 
+function revStr(str) {
+  str = [...str];
+
+  if (str.length === 0) return "";
+
+  let lastElem = str[str.length - 1];
+  str.length = str.length - 1;
+
+  return lastElem + revStr(str);
+}
+
 function cleanedStr(str) {
   str = str.toLowerCase();
   let res = "";
