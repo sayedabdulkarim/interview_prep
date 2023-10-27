@@ -49,15 +49,72 @@ function multi(num) {
 //   // return res.join("");
 // }
 
-function revStr(str) {
-  str = [...str];
+// function revStr(str) {
+//   str = [...str];
 
+//   if (str.length === 0) return "";
+
+//   let lastElem = str[str.length - 1];
+//   str.length = str.length - 1;
+
+//   return lastElem + revStr(str);
+// }
+
+function revStr(str) {
   if (str.length === 0) return "";
 
   let lastElem = str[str.length - 1];
-  str.length = str.length - 1;
+  str = str.slice(0, str.length - 1);
 
   return lastElem + revStr(str);
 }
 
-console.log(revStr("qwerty"));
+// console.log(revStr("qwerty"));
+
+function cleanedStr(str) {
+  str = str.trim().toLowerCase();
+  let res = "";
+  for (let i = 0; i < str.length; i++) {
+    if ((i >= "0" && i <= "9") || (i >= "a" && i <= "z")) {
+      res += str[i];
+    }
+  }
+  return res;
+}
+
+function isPalindrome(str) {
+  const res = cleanedStr(str);
+
+  return res === [...res].reverse().join("");
+}
+
+// console.log(isPalindrome("eye"));
+
+function fibonacci(num) {
+  if (num === 0) return 0;
+  if (num === 1) return 1;
+
+  return fibonacci(num - 1) + fibonacci(num - 2);
+}
+
+// console.log(fibonacci(3));
+
+function countVowels(str) {
+  str = str.toLowerCase();
+  const vowels = ["a", "e", "i", "o", "u"];
+
+  if (str.length === 0) return 0;
+
+  let count = 0;
+
+  let lastElem = str[str.length - 1];
+
+  if (vowels.includes(lastElem)) {
+    count++;
+  }
+
+  str = str.slice(0, str.length - 1);
+  return count + countVowels(str);
+}
+
+console.log(countVowels("apple"));
