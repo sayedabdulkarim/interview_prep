@@ -20,8 +20,8 @@ VDOS
 
 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
-
-- compound pattern 
+- compound pattern - https://www.youtube.com/watch?v=Xh2HPpc0xNw&ab_channel=adityakumar
+- file Explorer - https://www.youtube.com/watch?v=20F_KzHPpvI&ab_channel=RoadsideCoder
 //Ques
 - https://leetcode.com/discuss/interview-question/742791/Front-End-Interview-Questions
 - https://bigfrontend.dev/problem
