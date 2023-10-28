@@ -1,7 +1,7 @@
 import React, { useCallback, useMemo, useState } from "react";
 
-import ChildOne from "./childOne";
-import ChildTwo from "./childTwo";
+import ChildOne from "./ChildOne";
+import ChildTwo from "./ChildTwo";
 
 const Parent = () => {
   const [name, setName] = useState("");
@@ -43,6 +43,14 @@ const Parent = () => {
       <hr />
       <hr />
       <ChildOne count={count} handleCount={handleCount} />
+
+      <button onClick={() => setArr([1, 2, 3, 4, 2, 5, 3])}>ChnageArr</button>
+      <button onClick={() => setArr(test)}>sameArr</button>
+      <button onClick={() => setArr([1, 2, 19, 3, 4, 2, 5, 3])}>
+        ChnageArr
+      </button>
+      <button onClick={() => setArr(test)}>sameArr</button>
+
       <hr />
       <hr />
       <ChildTwo />

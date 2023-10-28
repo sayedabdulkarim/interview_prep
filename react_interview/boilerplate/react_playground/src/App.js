@@ -1,9 +1,9 @@
 import React from "react";
-import InfiniteScroll from "./components/infiniteScroll";
+import Parent from "./test/Parent";
 const App = () => {
   return (
     <div>
-      <InfiniteScroll />
+      <Parent />
     </div>
   );
 };
