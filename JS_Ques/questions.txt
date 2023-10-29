@@ -208,6 +208,20 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 🔍 Lifecycle of Web component
 🔍 TodoList with Web component
 
+🔍 SOLID principles - https://www.youtube.com/watch?v=m2GCb-x8e5s&ab_channel=RethinkingUI
+        - Each letter in "SOLID" stands for a different principle:
+
+            - Single Responsibility Principle (SRP): This principle suggests that a class should have only one reason to change. In other words, a class should have a single responsibility or job. When a class has multiple responsibilities, changes to one of them can affect the others, making the code less maintainable.
+
+            - Open-Closed Principle (OCP): The Open-Closed Principle encourages software entities (classes, modules, functions, etc.) to be open for extension but closed for modification. It means that you should be able to add new functionality to a system without changing the existing code.
+
+            - Liskov Substitution Principle (LSP): Named after Barbara Liskov, this principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. In other words, if a class is a subtype of another class, it should be able to be used in place of its parent class without breaking the code.
+
+            - Interface Segregation Principle (ISP): This principle emphasizes that clients should not be forced to depend on interfaces they do not use. It suggests that interfaces should be specific to the needs of the clients, and classes should not be required to implement methods they don't need.
+
+            - Dependency Inversion Principle (DIP): The Dependency Inversion Principle advocates that high-level modules should not depend on low-level modules. Both should depend on abstractions. It also encourages abstractions not to depend on details but rather the other way around.
+
+
 
 //////MOCK 
 https://www.youtube.com/@Learnersbucket/playlists
