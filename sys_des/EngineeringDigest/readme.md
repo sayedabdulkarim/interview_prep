@@ -566,3 +566,13 @@ The type of graph used can impact the system's performance, fault tolerance, and
         - Prevents Downtime ,
           - Downtime refers to the period during which a system, service, application, or equipment is unavailable or not functioning as expected. It is a measure of the time when a system or service is not operational, often due to planned maintenance, unplanned outages, hardware or software failures, or other issues.
         - uses its balancing algorithm to route incoming requests to one of the backend servers, such as "Server 1" or "Server 2."
+
+13 - Cache Eviction Techniques
+
+    Cache eviction techniques are like rules for deciding which toys to keep and which ones to remove from the box. There are different ways to make this decision, and they have funny names like "First-In-First-Out" (FIFO), "Last-In-First-Out" (LIFO), and "Least Recently Used" (LRU).
+
+    - FIFO is like saying, "The first toy that went into the box will be the first to go out when we need space."
+
+    - LIFO is the opposite, saying, "The last toy that went into the box will be the first to go out."
+
+    - LRU is a bit smarter. It keeps track of which toys you played with the least recently and removes those first. It's like saying, "If you haven't played with a toy for a long time, it's probably okay to put it away."
