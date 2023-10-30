@@ -70,21 +70,43 @@ function maxSubArr(arr) {
   return maxGlobal;
 }
 
-// function maxSubArr(arr) {
-//   //kadane's Algo
-//   var maxCurrent = arr[0];
-//   var maxGlobal = arr[0];
+// console.log(maxSubArr([10, 5, 2, 7, 1, 9]));
+// console.log(maxSubArr([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
 
-//   for (i = 1; i < arr.length; i++) {
-//     maxCurrent = Math.max(arr[i], maxCurrent + arr[i]);
+//
+function revStr(str) {
+  if (str.length == 0) return "";
 
-//     if (maxCurrent > maxGlobal) {
-//       maxGlobal = maxCurrent;
-//     }
-//   }
+  let lastElem = str[str.length - 1];
 
-//   return maxGlobal;
-// }
+  str = str.slice(0, str.length - 1);
 
-console.log(maxSubArr([10, 5, 2, 7, 1, 9]));
-console.log(maxSubArr([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+  return lastElem + revStr(str);
+}
+
+// console.log(revStr("hello"));
+
+function validParentheses(str) {
+  const obj = {
+    "{": "}",
+    "[": "]",
+    "(": ")",
+  };
+
+  const stack = [];
+
+  for (let i of str) {
+    if (Object.keys(obj).includes(i)) {
+      stack.push(i);
+    } else {
+      const popped = stack.pop();
+      if (obj[popped] !== i) {
+        return false;
+      }
+    }
+  }
+
+  return stack.length == 0;
+}
+
+console.log(validParentheses("()]{}"));
