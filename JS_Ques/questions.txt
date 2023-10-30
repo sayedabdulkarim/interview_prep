@@ -228,3 +228,37 @@ https://www.youtube.com/@Learnersbucket/playlists
 https://www.youtube.com/watch?v=CPXf8Yv3I0A&list=PL8p2I9GklV45z6Cov4omIOsbptPR1kxpg
 https://www.youtube.com/watch?v=FjnHF3CXEaM&ab_channel=RohanPrasad
 https://www.youtube.com/watch?v=msWLFE5K1sQ&list=PLNYURJT_hZOlW-ZV1osN3fHJDYiK-Jx8A&ab_channel=CodingScenes
+
+
+///////////////////////////////////
+
+- Component Did Mount to scroll a particular element into view - createRefs 
+- Error Boundaries - Catch JavaScript error anywhere in their child
+- Clicked 3 times - 3
+- How many times the console function will be executed  -  2
+- useEffect, useLayoutEffect, requestAnimation - useLayoutEffect => useEffect => requestAnimation
+
+- SSR redux store  -  // app.get("", function(req, res) { const store })
+
+- handleClick ( new Promise ) - 1 ( One )
+
+- Wrapped in paranthesis
+
+{
+  first: firstName,
+  last: lastName
+} 
+
+- shouldComponentUpdate  - inside Click , rendering 
+
+- which statement doesnt hold true for asynchronous nature of setState ? =
+     React modal always lead to the most concise state 
+
+
+- static getDerivedStateFromProps = ( You want to recompute some data only when a prop changes. )
+
+- react-window or react-virtualized == ( It will reduce repaint time and improve perceived performance. )
+
+- holds True for Promises == Finally callback doesnt receives any arguments
+
+- 
