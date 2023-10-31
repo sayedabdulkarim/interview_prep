@@ -1,70 +1,38 @@
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
+function revStr(str) {
+  if (!str.length) return "";
+
+  let lastElem = str[str.length - 1];
+
+  str = str.slice(0, str.length - 1);
+
+  return lastElem + revStr(str);
 }
 
-class Stack {
-  constructor() {
-    this.top = null;
-    this.size = 0;
-  }
+// console.log(revStr("hello"));
 
-  push(value) {
-    const newNode = new Node(value);
+function fibonacci(num) {
+  if (num == 0) return 0;
+  if (num == 1) return 1;
 
-    if (!this.top) {
-      this.top = newNode;
-    } else {
-      newNode.next = this.top;
-      this.top = newNode;
-    }
-    ++this.size;
-  }
-
-  pop() {
-    if (!this.top) {
-      return null; // Stack is empty
-    }
-    const poppedValue = this.top.value;
-    this.top = this.top.next;
-    --this.size;
-    return poppedValue;
-  }
+  return fibonacci(num - 1) + fibonacci(num - 2);
 }
 
-class QueueUsingStacks {
-  constructor() {
-    this.stack1 = new Stack();
-    this.stack2 = new Stack();
+// console.log(fibonacci(5));
+
+function countVowels(str) {
+  const vowels = ["a", "e", "i", "o", "u"];
+  let count = 0;
+
+  if (!str) return null;
+
+  let lastElem = str[str.length - 1];
+
+  if (vowels.includes(lastElem)) {
+    count++;
   }
 
-  enqueue(value) {
-    this.stack1.push(value);
-  }
-
-  dequeue() {
-    if (this.stack2.size === 0) {
-      if (this.stack1.size === 0) {
-        return "Queue is empty";
-      }
-      while (this.stack1.size > 0) {
-        this.stack2.push(this.stack1.pop());
-      }
-    }
-    return this.stack2.pop();
-  }
+  str = str.slice(0, str.length - 1);
+  return count + countVowels(str);
 }
 
-const myQueue = new QueueUsingStacks();
-myQueue.enqueue(1);
-myQueue.enqueue(2);
-myQueue.enqueue(3);
-
-// console.log(myQueue.stack1, " myQueue 1");
-console.log(myQueue.dequeue());
-console.log(myQueue.dequeue());
-console.log(myQueue.dequeue());
-
-// console.log(myQueue.stack2, " myQueue 1 after");
+console.log(countVowels("apple"));
