@@ -381,3 +381,8 @@ https://www.youtube.com/watch?v=7YhdqIR2Yzo&list=PLxRVWC-K96b0ktvhd16l3xA6gncuGP
     1 - https://www.youtube.com/watch?v=hrk-1aDP3X8
 
 //////
+
+/////
+NODEJS
+====
+designing of API for uploading file to server nodejs
