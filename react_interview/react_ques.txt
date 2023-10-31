@@ -79,6 +79,64 @@ REACT
         
         - A service worker is a script that runs in the background of a user's web browser, separate from a web page, enabling features that don't require a web page or user interaction. 
 
+- JWT mechaninsm
+
+        JWT (JSON Web Tokens) is a compact, self-contained way to represent information between parties as a string. It is typically used to transmit claims between a client and a server. Here's a simplified ASCII diagram of how a JWT works:
+
+        ```
+        +---------------------+              +--------------------+           +-----------------+
+        |    User's Device   |              |   Server / Backend |           |    Database     |
+        +---------------------+              +--------------------+           +-----------------+
+                |                               |                         |
+                |     1. Authentication         |                         |
+                | --------------------------->  |                         |
+                |                               |                         |
+                |                               |                         |
+                |     2. JWT Creation          |                         |
+                | --------------------------->  |                         |
+                |                               |                         |
+                |                               |                         |
+                |     3. JWT                   |                         |
+                | <---------------------------  |                         |
+                |                               |                         |
+                |                               |                         |
+                |                               |                         |
+                |     4. Include JWT in        |                         |
+                |     Request Headers          |                         |
+                | --------------------------->  |                         |
+                |                               |                         |
+                |                               |                         |
+                |     5. Verify JWT and        |                         |
+                |     Extract Claims           |                         |
+                | <---------------------------  |                         |
+                |                               |                         |
+                |                               |                         |
+                |                               |                         |
+                |                               |                         |
+        ```
+
+        Explanation:
+
+        1. Authentication:
+        - The user's device initiates an authentication process with the server (e.g., by providing credentials like a username and password).
+
+        2. JWT Creation:
+        - After successful authentication, the server creates a JWT. This JWT typically contains information about the user and any relevant claims.
+
+        3. JWT:
+        - The server sends the JWT back to the user's device as a response.
+
+        4. Include JWT in Request Headers:
+        - The user's device includes the JWT in the headers of subsequent requests to the server. This allows the server to identify the user without the need for re-authentication on every request.
+
+        5. Verify JWT and Extract Claims:
+        - The server receives requests with the JWT in the headers.
+        - It verifies the JWT's authenticity and integrity using a secret key known only to the server.
+        - If the JWT is valid, the server extracts claims from the JWT, which can be used to identify the user and make authorization decisions.
+        - The server then processes the request based on the user's identity and the claims provided in the JWT.
+
+        JWTs are commonly used for authentication and authorization in web applications, providing a secure and efficient way to transmit user information between clients and servers.
+
 
 ///React Router
 ===============
