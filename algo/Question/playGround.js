@@ -1,38 +1,36 @@
-function revStr(str) {
-  if (!str.length) return "";
+function binarySearch(arr, k) {
+  let left = 0;
+  let right = arr.length - 1;
 
-  let lastElem = str[str.length - 1];
-
-  str = str.slice(0, str.length - 1);
-
-  return lastElem + revStr(str);
-}
-
-// console.log(revStr("hello"));
-
-function fibonacci(num) {
-  if (num == 0) return 0;
-  if (num == 1) return 1;
-
-  return fibonacci(num - 1) + fibonacci(num - 2);
-}
-
-// console.log(fibonacci(5));
-
-function countVowels(str) {
-  const vowels = ["a", "e", "i", "o", "u"];
-  let count = 0;
-
-  if (!str) return null;
-
-  let lastElem = str[str.length - 1];
-
-  if (vowels.includes(lastElem)) {
-    count++;
+  while (left <= right) {
+    let mid = Math.round((left + right) / 2);
+    if (arr[mid] === k) {
+      return mid;
+    } else if (arr[mid] < k) {
+      left = mid + 1;
+    } else right = mid - 1;
   }
-
-  str = str.slice(0, str.length - 1);
-  return count + countVowels(str);
+  return -1;
 }
 
-console.log(countVowels("apple"));
+// console.log(binarySearch([2, 4, 5, 5, 6, 7, 8, 9], 5));
+
+function lastOccurrence(arr, val) {
+  let left = 0;
+  let right = arr.length - 1;
+  let result = -1; // Initialize result variable
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2); // Fixed the mid calculation
+    if (arr[mid] == val) {
+      result = mid; // Update the result when found
+      left = mid + 1; // Move to the right sub-array to find the last occurrence
+    } else if (arr[mid] < val) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return result;
+}
+console.log(lastOccurrence([2, 4, 5, 5, 6, 7, 8, 9], 5));
