@@ -1,3 +1,45 @@
+function sortAsc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        isSorted = false;
+      }
+    }
+  }
+
+  return arr;
+}
+console.log(sortAsc([2, 3, 1, 4, 6, 3, 6]));
+
+function isSortedAsc(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i + 1]) {
+      return false; // Array is not sorted
+    }
+  }
+  return true; // Array is sorted
+}
+
+console.log(isSorted([1, 2, 3, 14, 4, 5]));
+
+function isSortedDescending(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (arr[i] < arr[i + 1]) {
+      return false; // Array is not sorted in descending order
+    }
+  }
+  return true; // Array is sorted in descending order
+}
+
+console.log(isSortedDescending([1, 2, 3, 14, 4, 5]));
+
 function heapify(arr, n, i) {
   let largest = i;
   const left = 2 * i + 1;
