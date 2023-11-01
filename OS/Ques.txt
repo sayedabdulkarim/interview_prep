@@ -1,0 +1,26 @@
+**Easy:**
+
+1. What is an operating system?
+2. Explain the difference between kernel space and user space.
+3. What is a process in an operating system?
+4. Describe the difference between a program and a process.
+5. What is multitasking in the context of operating systems?
+6. Explain the purpose of system calls.
+
+**Medium:**
+
+7. What is virtual memory, and how does it work?
+8. Describe the role of a process control block (PCB) in process management.
+9. What is a deadlock in the context of operating systems? How can it be prevented or resolved?
+10. Explain the concepts of process synchronization and mutual exclusion.
+11. What is a file system, and what are the key components of a file system?
+12. Describe the advantages and disadvantages of different scheduling algorithms, such as FCFS, SJF, and Round Robin.
+
+**Hard:**
+
+13. Discuss the differences between monolithic and microkernel operating systems.
+14. What is a semaphore, and how is it used for synchronization in concurrent systems?
+15. Explain the concept of memory management and discuss techniques like paging and segmentation.
+16. How does the operating system handle I/O operations efficiently?
+17. Describe the structure and functionality of an inode in Unix-based file systems.
+18. Discuss the challenges and solutions for real-time operating systems (RTOS) in embedded systems.
