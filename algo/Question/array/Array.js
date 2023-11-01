@@ -238,6 +238,44 @@ function chunkArray(arr, size) {
   return result;
 }
 
+function numberToExcelColumn(number) {
+  let result = "";
+  while (number > 0) {
+    const remainder = (number - 1) % 26; // Calculate the remainder (0 to 25)
+    result = String.fromCharCode(65 + remainder) + result; // Convert to character and prepend to the result
+    number = Math.floor((number - 1) / 26); // Move to the next digit
+  }
+  return result;
+}
+
+const numbers = [26, 51, 52];
+const excelLabels = numbers.map(numberToExcelColumn);
+
+console.log(excelLabels); // Outputs: ['Z', 'AY', 'AZ']
+
+function numberToExcelColumn(number) {
+  let result = "";
+  while (number > 0) {
+    const remainder = (number - 1) % 26;
+    result = String.fromCharCode(65 + remainder) + result;
+    number = Math.floor((number - 1) / 26);
+  }
+  return result;
+}
+
+function convertToExcelLabels(numbers) {
+  const excelLabels = [];
+  for (let i = 0; i < numbers.length; i++) {
+    excelLabels.push(numberToExcelColumn(numbers[i]));
+  }
+  return excelLabels;
+}
+
+// const numbers = [26, 51, 52];
+// const excelLabels = convertToExcelLabels(numbers);
+
+// console.log(excelLabels); // Outputs: ['Z', 'AY', 'AZ']
+
 ////////////////////////////
 
 // console.log(reverseArr([1, 2, 3])); // Output should be [3, 2, 1]

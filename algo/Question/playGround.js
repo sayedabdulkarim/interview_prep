@@ -1,19 +1,22 @@
-function Employeename() {}
-
-Employeename.prototype = {
-  name: [],
-  showName: () => {
-    return this.name;
-  },
-  showNameTwo: function () {
-    return this.name;
-  },
+const memoize = (fn) => {
+  const cache = {};
+  return (...args) => {
+    if (cache[args[0]]) {
+      console.log(" from cache");
+      return cache[args[0]];
+    } else {
+      const result = fn(args);
+      cache[args[0]] = result;
+      console.log(" added new");
+      return result;
+    }
+  };
 };
 
-var elemOne = new Employeename();
-console.log(elemOne.name.push("12345"));
-console.log(elemOne.showNameTwo(), " oneee");
+const memoizeFunc = memoize((num) => num * 2);
 
-var elemTwo = new Employeename();
-console.log(elemTwo.name.push("Hello"));
-console.log(elemTwo.showNameTwo(), " twoww");
+console.log(memoizeFunc(3));
+console.log(memoizeFunc(5));
+console.log(memoizeFunc(5));
+console.log(memoizeFunc(3));
+console.log(memoizeFunc(3));
