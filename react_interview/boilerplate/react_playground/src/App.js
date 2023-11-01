@@ -1,26 +1,12 @@
-import React from "react";
-
-import { useFetch } from "./components/useFetch";
+import React, { useEffect } from "react";
 
 const App = () => {
-  const [loading, data, error] = useFetch(
-    "https://jsonplaceholder.typicde.com/albums"
-  );
+  useEffect(() => {
+    console.log("useEffect");
+  }, []);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
-  if (error) {
-    return <h1>Something went wrong...</h1>;
-  }
-
-  return (
-    <div>
-      <h1>App</h1>
-
-      {JSON.stringify(data, null, 4)}
-    </div>
-  );
+  console.log("normal");
+  return <div>App</div>;
 };
 
 export default App;

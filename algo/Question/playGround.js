@@ -1,48 +1,19 @@
-function heapify(arr, n, i) {
-  let largest = i;
-  const left = 2 * i + 1;
-  const right = 2 * i + 2;
+function Employeename() {}
 
-  if (left < n && arr[left] > arr[largest]) {
-    largest = left;
-  }
+Employeename.prototype = {
+  name: [],
+  showName: () => {
+    return this.name;
+  },
+  showNameTwo: function () {
+    return this.name;
+  },
+};
 
-  if (right < n && arr[right] > arr[largest]) {
-    largest = right;
-  }
+var elemOne = new Employeename();
+console.log(elemOne.name.push("12345"));
+console.log(elemOne.showNameTwo(), " oneee");
 
-  if (largest !== i) {
-    const temp = arr[i];
-    arr[i] = arr[largest];
-    arr[largest] = temp;
-
-    heapify(arr, n, largest);
-  }
-}
-
-function heapSort(arr) {
-  const n = arr.length;
-
-  // Build a max heap (rearrange the array)
-  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
-    heapify(arr, n, i);
-  }
-
-  // One by one extract elements from the heap
-  for (let i = n - 1; i > 0; i--) {
-    // Move the current root to the end
-    const temp = arr[0];
-    arr[0] = arr[i];
-    arr[i] = temp;
-
-    // Call max heapify on the reduced heap
-    heapify(arr, i, 0);
-  }
-
-  return arr;
-}
-
-// Example usage:
-const unsortedArray = [4, 10, 3, 5, 1];
-const sortedArray = heapSort(unsortedArray);
-console.log(sortedArray); // Output: [1, 3, 4, 5, 10]
+var elemTwo = new Employeename();
+console.log(elemTwo.name.push("Hello"));
+console.log(elemTwo.showNameTwo(), " twoww");
