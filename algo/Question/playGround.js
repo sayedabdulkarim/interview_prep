@@ -1,22 +1,16 @@
-const memoize = (fn) => {
-  const cache = {};
-  return (...args) => {
-    if (cache[args[0]]) {
-      console.log(" from cache");
-      return cache[args[0]];
-    } else {
-      const result = fn(args);
-      cache[args[0]] = result;
-      console.log(" added new");
-      return result;
+function moveZeros(arr) {
+  if (!arr.length) return [];
+
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      [arr[i], arr[count]] = [arr[count], arr[i]];
+      count++;
     }
-  };
-};
+  }
 
-const memoizeFunc = memoize((num) => num * 2);
+  return arr;
+}
 
-console.log(memoizeFunc(3));
-console.log(memoizeFunc(5));
-console.log(memoizeFunc(5));
-console.log(memoizeFunc(3));
-console.log(memoizeFunc(3));
+console.log(moveZeros([8, 5, 0, 9, 0, 1, 2]));

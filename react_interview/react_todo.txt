@@ -8,7 +8,6 @@
 
  - https://www.youtube.com/watch?v=wp-NEcAck1k
 
- -https://topmate.io/akash_ingole - discuss with him
 
 
  caching implementation in react
@@ -19,3 +18,9 @@
  https://www.youtube.com/watch?v=nBfQTvj_IXU
 
  https://www.youtube.com/@webdevinterviews/videos
+
+
+ - discuss with
+ 
+ - https://topmate.io/akash_ingole 
+ - https://topmate.io/sidd_oo
