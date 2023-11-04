@@ -211,6 +211,29 @@ function lengthOfLongestSubstring(s) {
   return longest;
 }
 
+function longestSubstringWithoutRepeatingChars(s) {
+  let charIndex = {};
+  let start = 0;
+  let maxLen = 0;
+  let maxSubstring = "";
+
+  for (let i = 0; i < s.length; i++) {
+    let char = s[i];
+
+    if (char in charIndex && charIndex[char] >= start) {
+      start = charIndex[char] + 1;
+    }
+
+    charIndex[char] = i;
+
+    if (i - start + 1 > maxLen) {
+      maxLen = i - start + 1;
+      maxSubstring = s.slice(start, i + 1);
+    }
+  }
+
+  return { length: maxLen, substring: maxSubstring };
+}
 //   console.log(lengthOfLongestSubstring("abcabcbb"));  // Output: 3
 //   console.log(lengthOfLongestSubstring("bbbbb"));     // Output: 1
 //   console.log(lengthOfLongestSubstring("pwwkew"));    // Output: 3
