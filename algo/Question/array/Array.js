@@ -85,7 +85,7 @@ function reverseArr(arr) {
 }
 
 //1
-function moveZeroesInPlace(nums) {
+function moveZeroesToRightInPlace(nums) {
   let pos = 0; // position to place the next non-zero element
 
   // First, loop through the array to move all non-zero elements to the front
@@ -103,7 +103,7 @@ function moveZeroesInPlace(nums) {
 }
 
 //2
-function moveZeros(arr) {
+function moveZeroesToRight(arr) {
   if (!arr.length) return [];
 
   let count = 0;
@@ -119,6 +119,24 @@ function moveZeros(arr) {
 }
 
 console.log(moveZeros([8, 5, 0, 9, 0, 1, 2]));
+
+function moveZeroesToLeft(arr) {
+  if (!arr) return [];
+
+  let count = arr.length - 1;
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count--;
+    }
+  }
+  console.log(arr, " arrr");
+  //   for (let i = count; i >= 0; i--) {
+  //     arr[i] = 0;
+  //   }
+  return arr;
+}
 
 function moveZeroesNotInPlace(nums) {
   let pos = 0;
