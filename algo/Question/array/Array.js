@@ -132,9 +132,9 @@ function moveZeroesToLeft(arr) {
     }
   }
   console.log(arr, " arrr");
-  //   for (let i = count; i >= 0; i--) {
-  //     arr[i] = 0;
-  //   }
+  for (let i = count; i >= 0; i--) {
+    arr[i] = 0;
+  }
   return arr;
 }
 
