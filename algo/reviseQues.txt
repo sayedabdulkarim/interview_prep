@@ -8,7 +8,8 @@ Arrays:
 - Find the Maximum Element: Given an array of integers, find the maximum element.
 - Find the Minimum Element: Given an array of integers, find the minimum element.
 - Reverse an Array: Given an array, reverse it. ( without using extra space )
-- Move Zeroes: Move all 0's to the end of an array while maintaining the relative order of the non-zero elements.
+- Move ZeroesToRight: Move all 0's to the end of an array while maintaining the relative order of the non-zero elements.
+- Move ZeroesToLeft
 - Sort an Array (ascending, descending)
 *- Remove Duplicate from an array
 - Contains Duplicate in an array
