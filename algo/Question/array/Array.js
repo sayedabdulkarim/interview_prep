@@ -669,33 +669,23 @@ function longestSubarrayWithSumK(nums, K) {
 }
 
 function longestSubarrayWithSumK(arr, k) {
-  // Initialize an object to store sum-index pairs.
   let sumIndexObj = {};
-  // sumIndexObj[0] = -1; // Initial condition
-  // Variable to store the maximum length of the subarray with sum k.
   let maxLength = 0;
-
-  // Variable to store the sum of the elements.
   let sum = 0;
 
   // Loop through the array.
   for (let i = 0; i < arr.length; i++) {
-    // Update the sum.
     sum += arr[i];
 
-    // If this sum has not been seen before, add it to the sumIndexObj.
     if (sumIndexObj[sum] === undefined) {
       sumIndexObj[sum] = i;
     }
 
-    // Check if there is a subarray summing to k ending at index i.
-    // If so, update maxLength.
     if (sumIndexObj[sum - k] !== undefined) {
       maxLength = Math.max(maxLength, i - sumIndexObj[sum - k]);
     }
   }
 
-  // Debugging line to see the object of sums.
   console.log({
     sumIndexObj,
     sum,

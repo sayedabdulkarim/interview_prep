@@ -1,0 +1,82 @@
+///
+1 - One way vs 2 way
+====
+
+In two-way data binding, changes in the UI are reflected in the model (your data source), and changes in the model are reflected in the UI. This is a cycle. In other words, the UI fields are bound to the model data dynamically such that when a user changes the input field, the changes are reflected automatically in the model and vice versa.
+
+For instance, in Angular, if you have an input field that's tied to a model property using `ngModel`, any change to that input field will automatically update the property in the model, and any change to the model property will immediately update the UI.
+
+This is unlike one-way data binding, as in React, where the UI can update the model, but the model does not display changes in the UI without a specific instruction to do so (like using a setState function to update the state and thus re-render the component with the new state).
+
+so angular is Model to View and vice versa 
+
+and react is  View to Modal
+
+
+/////////
+2 - Optimisation ( CSS is render block and jS is parser block )
+
+    - Asset
+
+    If we think for asset Optimisation, we have : 
+
+        - Images
+            - Compression
+            - Lazy Load Images
+            - using picture
+                <picture>
+                    <source > 
+
+                    avif ? webp ? jpg, png
+
+                </picture> 
+        
+        - videos
+             - Progresive Enhancement
+                <video>
+                    <source   />
+
+                    webm ? mp4
+
+                </video>
+
+             - Replace gifs with Videos ( Quality and Compression, SEO )
+             - Responsive Poster Images
+                - to show some fallback image till the time ur video is not loaded
+               <video poster="img"></video>
+
+        - fonts
+            - we can use  WOFF2 format, and by using @font-face
+
+            @font-face {
+                font-family: 'MyWebFont';
+                src: url('fonts/mywebfont.woff2') format('woff2'),
+                    url('fonts/mywebfont.woff') format('woff');
+            }
+
+            - FLOT FLIT 
+                swap 
+
+
+        - Css
+            - lazy loading
+                - critical css rendering 
+                    critical rendring css means how we r rending our css file from necessary to less necesaary.
+                        like 
+                        - css reset files
+                        - header, sidear. footer 
+                        - then so on ...
+                - preload 
+
+
+    -  network 
+
+        - JavaScript
+            - defer vs async
+            - lazy loading
+            - web worker
+            - rel="preload"
+            - caching 
+
+
+
