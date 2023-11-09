@@ -12,71 +12,25 @@ so angular is Model to View and vice versa
 
 and react is  View to Modal
 
+CORS
+======
+if we want to shares resources from one domain to other , then we get the CORS error.
+and to tackle this , from our backend we can whitelist the urls which can access the resources for sharing
 
-/////////
-2 - Optimisation ( CSS is render block and jS is parser block )
+XSS - Cross Site Scripting 
+    - if someone inject some malicious script into our page e.g form or lets say WYSIWIG.
+    So to tackle this we should do santizig content before pushing or while setting the token we can set it as httpOnly: true.
 
-    - Asset
+CSRF (Cross-Site Request Forgery) 
+=============
+is a type of security vulnerability that occurs when a malicious website, or instant message causes a user's web browser to perform an unwanted action on a trusted site for which the user is currently authenticated.
 
-    If we think for asset Optimisation, we have : 
+to tackle CSRF,  sameSite: true
 
-        - Images
-            - Compression
-            - Lazy Load Images
-            - using picture
-                <picture>
-                    <source > 
+JWT
+===
+JWT used in token based authentication, which is used to acces protected routes
 
-                    avif ? webp ? jpg, png
-
-                </picture> 
-        
-        - videos
-             - Progresive Enhancement
-                <video>
-                    <source   />
-
-                    webm ? mp4
-
-                </video>
-
-             - Replace gifs with Videos ( Quality and Compression, SEO )
-             - Responsive Poster Images
-                - to show some fallback image till the time ur video is not loaded
-               <video poster="img"></video>
-
-        - fonts
-            - we can use  WOFF2 format, and by using @font-face
-
-            @font-face {
-                font-family: 'MyWebFont';
-                src: url('fonts/mywebfont.woff2') format('woff2'),
-                    url('fonts/mywebfont.woff') format('woff');
-            }
-
-            - FLOT FLIT 
-                swap 
-
-
-        - Css
-            - lazy loading
-                - critical css rendering 
-                    critical rendring css means how we r rending our css file from necessary to less necesaary.
-                        like 
-                        - css reset files
-                        - header, sidear. footer 
-                        - then so on ...
-                - preload 
-
-
-    -  network 
-
-        - JavaScript
-            - defer vs async
-            - lazy loading
-            - web worker
-            - rel="preload"
-            - caching 
 
 
 
