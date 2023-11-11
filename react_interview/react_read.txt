@@ -32,5 +32,14 @@ JWT
 JWT used in token based authentication, which is used to acces protected routes
 
 
+//////
+we can compare CSR and SSR based on whether we r getting prerendering or not .
+
+means in CSR untill the JS will not load or hydrate, will not see the content.
+
+but in SSR, we will get the html in response , so will see the static htmls first in our viewPort after that js will hydrate 
+
+ In SSR, pages are rendered on the server at runtime. the server dynamically generates the HTML for the requested page based on the current state of the application or content.
 
 
+ SSG - HTML pages are generated at build time, in build time only call the api 
