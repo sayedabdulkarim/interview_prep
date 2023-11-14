@@ -1,3 +1,21 @@
+body {
+    background: black;
+    color: white;
+}
 h1 {
     color: green;
+}
+
+.items {
+    border: 1px solid red;
+
+}
+
+.items li:nth-child(even) {
+    border: 1px solid green;
+    margin: 10px 0;
+}
+.items li:nth-child(6) {
+    border: 2px solid blue;
+    margin: 10px 0;
 }

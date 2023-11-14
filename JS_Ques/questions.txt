@@ -234,6 +234,14 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
             - Dependency Inversion Principle (DIP): The Dependency Inversion Principle advocates that high-level modules should not depend on low-level modules. Both should depend on abstractions. It also encourages abstractions not to depend on details but rather the other way around.
 
 
+1. ‘this’ keyword
+2. Closure chaining
+3. Prototypal inheritance
+4. Microtask and callback queues
+5. Currying
+6. Functional binding - call, apply, bind
+7. Everything is ‘Objects’
+
 
 //////MOCK 
 https://www.youtube.com/@Learnersbucket/playlists
