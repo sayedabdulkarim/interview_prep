@@ -10,6 +10,11 @@ Important list of questions to prepare for JavaScript interviews.
 🔍 Can you provide an illustration of how ES6 has altered the approach to working with "this" in JavaScript?
     - https://www.youtube.com/watch?v=rv7Q11KWmKU&ab_channel=RoadsideCoder
 
+    Defn: 
+
+    "this" inherits the global objects i.e window, 
+    but it behaves differently in some cases lyk when we call inside an obj, this represents the current object not the window 
+
 🔍 Explain the concept of prototypal inheritance.
 
 🔍 Differentiate between a variable that is null, undefined, or undeclared.
@@ -246,8 +251,16 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 
 
 1. ‘this’ keyword
+
+    Defn: 
+
+    "this" inherits the global objects i.e window, 
+    but it behaves differently in some cases lyk when we call inside an obj, this represents the current object not the window 
+
 2. Closure chaining
+
 3. Prototypal inheritance
+
 4. Microtask and callback queues
 5. Currying
 6. Functional binding - call, apply, bind
