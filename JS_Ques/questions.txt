@@ -220,6 +220,17 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 🔍 Lifecycle of Web component
 🔍 TodoList with Web component
 
+🔍 JS Pattern - ( Factory, SingleTon, Memoize, Prototype)
+
+    - Factory Pattern ( like a creator or producer that knows how to construct various objects. ) - https://www.youtube.com/watch?v=kRHtmrqZa18&ab_channel=CodingScenes
+        
+        The Factory Pattern is a creational design pattern used in object-oriented programming. It provides a way to create objects without specifying the exact class of object that will be created. This is done by creating a separate component (the factory) whose responsibility is to encapsulate the object creation process.
+
+        The idea is to use a factory method to manage and manipulate the creation of objects, and this method typically replaces direct object creation (using the new keyword).
+
+
+
+
 🔍 SOLID principles - https://www.youtube.com/watch?v=m2GCb-x8e5s&ab_channel=RethinkingUI
         - Each letter in "SOLID" stands for a different principle:
 
@@ -241,7 +252,7 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 5. Currying
 6. Functional binding - call, apply, bind
 7. Everything is ‘Objects’
-
+8 - First-Class Function in JS
 
 //////MOCK 
 https://www.youtube.com/@Learnersbucket/playlists
