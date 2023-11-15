@@ -25,6 +25,48 @@ const obj2 = {
   three: 223,
 };
 
+////convert the array into json format
+
+const arr = [
+  { phase: 1, name: "phase One", age: 1 },
+  { phase: 2, name: "phase Two", age: 2 },
+  { phase: 1, name: "phase One", age: 1 },
+  { phase: 2, name: "phase Two", age: 2 },
+  { phase: 1, name: "phase One", age: 1 },
+];
+
+json = {
+  phase1: [
+    { phase: 1, name: "phase One", age: 1 },
+    { phase: 1, name: "phase One", age: 1 },
+    { phase: 1, name: "phase One", age: 1 },
+  ],
+  phase2: [
+    { phase: 2, name: "phase Two", age: 2 },
+    { phase: 2, name: "phase Two", age: 2 },
+  ],
+};
+
+function getJson(arr) {
+  const data = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const key = `phase${arr[i].phase}`;
+
+    if (!data[key]) {
+      data[key] = [];
+    }
+
+    data[key].push(arr[i]);
+  }
+
+  return data;
+}
+
+console.log(getJson(arr));
+
+///////////////
+
 /////////////////
 function maxElem(nums) {
   if (nums.length === 0) return null; // Handle empty array

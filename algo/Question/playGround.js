@@ -150,4 +150,61 @@ function twoSum(arr, k) {
   return null;
 }
 
-console.log(twoSum([3, 0, 2, 11, 0, 2, 2, 2, 3, 4, 0, 33], 14));
+// console.log(twoSum([3, 0, 2, 11, 0, 2, 2, 2, 3, 4, 0, 33], 14));
+
+const arr = [
+  { phase: 1, name: "phase One", age: 1 },
+  { phase: 2, name: "phase Two", age: 2 },
+  { phase: 1, name: "phase One", age: 1 },
+  { phase: 2, name: "phase Two", age: 2 },
+  { phase: 1, name: "phase One", age: 1 },
+];
+
+json = {
+  phase1: [
+    { phase: 1, name: "phase One", age: 1 },
+    { phase: 1, name: "phase One", age: 1 },
+    { phase: 1, name: "phase One", age: 1 },
+  ],
+  phase2: [
+    { phase: 2, name: "phase Two", age: 2 },
+    { phase: 2, name: "phase Two", age: 2 },
+  ],
+};
+
+// function getJson(arr) {
+//     const data = {};
+
+//     arr.forEach(item => {
+//       // Construct the key name, e.g., 'phase1', 'phase2', etc.
+//       const key = `phase${item.phase}`;
+
+//       // Initialize the array if this key hasn't been seen before
+//       if (!data[key]) {
+//         data[key] = [];
+//       }
+
+//       // Push the current item onto the array for this key
+//       data[key].push(item);
+//     });
+
+//     return data;
+//   }
+
+function getJson(arr) {
+  const data = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const key = `phase${arr[i].phase}`;
+
+    if (!data[key]) {
+      data[key] = [];
+    }
+
+    data[key].push(arr[i]);
+  }
+
+  return data;
+}
+
+console.log(getJson(arr));
