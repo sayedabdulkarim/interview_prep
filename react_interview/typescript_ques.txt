@@ -1,5 +1,42 @@
-TYPESCRIPT
+TYPESCRIPT ( https://www.youtube.com/watch?v=MOO5vrtTUTE&list=PL0Zuz27SZ-6NS8GXt5nPrcYpust89zq_b&index=1&ab_channel=DaveGray )
 =========
+
+Interview Last min 
+=====
+- What is TypeScript and how does it differ from JavaScript?
+
+- What are the benefits of using TypeScript?
+
+- Explain basic types in TypeScript.
+
+- What are TypeScript interfaces?
+
+- What are TypeScript classes and how do they differ from ES6 classes?
+
+- Explain Generics in TypeScript.
+
+- What are Union and Intersection types?
+
+- What are Type Guards?
+
+- How does TypeScript support optional chaining (?.)?
+
+- What is a Decorator in TypeScript?
+
+- What is TypeScript's enum and its use cases?
+
+- How can you integrate TypeScript into a JavaScript project?
+
+- What is tsconfig.json?
+
+- Explain Module resolution in TypeScript.
+
+- Can you explain Type Assertion in TypeScript?
+
+- Discuss how to use type assertions to specify a more specific type.
+
+
+
 1 - features
 ===========
 TypeScript is a statically typed superset of JavaScript that compiles to plain JavaScript. It adds several important features that help in developing robust applications, including:
