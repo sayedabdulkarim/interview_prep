@@ -1,5 +1,25 @@
 Important list of questions to prepare for JavaScript interviews.
 
+🔍 Web Accessibility ?
+
+    To ensuring that websites and web applications are usable by everyone, including people with disabilities. 
+    Here are some key things to consider for web accessibility:
+
+        - Semantic HTML
+        - adding alt text in image <img src="" alt="">
+        - Contrast and Colors
+        - Accessible Forms: using label, htmlFor  <label htmlFor="username"></label>
+        - ARIA (Accessible Rich Internet Applications) 
+            
+            - using aria to provide details
+            - using role , like in wrting test cases we can use role attribute 
+            
+            <button aria-controls="details" aria-expanded="false" onclick="toggleContent()">Toggle Details</button>
+            <div id="details" role="region" aria-hidden="true" style="display:none;">
+                Here are more details about the product.
+            </div>
+
+
 🔍 What is event delegation, and how does it function in JavaScript?
     
     - In JS Event delegation is a technique in JavaScript for handling events efficiently by taking advantage of the event bubbling mechanism. Instead of assigning event listeners directly to individual elements, you attach a single event listener to a common parent of those elements. Then, when the event occurs on any of the child elements, the event bubbles up to the parent, where it's handled.
