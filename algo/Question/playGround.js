@@ -76,4 +76,59 @@ const currying = (a) => (b) => b ? currying(a + b) : a;
 
 // console.log(currying(5)(10)(20)());
 
-// console.log(maxSubArr([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+function moveZeroesToRight(arr) {
+  if (!arr.length) return [];
+
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count++;
+    }
+  }
+
+  for (let i = count; i < arr.length; i++) {
+    arr[i] = 0;
+  }
+
+  return arr;
+}
+
+// console.log(moveZeroesToRight([0, -2, 1, -3, 4, -1, 0, 2, 1, 0, -5, 4]));
+
+function moveZeroesToLeft(arr) {
+  if (!arr.length) return [];
+
+  let count = arr.length - 1;
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count--;
+    }
+  }
+
+  for (let i = count; i >= 0; i--) {
+    arr[i] = 0;
+  }
+
+  return arr;
+}
+
+// console.log(moveZeroesToLeft([0, -2, 1, -3, 4, -1, 0, 2, 1, 0, -5, 4]));
+
+function rotateArrToRightByK(arr, k) {
+  const res = [];
+
+  for (let i = 0; i < arr.length - k; i++) {
+    res.push(arr[i]);
+  }
+
+  const slicedArr = arr.slice(arr.length - k, arr.length);
+  const array = [...slicedArr, ...res];
+
+  return array;
+}
+
+console.log(rotateArrToRightByK([1, 2, 3, 4, 5], 2));
