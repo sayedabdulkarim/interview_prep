@@ -6,22 +6,18 @@ Interview Last min
 - What is TypeScript and how does it differ from JavaScript?
 
 - What are the benefits of using TypeScript?
+    - static typing
+    - caught errors on compiling
+    - improved readablity
+    - Autocomplete or Intellisence
 
 - Explain basic types in TypeScript.
 
 - What are TypeScript interfaces?
 
-- What are TypeScript classes and how do they differ from ES6 classes?
-
 - Explain Generics in TypeScript.
 
 - What are Union and Intersection types?
-
-- What are Type Guards?
-
-- How does TypeScript support optional chaining (?.)?
-
-- What is a Decorator in TypeScript?
 
 - What is TypeScript's enum and its use cases?
 
@@ -30,6 +26,12 @@ Interview Last min
 - What is tsconfig.json?
 
 - Explain Module resolution in TypeScript.
+
+- What are Type Guards?
+
+- How does TypeScript support optional chaining (?.)?
+
+- What is a Decorator in TypeScript?
 
 - Can you explain Type Assertion in TypeScript?
 
