@@ -31,33 +31,33 @@ getCards();
 
 ////////////////////////////////////////////////
 
-const getCards = async () => {
-  try {
-    const response = await fetch("https://fakestoreapi.com/carts?limit=2");
-    const carts = await response.json();
-    console.log(carts, " carts");
+// const getCards = async () => {
+//   try {
+//     const response = await fetch("https://fakestoreapi.com/carts?limit=2");
+//     const carts = await response.json();
+//     console.log(carts, " carts");
 
-    const productIds = new Set(
-      carts.flatMap((cart) => cart.products.map((p) => p.productId))
-    );
-    await getProduct(Array.from(productIds));
-  } catch (err) {
-    console.log(err, "Error fetching carts");
-  }
-};
+//     const productIds = new Set(
+//       carts.flatMap((cart) => cart.products.map((p) => p.productId))
+//     );
+//     await getProduct(Array.from(productIds));
+//   } catch (err) {
+//     console.log(err, "Error fetching carts");
+//   }
+// };
 
-const getProduct = async (productIds) => {
-  try {
-    const promises = productIds.map((id) =>
-      fetch(`https://fakestoreapi.com/products/${id}`).then((response) =>
-        response.json()
-      )
-    );
-    const products = await Promise.all(promises);
-    console.log(products, "Products from all carts");
-  } catch (err) {
-    console.log(err, "Error fetching products");
-  }
-};
+// const getProduct = async (productIds) => {
+//   try {
+//     const promises = productIds.map((id) =>
+//       fetch(`https://fakestoreapi.com/products/${id}`).then((response) =>
+//         response.json()
+//       )
+//     );
+//     const products = await Promise.all(promises);
+//     console.log(products, "Products from all carts");
+//   } catch (err) {
+//     console.log(err, "Error fetching products");
+//   }
+// };
 
-getCards();
+// getCards();
