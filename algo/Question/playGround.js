@@ -95,4 +95,57 @@ function moveZeroesToLeft(arr) {
   return { arr, count };
 }
 
-console.log(moveZeroesToLeft([2, 3, 0, 0, 1, 2, 0, 3]));
+// console.log(moveZeroesToLeft([2, 3, 0, 0, 1, 2, 0, 3]));
+
+function rotateArrByK(arr, k) {
+  if (!arr.length) return [];
+
+  const res = [];
+
+  for (let i = 0; i < arr.length - k; i++) {
+    res.push(arr[i]);
+  }
+
+  const mergedArr = [...arr.slice(arr.length - k, arr.length), ...res];
+
+  return mergedArr;
+}
+
+// console.log(rotateArrByK([2, 3, 0, 0, 1, 2], 2));
+function isAnagaram(str1, str2) {
+  //getObj
+  function getObj(str) {
+    const obj = {};
+
+    for (i of str) {
+      obj[i] = (obj[i] || 0) + 1;
+    }
+
+    return obj;
+  }
+
+  //compare obj
+  function compareObj(obj1, obj2) {
+    //
+    const objOneKeysSorted = Object.keys(obj1).sort();
+    const objTwoKeysSorted = Object.keys(obj2).sort();
+
+    for (let i = 0; i < objOneKeysSorted.length; i++) {
+      if (
+        objOneKeysSorted[i] !== objTwoKeysSorted[i] ||
+        obj1[objOneKeysSorted[i]] !== obj2[objTwoKeysSorted[i]]
+      ) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  const obj1 = getObj(str1);
+  const obj2 = getObj(str2);
+
+  return compareObj(obj1, obj2);
+}
+
+console.log(isAnagaram("eye", "yee"));

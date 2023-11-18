@@ -245,7 +245,7 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 🔍 Lifecycle of Web component
 🔍 TodoList with Web component
 
-🔍 JS Pattern - ( Factory, SingleTon, Memoize, Prototype)
+🔍   - ( Factory, SingleTon, Memoize, Prototype)
 
     - Factory Pattern ( like a creator or producer that knows how to construct various objects. ) - https://www.youtube.com/watch?v=kRHtmrqZa18&ab_channel=CodingScenes
         

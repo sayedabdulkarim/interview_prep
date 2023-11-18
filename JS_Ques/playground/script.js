@@ -1,6 +1,17 @@
 // https://fakestoreapi.com/carts?limit=2
 // https://fakestoreapi.com/products/1
 
+function Person(fName, lName) {
+  this.firstName = fName;
+  this.lastName = lName;
+}
+
+Person.prototype.fullName = function () {
+  console.log("hello");
+};
+
+const PersonOne = new Person("Ram", " Singh");
+
 const products = [];
 const cards = [];
 
