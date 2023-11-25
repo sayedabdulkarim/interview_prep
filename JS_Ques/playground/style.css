@@ -1,0 +1,82 @@
+/* Reset some basic elements */
+body, h1, p, a {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Apply a basic font */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+  }
+  
+  .logo {
+    /* Replace with your logo's dimensions */
+    width: 100px;
+    height: auto;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1rem;
+  }
+  
+  nav .signup {
+    background-color: #ffa500;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  .hero {
+    text-align: center;
+    padding: 2rem;
+    background: url('https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,h_1340/Lunch1_vlksgq') no-repeat center center/cover; /* Replace with your background image */
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero p {
+    margin-bottom: 2rem;
+  }
+  
+  .hero input {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .hero button {
+    padding: 0.5rem 1rem;
+    background-color: #ffa500;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .hero .find-food {
+    margin-left: 0.5rem;
+  }
+  
+  .cities p {
+    padding: 1rem 2rem;
+  }
+  
+  .cities a {
+    text-decoration: none;
+    color: black;
+    margin: 0 0.5rem;
+  }
+  
+  /* Add more specific styles as needed */
+  
