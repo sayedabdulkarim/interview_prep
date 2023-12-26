@@ -68,6 +68,64 @@ REACT
 - ssr / ssg( static side generation ) - https://www.youtube.com/results?search_query=ssg+react
 
 
+
+    - SSR - https://www.youtube.com/watch?v=fjTDclQ6Ytc&ab_channel=PiyushGarg
+
+        - Hydration: After the server renders the page, the client-side JavaScript "hydrates" the page, making it fully interactive.
+        - as by using SSR in view source we will get the data, so it is good for web crawler for SEO .
+        - its fast means initial load is fast 
+
+    // pages/ssr-page.js
+        export async function getServerSideProps(context) {
+            // Fetch data from an external API or perform other server-side operations
+            const res = await fetch('https://example.com/data');
+            const data = await res.json();
+
+            // Pass data to the page via props
+            return { props: { data } };
+        }
+
+        function SSRPage({ data }) {
+            return (
+                <div>
+                    <h1>Server-Side Rendered Page</h1>
+                    {/* Render data here */}
+                    <pre>{JSON.stringify(data, null, 2)}</pre>
+                </div>
+            );
+        }
+
+        export default SSRPage;
+
+     - SSG - https://www.youtube.com/watch?v=mS7K-GQcGHw&ab_channel=PiyushGarg
+
+        - Static Site Generation (SSG) in Next.js generates static HTML files at build time. 
+        Once these files are generated, they don't change or fetch new data on every page reload by default
+
+        export async function getStaticProps({ params }) {
+            // Fetch data for each blog post based on the ID
+            const data = // fetch data for the post
+
+             return {
+                props: { data },
+                revalidate: 10, // In seconds kind of polling 
+            };
+        }
+
+        function Post({ data }) {
+            // Render your post
+            return (
+                <div>
+                    <h1>{data.title}</h1>
+                    {/* Post content */}
+                </div>
+            );
+        }
+
+        export default Post;   
+
+
+
 - ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
     - https://www.youtube.com/watch?v=NwyQONeqRXA
 
