@@ -36,6 +36,7 @@ REACT
 - how react compiler works -
     - https://www.youtube.com/watch?v=OMRdBKinfmA
     - https://www.youtube.com/watch?v=TjnyFNxQ67Y&t=316s
+    - https://www.youtube.com/watch?v=_qkX3yAmgEw ( hooks under the hood )
 
 - difference between arrow function and normal function javascript - https://www.youtube.com/watch?v=Wdlu_wlj6as
 
