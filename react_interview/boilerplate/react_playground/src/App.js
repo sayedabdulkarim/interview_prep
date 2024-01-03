@@ -1,52 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 
-const memoizeFuncOne = (fn) => {
-  const cache = {};
-  return (...args) => {
-    const key = args[0];
+import Parent from "./components/renderProps/Parent";
+import ChildOne from "./components/renderProps/ChildOne";
+import ChildTwo from "./components/renderProps/ChildTwo";
 
-    if (cache[key]) {
-      console.log({ cache }, " from cache");
-      return cache[key];
-    } else {
-      const result = fn(...args);
-      cache[key] = result;
-      console.log({ cache }, " added to cache");
-
-      return result;
-    }
-  };
-};
-
-// const memoizedCalculation = memoizeFunc((num) => {
-const memoizedCalculation = memoizeFuncOne((num) => {
-  return num * 12345;
-});
-const Memoize = () => {
-  const [count, setCount] = useState(0);
-
-  const handleCount = (num) => {
-    const value = memoizedCalculation(num);
-
-    setCount(value);
-  };
-
+const App = () => {
   return (
     <div>
-      <h1>Memo: {count}</h1>
+      <h1>Hello</h1>
+      <h1>Hello</h1>
 
+      <Parent
+        render={(count, handleCount) => (
+          <ChildOne count={count} handleCount={handleCount} />
+        )}
+      />
       <hr />
       <hr />
       <hr />
+      <hr />
+      <hr />
+      <Parent
+        render={(count, handleCount) => (
+          <ChildTwo count={count} handleCount={handleCount} />
+        )}
+      />
 
-      <button onClick={() => handleCount(4)}>Count 4</button>
-      <button onClick={() => handleCount(4)}>Count 4</button>
-      <button onClick={() => handleCount(16)}>Count 16</button>
-      <button onClick={() => handleCount(16)}>Count 16</button>
-      <button onClick={() => handleCount(20)}>Count 20</button>
-      <button onClick={() => handleCount(20)}>Count 20</button>
+      {/* <ChildOne /> */}
     </div>
   );
 };
 
-export default Memoize;
+export default App;

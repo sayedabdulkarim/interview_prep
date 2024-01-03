@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 
 const ChildOne = ({ count, handleCount }) => {
-  //   const [count, setCount] = useState(0);
-
-  //   const handleCount = () => {
-  //     setCount((prev) => prev + 1);
-  //   };
-
   return (
     <div>
       <h1>Child One </h1>
