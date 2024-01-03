@@ -17,12 +17,12 @@ VDOS
 - memoization like useMemo
 - renderProps - https://www.youtube.com/watch?v=7VZcTYdoK54&ab_channel=CodeImprove
 - hoc
+- useFetch - https://www.youtube.com/watch?v=Vspeudp-M9k&ab_channel=PedroTech
+- compound pattern - https://www.youtube.com/watch?v=Xh2HPpc0xNw&ab_channel=adityakumar
 
 - infinite scrolling react - https://www.youtube.com/watch?v=lVgF2OziomM 
 - notification toast - https://www.youtube.com/watch?v=cOJTshh56Zc
-- compound pattern - https://www.youtube.com/watch?v=Xh2HPpc0xNw&ab_channel=adityakumar
 - file Explorer - https://www.youtube.com/watch?v=20F_KzHPpvI&ab_channel=RoadsideCoder
-- useFetch - https://www.youtube.com/watch?v=Vspeudp-M9k&ab_channel=PedroTech
 //Ques
 - https://leetcode.com/discuss/interview-question/742791/Front-End-Interview-Questions
 - https://bigfrontend.dev/problem

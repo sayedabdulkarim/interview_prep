@@ -1,13 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Parent = ({ render }) => {
-  const [count, setCount] = useState(0);
-
-  const handleCount = () => {
-    setCount((prev) => prev + 1);
-  };
-
-  return <>{render(count, handleCount)}</>;
+const Parent = () => {
+  return <div>Parent</div>;
 };
 
 export default Parent;

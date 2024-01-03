@@ -1,11 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export const useInput = (initialState) => {
-  const [value, setValue] = useState(initialState);
+const useInput = (initialState) => {
+  const [formFields, setFormFields] = useState(initialState);
 
-  //
-  const handleChange = (e) => setValue((prev) => e.target.value);
-  const handleReset = (e) => setValue(initialState);
+  const handleChange = (e) => {
+    setFormFields({
+      ...formFields,
+      [e.target.name]: e.target.vakue,
+    });
+  };
 
-  return [value, handleChange, handleReset];
+  const handleReset = () => {
+    setFormFields(initialState);
+  };
+
+  return [formFields, handleChange, handleReset];
 };
+
+export default useInput;
