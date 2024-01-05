@@ -57,7 +57,28 @@ Interview Last min
 
 - How does TypeScript support optional chaining (?.)?
 
-- What is a Decorator in TypeScript?
+- What is a Decorator in TypeScript? ( Decorators are like stickers or tags )
+
+    When you apply a decorator, you're telling TypeScript to pass that class, method, or property through a function (the decorator) that can add features or modify them in some way.
+
+
+    function sealed(constructor: Function) {
+        Object.seal(constructor);
+        Object.seal(constructor.prototype);
+    }
+
+    @sealed
+    class Greeter {
+        greeting: string;
+        constructor(message: string) {
+            this.greeting = message;
+        }
+        greet() {
+            return "Hello, " + this.greeting;
+        }
+    }
+
+
 
 - Can you explain Type Assertion in TypeScript?
 
