@@ -12,6 +12,20 @@ Interview Last min
     - Autocomplete or Intellisence
 
 - Explain basic types in TypeScript.
+    - enum Color {Red, Green, Blue} // group of values, so on using we hv to chosse from those values only 
+      let c: Color = Color.Green;
+
+    - tuple - let person: [string, number] = ["John", 35];
+
+    - void
+
+    - any
+
+    - never ( For values that never occur. For example, a function that always throws an error. )
+    function error(message: string): never {
+        throw new Error(message);
+    }
+
 
 - What are TypeScript interfaces?
 
@@ -27,7 +41,19 @@ Interview Last min
 
 - Explain Module resolution in TypeScript.
 
-- What are Type Guards?
+- What are Type Guards? so as per the args type, we r writing condition by telling the args type to typescrip
+
+    function process(input: string | number) {
+        if (typeof input === 'string') {
+            // TypeScript knows 'input' is a string here
+            console.log('Processing string:', input.toLowerCase());
+        } else {
+            // TypeScript knows 'input' is a number here
+            console.log('Processing number:', input.toFixed(2));
+        }
+    }
+
+
 
 - How does TypeScript support optional chaining (?.)?
 
