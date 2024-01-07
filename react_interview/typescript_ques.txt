@@ -80,9 +80,7 @@ Interview Last min
 
 
 
-- Can you explain Type Assertion in TypeScript?
-
-- Discuss how to use type assertions to specify a more specific type.
+- Can you explain Type Assertion in TypeScript? to define type e.g <string>,  as string
 
 
 
