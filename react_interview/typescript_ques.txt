@@ -41,7 +41,7 @@ Interview Last min
 
 - Explain Module resolution in TypeScript.
 
-- What are Type Guards? so as per the args type, we r writing condition by telling the args type to typescrip
+- What are Type Guards or Type narrow? so as per the args type, we r writing condition by telling the args type to typescrip
 
     function process(input: string | number) {
         if (typeof input === 'string') {
