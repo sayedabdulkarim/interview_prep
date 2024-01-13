@@ -182,6 +182,8 @@ Important list of questions to prepare for JavaScript interviews.
 
 🔍 Define what a promise is and describe its applications. ( https://www.youtube.com/watch?v=59PZr-2Mi90&ab_channel=RethinkingUI )
 
+🔍  callback, Promises, Async/Await. ( https://www.youtube.com/watch?v=_pK6TRpA6qY )
+
 
 🔍 Define request lifecycle of a web server ??
 

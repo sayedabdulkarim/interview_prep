@@ -1,12 +1,16 @@
 TYPESCRIPT ( https://www.youtube.com/watch?v=MOO5vrtTUTE&list=PL0Zuz27SZ-6NS8GXt5nPrcYpust89zq_b&index=1&ab_channel=DaveGray )
 =========
 
+Notes: 
+    -  void doesnt return nything and Generic return anything 
+    - never type means - throw new Error 
+
 Interview Last min 
 =====
 - What is TypeScript and how does it differ from JavaScript?
 
 - What are the benefits of using TypeScript?
-    - static typing
+    - static typing or superset of JavaScript
     - caught errors on compiling
     - improved readablity
     - Autocomplete or Intellisence

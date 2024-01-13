@@ -9,4 +9,5 @@ SSG, SSR, CSG
 How to implement SSR from scratch
 scss - mixins , forloop
 how to add mock data in react testing 
-from which tool content is change to react for showing in browser in React SSR 
+from which tool content is change to react for showing in browser in React SSR  -   const reactComp = ReactDOMServer.renderToString(<MyComponent name={name} />);
+

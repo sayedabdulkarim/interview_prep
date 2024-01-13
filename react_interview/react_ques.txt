@@ -31,6 +31,10 @@ VDOS
 
 REACT
 ================
+
+- token vs session
+- how authentication works
+
 - propTypes
 
 - how react compiler works -
@@ -227,7 +231,7 @@ REACT
 2. **How do you install React Router?**
     - Mention the npm or yarn command to install it.
 
-3. **Explain the difference between `BrowserRouter` and `HashRouter`.**
+3. **Explain the difference between `BrowserRouter` and `HashRouter`.** https://www.youtube.com/watch?v=336gNj9V8qE
     - When would you use one over the other?
 
     - So HashRouter added an hashtag to the route.
