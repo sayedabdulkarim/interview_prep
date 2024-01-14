@@ -13,11 +13,10 @@ const App = () => {
 
   const timer = (sec, min, hour) => {
     if (sec > 0) {
-      setMinutes((prev) => prev - 1);
+      setSeconds((prev) => prev - 1);
     } else if (sec === 0 && min >= 1) {
       setSeconds(59);
       setMinutes((prev) => prev - 1);
-      setHours((prev) => prev - 1);
     } else {
       setHours((prev) => prev - 1);
       setMinutes(59);
