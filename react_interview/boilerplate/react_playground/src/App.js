@@ -11,69 +11,73 @@ const App = () => {
     setIsStart(val);
   };
 
-  const timer = (sec, min, hour) => {
-    if (sec > 0) {
+  ///
+  const timerFunc = (seconds, minutes, hours) => {
+    if (seconds > 0) {
       setSeconds((prev) => prev - 1);
-    } else if (sec === 0 && min >= 1) {
+    } else if (seconds === 0 && minutes >= 1) {
       setSeconds(59);
       setMinutes((prev) => prev - 1);
-    } else if (sec === 0 && min === 0 && hour === 0) {
-      setHours(0);
-      setMinutes(0);
+    } else if (seconds === 0 && minutes === 0 && hours === 0) {
       setSeconds(0);
+      setMinutes(0);
+      setHours(0);
     } else {
       setHours((prev) => prev - 1);
-      setMinutes(59);
       setSeconds(59);
+      setMinutes(59);
     }
   };
 
   //async
   useEffect(() => {
-    if (isStart) {
-      let isTimer = setInterval(() => {
-        timer(seconds, minutes, hours);
-      }, 1000);
-      return () => clearInterval(isTimer);
-    }
-  }, [isStart, seconds, minutes, hours]);
+    let timer = setInterval(() => {
+      if (isStart) {
+        timerFunc(seconds, minutes, hours);
+      }
+    }, 1000);
 
-  console.log({
-    hours: typeof hours,
-    minutes: typeof minutes,
-    seconds: typeof seconds,
-  });
+    return () => clearInterval(timer);
+  }, [seconds, minutes, hours, isStart]);
+
   return (
     <div>
       {!isStart ? (
         <div>
           <input
             type="number"
-            placeholder="Enter Hour"
-            onChange={(e) => setHours(+e.target.value)}
+            placeholder="Enter Second"
+            name={"seconds"}
+            onChange={(e) => setSeconds(e.target.value)}
+            value={seconds}
           />
           <hr />
           <input
             type="number"
-            placeholder="Enter Minutes"
-            onChange={(e) => setMinutes(+e.target.value)}
+            placeholder="Enter Minute"
+            name={"minutes"}
+            onChange={(e) => setMinutes(e.target.value)}
+            value={minutes}
           />
           <hr />
           <input
             type="number"
-            placeholder="Enter Seconds"
-            onChange={(e) => setSeconds(+e.target.value)}
+            placeholder="Enter Hours"
+            name={"hours"}
+            onChange={(e) => setHours(e.target.value)}
+            value={hours}
           />
-          <hr />
           <hr />
           <button onClick={() => handleStart(true)}>Start</button>
         </div>
       ) : (
         <>
-          <h2>Hour: {hours}</h2>
-          <h2>Minutes: {minutes}</h2>
-          <h2>Seconds: {seconds}</h2>
-          <button onClick={() => console.log("pause")}>Pause</button>
+          <hr />
+          <hr />
+          <h1>
+            Hours: {hours} / Minutes: {minutes} / Seconds: {seconds}
+          </h1>
+          <button>Pause</button>
           <button onClick={() => handleStart(false)}>Stop</button>
         </>
       )}
