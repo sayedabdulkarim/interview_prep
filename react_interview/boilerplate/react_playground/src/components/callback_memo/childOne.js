@@ -1,11 +1,11 @@
 import React, { memo } from "react";
 
-const ChildOne = ({ handleCount, count }) => {
-  console.log("calling from child One ");
+const ChildOne = ({ count, handleCount }) => {
+  console.log("Chid One ");
   return (
     <div>
-      <h1>Child One : {count} </h1>
-      <button onClick={handleCount}>Click count </button>
+      <h1>{count}</h1>
+      <button onClick={() => handleCount()}>handleCount</button>
     </div>
   );
 };

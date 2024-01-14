@@ -4,47 +4,33 @@ import ChildOne from "./childOne";
 import ChildTwo from "./childTwo";
 
 const Parent = () => {
+  //state
   const [name, setName] = useState("");
-
-  const handleName = () => {
-    setName(Math.random());
-  };
-
-  //callback
   const [count, setCount] = useState(0);
-  //   const handleCount = () => {
-  //     setCount((prev) => prev + 1);
-  //   };
-  const handleCount = useCallback(() => {
-    setCount((prev) => prev + 1);
-  }, []);
+  const [arr, setArr] = useState([2, 3, 4, 6, 7, 8, 9, 0, 0]);
 
-  //memo
-  const test = [2, 3, 1, 3, 5, 4, 22, 3, 1, 1, 5, 55, 4, 5, 2, 3, 6, 8, 9, 4];
-
-  const [arr, setArr] = useState(test);
-
-  //   const getMax = () => {
-  //     console.log("get max called ");
-  //     return Math.max(...arr);
-  //   };
-  const getMax = useMemo(() => {
-    console.log("get max called ");
+  // const largeNum = () => {
+  //   console.log("largeNum called");
+  //   return Math.max(...arr);
+  // };
+  const largeNum = useMemo(() => {
+    console.log("largeNum called");
     return Math.max(...arr);
   }, [arr]);
 
-  console.log("caling from parent ");
+  //func
+  const handleCount = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+  //async
+  console.log("parent");
   return (
     <div>
-      <h1>Parent {name}</h1>
-      {/* <button>Get Max {getMax()}</button> */}
-      <button>Get Max {getMax}</button>
-      <button onClick={() => handleName()}>handle Name </button>
-      <hr />
+      <h1>Large Num : {largeNum}</h1>
+      <h1>{name}</h1>
+      <button onClick={() => setName(Math.random() * 100)}>handleNAme</button>
       <hr />
       <ChildOne count={count} handleCount={handleCount} />
-      <hr />
-      <hr />
       <ChildTwo />
     </div>
   );
