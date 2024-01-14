@@ -1,86 +1,64 @@
-import React, { useEffect, useState } from "react";
+import React, { Component, useState } from "react";
 
-const App = () => {
-  //state
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [isStart, setIsStart] = useState(false);
-  //func
-  const handleStart = (val) => {
-    setIsStart(val);
-  };
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
+  }
 
-  ///
-  const timerFunc = (seconds, minutes, hours) => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (seconds === 0 && minutes >= 1) {
-      setSeconds(59);
-      setMinutes((prev) => prev - 1);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setSeconds(0);
-      setMinutes(0);
-      setHours(0);
-    } else {
-      setHours((prev) => prev - 1);
-      setSeconds(59);
-      setMinutes(59);
-    }
-  };
+  componentDidCatch(err) {
+    console.log(err, " err from CDC");
+  }
 
-  //async
-  useEffect(() => {
-    let timer = setInterval(() => {
-      if (isStart) {
-        timerFunc(seconds, minutes, hours);
-      }
-    }, 1000);
+  // static getDerviedStateFromError(err) {
+  //   return { hasError: true };
+  // }
 
-    return () => clearInterval(timer);
-  }, [seconds, minutes, hours, isStart]);
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.hasError ? (
+          <h1>Something went wrong</h1>
+        ) : (
+          this.props.children
+        )}
+      </div>
+    );
+  }
+}
+
+const BtnComponent = () => {
+  const [isError, setIsError] = useState(false);
+
+  if (isError) {
+    throw new Error("Error from Btn Component");
+  }
 
   return (
     <div>
-      {!isStart ? (
-        <div>
-          <input
-            type="number"
-            placeholder="Enter Second"
-            name={"seconds"}
-            onChange={(e) => setSeconds(e.target.value)}
-            value={seconds}
-          />
-          <hr />
-          <input
-            type="number"
-            placeholder="Enter Minute"
-            name={"minutes"}
-            onChange={(e) => setMinutes(e.target.value)}
-            value={minutes}
-          />
-          <hr />
-          <input
-            type="number"
-            placeholder="Enter Hours"
-            name={"hours"}
-            onChange={(e) => setHours(e.target.value)}
-            value={hours}
-          />
-          <hr />
-          <button onClick={() => handleStart(true)}>Start</button>
-        </div>
-      ) : (
-        <>
-          <hr />
-          <hr />
-          <h1>
-            Hours: {hours} / Minutes: {minutes} / Seconds: {seconds}
-          </h1>
-          <button>Pause</button>
-          <button onClick={() => handleStart(false)}>Stop</button>
-        </>
-      )}
+      <button onClick={() => setIsError(true)}>Error BTN</button>
+    </div>
+  );
+};
+
+const App = () => {
+  return (
+    <div>
+      <ErrorBoundary>
+        <h1>App</h1>
+        <h1>App</h1>
+        <h1>App</h1>
+        <h1>App</h1>
+        <h1>App</h1>
+        <BtnComponent />
+      </ErrorBoundary>
     </div>
   );
 };

@@ -10,8 +10,8 @@ VDOS
 ///MACHINE_CODING////
 
 *- count timer hooks
-- useInput hook
 - error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
+- useInput hook
 - useMemo, UseCallBack, React.memo 
     - memo ( https://www.youtube.com/watch?v=yM2q_joUmNQ&t=364s&ab_channel=CodeStepByStep, https://www.youtube.com/watch?v=uojLJFt9SzY )
 - memoization like useMemo
