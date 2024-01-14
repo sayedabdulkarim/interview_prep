@@ -17,6 +17,10 @@ const App = () => {
     } else if (sec === 0 && min >= 1) {
       setSeconds(59);
       setMinutes((prev) => prev - 1);
+    } else if (sec === 0 && min === 0 && hour === 0) {
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
     } else {
       setHours((prev) => prev - 1);
       setMinutes(59);
