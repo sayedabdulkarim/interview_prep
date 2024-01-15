@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
-const ChildTwo = () => {
-  const [count, setCount] = useState(0);
-
-  const handleCount = () => {
-    setCount((prev) => prev + 1);
-  };
-
+const ChildTwo = ({ count, handleCount }) => {
   return (
     <div>
-      <h1>Child Two </h1>
-      <h3>Count - {count} </h3>
-      <button onClick={handleCount}>handleCount Two </button>
+      <h1>ChildTwo: {count}</h1>
+      <button onClick={() => handleCount()}>handleCount</button>
     </div>
   );
 };
