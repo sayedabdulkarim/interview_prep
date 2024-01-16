@@ -6,6 +6,7 @@ VDOS
 - https://www.youtube.com/@InterviewAddaOffical/videos
 - https://www.youtube.com/@AllThingsJavaScript/playlists
 
+//TESTING
 
 ///MACHINE_CODING////
 
@@ -342,7 +343,7 @@ REACT TESTING
 ===============
 react testing - gave me to write a sample test for a input with a div where value of input  is displayed
 
-
+playlist:  https://www.youtube.com/watch?v=7W07acU9fqw&list=PLolI8AY2AS9Yzq5tPVuNPnmwm4XIBIMn2&index=7
 
 
 /////////////////////////////////
