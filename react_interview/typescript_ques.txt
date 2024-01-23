@@ -21,9 +21,12 @@ Interview Last min
 
     - tuple - let person: [string, number] = ["John", 35];
 
-    - void
+    - void - means blank, when the function is not returnin gnything
 
-    - any
+    - any vs unknow
+
+        if we add any then on changing type it will not throw any error, but in case of unkown once we deine a type then on changing it will throw 
+
 
     - never ( For values that never occur. For example, a function that always throws an error. )
     function error(message: string): never {
