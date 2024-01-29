@@ -32,7 +32,7 @@ VDOS
 
 REACT
 ================
-
+- how to call a children function from parent without state nd props  
 - token vs session
 - how authentication works
 
