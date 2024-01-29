@@ -50,6 +50,7 @@ REACT
     R18 - https://www.youtube.com/watch?v=N0DhCV_-Qbg&t=9s
         - useTransition is often used with state, and useDeferredValue can be used to control prop values or derived data.
         https://www.youtube.com/watch?v=lDukIAymutM&t=364s ( so useTransition is for proiority state and defered values is for value e.g array of objs )
+        https://www.youtube.com/watch?v=IPIV6Zjz5NU - (simple useTransition)
         
     R17 - https://www.youtube.com/watch?v=8D-rWP3c088&t=399s
 
