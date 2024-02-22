@@ -16,7 +16,6 @@ VDOS
 - https://www.youtube.com/@InterviewAddaOffical/videos
 - https://www.youtube.com/@AllThingsJavaScript/playlists
 
-//TESTING
 
 ///MACHINE_CODING////
 ##################################################################################
@@ -66,6 +65,9 @@ REACT
         https://www.youtube.com/watch?v=lDukIAymutM&t=364s ( so useTransition is for proiority state and defered values is for value e.g array of objs )
         https://www.youtube.com/watch?v=IPIV6Zjz5NU - (simple useTransition)
         
+        useDeferredValue - The hook allows React to delay updating the expensive UI until more urgent updates have been completed 
+        useTransition -  It allows you to mark certain state updates as non-urgent
+
     R17 - https://www.youtube.com/watch?v=8D-rWP3c088&t=399s
 
 - ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
@@ -369,8 +371,14 @@ playlist:  https://www.youtube.com/watch?v=7W07acU9fqw&list=PLolI8AY2AS9Yzq5tPVu
 get, find, query to get the element in react testing library , when to use which ?
     
     - "get" when the element should be in the DOM, and its absence is an immediate failure. Example: getByText, getByRole, getByTestId.
-    - "find" for elements that will appear but might do so asynchronously. Example: findByText, findByRole, findByTestId.
     - "query" when testing for the absence of an element, since it doesn't throw but returns null if the element isn't found. Example: queryByText, queryByRole, queryByTestId.
+    - "find" for elements that will appear but might do so asynchronously. Example: findByText, findByRole, findByTestId.
+
+    waitFor vs find
+    ===============
+    so like we can say , if suppose on initial render we r calling some api , and after gettting response we r showing some data , so in that case we can use "find" , 
+
+    but suppose we hv a button and on click we r calling some api and on that basis we r changing our ui, so on that case we shoulf use "waitFor".
 
 //METHODS
     - JEST 
