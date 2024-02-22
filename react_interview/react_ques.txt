@@ -1,3 +1,13 @@
+SEARCH 
+=====
+- MACHINE_CODING
+- REACT
+- React Router
+- Redux
+- REACT TESTING
+- BABEL
+- MISC
+
 VDOS
 ----
 - https://www.youtube.com/watch?v=s-b-txm_Gvk&list=PLmcRO0ZwQv4SNhbW4CI4vc-6IHBHCKzZN&index=2
@@ -9,6 +19,8 @@ VDOS
 //TESTING
 
 ///MACHINE_CODING////
+##################################################################################
+##################################################################################
 
 *- count timer hooks
 - error boundaries - https://www.youtube.com/watch?v=hszc3T0hdvU&ab_channel=Codevolution
@@ -31,7 +43,9 @@ VDOS
 
 
 REACT
-================
+##########################################################################################
+##########################################################################################
+
 - how to call a children function from parent without state nd props  
 - token vs session
 - how authentication works
@@ -206,7 +220,8 @@ REACT
 
 
 ///React Router
-===============
+##################################################################
+##################################################################
 
 ### Basic Questions
 
@@ -332,7 +347,8 @@ REACT
 
 
 Redux
-==========
+###################################################################################
+###################################################################################
     - Defn: 
         - allows to write action creators that return a function instead of an action. 
         - gives delay
@@ -341,16 +357,38 @@ Redux
 
 
 REACT TESTING
-===============
+##################################################################################################################
+##################################################################################################################
+##################################################################################################################
+
 react testing - gave me to write a sample test for a input with a div where value of input  is displayed
 
 playlist:  https://www.youtube.com/watch?v=7W07acU9fqw&list=PLolI8AY2AS9Yzq5tPVuNPnmwm4XIBIMn2&index=7
+
+//
+get, find, query to get the element in react testing library , when to use which ?
+    
+    - "get" when the element should be in the DOM, and its absence is an immediate failure. Example: getByText, getByRole, getByTestId.
+    - "find" for elements that will appear but might do so asynchronously. Example: findByText, findByRole, findByTestId.
+    - "query" when testing for the absence of an element, since it doesn't throw but returns null if the element isn't found. Example: queryByText, queryByRole, queryByTestId.
+
+//METHODS
+    - JEST 
+    =====
+        - descrobe, test, expect, mock, beforeEach , afterEach, afterAll, beforeAll, 
+
+    - RTL 
+    ======
+        - render, getByText, findByText, queryByText, fireEvent, waitFor
 
 
 /////////////////////////////////
     move the below to above , as pet question type
 ///////////////////////////////////////////////////////////     
 
+BABEL
+######################################################
+######################################################
 
 2 - Babel tutorial - https://www.youtube.com/watch?v=AE-TfB6jGtw&list=PL_euSNU_eLbejfEUD0msUF8xf_Zjz2f8r
 
@@ -361,7 +399,9 @@ THINGS TO CHECK as per new version : (
 )
 
 
-15 - FE 
+MISC
+#######################################################################
+#######################################################################
 ///
     
     a - security
