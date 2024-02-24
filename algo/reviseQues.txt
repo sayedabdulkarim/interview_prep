@@ -1,3 +1,9 @@
+Check
+===
+Arrays
+###Solving pattern
+
+
 Questions to check: 
 https://interviewready.io/course-page/data-structures-and-algorithms
 https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/#reviews
@@ -5,7 +11,7 @@ https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-intervie
 Arrays:
 
 ### Easy
-- Find the Maximum Element: Given an array of integers, find the maximum element.
+- Find the Maximum Element: Given an array of integers, find the maximum element. ( selection sort )
 - Find the Minimum Element: Given an array of integers, find the minimum element.
 - Reverse an Array: Given an array, reverse it. ( without using extra space )
 - Move ZeroesToRight: Move all 0's to the end of an array while maintaining the relative order of the non-zero elements.

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { loadAlbums } from "./actions/testActions";
 
+import TestComponent from "./components/testComponent";
 const App = () => {
   const dispatch = useDispatch();
   const { count, albums, loading, error } = useSelector(
@@ -26,7 +27,7 @@ const App = () => {
 
   return (
     <div>
-      <button onClick={() => console.log(handleFetch())}>
+      {/* <button onClick={() => console.log(handleFetch())}>
         handleFetchEvery
       </button>
       <button onClick={() => console.log(count, " ccc")}>Count</button>
@@ -36,7 +37,8 @@ const App = () => {
       <h1>App</h1>
       <h1>App</h1>
       <h1>App</h1>
-      <h1>App</h1>
+      <h1>App</h1> */}
+      <TestComponent />
     </div>
   );
 };
