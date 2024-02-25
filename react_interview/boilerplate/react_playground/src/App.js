@@ -1,46 +1,53 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { loadAlbums } from "./actions/testActions";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
-import TestComponent from "./components/testComponent";
-const App = () => {
-  const dispatch = useDispatch();
-  const { count, albums, loading, error } = useSelector(
-    (state) => state.testReducer
+// const Child = () => {
+//   return (
+//     <div>
+//       <h4>Child</h4>
+//       <h4>Child</h4>
+//       <h4>Child</h4>
+//       <button></button>
+//     </div>
+//   );
+// };
+
+const Child = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => ({
+    childClick() {
+      console.log("calleddddd");
+    },
+  }));
+  return (
+    <div>
+      <h4>Child</h4>
+      <h4>Child</h4>
+      <h4>Child</h4>
+    </div>
   );
+});
 
-  //async
-  useEffect(() => {
-    // loadAlbums(dispatch);
-    // dispatch({ type: "FETCH_DATA" });
-  }, [dispatch]); // Dependency array, re-run if dispatch changes
+const Parent = () => {
+  const childRef = useRef();
 
-  const handleFetch = () => {
-    dispatch({ type: "FETCH_DATA" });
+  const handleClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
   };
-
-  // console.log({
-  //   albums,
-  //   loading,
-  //   error,
-  // });
 
   return (
     <div>
-      {/* <button onClick={() => console.log(handleFetch())}>
-        handleFetchEvery
-      </button>
-      <button onClick={() => console.log(count, " ccc")}>Count</button>
-      <h1>App</h1>
-      <h1>App</h1>
-      <h1>App</h1>
-      <h1>App</h1>
-      <h1>App</h1>
-      <h1>App</h1>
-      <h1>App</h1> */}
-      <TestComponent />
+      <h1>Parent</h1>
+      <h1>Parent</h1>
+      <h1>Parent</h1>
+      <button onClick={() => handleClick()}>Child Click</button>
+      <h1>Parent</h1>
+      <hr />
+      <hr />
+      <hr />
+      <Child childRef={childRef} />
     </div>
   );
 };
 
-export default App;
+export default Parent;
