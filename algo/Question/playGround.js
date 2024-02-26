@@ -6,6 +6,7 @@ function maxElem(arr) {
   if (!arr.length) return null;
 
   for (let i = 0; i < arr.length; i++) {
+    //condition 1
     if (arr[0] < arr[i]) {
       [arr[0], arr[i]] = [arr[i], arr[0]];
     }
@@ -17,6 +18,7 @@ function minElem(arr) {
   if (!arr.length) return null;
 
   for (let i = 0; i < arr.length; i++) {
+    //condition 1
     if (arr[0] > arr[i]) {
       [arr[0], arr[i]] = [arr[i], arr[0]];
     }
@@ -27,21 +29,15 @@ function minElem(arr) {
 function reverseArr(arr) {
   if (!arr.length) return null;
 
-  for (let i = 0; i < Math.floor(arr.length / 2); i++) {
+  for (let i = 0; i < Math.round(arr.length / 2); i++) {
     [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
   }
   return arr;
 }
 
-function reverseArr(arr) {
-  let n = arr.length;
-  for (let i = 0; i < Math.floor(n / 2); i++) {
-    [arr[i], arr[n - i - 1]] = [arr[n - i - 1], arr[i]];
-  }
-  return arr;
-}
-
 function moveZeroesToRight(arr) {
+  if (!arr.length) return null;
+
   let count = 0;
 
   for (let i = 0; i < arr.length; i++) {
@@ -50,15 +46,16 @@ function moveZeroesToRight(arr) {
       count++;
     }
   }
-
   for (let i = count; i < arr.length; i++) {
     arr[i] = 0;
   }
 
-  return { count, arr, length: arr.length };
+  return { arr, count, length: arr.length };
 }
 
 function moveZeroesToLeft(arr) {
+  if (!arr.length) return null;
+
   let count = 0;
 
   for (let i = 0; i < arr.length; i++) {
@@ -67,14 +64,24 @@ function moveZeroesToLeft(arr) {
       count++;
     }
   }
-
-  for (let i = 0; i < arr.length - count; i++) {
-    arr[i] = 0;
+  // for (let i = 0; i > arr.length - count; i++) {
+  for (let j = 0; j < arr.length - count; j++) {
+    arr[j] = 0;
+    // console.log("iiiii");
   }
 
-  return { count, arr, length: arr.length };
+  return { arr, count, length: arr.length };
 }
 
+function sortAsc(arr) {
+  if (!arr.length) return null;
+
+  let isSorted = true;
+
+  // while(){}
+}
+
+// moveZeroesToLeft(array);
 console.log({
   // maxElem: maxElem(array),
   // minElem: minElem(array),
