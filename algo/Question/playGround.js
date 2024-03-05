@@ -37,8 +37,56 @@ function reverseArr(arr) {
   return arr;
 }
 
+function moveZeroesToRight(arr) {
+  if (!arr.length) return null;
+
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count++;
+    }
+  }
+
+  for (let i = count; i < arr.length; i++) {
+    arr[i] = 0;
+  }
+
+  return {
+    count,
+    arr,
+  };
+}
+
+function moveZeroesToLeft(arr) {
+  if (!arr.length) return null;
+
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count++;
+    }
+  }
+
+  for (let i = 0; i < arr.length - count; i++) {
+    arr[i] = 0;
+  }
+
+  return {
+    count,
+    arr,
+  };
+}
+
+function sortAsc(arr) {}
+
 console.log({
   // minElem: minElem(array),
   // maxElem: maxElem(array),
-  reverseArr: reverseArr(array),
+  // reverseArr: reverseArr(array),
+  // moveZeroesToRight: moveZeroesToRight(array),
+  moveZeroesToLeft: moveZeroesToLeft(array),
 });
