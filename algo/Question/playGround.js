@@ -30,9 +30,7 @@ function reverseArr(arr) {
   if (!arr.length) return null;
 
   for (let i = 0; i < Math.round(arr.length / 2); i++) {
-    if (arr[i] > arr[i + 1]) {
-      [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
-    }
+    [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
   }
   return arr;
 }
@@ -81,12 +79,69 @@ function moveZeroesToLeft(arr) {
   };
 }
 
-function sortAsc(arr) {}
+function sortArrDesc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        isSorted = false;
+      }
+    }
+  }
+
+  return arr;
+}
+
+function sortArrAsc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i + 1]) {
+        const temp = arr[i + 1];
+        arr[i + 1] = arr[i];
+        arr[i] = temp;
+        isSorted = false;
+      }
+    }
+  }
+
+  return arr;
+}
+
+function removeDup(arr) {
+  let newSet = new Set(arr);
+  let newArr = Array.from(newSet);
+  return newArr;
+}
+
+function chunkArray(arr, num) {
+  const chunk = [];
+
+  for (let i = 0; i < arr.length; i += num) {
+    // console.log(i, " ii");
+    const sliced = arr.slice(i, num + i);
+    chunk.push(sliced);
+  }
+  return chunk;
+}
 
 console.log({
-  // minElem: minElem(array),
   // maxElem: maxElem(array),
+  // minElem: minElem(array),
   // reverseArr: reverseArr(array),
   // moveZeroesToRight: moveZeroesToRight(array),
-  moveZeroesToLeft: moveZeroesToLeft(array),
+  // moveZeroesToLeft: moveZeroesToLeft(array),
+  // sortArrDesc: sortArrDesc(array),
+  // sortArrAsc: sortArrAsc(array),
+  // removeDup: removeDup(array),
+  chunkArray: chunkArray(array, 3),
 });
