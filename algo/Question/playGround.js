@@ -1,147 +1,75 @@
 // const array = [64, 34, 25, 12, 22, 11, 90, 64];
 // const array = [10, 9, 8, 7, 6];
 const array = [64, 34, 25, 12, 22, 0, 0, 11, 90, 100, -100, 64];
+const string = "A man a plan a canal Panama";
 
-function maxElem(arr) {
-  if (!arr.length) return null;
+function reversedStr(str) {
+  let revStr = "";
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[0] < arr[i]) {
-      [arr[0], arr[i]] = [arr[i], arr[0]];
+  for (let i = str.length - 1; i >= 0; i--) {
+    revStr += str[i];
+  }
+
+  return revStr;
+}
+
+function reversedStr2(str) {
+  str = [...str];
+
+  for (let i = 0; i < Math.round(str.length / 2); i++) {
+    [str[i], str[str.length - i - 1]] = [str[str.length - i - 1], str[i]];
+  }
+
+  return str.join("");
+}
+
+function cleanedStr(str) {
+  let res = "";
+
+  for (let i = 0; i < str.length; i++) {
+    let lowercase = str[i].toLowerCase();
+    if (
+      (lowercase >= "a" && lowercase <= "z") ||
+      (lowercase >= "0" && lowercase <= "9")
+    ) {
+      res += lowercase;
     }
   }
-
-  return arr;
+  return res;
 }
 
-function minElem(arr) {
-  if (!arr.length) return null;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[0] > arr[i]) {
-      [arr[0], arr[i]] = [arr[i], arr[0]];
+function cleanString(str) {
+  let cleanedStr = "";
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i].toLowerCase();
+    if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
+      cleanedStr += char;
     }
   }
-
-  return arr;
+  return cleanedStr;
 }
 
-function reverseArr(arr) {
-  if (!arr.length) return null;
+// function isPalindrome(str) {
+//   str = str.toLowerCase();
+//   console.log(str);
+//   const a = [...str].join("").trim(" ");
+//   const b = [...str].reverse().join("").trim();
 
-  for (let i = 0; i < Math.round(arr.length / 2); i++) {
-    [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
-  }
-  return arr;
-}
+//   return {
+//     a,
+//     b,
+//   };
+// }
 
-function moveZeroesToRight(arr) {
-  if (!arr.length) return null;
-
-  let count = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== 0) {
-      arr[count] = arr[i];
-      count++;
-    }
-  }
-
-  for (let i = count; i < arr.length; i++) {
-    arr[i] = 0;
-  }
-
-  return {
-    count,
-    arr,
-  };
-}
-
-function moveZeroesToLeft(arr) {
-  if (!arr.length) return null;
-
-  let count = 0;
-
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] !== 0) {
-      arr[count] = arr[i];
-      count++;
-    }
-  }
-
-  for (let i = 0; i < arr.length - count; i++) {
-    arr[i] = 0;
-  }
-
-  return {
-    count,
-    arr,
-  };
-}
-
-function sortArrDesc(arr) {
-  let isSorted = false;
-
-  while (!isSorted) {
-    isSorted = true;
-
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] < arr[i + 1]) {
-        const temp = arr[i];
-        arr[i] = arr[i + 1];
-        arr[i + 1] = temp;
-        isSorted = false;
-      }
-    }
-  }
-
-  return arr;
-}
-
-function sortArrAsc(arr) {
-  let isSorted = false;
-
-  while (!isSorted) {
-    isSorted = true;
-
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] > arr[i + 1]) {
-        const temp = arr[i + 1];
-        arr[i + 1] = arr[i];
-        arr[i] = temp;
-        isSorted = false;
-      }
-    }
-  }
-
-  return arr;
-}
-
-function removeDup(arr) {
-  let newSet = new Set(arr);
-  let newArr = Array.from(newSet);
-  return newArr;
-}
-
-function chunkArray(arr, num) {
-  const chunk = [];
-
-  for (let i = 0; i < arr.length; i += num) {
-    // console.log(i, " ii");
-    const sliced = arr.slice(i, num + i);
-    chunk.push(sliced);
-  }
-  return chunk;
+function isPalindrome(str) {
+  const string = cleanedStr(str);
+  // const string = cleanString(str);
+  return string === [...string].reverse().join("");
 }
 
 console.log({
-  // maxElem: maxElem(array),
-  // minElem: minElem(array),
-  // reverseArr: reverseArr(array),
-  // moveZeroesToRight: moveZeroesToRight(array),
-  // moveZeroesToLeft: moveZeroesToLeft(array),
-  // sortArrDesc: sortArrDesc(array),
-  // sortArrAsc: sortArrAsc(array),
-  // removeDup: removeDup(array),
-  chunkArray: chunkArray(array, 3),
+  // reversedStr: reversedStr(string),
+  // reversedStr2: reversedStr2(string),
+  // isPalindrome: isPalindrome("Hello"),
+  isPalindrome: isPalindrome(string),
 });

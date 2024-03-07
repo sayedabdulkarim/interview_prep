@@ -9,6 +9,7 @@ https://interviewready.io/course-page/data-structures-and-algorithms
 https://www.udemy.com/course/master-the-coding-interview-big-tech-faang-interviews/#reviews
 https://docs.google.com/spreadsheets/d/1q7sbGitpJliT7O4vVvHWixo9pZmsWnwW8jnH4NGhKQ4/edit#gid=0
 https://www.youtube.com/watch?v=AlO4gjeb60A
+https://www.flipkartcareers.com/flipkart_pdf/SDE.pdf
 
 Arrays:
 
