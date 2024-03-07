@@ -67,9 +67,20 @@ function isPalindrome(str) {
   return string === [...string].reverse().join("");
 }
 
+function firstUni(str) {
+  const obj = {};
+
+  for (let i = 0; i < str.length; i++) {
+    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  }
+
+  return obj;
+}
+
 console.log({
   // reversedStr: reversedStr(string),
   // reversedStr2: reversedStr2(string),
   // isPalindrome: isPalindrome("Hello"),
-  isPalindrome: isPalindrome(string),
+  // isPalindrome: isPalindrome(string),
+  firstUni: firstUni("hello"),
 });
