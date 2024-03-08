@@ -3,84 +3,120 @@
 const array = [64, 34, 25, 12, 22, 0, 0, 11, 90, 100, -100, 64];
 const string = "A man a plan a canal Panama";
 
-function reversedStr(str) {
-  let revStr = "";
+function maxElem(arr) {
+  if (!arr.length) return null;
 
-  for (let i = str.length - 1; i >= 0; i--) {
-    revStr += str[i];
-  }
-
-  return revStr;
-}
-
-function reversedStr2(str) {
-  str = [...str];
-
-  for (let i = 0; i < Math.round(str.length / 2); i++) {
-    [str[i], str[str.length - i - 1]] = [str[str.length - i - 1], str[i]];
-  }
-
-  return str.join("");
-}
-
-function cleanedStr(str) {
-  let res = "";
-
-  for (let i = 0; i < str.length; i++) {
-    let lowercase = str[i].toLowerCase();
-    if (
-      (lowercase >= "a" && lowercase <= "z") ||
-      (lowercase >= "0" && lowercase <= "9")
-    ) {
-      res += lowercase;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[0] < arr[i]) {
+      [arr[0], arr[i]] = [arr[i], arr[0]];
     }
   }
-  return res;
+  return arr;
 }
 
-function cleanString(str) {
-  let cleanedStr = "";
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i].toLowerCase();
-    if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
-      cleanedStr += char;
+function minElem(arr) {
+  if (!arr.length) return null;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[0] > arr[i]) {
+      [arr[0], arr[i]] = [arr[i], arr[0]];
     }
   }
-  return cleanedStr;
+  return arr;
 }
 
-// function isPalindrome(str) {
-//   str = str.toLowerCase();
-//   console.log(str);
-//   const a = [...str].join("").trim(" ");
-//   const b = [...str].reverse().join("").trim();
+function reverseArr(arr) {
+  if (!arr.length) return null;
 
-//   return {
-//     a,
-//     b,
-//   };
-// }
-
-function isPalindrome(str) {
-  const string = cleanedStr(str);
-  // const string = cleanString(str);
-  return string === [...string].reverse().join("");
-}
-
-function firstUni(str) {
-  const obj = {};
-
-  for (let i = 0; i < str.length; i++) {
-    obj[str[i]] = (obj[str[i]] || 0) + 1;
+  for (let i = 0; i < Math.round(arr.length / 2); i++) {
+    [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
   }
 
-  return obj;
+  return arr;
+}
+
+function moveZeroesToRight(arr) {
+  if (!arr.length) return null;
+
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count++;
+    }
+  }
+
+  for (let i = count; i < arr.length; i++) {
+    arr[i] = 0;
+  }
+
+  return { arr, count };
+}
+
+function moveZeroesToLeft(arr) {
+  if (!arr.length) return null;
+
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count++;
+    }
+  }
+
+  for (let i = 0; i < arr.length - count; i++) {
+    arr[i] = 0;
+  }
+
+  return { arr, count };
+}
+
+function sortAsc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+
+        arr[i + 1] = temp;
+        isSorted = false;
+      }
+    }
+  }
+  return arr;
+}
+
+function sortDesc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+
+        arr[i + 1] = temp;
+        isSorted = false;
+      }
+    }
+  }
+  return arr;
 }
 
 console.log({
-  // reversedStr: reversedStr(string),
-  // reversedStr2: reversedStr2(string),
-  // isPalindrome: isPalindrome("Hello"),
-  // isPalindrome: isPalindrome(string),
-  firstUni: firstUni("hello"),
+  // maxElem: maxElem(array),
+  // minElem: minElem(array),
+  // reverseArr: reverseArr(array),
+  // moveZeroesToRight: moveZeroesToRight(array),
+  // moveZeroesToLeft: moveZeroesToLeft(array),
+  sortAsc: sortAsc(array),
+  sortDesc: sortDesc(array),
 });
