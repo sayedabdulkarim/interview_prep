@@ -111,12 +111,37 @@ function sortDesc(arr) {
   return arr;
 }
 
+function removeDup(arr) {
+  if (!arr.length) return null;
+
+  let newSet = new Set(arr);
+  let newArr = Array.from(newSet);
+
+  return newArr;
+}
+
+function chunkArray(arr, num) {
+  if (!arr.length) return null;
+
+  const chunk = [];
+
+  for (let i = 0; i < arr.length; i += num) {
+    const sliced = arr.slice(i, i + num);
+    console.log(i, " ii");
+    chunk.push(sliced);
+  }
+
+  return chunk;
+}
+
 console.log({
   // maxElem: maxElem(array),
   // minElem: minElem(array),
   // reverseArr: reverseArr(array),
   // moveZeroesToRight: moveZeroesToRight(array),
   // moveZeroesToLeft: moveZeroesToLeft(array),
-  sortAsc: sortAsc(array),
-  sortDesc: sortDesc(array),
+  // sortAsc: sortAsc(array),
+  // sortDesc: sortDesc(array),
+  // removeDup: removeDup(array),
+  chunkArray: chunkArray(array, 5),
 });
