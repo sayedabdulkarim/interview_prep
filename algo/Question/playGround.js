@@ -147,6 +147,16 @@ function chunkArray(arr, num) {
   return chunkArray;
 }
 
+function revStr(str) {
+  str = [...str];
+
+  for (let i = 0; i < Math.round(str.length / 2); i++) {
+    [str[i], str[str.length - i - 1]] = [str[str.length - i - 1], str[i]];
+  }
+
+  return str.join("");
+}
+
 console.log({
   // maxElem: maxElem(array),
   // minElem: minElem(array),
@@ -157,5 +167,6 @@ console.log({
   // sortDesc: sortDesc(array),
   // removeDup: removeDup(array),
   // containsDuplicate: containsDuplicate(array),
-  chunkArray: chunkArray(array, 4),
+  // chunkArray: chunkArray(array, 4),
+  revStr: revStr("hello"),
 });
