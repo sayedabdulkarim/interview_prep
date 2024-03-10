@@ -11,6 +11,7 @@ function maxElem(arr) {
       [arr[0], arr[i]] = [arr[i], arr[0]];
     }
   }
+
   return arr;
 }
 
@@ -22,6 +23,7 @@ function minElem(arr) {
       [arr[0], arr[i]] = [arr[i], arr[0]];
     }
   }
+
   return arr;
 }
 
@@ -39,7 +41,6 @@ function moveZeroesToRight(arr) {
   if (!arr.length) return null;
 
   let count = 0;
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== 0) {
       arr[count] = arr[i];
@@ -51,14 +52,16 @@ function moveZeroesToRight(arr) {
     arr[i] = 0;
   }
 
-  return { arr, count };
+  return {
+    count,
+    arr,
+  };
 }
 
 function moveZeroesToLeft(arr) {
   if (!arr.length) return null;
 
   let count = 0;
-
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== 0) {
       arr[count] = arr[i];
@@ -70,7 +73,10 @@ function moveZeroesToLeft(arr) {
     arr[i] = 0;
   }
 
-  return { arr, count };
+  return {
+    count,
+    arr,
+  };
 }
 
 function sortAsc(arr) {
@@ -78,17 +84,17 @@ function sortAsc(arr) {
 
   while (!isSorted) {
     isSorted = true;
-
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] > arr[i + 1]) {
         const temp = arr[i];
         arr[i] = arr[i + 1];
-
         arr[i + 1] = temp;
+
         isSorted = false;
       }
     }
   }
+
   return arr;
 }
 
@@ -97,41 +103,48 @@ function sortDesc(arr) {
 
   while (!isSorted) {
     isSorted = true;
-
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] < arr[i + 1]) {
         const temp = arr[i];
         arr[i] = arr[i + 1];
-
         arr[i + 1] = temp;
+
         isSorted = false;
       }
     }
   }
+
   return arr;
 }
 
 function removeDup(arr) {
-  if (!arr.length) return null;
-
   let newSet = new Set(arr);
   let newArr = Array.from(newSet);
-
   return newArr;
 }
 
-function chunkArray(arr, num) {
-  if (!arr.length) return null;
+function containsDuplicate(arr) {
+  function getObj(array) {
+    const obj = {};
 
-  const chunk = [];
+    for (let i of arr) {
+      obj[i] = (obj[i] || 0) + 1;
+    }
 
-  for (let i = 0; i < arr.length; i += num) {
-    const sliced = arr.slice(i, i + num);
-    console.log(i, " ii");
-    chunk.push(sliced);
+    return obj;
   }
 
-  return chunk;
+  return getObj(arr);
+}
+
+function chunkArray(arr, num) {
+  const chunkArray = [];
+  for (let i = 0; i < arr.length; i += num) {
+    // console.log(i, " ii");
+    const sliced = arr.slice(i, i + num);
+    chunkArray.push(sliced);
+  }
+  return chunkArray;
 }
 
 console.log({
@@ -143,5 +156,6 @@ console.log({
   // sortAsc: sortAsc(array),
   // sortDesc: sortDesc(array),
   // removeDup: removeDup(array),
-  chunkArray: chunkArray(array, 5),
+  // containsDuplicate: containsDuplicate(array),
+  chunkArray: chunkArray(array, 4),
 });
