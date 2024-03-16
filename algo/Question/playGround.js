@@ -78,6 +78,44 @@ function sortAsc(arr) {
 
 function removeDup(arr) {
   if (!arr.length) return null;
+
+  const newSet = new Set(arr);
+  const newArr = Array.from(newSet);
+
+  return newArr;
+}
+
+function containsDuplicate(arr) {
+  if (!arr.length) return null;
+
+  function getObj(array) {
+    const obj = {};
+    for (let i of array) {
+      obj[i] = (obj[i] || 0) + 1;
+    }
+    return obj;
+  }
+
+  const newObj = getObj(arr);
+
+  for (let i in newObj) {
+    if (newObj[i] >= 2) return true;
+  }
+
+  return false;
+}
+
+function chunkArray(arr, num) {
+  if (!arr.length) return null;
+
+  const chunked = [];
+
+  for (let i = 0; i < arr.length; i += num) {
+    const sliced = arr.slice(i, num + i);
+    chunked.push(sliced);
+    // console.log(i);
+  }
+  return chunked;
 }
 
 console.log({
@@ -85,5 +123,8 @@ console.log({
   // reverseArr: reverseArr(array),
   // moveZeroesToRight: moveZeroesToRight(array),
   // sortDesc: sortDesc(array),
-  sortAsc: sortAsc(array),
+  // sortAsc: sortAsc(array),
+  // removeDup: removeDup(array),
+  // containsDuplicate: containsDuplicate([1, 2, 3, 45, 3]),
+  chunkArray: chunkArray(array, 5),
 });
