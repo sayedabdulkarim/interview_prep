@@ -3,55 +3,48 @@
 const array = [64, 34, 25, 12, 22, 0, 0, 11, 90, 100, -100, 64];
 const string = "A man a plan a canal Panama";
 
-function revStr(str) {
-  if (!str.length) return null;
+function maxElem(arr) {
+  if (!arr.length) return null;
 
-  str = [...str];
-
-  for (let i = 0; i < Math.round(str.length / 2); i++) {
-    [str[i], str[str.length - i - 1]] = [str[str.length - i - 1], str[i]];
-  }
-  return str.join("");
-}
-
-// function cleanString(str) {
-//   let cleaned = "";
-
-//   for (let i = 0; i < str.length; i++) {
-//     const temp = str[i].toLowerCase();
-//     if ((temp >= "a" || temp <= "z") && (temp >= "0" || temp <= "9")) {
-//       cleaned += temp;
-//     }
-//   }
-//   return cleaned;
-// }
-
-// function isPalindrome(str) {
-//   // const cleaned = cleanedStr(str);
-//   const cleaned = cleanString(str);
-//   return str === [...cleaned].reverse().join("");
-// }
-
-function cleanString(str) {
-  let cleanedStr = "";
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i].toLowerCase();
-    if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
-      cleanedStr += char;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[0] < arr[i]) {
+      [arr[0], arr[i]] = [arr[i], arr[0]];
     }
   }
-  return cleanedStr;
+
+  return arr;
 }
 
-function isPalindrome(str) {
-  const cleanedStr = cleanString(str);
-  console.log(cleanedStr, " cleaned");
-  const reversedStr = cleanedStr.split("").reverse().join("");
-  return cleanedStr === reversedStr;
+function reverseArr(arr) {
+  if (!arr.length) return null;
+
+  for (let i = 0; i < Math.round(arr.length / 2); i++) {
+    [arr[i], arr[arr.length - i - 1]] = [arr[arr.length - i - 1], arr[i]];
+  }
+
+  return arr;
+}
+
+function moveZeroesToRight(arr) {
+  if (!arr.length) return null;
+
+  let count = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] !== 0) {
+      arr[count] = arr[i];
+      count++;
+    }
+  }
+
+  for (let i = 0; i < arr.length - count; i++) {
+    arr[i] = 0;
+  }
+
+  return arr;
 }
 
 console.log({
-  // revStr: revStr("string"),
-  // cleanedStr: cleanedStr(string),
-  isPalindrome: isPalindrome(string),
+  // maxElem: maxElem(array),
+  // reverseArr: reverseArr(array),
+  moveZeroesToRight: moveZeroesToRight(array),
 });
