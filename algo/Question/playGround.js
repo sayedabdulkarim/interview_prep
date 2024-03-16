@@ -27,7 +27,6 @@ function reverseArr(arr) {
 
 function moveZeroesToRight(arr) {
   if (!arr.length) return null;
-
   let count = 0;
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] !== 0) {
@@ -43,8 +42,48 @@ function moveZeroesToRight(arr) {
   return arr;
 }
 
+function sortDesc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        isSorted = false;
+      }
+    }
+  }
+  return arr;
+}
+
+function sortAsc(arr) {
+  let isSorted = false;
+
+  while (!isSorted) {
+    isSorted = true;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] > arr[i + 1]) {
+        const temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        isSorted = false;
+      }
+    }
+  }
+  return arr;
+}
+
+function removeDup(arr) {
+  if (!arr.length) return null;
+}
+
 console.log({
   // maxElem: maxElem(array),
   // reverseArr: reverseArr(array),
-  moveZeroesToRight: moveZeroesToRight(array),
+  // moveZeroesToRight: moveZeroesToRight(array),
+  // sortDesc: sortDesc(array),
+  sortAsc: sortAsc(array),
 });
