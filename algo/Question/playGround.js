@@ -3,32 +3,20 @@
 const array = [64, 34, 25, 12, 22, 0, 0, 11, 90, 100, -100, 64];
 const string = "A man a plan a canal Panama";
 
-function threeSum(nums, target) {
-  const res = [];
-  nums.sort((a, b) => a - b);
-
-  for (let i = 0; i < nums.length - 2; i++) {
-    if (i > 0 && nums[i] === nums[i - 1]) continue;
-
-    let left = i + 1,
-      right = nums.length - 1;
-
-    while (left < right) {
-      const sum = nums[i] + nums[left] + nums[right];
-
-      if (sum === target) {
-        res.push([nums[i], nums[left], nums[right]]);
-        while (left < right && nums[left] === nums[left + 1]) left++;
-        while (left < right && nums[right] === nums[right - 1]) right--;
-        left++;
-        right--;
-      } else if (sum < target) {
-        left++;
-      } else {
-        right--;
-      }
-    }
+function numberToExcelColumn(number) {
+  let result = "";
+  while (number > 0) {
+    const remainder = (number - 1) % 26;
+    result = String.fromCharCode(65 + remainder) + result;
+    number = Math.floor((number - 1) / 26);
   }
+  return result;
+}
 
-  return res;
+function convertToExcelLabels(numbers) {
+  const excelLabels = [];
+  for (let i = 0; i < numbers.length; i++) {
+    excelLabels.push(numberToExcelColumn(numbers[i]));
+  }
+  return excelLabels;
 }
