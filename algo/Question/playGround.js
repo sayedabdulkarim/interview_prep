@@ -12,33 +12,3 @@ function numberToExcelColumn(number) {
   }
   return result;
 }
-function KthLargest(nums, n) {
-  //sort
-  function dSort(arr) {
-    let isSorted = false;
-
-    while (!isSorted) {
-      isSorted = true;
-      for (i = 0; i < arr.length; i++) {
-        if (arr[i] < arr[i + 1]) {
-          const temp = arr[i];
-
-          arr[i] = arr[i + 1];
-          arr[i + 1] = temp;
-
-          isSorted = false;
-        }
-      }
-    }
-    return arr;
-  }
-
-  //uniObj
-  const getSortedArr = dSort(nums);
-  const uniObj = new Set(getSortedArr);
-
-  //change to arr
-  const getArr = Array.from(uniObj);
-
-  return getArr[n - 1];
-}
