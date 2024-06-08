@@ -1,42 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-//hooks
-// import CountdownTimer from "./components/hooksExamples/timerHooks/useCountdownTimer";
-// import CountdownTimerTest from "./components/hooksExamples/timerHooks/test";
-// import UseMemoCbMemo from "./components/hooksExamples/usememo_usecallback_memo/Parent";
-import UseInput from "./components/hooksExamples/useInput";
+const ListItem = ({ item, onRemove }) => {
+  useEffect(() => {
+    console.log(`Item ${item.id} mounted`);
+    return () => console.log(`Item ${item.id} unmounted`);
+  }, []);
 
-//machineCoding
-import Todo from "./components/machineCoding/todoApp";
-import Memoize from "./components/machineCoding/memoize";
-import ErrorBoundary from "./components/machineCoding/errorBoundary";
-
-//Patterns
-import RenderProps from "./components/patterns/renderProps";
-import WithBackgroundColorHoc from "./components/patterns/hoc";
-import CompoundPatternToggle from "./components/patterns/compoundPattern";
-
-const App = () => {
   return (
     <div>
-      <h1>App.js 18</h1>
-      {/* hooks ////////////////////////////////////////////////////////////////////*/}
-      {/* <CountdownTimer initialMinutes={2} initialSeconds={30} /> */}
-      {/* <CountdownTimerTest timeLimit={5} /> */}
-      {/* <UseMemoCbMemo /> */}
-      {/* <UseInput /> */}
-
-      {/* machine coding ////////////////////////////////////////////////////////////*/}
-      {/* <Todo /> */}
-      {/* <Memoize /> */}
-      <ErrorBoundary />
-
-      {/* Patterns /////////////////////////////////////////////////////////////////*/}
-      {/* <RenderProps /> */}
-      {/* <WithBackgroundColorHoc /> */}
-      {/* <CompoundPatternToggle /> */}
+      {item.text}
+      <button onClick={() => onRemove(item.id)}>Remove</button>
     </div>
   );
 };
 
-export default App;
+const List = () => {
+  const [items, setItems] = useState([
+    { id: 1, text: "Item 1" },
+    { id: 2, text: "Item 2" },
+    { id: 3, text: "Item 3" },
+  ]);
+
+  const handleAddToEnd = () => {
+    const newItem = {
+      id: Math.random(), // Unique ID
+      text: `Item ${items.length + 1}`,
+    };
+    setItems([...items, newItem]);
+  };
+
+  const handleAddToFront = () => {
+    const newItem = {
+      id: Math.random(), // Unique ID
+      text: `Item 0`,
+    };
+    setItems([newItem, ...items]);
+  };
+
+  const handleRemove = (id) => {
+    setItems(items.filter((item) => item.id !== id));
+  };
+
+  return (
+    <div>
+      <ul>
+        {items.map((item) => (
+          // First try with key={item.id} then try with key={index} to see the difference
+          <li>
+            <ListItem item={item} onRemove={handleRemove} />
+          </li>
+        ))}
+      </ul>
+      <button onClick={handleAddToEnd}>Add to End</button>
+      <button onClick={handleAddToFront}>Add to Front</button>
+    </div>
+  );
+};
+
+export default List;
