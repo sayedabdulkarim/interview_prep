@@ -3,15 +3,6 @@
 const array = [64, 34, 25, 12, 22, 0, 0, 11, 90, 100, -100, 64];
 const string = "A man a plan a canal Panama";
 
-function numberToExcelColumn(number) {
-  let result = "";
-  while (number > 0) {
-    const remainder = (number - 1) % 26;
-    result = String.fromCharCode(65 + remainder) + result;
-    number = Math.floor((number - 1) / 26);
-  }
-  return result;
-}
 function KthLargest(nums, n) {
   //sort
   function dSort(arr) {
