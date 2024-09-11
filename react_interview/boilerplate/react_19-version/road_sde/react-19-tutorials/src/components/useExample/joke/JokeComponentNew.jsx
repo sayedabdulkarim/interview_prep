@@ -33,7 +33,7 @@ const Joke = () => {
         <h2 className="text-2xl text-center font-bold mt-5">Loading...</h2>
       }
     >
-      <title>NEW Chuck Norris Jokes</title>
+      <title>NEW Chuck Norris Jokes HELMET </title>
       <meta name="description" content="Chuck Norris jokes" />
       <meta name="keywords" content="chuck norris, jokes" />
 
