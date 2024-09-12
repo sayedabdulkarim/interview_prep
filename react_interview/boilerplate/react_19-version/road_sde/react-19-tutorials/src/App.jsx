@@ -10,6 +10,8 @@ import PostsUseEffect from "./components/useExample/POST_2/PostsUseEffect";
 
 //message
 import MessageComponent from "./components/useExample/Message";
+import AddToCartForm from "./components/useForm/AddToCartForm";
+import FormOne from "./components/useForm/FormOne";
 
 function App() {
   return (
@@ -29,7 +31,12 @@ function App() {
 
       {/*  */}
       {/* message */}
-      <MessageComponent />
+      {/* <MessageComponent /> */}
+
+      {/* useForm */}
+
+      {/* <AddToCartForm /> */}
+      <FormOne />
     </div>
   );
 }
