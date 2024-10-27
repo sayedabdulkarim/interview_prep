@@ -46,7 +46,7 @@ REACT
 ##########################################################################################
 
 - how to call a children function from parent without state nd props  
-- token vs session
+- token vs session - https://www.youtube.com/watch?v=QzntvHz23tw&t=1s&ab_channel=PiyushGarg
 - how authentication works
 
 - propTypes
