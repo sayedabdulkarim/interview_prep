@@ -7,7 +7,7 @@ SEARCH
 - REACT TESTING
 - BABEL
 - MISC
-
+- frontend system design interview questions (Frontend Jirachi,)
 VDOS
 ----
 - https://www.youtube.com/watch?v=s-b-txm_Gvk&list=PLmcRO0ZwQv4SNhbW4CI4vc-6IHBHCKzZN&index=2
@@ -40,6 +40,8 @@ VDOS
 - https://bigfrontend.dev/problem
 - https://www.youtube.com/watch?v=4s7wew3dGHY&list=PLAjOh0819rC3R8orm7bOag7ENKlRXJN4x&ab_channel=AkashIngole
 
+/* POLYFILLS */
+- https://www.youtube.com/watch?v=_qkX3yAmgEw - useState
 
 REACT
 ##########################################################################################
