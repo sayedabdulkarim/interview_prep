@@ -7,6 +7,16 @@ const Child = forwardRef((props, ref) => {
       console.log("chld Clickedddddddddddddddd");
     },
   }));
+
+  //2nd way
+  // useImperativeHandle(ref, () => {
+  //   return {
+  //     childClick() {
+  //       console.log("gotchaaaaa");
+  //     },
+  //   };
+  // });
+
   return (
     <div>
       <h1>Child</h1>

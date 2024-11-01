@@ -1,47 +1,40 @@
 import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
 const Parent = () => {
+  //ref
   const childRef = useRef();
 
-  const handleSubmit = () => {
-    console.log("clicked");
-    childRef.current.testClick();
-    console.log(childRef);
+  //method
+  const handleClick = () => {
+    console.log(childRef.current, " redd");
+    if (childRef?.current?.childClick) {
+      childRef?.current?.childClick();
+    }
   };
+
   return (
     <div>
-      <h1>Parent</h1>
-      <hr />
       <Children ref={childRef} />
-      <button onClick={handleSubmit}>Click</button>
+      <button onClick={handleClick}>Clikc for Child</button>
     </div>
   );
 };
 
-const Children = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => ({
-    testClick() {
-      console.log("clickedd from child");
-    },
-  }));
-  return (
-    <div>
-      <h1>Childreenn</h1>
-      <h1>Childreenn</h1>
-      <h1>Childreenn</h1>
-      <h1>Childreenn</h1>
-    </div>
-  );
+const Children = forwardRef((_, ref) => {
+  // useImperativeHandle(ref, () => ({
+  //   childClick() {
+  //     console.log("child clikced");
+  //   },
+  // }));
+
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("gotchaaaaa");
+      },
+    };
+  });
+  return <div>Children</div>;
 });
-// const Children = () => {
-//   return (
-//     <div>
-//       <h1>Childreenn</h1>
-//       <h1>Childreenn</h1>
-//       <h1>Childreenn</h1>
-//       <h1>Childreenn</h1>
-//     </div>
-//   );
-// };
 
 export default Parent;
