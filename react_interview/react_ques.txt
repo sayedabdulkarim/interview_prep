@@ -90,6 +90,7 @@ REACT
 
 - code splitting - https://www.youtube.com/watch?v=IBrmsyy9R94
 
+- JS Polyfills -  https://www.youtube.com/watch?v=Th3rZjfKKhI
 
 - ssr / ssg( static side generation ) - https://www.youtube.com/results?search_query=ssg+react
 
