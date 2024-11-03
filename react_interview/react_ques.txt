@@ -156,7 +156,9 @@ REACT
 - ssr ( where to use CSR and SSR ) - check ( onclick button scenario as well )
     - https://www.youtube.com/watch?v=NwyQONeqRXA
 
-- tree shaking/ babel/ 
+- tree shaking - to remove unused file
+- css extract - (mini-css-extract-plugin) to create a separate css file , so the browser will cache it. 
+    But When a CSS file changes, it typically receives a new filename (often with a hash in the name), prompting the browser to download the updated version.
 
 - service worker
     - in JS https://www.youtube.com/watch?v=ksXwaWHCW6k&ab_channel=TraversyMedia
