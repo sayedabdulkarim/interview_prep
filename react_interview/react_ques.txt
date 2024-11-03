@@ -84,7 +84,7 @@ REACT
 
 - synthetic event ( every event we see in react, is an instance of class SyntheticBaseEvent(18) or SyntheticEvent )
     - https://www.youtube.com/watch?v=16VS048MsfQ&t=181s - 14.00
-    - https://www.youtube.com/watch?v=gsTLQMTPz-g
+
 
 - encapsulating react - check
 
