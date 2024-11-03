@@ -157,6 +157,7 @@ REACT
     - https://www.youtube.com/watch?v=NwyQONeqRXA
 
 - tree shaking - to remove unused file
+- remove dead css - ( purge-css-webpack-plugin ( used to remove unused css ) and glob ( used to scan the folders, to filter out what css are used ) )
 - css extract - (mini-css-extract-plugin) to create a separate css file , so the browser will cache it. 
     But When a CSS file changes, it typically receives a new filename (often with a hash in the name), prompting the browser to download the updated version.
 
