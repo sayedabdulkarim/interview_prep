@@ -1,47 +1,44 @@
-import React, { Component, useState } from "react";
+import React, { useEffect, useState } from "react";
 
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasError: false,
-    };
+///counter
+const useTiemr = (sec, min) => {
+  const [seconds, setSeconds] = useState(sec);
+  const [minutes, setMinutes] = useState(min);
+
+  function handleTimer() {
+    let myInterval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds((prev) => prev - 1);
+      }
+      if (seconds === 0) {
+        if (minutes === 0) {
+          clearInterval(myInterval);
+        } else {
+          setMinutes((prev) => prev - 1);
+          setSeconds(59);
+        }
+      }
+    }, 1000);
+
+    return myInterval;
   }
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
+  useEffect(() => {
+    const myInterval = handleTimer();
 
-  componentDidCatch(error, info) {
-    console.log({ error, info }, " error from CDC");
-  }
+    return () => clearInterval(myInterval);
+  });
 
-  render() {
-    return this.state.hasError ? (
-      <h1>Something went wrng</h1>
-    ) : (
-      this.props.children
-    );
-  }
-}
-
-const Button = () => {
-  const [forcedError, setForcedError] = useState(false);
-
-  if (forcedError) {
-    throw new Error("Somethin went wromg,.");
-  }
-
-  return <button onClick={() => setForcedError(true)}>Error</button>;
+  return [seconds, minutes];
 };
 
 const App = () => {
+  const [seconds, minutes] = useTiemr(10, 1);
   return (
     <div>
-      <h1>Main Component</h1>
-      <ErrorBoundary>
-        <Button />
-      </ErrorBoundary>
+      <h1>
+        {seconds} - {minutes}
+      </h1>
     </div>
   );
 };
