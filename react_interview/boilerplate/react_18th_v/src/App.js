@@ -1,33 +1,37 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
 const App = () => {
-  const [seconds, setSeconds] = useState(10);
-  const [minutes, setMinutes] = useState(1);
+  const childRef = useRef();
 
-  const handleTimer = useCallback(() => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (seconds === 0) {
-      if (minutes > 0) {
-        setSeconds(59);
-        setMinutes((prev) => prev - 1);
-      }
+  const handleChildClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
     }
-  }, [minutes, seconds]);
-
-  useEffect(() => {
-    let timer = setInterval(() => {
-      handleTimer();
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [seconds, minutes, handleTimer]);
+  };
 
   return (
     <div>
-      Seconds - {seconds} : Minutes - {minutes}
+      <h1>Parent Component</h1>
+      <button onClick={handleChildClick}>CHILD CLICK</button>
+      <ChildComponent ref={childRef} />
     </div>
   );
 };
+
+const ChildComponent = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("child clicked");
+      },
+    };
+  });
+
+  return (
+    <div>
+      <h1>hello</h1>
+    </div>
+  );
+});
 
 export default App;
