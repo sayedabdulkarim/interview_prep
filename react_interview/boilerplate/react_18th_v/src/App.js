@@ -1,57 +1,48 @@
-import React, { useDeferredValue, useState, useTransition } from "react";
+import React, { Component, useState } from "react";
 
-const generateList = () => {
-  const arr = [];
-
-  for (let i = 0; i < 20000; i++) {
-    arr.push(`Item - ${i}`);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
 
-  return arr;
+  //
+  componentDidCatch(error, info) {
+    console.log({ error, info }, " error from CDC");
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Something went wrong</h1>
+    ) : (
+      this.props.children
+    );
+  }
+}
+
+const ButtonComponent = () => {
+  const [forceError, setForceError] = useState(false);
+
+  if (forceError) {
+    throw new Error("Error from BTN Component");
+  }
+
+  return <button onClick={() => setForceError(true)}>FORCE ERROR </button>;
 };
 
-const products = generateList();
-
-const filterProucts = (val) => products.filter((i) => i.includes(val));
-
-const Parent = () => {
-  //
-  const [isPending, startTransition] = useTransition();
-
-  //state
-  const [inpVal, setInpVal] = useState("");
-  const [productsArr, setProductsArr] = useState(generateList());
-
-  const filteredProducts = filterProucts(inpVal);
-
-  const handleChange = (e) => {
-    startTransition(() => {
-      setInpVal(e.target.value);
-    });
-    // setInpVal(e.target.value);
-  };
-
+const App = () => {
   return (
     <div>
-      <button onClick={() => console.log({ productsArr })}>arr</button>
-      <br />
-      <input type="text" value={inpVal} onChange={handleChange} />
-      {/* <ListComponent data={productsArr} /> */}
-      <ListComponent data={filteredProducts} />
+      <h1>ABOUT COMPONENT</h1>
+      <ErrorBoundary>
+        <ButtonComponent />
+      </ErrorBoundary>
     </div>
   );
 };
 
-const ListComponent = ({ data }) => {
-  const deferredProducts = useDeferredValue(data);
-  return (
-    <ul>
-      {/* {data?.map((o) => { */}
-      {deferredProducts?.map((o) => {
-        return <li key={o}>{o}</li>;
-      })}
-    </ul>
-  );
-};
-
-export default Parent;
+export default App;
