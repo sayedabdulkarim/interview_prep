@@ -1,48 +1,51 @@
-import React, { useDeferredValue, useState, useTransition } from "react";
+import React, { useState } from "react";
 
-const generateItems = () => {
-  const array = [];
-
-  for (let i = 0; i < 20000; i++) {
-    array.push(`Item Name - ${i}`);
+// Error Boundary Component (Class-based)
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
 
-  return array;
+  //   The static keyword in JavaScript classes denotes that a method is a static method, meaning it belongs to the class itself and not to instances of the class.
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error("Caught an error:", error, info);
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Something went wrong.</h1>
+    ) : (
+      this.props.children
+    );
+  }
+}
+
+// Functional Component that may throw an error
+const ButtonThatBreaks = () => {
+  const [shouldBreak, setShouldBreak] = useState(false);
+
+  if (shouldBreak) {
+    throw new Error("I broke!");
+  }
+
+  return <button onClick={() => setShouldBreak(true)}>Break Me</button>;
 };
 
-const products = generateItems();
-
-const filterFunc = (value) => products.filter((o) => o.includes(value));
-
+// Main App (Functional Component)
 const App = () => {
-  //state
-  const [isPending, startTransition] = useTransition();
-  const [inpVal, setInpVal] = useState("");
-
-  const filterProducts = filterFunc(inpVal);
-  //
-  const handleChange = (e) => {
-    startTransition(() => {
-      setInpVal(e.target.value);
-    });
-  };
   return (
     <div>
-      <input type="text" onChange={handleChange} value={inpVal} />
-      {isPending ? <h1>Loading!!!</h1> : <ListItem data={filterProducts} />}
+      <h1>Hello World!</h1>
+      <ErrorBoundary fallback={"Error"}>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
-  );
-};
-
-const ListItem = ({ data }) => {
-  const deferredValues = useDeferredValue(data);
-  return (
-    <ul>
-      {/* {data?.map((o) => ( */}
-      {deferredValues?.map((o) => (
-        <li key={o}>{o}</li>
-      ))}
-    </ul>
   );
 };
 
