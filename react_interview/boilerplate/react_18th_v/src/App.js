@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const App = () => {
-  const [seconds, setSeconds] = useState(5);
-  const [minutes, setMinutes] = useState(4);
-  const [hours, setHours] = useState(1);
+const useInput = (initialVal) => {
+  const [inpVal, setInpVal] = useState(initialVal);
 
-  //
-  const handleTimer = () => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (seconds === 0 && minutes >= 1) {
-      setSeconds(5);
-      setMinutes((prev) => prev - 1);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setSeconds(0);
-      setMinutes(0);
-      setHours(0);
-    } else {
-      setSeconds(5);
-      setMinutes(5);
-      setHours((prev) => prev - 1);
-    }
+  const handleChange = (e) => {
+    setInpVal(e.target.value);
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleTimer();
-    }, 1000);
+  const handleReset = () => {
+    setInpVal(initialVal);
+  };
 
-    return () => clearInterval(timer);
-  });
+  return [inpVal, handleChange, handleReset];
+};
+
+const App = () => {
+  const [emailInp, handleEmailInp, resetEmailInp] = useInput("");
+  const [nameInp, handleNameInp, resetNameInp] = useInput("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ emailInp, nameInp });
+    ///reset
+    resetNameInp();
+    resetEmailInp();
+  };
 
   return (
-    <div>
-      <h1>
-        {hours} : {minutes} : {seconds}
-      </h1>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <input type="text" value={nameInp} onChange={handleNameInp} />
+      <br />
+      <input type="text" value={emailInp} onChange={handleEmailInp} />
+      <br />
+      <button type="submit">SUBMIT</button>
+    </form>
   );
 };
 
