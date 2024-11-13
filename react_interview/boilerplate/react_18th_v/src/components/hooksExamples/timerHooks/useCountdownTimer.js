@@ -69,6 +69,16 @@ const SecondWay = () => {
     }
   }, [minutes, seconds]);
 
+  //this way we can handle for pause as well, same logic
+  // const handleTimer = () => {
+  //   if (seconds > 0) {
+  //     setSeconds((prev) => prev - 1);
+  //   } else if (seconds === 0 && minutes >= 1) {
+  //     setMinutes((prev) => prev - 1);
+  //     setSeconds(5);
+  //   }
+  // };
+
   useEffect(() => {
     let timer = setInterval(() => {
       handleTimer();
