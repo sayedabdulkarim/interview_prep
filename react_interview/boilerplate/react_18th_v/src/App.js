@@ -1,50 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-// Error Boundary Component (Class-based)
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  //   The static keyword in JavaScript classes denotes that a method is a static method, meaning it belongs to the class itself and not to instances of the class.
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    console.error("Caught an error:", error, info);
-  }
-
-  render() {
-    return this.state.hasError ? (
-      <h1>Something went wrong.</h1>
-    ) : (
-      this.props.children
-    );
-  }
-}
-
-// Functional Component that may throw an error
-const ButtonThatBreaks = () => {
-  const [shouldBreak, setShouldBreak] = useState(false);
-
-  if (shouldBreak) {
-    throw new Error("I broke!");
-  }
-
-  return <button onClick={() => setShouldBreak(true)}>Break Me</button>;
-};
-
-// Main App (Functional Component)
 const App = () => {
+  const [seconds, setSeconds] = useState(10);
+  const [minutes, setMinutes] = useState(1);
+
+  //
+  const handleTimer = () => {
+    if (seconds > 0) {
+      setSeconds((prev) => prev - 1);
+    } else if (seconds === 0) {
+      if (minutes > 0) {
+        setMinutes((prev) => prev - 1);
+        setSeconds(59);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleTimer();
+    }, 1000);
+
+    return () => clearInterval(timer);
+  });
+
   return (
     <div>
-      <h1>Hello World!</h1>
-      <ErrorBoundary fallback={"Error"}>
-        <ButtonThatBreaks />
-      </ErrorBoundary>
+      <h1>
+        {seconds} : {minutes}
+      </h1>
     </div>
   );
 };
