@@ -1,47 +1,49 @@
-import React, { useDeferredValue, useState, useTransition } from "react";
+import React, { Component, useState } from "react";
 
-const genList = () => {
-  const arr = [];
-
-  for (let i = 0; i < 20000; i++) {
-    arr.push(`Item Name - ${i}`);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      hasError: false,
+    };
   }
 
-  return arr;
+  componentDidCatch(error, info) {
+    console.log({ error, info }, " CDC");
+  }
+
+  static getDerivedStateFromError(err) {
+    return { hasError: true };
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Something went wrong</h1>
+    ) : (
+      this.props.children
+    );
+  }
+}
+
+const ButtonThatBreaks = () => {
+  const [forceError, setForceError] = useState(false);
+
+  //
+  if (forceError) {
+    throw new Error("Error from Button component.");
+  }
+
+  return <button onClick={() => setForceError(true)}>Click Error</button>;
 };
-const filteredProducts = (val) => genList().filter((i) => i.includes(val));
 
 const App = () => {
-  const [inpVal, setInpVal] = useState("");
-  const [isPending, startTransition] = useTransition();
-  const handleChange = (e) => {
-    startTransition(() => {
-      setInpVal(e.target.value);
-    });
-  };
-
   return (
     <div>
-      <input type="text" value={inpVal} onChange={handleChange} />
-      {isPending ? (
-        <h1>Loading..</h1>
-      ) : (
-        <ListComponent data={filteredProducts(inpVal)} />
-      )}
+      <h1>Main Component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
-  );
-};
-
-const ListComponent = ({ data }) => {
-  const deferredValue = useDeferredValue(data);
-
-  return (
-    <ul>
-      {deferredValue?.map((o) => (
-        // {data?.map((o) => (
-        <li key={o}>{o}</li>
-      ))}
-    </ul>
   );
 };
 
