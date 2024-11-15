@@ -1,40 +1,33 @@
-import React, { useState } from "react";
-
-const useInput = (initialVal) => {
-  const [inpVal, setInpVal] = useState(initialVal);
-
-  const handleChange = (e) => {
-    setInpVal(e.target.value);
-  };
-
-  const handleReset = () => {
-    setInpVal(initialVal);
-  };
-
-  return [inpVal, handleChange, handleReset];
-};
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
 const App = () => {
-  const [emailInp, handleEmailInp, resetEmailInp] = useInput("");
-  const [nameInp, handleNameInp, resetNameInp] = useInput("");
+  const childRef = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ emailInp, nameInp });
-    ///reset
-    resetNameInp();
-    resetEmailInp();
+  const handleClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" value={nameInp} onChange={handleNameInp} />
-      <br />
-      <input type="text" value={emailInp} onChange={handleEmailInp} />
-      <br />
-      <button type="submit">SUBMIT</button>
-    </form>
+    <div>
+      <h1>Parent</h1>
+      <button onClick={handleClick}>Child clicking</button>
+      <ChildComponent ref={childRef} />
+    </div>
   );
 };
+
+const ChildComponent = forwardRef((_, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("clikced fro child");
+      },
+    };
+  });
+
+  return <h1>child Component</h1>;
+});
 
 export default App;
