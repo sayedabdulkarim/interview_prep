@@ -1,51 +1,49 @@
-import React, { useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 
-const useInput = (initialVal) => {
-  const [inpVal, setInpVal] = useState("");
+const Parent = () => {
+  const [count, setCount] = useState(0);
+  const [countParent, setCountParent] = useState(0);
 
-  const handleChange = (e) => {
-    const val = e.target.value;
-    setInpVal(val);
+  const handlClick = useCallback(() => {
+    setCount((prev) => prev + 1);
+  }, []);
+
+  // const handlClick = () => {
+  //   setCount((prev) => prev + 1);
+  // };
+  const handlClickParent = () => {
+    setCountParent((prev) => prev + 1);
   };
 
-  const handleReset = (e) => {
-    setInpVal(initialVal);
-  };
-
-  return [inpVal, handleChange, handleReset];
-};
-
-const App = () => {
-  const [firstName, handleFirstName, handleResetFirstName] = useInput("");
-  const [lastName, handleLastName, handleResetLastName] = useInput("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ firstName, lastName }, " submitted");
-  };
-
-  const handleReset = () => {
-    handleResetFirstName();
-    handleResetLastName();
-  };
+  console.log(" parent render ");
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input
-          value={firstName}
-          onChange={handleFirstName}
-          placeholder="First Name"
-        />
-        <input
-          value={lastName}
-          onChange={handleLastName}
-          placeholder="Last Name"
-        />
-        <button type="submit">SUBMIT</button>
-      </form>
+      <h1>Parent {countParent}</h1>
+      <button onClick={handlClickParent}>HANDLECLIKCPARENT</button>
+      <br />
+      <br />
+      <ChildOne count={count} handlClick={handlClick} />
+      <br />
+      <br />
+      <ChildTwo />
     </div>
   );
 };
 
-export default App;
+const ChildOne = memo(({ count, handlClick }) => {
+  console.log("childOne render");
+  return (
+    <>
+      <h1>Child One - {count}</h1>
+      <button onClick={handlClick}>HANDLE CLIKC</button>
+    </>
+  );
+});
+
+const ChildTwo = memo(() => {
+  console.log("childTwo render");
+  return <h1>Child Two </h1>;
+});
+
+export default Parent;
