@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 
 const App = () => {
   const [seconds, setSeconds] = useState(10);
   const [minutes, setMinutes] = useState(2);
   const [hours, setHours] = useState(1);
-
+  const [startTimer, setStartTimer] = useState(false);
   //
   // const handleTimer = () => {
   //   if (seconds > 0) {
@@ -15,7 +15,7 @@ const App = () => {
   //   }
   // };
   //
-  const handleTimer = () => {
+  const handleTimer = useCallback(() => {
     if (seconds > 0) {
       setSeconds((prev) => prev - 1);
     } else if (seconds === 0 && minutes > 0) {
@@ -30,18 +30,28 @@ const App = () => {
       setMinutes(10);
       setHours((prev) => prev - 1);
     }
-  };
+  }, [hours, minutes, seconds]);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      handleTimer();
-    }, 1000);
+    if (startTimer) {
+      const timer = setInterval(() => {
+        handleTimer();
+      }, 1000);
 
-    return () => clearInterval(timer);
-  });
+      return () => clearInterval(timer);
+    }
+    // const timer = setInterval(() => {
+    //   handleTimer();
+    // }, 1000);
+
+    // return () => clearInterval(timer);
+  }, [handleTimer, startTimer]);
 
   return (
     <div>
+      <button onClick={() => setStartTimer((prev) => !prev)}>
+        Toggle Timer {startTimer ? "true" : "flase"}
+      </button>
       <h1>
         {hours} : {minutes} : {seconds}
       </h1>
