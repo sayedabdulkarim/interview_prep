@@ -1,51 +1,49 @@
-import React, { useDeferredValue, useState, useTransition } from "react";
+import React, { Component, useState } from "react";
 
-const genArr = () => {
-  const array = [];
-
-  for (let i = 0; i <= 20000; i++) {
-    array.push(`Item Name :  ${i}`);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
   }
 
-  return array;
-};
+  componentDidCatch(error, info) {
+    console.log({ error, info }, " log error from CDC...");
+  }
 
-const filterFun = (val) => genArr().filter((i) => i.includes(val));
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Somethign went wrong</h1>
+    ) : (
+      this.props.children
+    );
+  }
+}
+
+const ButtonComponent = () => {
+  const [forceError, setForceError] = useState(false);
+
+  if (forceError) {
+    throw new Error("Error from button Component");
+  }
+
+  return <button onClick={() => setForceError(true)}>Force Error</button>;
+};
 
 const App = () => {
-  const [isPending, startTransition] = useTransition();
-
-  //state
-  const [inpVal, setInpVal] = useState("");
-  const filteredProduct = filterFun(inpVal);
-
-  const handleChange = (e) => {
-    // setInpVal(e.target.value);
-    //
-    startTransition(() => {
-      setInpVal(e.target.value);
-    });
-  };
-
   return (
     <div>
-      <input type="text" onChange={handleChange} value={inpVal} autoFocus />
-      <br />
-      <br />
-      {isPending ? <h1>Loading...</h1> : <ProductList data={filteredProduct} />}
+      <h1>HOME Component</h1>
+      <h1>About Component</h1>
+      <ErrorBoundary>
+        <ButtonComponent />
+      </ErrorBoundary>
     </div>
-  );
-};
-
-const ProductList = ({ data }) => {
-  const deferredArr = useDeferredValue(data);
-  return (
-    <ul>
-      {/* {data?.map((o) => ( */}
-      {deferredArr?.map((o) => (
-        <li key={o}>{o}</li>
-      ))}
-    </ul>
   );
 };
 
