@@ -10,4 +10,58 @@ How to implement SSR from scratch
 scss - mixins , forloop
 how to add mock data in react testing 
 from which tool content is change to react for showing in browser in React SSR  -   const reactComp = ReactDOMServer.renderToString(<MyComponent name={name} />);
+pseudo class / pseudo selector
 
+
+///algo
+- 2 array merge/ filterUnique/ sort ascending 
+
+function mergeAndSort(arr1, arr2) {
+    const mergedArr = []; // Array to hold the merged result
+
+    // Step 1: Merge arr1 and arr2 into mergedArr
+    for (let i = 0; i < arr1.length; i++) {
+        mergedArr.push(arr1[i]);
+    }
+    for (let i = 0; i < arr2.length; i++) {
+        mergedArr.push(arr2[i]);
+    }
+
+    // Step 2: Remove duplicates manually
+    const uniqueArr = [];
+    for (let i = 0; i < mergedArr.length; i++) {
+        // Check if the value is already in uniqueArr
+        let isDuplicate = false;
+        for (let j = 0; j < uniqueArr.length; j++) {
+            if (mergedArr[i] === uniqueArr[j]) {
+                isDuplicate = true;
+                break;
+            }
+        }
+        if (!isDuplicate) {
+            uniqueArr.push(mergedArr[i]);
+        }
+    }
+
+    // Step 3: Sort the array in ascending order using a basic sorting algorithm
+    for (let i = 0; i < uniqueArr.length; i++) {
+        for (let j = i + 1; j < uniqueArr.length; j++) {
+            if (uniqueArr[i] > uniqueArr[j]) {
+                // Swap elements
+                const temp = uniqueArr[i];
+                uniqueArr[i] = uniqueArr[j];
+                uniqueArr[j] = temp;
+            }
+        }
+    }
+
+    return uniqueArr;
+}
+
+// Test the function
+const arr1 = [2, 3, 1, 4, 5, 70, 55, 33, 44, 11];
+const arr2 = [12, 3, 11, 14, 5, 170, 155, 133, 144, 11];
+console.log(mergeAndSort(arr1, arr2)); 
+
+
+///////
