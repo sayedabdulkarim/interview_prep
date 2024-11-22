@@ -1,62 +1,22 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
+
+const useInput = (initialVal) => {
+  const [val, setVal] = useState(initialVal);
+
+  //
+  const handleChange = (e) => {
+    setVal(e.target.value);
+  };
+
+  const handleReset = (e) => {
+    setVal(initialVal);
+  };
+
+  return [val, handleChange, handleReset];
+};
 
 const App = () => {
-  const [seconds, setSeconds] = useState(10);
-  const [minutes, setMinutes] = useState(2);
-  const [hours, setHours] = useState(1);
-  const [startTimer, setStartTimer] = useState(false);
-  //
-  // const handleTimer = () => {
-  //   if (seconds > 0) {
-  //     setSeconds((prev) => prev - 1);
-  //   } else if (seconds === 0 && minutes > 0) {
-  //     setMinutes((prev) => prev - 1);
-  //     setSeconds(10);
-  //   }
-  // };
-  //
-  const handleTimer = useCallback(() => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (seconds === 0 && minutes > 0) {
-      setMinutes((prev) => prev - 1);
-      setSeconds(10);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setSeconds(0);
-      setMinutes(0);
-      setHours(0);
-    } else {
-      setSeconds(10);
-      setMinutes(10);
-      setHours((prev) => prev - 1);
-    }
-  }, [hours, minutes, seconds]);
-
-  useEffect(() => {
-    if (startTimer) {
-      const timer = setInterval(() => {
-        handleTimer();
-      }, 1000);
-
-      return () => clearInterval(timer);
-    }
-    // const timer = setInterval(() => {
-    //   handleTimer();
-    // }, 1000);
-
-    // return () => clearInterval(timer);
-  }, [handleTimer, startTimer]);
-
-  return (
-    <div>
-      <button onClick={() => setStartTimer((prev) => !prev)}>
-        Toggle Timer {startTimer ? "true" : "flase"}
-      </button>
-      <h1>
-        {hours} : {minutes} : {seconds}
-      </h1>
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
