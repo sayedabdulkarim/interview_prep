@@ -8,24 +8,35 @@ const App = () => {
       childRef.current.childClick();
     }
   };
+
   return (
     <div>
-      <h1>Parent</h1>
-      <button onClick={handleClick}>CLICK</button>
-      <ChildrenComp ref={childRef} />
+      <h1>Helllo</h1>
+      <button onClick={handleClick}>handleClick</button>
+      <Child ref={childRef} />
     </div>
   );
 };
 
-const ChildrenComp = forwardRef((_, ref) => {
+const Child = forwardRef((_, ref) => {
+  // useImperativeHandle(
+  //   (ref,
+  //   () => {
+  //     return {
+  //       childClick() {
+  //         console.log("clicked");
+  //       },
+  //     };
+  //   })
+  // );
   useImperativeHandle(ref, () => {
     return {
       childClick() {
-        console.log("clicked child");
+        console.log("clicked");
       },
     };
   });
-  return <h1>Chilld</h1>;
-});
 
+  return <h1>Child COmponent</h1>;
+});
 export default App;
