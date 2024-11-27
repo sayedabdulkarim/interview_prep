@@ -43,6 +43,14 @@ function mergeAndSort(arr1, arr2) {
         }
     }
 
+    // second way for uniQue arr
+    const uniArr = [];
+    for(let o =0; o < arr.length; o++){
+        if(uniArr.indexOf(arr[o]) === -1) {
+            uniArr.push(arr[o])
+        }
+    }
+
     // Step 3: Sort the array in ascending order using a basic sorting algorithm
     for (let i = 0; i < uniqueArr.length; i++) {
         for (let j = i + 1; j < uniqueArr.length; j++) {
