@@ -1,42 +1,50 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { useDeferredValue, useState, useTransition } from "react";
+
+const genArr = () => {
+  const arr = [];
+
+  for (let i = 0; i < 20000; i++) {
+    arr.push(`Item Name - ${i}`);
+  }
+
+  return arr;
+};
+
+const filterProd = (val) => genArr().filter((o) => o.includes(val));
 
 const App = () => {
-  const childRef = useRef();
-
-  const handleClick = () => {
-    if (childRef.current) {
-      childRef.current.childClick();
-    }
+  const [isPending, startTransition] = useTransition();
+  const [inpVal, setInpVal] = useState("");
+  //
+  const handleChange = (e) => {
+    startTransition(() => {
+      setInpVal(e.target.value);
+    });
+    // setInpVal(e.target.value);
   };
 
   return (
     <div>
-      <h1>Helllo</h1>
-      <button onClick={handleClick}>handleClick</button>
-      <Child ref={childRef} />
+      <input type="text" value={inpVal} onChange={handleChange} />
+      {isPending ? (
+        <h1>Loading...</h1>
+      ) : (
+        <ListComponent data={filterProd(inpVal)} />
+      )}
     </div>
   );
 };
 
-const Child = forwardRef((_, ref) => {
-  // useImperativeHandle(
-  //   (ref,
-  //   () => {
-  //     return {
-  //       childClick() {
-  //         console.log("clicked");
-  //       },
-  //     };
-  //   })
-  // );
-  useImperativeHandle(ref, () => {
-    return {
-      childClick() {
-        console.log("clicked");
-      },
-    };
-  });
+const ListComponent = ({ data }) => {
+  const items = useDeferredValue(data);
+  return (
+    <ul>
+      {/* {data?.map((o) => ( */}
+      {items?.map((o) => (
+        <li key={o}>{o}</li>
+      ))}
+    </ul>
+  );
+};
 
-  return <h1>Child COmponent</h1>;
-});
 export default App;
