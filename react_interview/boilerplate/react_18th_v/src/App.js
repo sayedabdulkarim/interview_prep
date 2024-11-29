@@ -1,43 +1,44 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const App = () => {
-  const [seconds, setSeconds] = useState(15);
-  const [minutes, setMinutes] = useState(2);
-  const [hours, setHours] = useState(2);
-  const [isStart, setIsStart] = useState(false);
+const useInput = (val) => {
   //
-  const handleTimer = () => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (seconds === 0 && minutes > 0) {
-      setSeconds(10);
-      setMinutes((prev) => prev - 1);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setSeconds(0);
-      setMinutes(0);
-      setHours(0);
-    } else {
-      setSeconds(10);
-      setMinutes(10);
-      setHours((prev) => prev - 1);
-    }
+  const [inp, setInp] = useState(val);
+
+  const handleChange = (e) => {
+    setInp(e.target.value);
   };
 
-  useEffect(() => {
-    if (isStart) {
-      const timer = setInterval(() => {
-        handleTimer();
-      }, 1000);
-      return () => clearInterval(timer);
-    }
-  });
+  const handleReset = (e) => {
+    setInp(val);
+  };
+
+  return [inp, handleChange, handleReset];
+};
+
+const App = () => {
+  const [firstName, handleChangeFirstName, handleResetFirstName] = useInput("");
+  const [lastName, handleChangeLastName, handleResetLastName] = useInput("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ firstName, lastName });
+  };
+
+  const handleReset = () => {
+    handleResetFirstName();
+    handleResetLastName();
+  };
 
   return (
     <div>
-      <h1>
-        {hours} : {minutes} : {seconds}
-      </h1>
-      <button onClick={() => setIsStart((prev) => !prev)}>TOGGLE</button>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={firstName} onChange={handleChangeFirstName} />
+        <input type="text" value={lastName} onChange={handleChangeLastName} />
+        <button type="submit">SUBMIT</button>
+        <button type="button" onClick={handleReset}>
+          RESET
+        </button>
+      </form>
     </div>
   );
 };
