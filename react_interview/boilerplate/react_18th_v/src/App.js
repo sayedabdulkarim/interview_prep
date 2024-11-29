@@ -1,46 +1,50 @@
-import React, { useState } from "react";
-
-const useInput = (val) => {
-  //
-  const [inp, setInp] = useState(val);
-
-  const handleChange = (e) => {
-    setInp(e.target.value);
-  };
-
-  const handleReset = (e) => {
-    setInp(val);
-  };
-
-  return [inp, handleChange, handleReset];
-};
+import React, { memo, useCallback, useState } from "react";
 
 const App = () => {
-  const [firstName, handleChangeFirstName, handleResetFirstName] = useInput("");
-  const [lastName, handleChangeLastName, handleResetLastName] = useInput("");
+  //
+  const [parentToggle, setParentToggle] = useState(false);
+  const [counter, setCounter] = useState(0);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ firstName, lastName });
+  //
+  const handlePrentToggle = () => {
+    setParentToggle((prev) => !prev);
   };
 
-  const handleReset = () => {
-    handleResetFirstName();
-    handleResetLastName();
-  };
+  const handleCounter = useCallback(() => {
+    setCounter((prev) => prev + 1);
+  }, []);
+
+  console.log("parent");
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={firstName} onChange={handleChangeFirstName} />
-        <input type="text" value={lastName} onChange={handleChangeLastName} />
-        <button type="submit">SUBMIT</button>
-        <button type="button" onClick={handleReset}>
-          RESET
-        </button>
-      </form>
+      <h1>Parent</h1>
+      <button onClick={handlePrentToggle}>
+        parent toggle {parentToggle ? " Yes" : " No"}
+      </button>
+      <br />
+      <br />
+      <ChildOne counter={counter} handleCounter={handleCounter} />
+      <br />
+      <br />
+      <ChildTwo />
     </div>
   );
 };
+
+const ChildOne = memo(({ counter, handleCounter }) => {
+  console.log("render childOne");
+  return (
+    <div>
+      <h1>{counter}</h1>
+      <button onClick={handleCounter}>COUNTER</button>
+    </div>
+  );
+});
+
+const ChildTwo = memo(() => {
+  console.log("render childTwo");
+  return <div>Child Two</div>;
+});
 
 export default App;
