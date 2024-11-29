@@ -1,58 +1,48 @@
-import React, { memo, useCallback, useMemo, useState } from "react";
+import React, { useState } from "react";
 
-const App = () => {
-  //
-  const [parentToggle, setParentToggle] = useState(false);
-  const [counter, setCounter] = useState(0);
-  const [arr, setArr] = useState([2, 3, 1, 2, 11, 2, 1, 223, 4, 1, 3]);
-  //
+const RenderProps = ({ render }) => {
+  const [count, setCount] = useState(0);
 
-  const getMax = useMemo(() => {
-    console.log("called getMax");
-    return Math.max(...arr);
-  }, [arr]);
-
-  const handlePrentToggle = () => {
-    setParentToggle((prev) => !prev);
+  const handleClick = () => {
+    setCount((prev) => prev + 1);
   };
 
-  const handleCounter = useCallback(() => {
-    setCounter((prev) => prev + 1);
-  }, []);
+  return <div>{render(count, handleClick)}</div>;
+};
 
-  console.log("parent");
-
+const ChildOne = ({ count, handleClick }) => {
   return (
     <div>
-      <h1>Parent</h1>
-      {/* <h1>Max No: {getMax()}</h1> */}
-      <h1>Max No: {getMax}</h1>
-      <button onClick={handlePrentToggle}>
-        parent toggle {parentToggle ? " Yes" : " No"}
-      </button>
-      <br />
-      <br />
-      <ChildOne counter={counter} handleCounter={handleCounter} />
-      <br />
-      <br />
-      <ChildTwo />
+      <h1>ChildOne : {count}</h1>
+      <button onClick={handleClick}>handleClick</button>
     </div>
   );
 };
 
-const ChildOne = memo(({ counter, handleCounter }) => {
-  console.log("render childOne");
+const ChildTwo = ({ count, handleClick }) => {
   return (
     <div>
-      <h1>{counter}</h1>
-      <button onClick={handleCounter}>COUNTER</button>
+      <h1>ChildOne : {count}</h1>
+      <button onClick={handleClick}>handleClick</button>
     </div>
   );
-});
+};
 
-const ChildTwo = memo(() => {
-  console.log("render childTwo");
-  return <div>Child Two</div>;
-});
+const App = () => {
+  return (
+    <div>
+      <RenderProps
+        render={(count, handleClick) => (
+          <ChildOne count={count} handleClick={handleClick} />
+        )}
+      />
+      <RenderProps
+        render={(count, handleClick) => (
+          <ChildTwo count={count} handleClick={handleClick} />
+        )}
+      />
+    </div>
+  );
+};
 
 export default App;
