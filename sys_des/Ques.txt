@@ -1,0 +1,100 @@
+
+---
+
+### **Beginner Level:**
+- Focus on understanding fundamental design concepts.
+- Questions are generally simpler and involve straightforward architectures.
+
+#### **Examples:**
+1. **Design a URL Shortener** (e.g., Bitly):
+   - How to store and retrieve shortened URLs.
+   - Discuss basic database schema.
+   - Explain how to handle collisions for unique keys.
+
+2. **Design a Chat Application** (e.g., WhatsApp):
+   - Discuss real-time communication using WebSockets.
+   - Explain how to store and retrieve messages.
+   - Discuss user presence (online/offline status).
+
+3. **Design a Library Management System**:
+   - How to store books, users, and transactions.
+   - Basic features like issuing/returning books.
+   - Database design and API requirements.
+
+4. **Design a Rate Limiter**:
+   - Implement rate limiting for APIs.
+   - Discuss token buckets or leaky buckets concepts.
+   - Explain how to handle bursts of traffic.
+
+---
+
+### **Intermediate Level:**
+- Focus on scalable architectures, distributed systems, and handling edge cases.
+- Questions require deeper knowledge of system components.
+
+#### **Examples:**
+1. **Design a News Feed System** (e.g., Facebook/LinkedIn):
+   - How to fetch and display posts for a user.
+   - Use of caching for frequently accessed data.
+   - Sorting, filtering, and ranking mechanisms.
+
+2. **Design a File Storage System** (e.g., Google Drive, Dropbox):
+   - Handle large file uploads/downloads.
+   - Directory structure and metadata storage.
+   - Discuss replication and fault tolerance.
+
+3. **Design a Search Autocomplete System**:
+   - How to suggest queries as the user types.
+   - Efficient data structures (e.g., Trie).
+   - Ranking of suggestions based on user popularity.
+
+4. **Design a Ride-Sharing System** (e.g., Uber):
+   - Matching riders with drivers.
+   - Handling real-time location updates.
+   - Load balancing and fault tolerance.
+
+---
+
+### **Advanced Level:**
+- Involves complex systems, distributed systems, and scaling challenges.
+- Questions test your ability to think through trade-offs and design for high availability.
+
+#### **Examples:**
+1. **Design a Distributed Cache** (e.g., Memcached/Redis):
+   - How to handle cache invalidation.
+   - Consistency and partitioning strategies.
+   - Handling failover and replication.
+
+2. **Design a Video Streaming Platform** (e.g., YouTube, Netflix):
+   - Video upload, storage, and encoding.
+   - Content delivery using CDNs.
+   - Adaptive bitrate streaming and handling millions of users.
+
+3. **Design an E-commerce System** (e.g., Amazon):
+   - Handling product catalogs, search, and recommendations.
+   - Cart and order management.
+   - Handling high traffic during sales (scaling and sharding).
+
+4. **Design a Distributed Database**:
+   - Discuss consistency models (e.g., CAP theorem).
+   - Partitioning, replication, and sharding.
+   - Write and read optimization.
+
+5. **Design a Notification System** (e.g., for Email/SMS/Push Notifications):
+   - Prioritization of messages.
+   - Ensuring message delivery and retries.
+   - Scalability for millions of notifications per second.
+
+---
+
+### **Key Areas to Prepare for Each Level:**
+- **Beginner:** Database design, APIs, basic architecture, and CRUD operations.
+- **Intermediate:** Scalability, load balancing, caching, real-time systems, and fault tolerance.
+- **Advanced:** Distributed systems, consistency, partitioning, replication, and handling high concurrency.
+
+---
+
+For **all levels**, be ready to discuss:
+1. **Trade-offs:** Why choose one approach over another?
+2. **Bottlenecks:** How to identify and resolve them?
+3. **Scalability:** How does your design handle growth in users/data?
