@@ -1,0 +1,98 @@
+NETWORK
+===
+- How web works ?
+- How rendering works or how rendering of web page happens ? 
+    - DOM
+    - CSSOM
+    - Paint happens ?
+    - Render Tree
+    - Computation ( cumulative shifting )
+
+- http, https, http2, http3, tcp, udp, smtp, ftp
+
+- restApi, graphql , grphql vs restApi 
+
+- restApi ( headers, statusCodes, methods )
+
+- graphql ( queryMutatiom, dataloader, batching )
+
+- grpc
+
+
+communication Technique
+=====
+
+- how to get real time data ( short polling, how to consume websockets )
+- long polling, server sent event, web hooks 
+
+
+Security 
+====
+
+- Input / output sanity 
+- XSS attack
+- CSRF token 
+- why use HTTPS ?
+- CORS 
+
+- AUTH works
+- Security headers
+- SSRF 
+- SRI 
+- Permission Policy 
+- Compliance
+- Dependency security 
+
+Performace
+====
+- why Performace is important ?
+- metrices ( web vitals ) , which website
+- Build optimization
+- Network Optimisation
+- Assrt Optimisation
+- Javascript Optimisation
+- Performace tool
+- Rendering Pattern ( CSR, SSR, SSG ) - when to use which patern 
+- How to manage Extensive knowledge of CSS and JS methods for providing performance visual effects and keeping the frame rate above 30fps at all times.
+
+
+Caching
+===
+
+- Loacal Storage 
+- Cookie Storage
+- Session Storage 
+- IndexedDB 
+- Noramlization
+- HTTP caching 
+- Service Worker
+- Api Caching 
+
+Testing 
+====
+- Unit Testing
+- Test Driven Development 
+- E2E testing 
+- A/ B Testing 
+- Unit Testing vs components Testing 
+
+Offline Support
+===
+- Service Worker
+- Blob 
+- PWA 
+- IndexedDB
+
+Accesibility 
+====
+- how to make keyboard Accesibility.
+- Screen Reader 
+- Color Contrast 
+
+Logging and Monitoring 
+====
+
+- Telemetry 
+- Tools
+- Alerting 
+- Fixing 
