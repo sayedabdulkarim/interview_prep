@@ -98,3 +98,8 @@ For **all levels**, be ready to discuss:
 1. **Trade-offs:** Why choose one approach over another?
 2. **Bottlenecks:** How to identify and resolve them?
 3. **Scalability:** How does your design handle growth in users/data?
+
+
+
+//VDOS
+https://www.youtube.com/watch?v=MRx40JVmmF4&list=PL6W8uoQQ2c60RHk0aE3Pf7J9o6E9UnmDx
