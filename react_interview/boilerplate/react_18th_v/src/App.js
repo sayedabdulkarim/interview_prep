@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -26,29 +26,7 @@ class ErrorBoundary extends Component {
 }
 
 const App = () => {
-  return (
-    <div>
-      <h1>HOME</h1>
-      <h1>About</h1>
-      <ErrorBoundary>
-        <ButtonComponent />
-      </ErrorBoundary>
-    </div>
-  );
-};
-
-const ButtonComponent = () => {
-  const [forceError, setForceError] = useState(false);
-
-  if (forceError) {
-    throw new Error("Error from BTN component");
-  }
-
-  return (
-    <div>
-      <button onClick={() => setForceError(true)}>Button</button>
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
