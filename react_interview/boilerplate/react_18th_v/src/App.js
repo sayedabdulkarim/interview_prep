@@ -1,50 +1,33 @@
-import React, { Component, useState } from "react";
-
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasError: false,
-    };
-  }
-
-  componentDidCatch(error, info) {
-    console.log({ error, info }, " cdc");
-  }
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  render() {
-    return this.state.hasError ? (
-      <h1>Someyhing wnt wrong..</h1>
-    ) : (
-      this.props.children
-    );
-  }
-}
+import React, { useEffect, useState } from "react";
 
 const App = () => {
+  const [seconds, setSeconds] = useState(15);
+  const [minutes, setMinutes] = useState(1);
+
+  const timer = () => {
+    if (seconds > 0) {
+      setSeconds((prev) => prev - 1);
+    } else if (minutes > 0) {
+      setSeconds(10);
+      setMinutes((prev) => prev - 1);
+    }
+  };
+
+  useEffect(() => {
+    const handleTimer = setInterval(() => {
+      timer();
+    }, 1000);
+
+    return () => clearInterval(handleTimer);
+  });
+
   return (
     <div>
-      <h1>Home component</h1>
-      <h1>Profile component</h1>
-      <ErrorBoundary>
-        <ButtonComponent />
-      </ErrorBoundary>
+      <h1>
+        {seconds} : {minutes}
+      </h1>
     </div>
   );
-};
-
-const ButtonComponent = () => {
-  const [forceError, setForceError] = useState(false);
-
-  if (forceError) {
-    throw new Error("Error from buttton component.");
-  }
-
-  return <button onClick={() => setForceError(true)}>CLICK</button>;
 };
 
 export default App;
