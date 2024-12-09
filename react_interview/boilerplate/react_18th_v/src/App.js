@@ -1,48 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const RenderProps = ({ render }) => {
-  const [counter, setCounter] = useState(0);
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  const handleCounter = () => {
-    setCounter((prev) => prev + 1);
-  };
+  useEffect(() => {
+    setLoading(true);
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        setLoading(false);
+        setData(res?.data);
+      })
+      .catch((err) => {
+        console.log({ err }, " err");
+        setLoading(false);
+        setError(err);
+      })
+      .finally(() => setLoading(false));
+  }, [url]);
 
-  return <>{render(counter, handleCounter)}</>;
-};
-
-const CounterOne = ({ counter, handleCounter }) => {
-  return (
-    <div>
-      <h1>Counter One : {counter}</h1>
-      <button onClick={handleCounter}>handleCounter</button>
-    </div>
-  );
-};
-
-const CounterTwo = ({ counter, handleCounter }) => {
-  return (
-    <div>
-      <h1>Counter Two : {counter}</h1>
-      <button onClick={handleCounter}>handleCounter</button>
-    </div>
-  );
+  return { data, loading, error };
 };
 
 const App = () => {
+  const [list, setList] = useState(null);
   return (
     <div>
-      <RenderProps
-        render={(counter, handleCounter) => (
-          <CounterOne counter={counter} handleCounter={handleCounter} />
-        )}
-      />
-      <br />
-      <br />
-      <RenderProps
-        render={(counter, handleCounter) => (
-          <CounterTwo counter={counter} handleCounter={handleCounter} />
-        )}
-      />
+      <button>DATA</button>
     </div>
   );
 };
