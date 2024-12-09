@@ -6,31 +6,19 @@ const useFetch = (url) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
     fetch(url)
       .then((res) => res.json())
       .then((res) => {
-        setLoading(false);
         setData(res?.data);
       })
-      .catch((err) => {
-        console.log({ err }, " err");
-        setLoading(false);
-        setError(err);
-      })
-      .finally(() => setLoading(false));
+      .catch((err) => {});
   }, [url]);
 
   return { data, loading, error };
 };
 
 const App = () => {
-  const [list, setList] = useState(null);
-  return (
-    <div>
-      <button>DATA</button>
-    </div>
-  );
+  return <div>App</div>;
 };
 
 export default App;
