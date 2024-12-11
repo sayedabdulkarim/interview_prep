@@ -42,6 +42,7 @@ React 19
         </Suspense>
     );
     }
+- we can now pass ref in props without using forwardRef
 
 
 ///MACHINE_CODING////
