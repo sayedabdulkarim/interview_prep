@@ -1,12 +1,20 @@
 NETWORK
 ===
 - How web works ?
-- How rendering works or how rendering of web page happens ? 
+- How rendering works or how rendering of web page happens ?  
     - DOM
     - CSSOM
     - Paint happens ?
     - Render Tree
     - Computation ( cumulative shifting )
+
+    Answer - once DOM and CSSOM are ready then it starts constructing renderTree. 
+    Links - 
+        - https://www.youtube.com/watch?v=gIIsX7WRXwo&ab_channel=CodingInsanely
+
+- Critical Rendering Path (CRP)
+    
+
 
 - http, https, http2, http3, tcp, udp, smtp, ftp
 
