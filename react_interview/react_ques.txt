@@ -16,6 +16,33 @@ VDOS
 - https://www.youtube.com/@InterviewAddaOffical/videos
 - https://www.youtube.com/@AllThingsJavaScript/playlists
 
+React 19
+===
+- useTransition
+- useOptimistic ( to update the changes directly, before getting success from api after post and refetch to get new )
+- use (new Api)
+    - we can grab context data as well by using use e.g const profileContext = use(profileContext);
+    - i think we can able to use , this "use" Api in nscope instead of top level
+    EG: 
+    ===
+    import { use } from 'react';
+
+    function Comments({ commentsPromise }) {
+    // 'use' will suspend until the promise resolves.
+    const comments = use(commentsPromise);
+    return comments.map(comment => <p key={comment.id}>{comment}</p>);
+    }
+
+    function Page({ commentsPromise }) {
+    // When 'use' suspends in Comments,
+    // this Suspense boundary will be shown.
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+        <Comments commentsPromise={commentsPromise} />
+        </Suspense>
+    );
+    }
+
 
 ///MACHINE_CODING////
 ##################################################################################
