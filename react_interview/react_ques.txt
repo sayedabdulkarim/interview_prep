@@ -16,7 +16,7 @@ VDOS
 - https://www.youtube.com/@InterviewAddaOffical/videos
 - https://www.youtube.com/@AllThingsJavaScript/playlists
 
-React 19
+React 19 ( in React 19 , i think they r slowly mving into SSR things lyk nextJS , e.g to support SEO )
 ===
 - useTransition
 - useOptimistic ( to update the changes directly, before getting success from api after post and refetch to get new )
@@ -43,6 +43,7 @@ React 19
     );
     }
 - we can now pass ref in props without using forwardRef
+- now we can use title, link, meta 
 
 
 ///MACHINE_CODING////
