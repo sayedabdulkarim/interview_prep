@@ -5,14 +5,7 @@ const useFetch = (url) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setData(res?.data);
-      })
-      .catch((err) => {});
-  }, [url]);
+  useEffect(() => {}, []);
 
   return { data, loading, error };
 };
