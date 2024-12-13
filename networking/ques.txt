@@ -13,7 +13,8 @@ NETWORK
         - https://www.youtube.com/watch?v=gIIsX7WRXwo&ab_channel=CodingInsanely
 
 - Critical Rendering Path (CRP)
-    
+   -  https://www.youtube.com/watch?v=Tnp3yX9Z93Q
+   -  https://www.youtube.com/watch?v=f8-m7zPzjJc
 
 
 - http, https, http2, http3, tcp, udp, smtp, ftp
