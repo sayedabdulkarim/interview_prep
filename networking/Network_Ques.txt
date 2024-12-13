@@ -17,7 +17,24 @@ NETWORK
    -  https://www.youtube.com/watch?v=f8-m7zPzjJc
 
 
-- http, https, http2, http3, tcp, udp, smtp, ftp
+- http, https, 
+    - in http we dont hv any encryption of data but in https we have by using ssl certificate .
+
+    - http runs on 80 and https run on 443
+
+
+http2, http3, tcp, udp, smtp, ftp
+
++---------------------+------------+------------+------------+
+| Feature             | HTTP/1.1   | HTTP/2     | HTTP/3     |
++---------------------+------------+------------+------------+
+| Protocol Type       | Text-Based | Binary     | Binary+QUIC|
+| Transport Protocol  | TCP        | TCP        | UDP (QUIC) |
+| Multiplexing        | No         | Yes        | Yes        |
+| Header Compression  | No         | Yes (HPACK)| Yes (QPACK)|
+| Server Push         | No         | Yes        | Yes        |
+| Latency             | High       | Moderate   | Low        |
++---------------------+------------+------------+------------+
 
 - restApi, graphql , grphql vs restApi 
 
