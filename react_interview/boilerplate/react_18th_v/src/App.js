@@ -1,46 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const App = () => {
-  const [seconds, setSeconds] = useState(12);
-  const [minutes, setMinutes] = useState(2);
-  const [hours, setHours] = useState(1);
-  const [isStart, setIsStart] = useState(false);
+const useInput = (val) => {
+  const [inpVal, setInpVal] = useState(val);
 
-  const handleTimer = () => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (minutes > 0) {
-      setSeconds(5);
-      setMinutes((prev) => prev - 1);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setSeconds(0);
-      setMinutes(0);
-      setHours(0);
-    } else {
-      setSeconds(5);
-      setMinutes(5);
-      setHours((prev) => prev - 1);
-    }
+  const handleChange = (e) => {
+    setInpVal(e.target.value);
   };
 
-  useEffect(() => {
-    if (isStart) {
-      const timer = setInterval(handleTimer, 1000);
+  const handleReset = (_) => {
+    setInpVal(val);
+  };
 
-      return () => {
-        clearInterval(timer);
-      };
-    }
-  });
+  return { inpVal, handleChange, handleReset };
+};
+
+const App = () => {
+  const {
+    inpVal: firstName,
+    handleChange: handleFirstNameChange,
+    handleReset: handleFirstNameReset,
+  } = useInput("");
+  const {
+    inpVal: lastName,
+    handleChange: handleLastNameChange,
+    handleReset: handleLastNameReset,
+  } = useInput("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ firstName, lastName }, " submitted");
+  };
+
+  const handleReset = () => {
+    handleFirstNameReset("");
+    handleLastNameReset("");
+  };
 
   return (
     <div>
-      <h1>
-        {hours} : {minutes} : {seconds}
-        <br />
-        <br />
-        <button onClick={() => setIsStart((prev) => !prev)}>Toggle</button>
-      </h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleFirstNameChange} value={firstName} />
+        <input type="text" onChange={handleLastNameChange} value={lastName} />
+        <button type="submit">SUBMIT</button>
+        <button type="button" onClick={handleReset}>
+          RESET
+        </button>
+      </form>
     </div>
   );
 };
