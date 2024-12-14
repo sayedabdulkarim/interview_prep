@@ -1,52 +1,41 @@
-import React, { Component, useState } from "react";
-
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasError: false,
-    };
-  }
-
-  componentDidCatch(error, info) {
-    console.log({ error, info }, " logs from CDC");
-  }
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  render() {
-    return this.state.hasError ? (
-      <h1>Something went wrong...</h1>
-    ) : (
-      this.props.children
-    );
-  }
-}
+import React, { useEffect, useState } from "react";
 
 const App = () => {
+  const [seconds, setSeconds] = useState(12);
+  const [minutes, setMinutes] = useState(2);
+  const [hours, setHours] = useState(1);
+  const [isStart, setIsStart] = useState(false);
+
+  const handleTimer = () => {
+    if (seconds > 0) {
+      setSeconds((prev) => prev - 1);
+    } else if (minutes > 0) {
+      setSeconds(5);
+      setMinutes((prev) => prev - 1);
+    } else if (seconds === 0 && minutes === 0 && hours === 0) {
+      setSeconds(0);
+      setMinutes(0);
+      setHours(0);
+    } else {
+      setSeconds(5);
+      setMinutes(5);
+      setHours((prev) => prev - 1);
+    }
+  };
+
+  useEffect(() => {
+    const timer = setInterval(handleTimer, 1000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  });
+
   return (
     <div>
-      <h1>Home Component</h1>
-      <h1>Profile Component</h1>
-      <ErrorBoundary>
-        <ButtonComponent />
-      </ErrorBoundary>
-    </div>
-  );
-};
-
-const ButtonComponent = () => {
-  const [forceError, setForceError] = useState(false);
-
-  if (forceError) {
-    throw new Error("Error from button Component");
-  }
-
-  return (
-    <div>
-      <button onClick={() => setForceError(true)}>Break button</button>
+      <h1>
+        {hours} : {minutes} : {seconds}
+      </h1>
     </div>
   );
 };
