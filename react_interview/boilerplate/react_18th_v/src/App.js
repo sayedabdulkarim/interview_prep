@@ -1,17 +1,33 @@
-import React, { useEffect, useState } from "react";
-
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {}, []);
-
-  return { data, loading, error };
-};
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
 const App = () => {
-  return <div>App</div>;
+  const childRef = useRef();
+
+  const handleClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
+  };
+
+  return (
+    <div>
+      <h1>Parent</h1>
+      <button onClick={handleClick}>Child click</button>
+      <ChildComponent ref={childRef} />
+    </div>
+  );
 };
+
+const ChildComponent = forwardRef((_, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("child click");
+      },
+    };
+  });
+
+  return <div>App</div>;
+});
 
 export default App;
