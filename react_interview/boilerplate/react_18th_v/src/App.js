@@ -24,17 +24,22 @@ const App = () => {
   };
 
   useEffect(() => {
-    const timer = setInterval(handleTimer, 1000);
+    if (isStart) {
+      const timer = setInterval(handleTimer, 1000);
 
-    return () => {
-      clearInterval(timer);
-    };
+      return () => {
+        clearInterval(timer);
+      };
+    }
   });
 
   return (
     <div>
       <h1>
         {hours} : {minutes} : {seconds}
+        <br />
+        <br />
+        <button onClick={() => setIsStart((prev) => !prev)}>Toggle</button>
       </h1>
     </div>
   );
