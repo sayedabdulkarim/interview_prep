@@ -1,61 +1,49 @@
-import React, { memo, useCallback, useMemo, useState } from "react";
+import React, { useState } from "react";
 
-const App = () => {
-  //
-  const [toggle, setToggle] = useState(false);
-  const [counter, setCounter] = useState(0);
-  const [arr, setArr] = useState([
-    1, 2, 3, 1, 3, 4, 5, 22, 41, 333, 1, 2, 1, 3, 4,
-  ]);
-  //
-  const handleCounter = useCallback(() => {
-    setCounter((prev) => prev + 1);
-  }, []);
+const RenderProps = ({ render }) => {
+  const [count, setCount] = useState(0);
 
-  const getMax = useMemo(() => {
-    console.log(" get Max called");
-    return Math.max(...arr);
-  }, [arr]);
+  const handleCount = () => {
+    setCount((prev) => prev + 1);
+  };
+  return <>{render(count, handleCount)}</>;
+};
 
-  // const pushRandom = () => {
-  //   const rand = Math.random();
-  //   return setArr.push(rand);
-  // };
-
-  console.log("render parent");
+const ComponentOne = ({ count, handleCount }) => {
   return (
     <div>
-      <h1>Parent {getMax}</h1>
-      <pre>{JSON.stringify(arr, null, 2)}</pre>
-      <button
-        onClick={() => setToggle((prev) => !prev)}
-      >{`Toggle - ${toggle}`}</button>
-      {/* <button onClick={() => pushRandom()}>PUSH MAX</button> */}
-      <button onClick={() => setArr((prev) => [...prev, Math.random()])}>
-        PUSH MAX
-      </button>
-
-      <ComponentOne counter={counter} handleCounter={handleCounter} />
-      <br />
-      <br />
-      <ComponentTwo />
+      <h1>ComponentOne : {count}</h1>
+      <button onClick={handleCount}>handleCount</button>
     </div>
   );
 };
 
-const ComponentOne = memo(({ counter, handleCounter }) => {
-  console.log("render component one");
+const ComponentTwo = ({ count, handleCount }) => {
   return (
     <div>
-      <h1>Counter One : {counter}</h1>
-      <button onClick={handleCounter}>handleCounter</button>
+      <h1>ComponentTwo : {count}</h1>
+      <button onClick={handleCount}>handleCount</button>
     </div>
   );
-});
+};
 
-const ComponentTwo = memo(() => {
-  console.log("render component two");
-  return <div>App</div>;
-});
+const App = () => {
+  return (
+    <div>
+      <RenderProps
+        render={(count, handleCount) => (
+          <ComponentOne count={count} handleCount={handleCount} />
+        )}
+      />
+      <br />
+      <br />
+      <RenderProps
+        render={(count, handleCount) => (
+          <ComponentTwo count={count} handleCount={handleCount} />
+        )}
+      />
+    </div>
+  );
+};
 
 export default App;
