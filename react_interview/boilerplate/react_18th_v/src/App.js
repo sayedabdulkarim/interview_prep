@@ -1,47 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const RenderProps = ({ render }) => {
-  const [count, setCount] = useState(0);
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  const handleCount = () => {
-    setCount((prev) => prev + 1);
-  };
-  return <>{render(count, handleCount)}</>;
-};
+  useEffect(() => {
+    setLoading(true);
+    fetch(url)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res, " dd");
+        return setData(res);
+      })
+      .catch((err) => setError(err))
+      .finally(() => {
+        setError(null);
+        setLoading(false);
+      });
+  }, [url]);
 
-const ComponentOne = ({ count, handleCount }) => {
-  return (
-    <div>
-      <h1>ComponentOne : {count}</h1>
-      <button onClick={handleCount}>handleCount</button>
-    </div>
-  );
-};
-
-const ComponentTwo = ({ count, handleCount }) => {
-  return (
-    <div>
-      <h1>ComponentTwo : {count}</h1>
-      <button onClick={handleCount}>handleCount</button>
-    </div>
-  );
+  return [data, loading, error];
 };
 
 const App = () => {
+  const [data, loading, error] = useFetch(
+    "https://jsonplaceholder.typicode.com/album"
+  );
+
+  if (loading) return <h1>LOadin....</h1>;
+  if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
   return (
     <div>
-      <RenderProps
-        render={(count, handleCount) => (
-          <ComponentOne count={count} handleCount={handleCount} />
-        )}
-      />
-      <br />
-      <br />
-      <RenderProps
-        render={(count, handleCount) => (
-          <ComponentTwo count={count} handleCount={handleCount} />
-        )}
-      />
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 };
