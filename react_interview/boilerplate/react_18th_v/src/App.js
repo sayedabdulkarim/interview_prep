@@ -25,7 +25,7 @@ const useFetch = (url) => {
 
 const App = () => {
   const [data, loading, error] = useFetch(
-    "https://jsonplaceholder.typicode.com/album"
+    "https://jsonplaceholder.typicode.com/albums"
   );
 
   if (loading) return <h1>LOadin....</h1>;
