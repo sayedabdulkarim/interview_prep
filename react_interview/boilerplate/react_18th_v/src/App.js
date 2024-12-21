@@ -18,7 +18,7 @@ const App = () => {
   );
 };
 
-const ChildCOmponent = forwardRef((ref) => {
+const ChildCOmponent = forwardRef((_, ref) => {
   useImperativeHandle(ref, () => {
     return {
       childClick() {
