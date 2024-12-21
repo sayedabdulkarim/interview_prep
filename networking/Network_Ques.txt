@@ -12,7 +12,7 @@ NETWORK
     Links - 
         - https://www.youtube.com/watch?v=gIIsX7WRXwo&ab_channel=CodingInsanely
 
-- Critical Rendering Path (CRP)
+- Critical Rendering Path (CRP) (CRP meeans the steps browser go through to convert html, css, Javascript into pixel on the screen or viewport)
    -  https://www.youtube.com/watch?v=Tnp3yX9Z93Q
    -  https://www.youtube.com/watch?v=f8-m7zPzjJc
 
