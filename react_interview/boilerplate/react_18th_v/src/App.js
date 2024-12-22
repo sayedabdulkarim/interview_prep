@@ -5,6 +5,39 @@ const App = () => {
   const [minutes, setMinutes] = useState(2);
   const [hours, setHours] = useState(1);
 
+  function test(arr1, arr2) {
+    const mergeArr = [];
+
+    for (let i = 0; i < arr1.length; i++) {
+      mergeArr.push(arr1[i]);
+    }
+
+    for (let i = 0; i < arr2.length; i++) {
+      mergeArr.push(arr2[i]);
+    }
+
+    const filterUni = [];
+
+    for (let i = 0; i < mergeArr.length; i++) {
+      if (filterUni.indexOf(mergeArr[i]) === -1) {
+        filterUni.push(mergeArr[i]);
+      }
+    }
+
+    //sort
+    for (let i = 0; i < filterUni.length; i++) {
+      for (let j = i + 1; j < filterUni.length; j++) {
+        if (filterUni[i] > filterUni[j]) {
+          const temp = filterUni[i];
+          filterUni[i] = filterUni[j];
+          filterUni[j] = temp;
+        }
+      }
+    }
+
+    return { mergeArr, filterUni };
+  }
+
   //
   const handleTimer = useCallback(() => {
     if (seconds > 0) {
