@@ -1,73 +1,51 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
+
+const useInput = (val) => {
+  const [inp, setInp] = useState(val);
+
+  const handleChange = (e) => {
+    setInp(e.target.value);
+  };
+
+  const handleReset = () => {
+    setInp(val);
+  };
+
+  return { inp, handleChange, handleReset };
+};
 
 const App = () => {
-  const [seconds, setSeconds] = useState(10);
-  const [minutes, setMinutes] = useState(2);
-  const [hours, setHours] = useState(1);
+  const {
+    inp: firstName,
+    handleChange: handleFirstNameChange,
+    handleReset: handleFirstNameReset,
+  } = useInput("");
+  const {
+    inp: lastName,
+    handleChange: handleLastNameChange,
+    handleReset: handleLastNameReset,
+  } = useInput("");
 
-  function test(arr1, arr2) {
-    const mergeArr = [];
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log({ firstName, lastName });
+  };
 
-    for (let i = 0; i < arr1.length; i++) {
-      mergeArr.push(arr1[i]);
-    }
-
-    for (let i = 0; i < arr2.length; i++) {
-      mergeArr.push(arr2[i]);
-    }
-
-    const filterUni = [];
-
-    for (let i = 0; i < mergeArr.length; i++) {
-      if (filterUni.indexOf(mergeArr[i]) === -1) {
-        filterUni.push(mergeArr[i]);
-      }
-    }
-
-    //sort
-    for (let i = 0; i < filterUni.length; i++) {
-      for (let j = i + 1; j < filterUni.length; j++) {
-        if (filterUni[i] > filterUni[j]) {
-          const temp = filterUni[i];
-          filterUni[i] = filterUni[j];
-          filterUni[j] = temp;
-        }
-      }
-    }
-
-    return { mergeArr, filterUni };
-  }
-
-  //
-  const handleTimer = useCallback(() => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (minutes > 0) {
-      setSeconds(59);
-      setMinutes((prev) => prev - 1);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setSeconds(0);
-      setMinutes(0);
-      setHours(0);
-    } else {
-      setSeconds(59);
-      setMinutes(59);
-      setHours((prev) => prev - 1);
-    }
-  }, [hours, minutes, seconds]);
-
-  useEffect(() => {
-    const timer = setInterval(handleTimer, 1000);
-
-    return () => clearInterval(timer);
-  }, [handleTimer]);
+  const handleReset = (_) => {
+    handleFirstNameReset();
+    handleLastNameReset();
+  };
 
   return (
     <div>
-      <button>TOGGLE</button>
-      <h1>
-        {seconds} : {minutes} : {hours}
-      </h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleFirstNameChange} value={firstName} />
+        <input type="text" onChange={handleLastNameChange} value={lastName} />
+        <button type="submit">SUBMIT</button>
+        <button type="reset" onClick={handleReset}>
+          RESET
+        </button>
+      </form>
     </div>
   );
 };
