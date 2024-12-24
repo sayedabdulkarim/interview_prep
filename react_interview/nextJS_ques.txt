@@ -1,0 +1,26 @@
+Here are all the MCQ questions:
+
+1. Which of the following is the recommended way to handle API errors in a Next.js application?  
+2. When dealing with 401 Unauthorized responses in a Next.js application, what is the best way to manage the refresh token workflow?  
+3. In the context of HTTP status codes, what does a 429 Too Many Requests response indicate?  
+4. Which of the following is the most effective way to implement automatic retries for failed API calls in a Next.js application?  
+5. In Next.js, which lifecycle function is only executed on the server side?  
+6. Which HTTP status code represents "Unauthorized Access"?  
+7. What is the best way to handle API retries in Next.js to prevent request overloading?  
+8. Which HTTP status code indicates that a resource has been permanently moved to a new location?  
+9. What is the primary use of `getStaticPaths` in Next.js?  
+10. Which header should be used to pass a Bearer token to an API in a secure way?  
+11. What should you do when the API returns a 429 status code?  
+12. In a RESTful API, which status code typically indicates a successful resource creation?  
+13. Which of the following Next.js features allows you to reduce JavaScript bundle size?  
+14. Which design pattern is best suited for handling token refresh mechanisms in a Next.js frontend?  
+15. In Next.js, how can you improve the page load time for a dynamic route?  
+16. How can Next.js efficiently handle large pages with significant data?  
+17. Which of the following methods is the most secure way to validate access tokens in Next.js?  
+18. When implementing error handling for asynchronous operations in Next.js, which of the following is the best practice?  
+19. What is the recommended strategy for optimizing routing performance in a large-scale Next.js application?  
+20. To efficiently handle a sudden spike in user traffic, which of the following methods is most effective in a Next.js application?  
+21. What is the most effective tool for tracking frontend issues and performance in a Next.js application?  
+22. What is the role of `getInitialProps` in Next.js?  
+23. How does Next.js ensure optimal performance for a page using static site generation?  
+24. Which of the following is an effective way to enhance load balancing in a Next.js app?  
