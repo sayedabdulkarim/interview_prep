@@ -1,45 +1,52 @@
-import React, { useDeferredValue } from "react";
+import React, { Component } from "react";
 
-const genArr = (n) => {
-  const arr = [];
-  for (let i = 0; i < n; i++) {
-    arr.push(`Item Name - ${i}`);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
-  return arr;
-};
 
-const filterArr = (val) => genArr(20000).filter((item) => item.includes(val));
+  componentDidCatch(error, info) {
+    console.error({ error, info }, " error from componentDidCatch");
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Something went wrong</h1>
+    ) : (
+      this.props.children
+    );
+  }
+}
 
 const App = () => {
-  const [isPending, startTransition] = React.useTransition();
-  const [inp, setInp] = React.useState("");
-
-  const handleChange = (e) => {
-    startTransition(() => {
-      setInp(e.target.value);
-    });
-    // setInp(e.target.value);
-  };
-
-  const prodArr = filterArr(inp);
-
   return (
     <div>
-      <input type="text" value={inp} onChange={handleChange} />
-      {isPending ? "Loading..." : <ListComponent data={prodArr} />}
+      <h1>Parent Component</h1>
+      <h1>Home Component</h1>
+      <ErrorBoundary>
+        <ButtonComp />
+      </ErrorBoundary>
     </div>
   );
 };
 
-const ListComponent = ({ data }) => {
-  const defferedVal = useDeferredValue(data);
+const ButtonComp = () => {
+  const [forceError, setForceError] = React.useState(false);
+
+  if (forceError) {
+    throw new Error("Error break");
+  }
+
   return (
-    <ul>
-      {/* {data.map((item, index) => ( */}
-      {defferedVal.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-    </ul>
+    <div>
+      <h1>Button Component</h1>
+      <button onClick={() => setForceError(true)}>Click</button>
+    </div>
   );
 };
 
