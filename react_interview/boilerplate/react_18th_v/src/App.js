@@ -1,53 +1,31 @@
-import React, { useState } from "react";
-
-const useInput = (val) => {
-  const [inp, setInp] = useState(val);
-
-  const handleChange = (e) => {
-    setInp(e.target.value);
-  };
-
-  const handleReset = () => {
-    setInp(val);
-  };
-
-  return { inp, handleChange, handleReset };
-};
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
 const App = () => {
-  const {
-    inp: firstName,
-    handleChange: handleFirstNameChange,
-    handleReset: handleFirstNameReset,
-  } = useInput("");
-  const {
-    inp: lastName,
-    handleChange: handleLastNameChange,
-    handleReset: handleLastNameReset,
-  } = useInput("");
+  const childRef = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log({ firstName, lastName });
+  const hanldeClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
   };
-
-  const handleReset = (_) => {
-    handleFirstNameReset();
-    handleLastNameReset();
-  };
-
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleFirstNameChange} value={firstName} />
-        <input type="text" onChange={handleLastNameChange} value={lastName} />
-        <button type="submit">SUBMIT</button>
-        <button type="reset" onClick={handleReset}>
-          RESET
-        </button>
-      </form>
+      <h1>Parent</h1>
+      <button onClick={hanldeClick}>Click</button>
+      <ChildComponent ref={childRef} />
     </div>
   );
 };
+
+const ChildComponent = forwardRef((_, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("childClick");
+      },
+    };
+  });
+  return <div>App</div>;
+});
 
 export default App;
