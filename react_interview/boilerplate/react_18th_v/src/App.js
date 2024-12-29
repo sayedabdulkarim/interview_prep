@@ -1,31 +1,46 @@
-import React, { forwardRef, useImperativeHandle, useRef } from "react";
+import React, { useDeferredValue } from "react";
+
+const genArr = (n) => {
+  const arr = [];
+  for (let i = 0; i < n; i++) {
+    arr.push(`Item Name - ${i}`);
+  }
+  return arr;
+};
+
+const filterArr = (val) => genArr(20000).filter((item) => item.includes(val));
 
 const App = () => {
-  const childRef = useRef();
+  const [isPending, startTransition] = React.useTransition();
+  const [inp, setInp] = React.useState("");
 
-  const hanldeClick = () => {
-    if (childRef.current) {
-      childRef.current.childClick();
-    }
+  const handleChange = (e) => {
+    startTransition(() => {
+      setInp(e.target.value);
+    });
+    // setInp(e.target.value);
   };
+
+  const prodArr = filterArr(inp);
+
   return (
     <div>
-      <h1>Parent</h1>
-      <button onClick={hanldeClick}>Click</button>
-      <ChildComponent ref={childRef} />
+      <input type="text" value={inp} onChange={handleChange} />
+      {isPending ? "Loading..." : <ListComponent data={prodArr} />}
     </div>
   );
 };
 
-const ChildComponent = forwardRef((_, ref) => {
-  useImperativeHandle(ref, () => {
-    return {
-      childClick() {
-        console.log("childClick");
-      },
-    };
-  });
-  return <div>App</div>;
-});
+const ListComponent = ({ data }) => {
+  const defferedVal = useDeferredValue(data);
+  return (
+    <ul>
+      {/* {data.map((item, index) => ( */}
+      {defferedVal.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+};
 
 export default App;
