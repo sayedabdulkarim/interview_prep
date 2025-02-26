@@ -14,6 +14,7 @@ const Tabs = ({ children, defaultActiveTab = 0 }) => {
 };
 
 const TabList = ({ children }) => <div>{children}</div>;
+//TODO: to check
 
 const Tab = ({ index, children }) => {
   const { activeTab, setActiveTab } = useContext(TabsContext);

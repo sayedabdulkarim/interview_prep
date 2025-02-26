@@ -19,6 +19,7 @@ export const ToggleOn = ({ children }) => {
 };
 
 export const ToggleOff = ({ children }) => {
+  //TODO: to check
   const { on } = useContext(ToggleContext);
   return on ? null : children;
 };
