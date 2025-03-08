@@ -4,6 +4,14 @@
 # 1. Remove Duplicates from Array
 #    - Difficulty: Easy
 #    - Note: Frequently asked
+'''
+# Method 1: Using Set
+# Method 2: Using filter
+# Method 3: Using reduce
+# Method 4: Using Map
+# Method 5: Using Set and filter 
+# Method 6: Using for loop - best solution
+'''
 
 # 2. Remove Duplicates from Sorted Array
 #    - Difficulty: Easy

@@ -40,3 +40,16 @@ console.log(removeDuplicatesMap(arr)); // [1, 2, 3, 4, 5]
 const removeDuplicatesSetFilter = (arr) => {
   return [...new Set(arr)];
 };
+
+//with for loop
+const removeDuplicatesForLoop = (arr) => {
+  const result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (!result.includes(arr[i])) {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+};
+
+// Example usage:
