@@ -17,6 +17,36 @@
 #    - Difficulty: Easy
 #    - Note: Frequently asked
 
+'''
+const removeDuplicatesFromSortedArray = (arr) => {
+  // Only works with sorted arrays
+  // Time Complexity: O(n)
+  // Space Complexity: O(1)
+  if (arr.length === 0) return 0;
+
+  let i = 0; // slow pointer
+
+  // j is the fast pointer
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[j] !== arr[i]) {
+      i++;
+      arr[i] = arr[j];
+    }
+  }
+
+  // Return the length of unique elements
+  return i + 1;
+};
+
+// Example usage:
+console.log("Remove Duplicates (unsorted array):");
+console.log(removeDuplicates([1, 3, 2, 3, 4, 1, 5])); // [1, 3, 2, 4, 5]
+
+console.log("\nRemove Duplicates from Sorted Array:");
+const sortedArr = [1, 1, 2, 2, 3, 4, 4, 5];
+const length = removeDuplicatesFromSortedArray(sortedArr);
+'''
+
 # 3. Two Sum
 #    - Difficulty: Easy
 #    - Note: Frequently asked for 2 years of experience

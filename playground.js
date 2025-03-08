@@ -1,55 +1,36 @@
-// Method 1: Using Set
-const removeDuplicates = (arr) => {
-  return [...new Set(arr)];
-};
+// 2. Remove Duplicates from Sorted Array
+const removeDuplicatesFromSortedArray = (arr) => {
+  // Only works with sorted arrays
+  // Time Complexity: O(n)
+  // Space Complexity: O(1)
+  if (arr.length === 0) return 0;
 
-// Method 2: Using filter
-const removeDuplicatesFilter = (arr) => {
-  return arr.filter((item, index) => arr.indexOf(item) === index);
-};
+  let i = 0; // slow pointer
 
-// Method 3: Using reduce
-const removeDuplicatesReduce = (arr) => {
-  return arr.reduce((unique, item) => {
-    return unique.includes(item) ? unique : [...unique, item];
-  }, []);
-};
-
-// Example usage:
-const arr = [1, 2, 3, 3, 4, 4, 5];
-console.log(removeDuplicates(arr)); // [1, 2, 3, 4, 5]
-console.log(removeDuplicatesFilter(arr)); // [1, 2, 3, 4, 5]
-console.log(removeDuplicatesReduce(arr)); // [1, 2, 3, 4, 5]
-
-// Method 4: Using Map
-const removeDuplicatesMap = (arr) => {
-  const map = new Map();
-  return arr.filter((item) => {
-    if (!map.has(item)) {
-      map.set(item, true);
-      return true;
-    }
-    return false;
-  });
-};
-
-// Example usage:
-console.log(removeDuplicatesMap(arr)); // [1, 2, 3, 4, 5]
-
-// Method 5: Using Set and filter
-const removeDuplicatesSetFilter = (arr) => {
-  return [...new Set(arr)];
-};
-
-//with for loop
-const removeDuplicatesForLoop = (arr) => {
-  const result = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (!result.includes(arr[i])) {
-      result.push(arr[i]);
+  // j is the fast pointer
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[j] !== arr[i]) {
+      i++;
+      arr[i] = arr[j];
     }
   }
-  return result;
+
+  // Return the length of unique elements
+  return i + 1;
 };
 
 // Example usage:
+console.log("Remove Duplicates (unsorted array):");
+console.log(removeDuplicates([1, 3, 2, 3, 4, 1, 5])); // [1, 3, 2, 4, 5]
+
+console.log("\nRemove Duplicates from Sorted Array:");
+const sortedArr = [1, 1, 2, 2, 3, 4, 4, 5];
+const length = removeDuplicatesFromSortedArray(sortedArr);
+console.log("Length of unique elements:", length);
+console.log(
+  "Array after removal (first " + length + " elements):",
+  sortedArr.slice(0, length)
+); // [1, 2, 3, 4, 5]
+
+console.log("\nFilter Unique Elements:");
+console.log(filterUni([1, 3, 2, 3, 4, 1, 5])); // [1, 3, 2, 4, 5]
