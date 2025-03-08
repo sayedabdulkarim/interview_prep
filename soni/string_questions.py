@@ -7,6 +7,18 @@
 #    Question: Given two strings s and t, return true if t is an anagram of s, and false otherwise.
 #    An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase.
 
+'''
+const isAnagram = (s, t) => {
+  if (s.length !== t.length) return false;
+  const sortedS = s.split("").sort().join("");
+  const sortedT = t.split("").sort().join("");
+  return sortedS === sortedT;
+};
+
+console.log(isAnagram("anagram", "nagaram"));
+console.log(isAnagram("rat", "car"));
+'''
+
 # 4. Add Digits
 #    - Difficulty: Easy
 #    - Note: Asked in Apollo.io
