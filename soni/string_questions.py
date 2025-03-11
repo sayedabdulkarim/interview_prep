@@ -1,3 +1,74 @@
+'''
+String Interview Questions:
+
+Easy Level Questions:
+• Valid Anagram
+  - Check if two strings are anagrams of each other
+  - Example: "anagram" and "nagaram" are anagrams
+
+• Add Digits
+  - Asked in Apollo.io
+  - Given an integer, repeatedly add its digits until result is single digit
+  - Example: 38 → 3 + 8 = 11 → 1 + 1 = 2
+
+• Valid Parentheses
+  - Asked in Forward Network
+  - Check if string has valid parentheses pairs (), [], {}
+  - Example: "()[]{}" is valid, "([)]" is not valid
+
+• Odd String Difference
+  - Find string that is different when comparing character differences
+  - Example: Find odd one out based on character difference pattern
+
+Medium Level Questions:
+• Group Anagrams
+  - Group strings that are anagrams of each other
+  - Example: ["eat","tea","tan","ate","nat","bat"] → [["eat","tea","ate"],["tan","nat"],["bat"]]
+
+• Find All Anagrams in a String
+  - Asked in Uber (frequently asked)
+  - Find all start indices of anagrams of pattern in string
+  - Example: s="cbaebabacd", p="abc" → [0,6]
+
+• Count and Say
+  - Asked in Multiplier
+  - Generate sequence where each term describes previous term
+  - Example: 1 → "one 1" → "11" → "two 1s" → "21"
+
+• Longest Substring Without Repeating Characters
+  - Asked in ShareChat & Mind Tickle
+  - Find longest substring with unique characters
+  - Example: "abcabcbb" → "abc" (length 3)
+
+• Decode String
+  - Decode string with format k[encoded_string]
+  - Example: "3[a]2[bc]" → "aaabcbc"
+
+• Search Suggestion System
+  - Design system to suggest products after each character typed
+  - Example: Show suggestions as user types search query
+
+• Implement Trie (Prefix Tree)
+  - Concept used in Typeahead
+  - Implement prefix tree with insert, search, startsWith methods
+  - Used for efficient string search and prefix matching
+
+Hard Level Questions:
+• Minimum Window Substring
+  - Find smallest substring containing all characters of target
+  - Example: Find smallest substring containing all letters of "ABC"
+
+• Text Justification
+  - Asked in Coursera
+  - Format text with exact width and proper justification
+  - Example: Align text to both left and right margins
+
+• Basic Calculator
+  - Asked in machine coding rounds
+  - Evaluate string expressions with numbers and basic operations
+  - Example: Evaluate "3 + 5 * (2 - 1)"
+'''
+
 # String Questions for Interview Preparation
 
 # ====== EASY QUESTIONS ======
