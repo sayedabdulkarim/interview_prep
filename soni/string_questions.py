@@ -17,6 +17,33 @@ const isAnagram = (s, t) => {
 
 console.log(isAnagram("anagram", "nagaram"));
 console.log(isAnagram("rat", "car"));
+
+const sortString = (str) => {
+  const arr = str.split("");
+
+  // Bubble sort implementation
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        // Swap characters
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+  }
+
+  return arr.join("");
+};
+
+// isAnagram using our custom sort helper
+const isAnagramCustomSort = (s, t) => {
+  if (s.length !== t.length) return false;
+
+  const sortedS = sortString(s);
+  const sortedT = sortString(t);
+
+  return sortedS === sortedT;
+};
+
 '''
 
 # 4. Add Digits
