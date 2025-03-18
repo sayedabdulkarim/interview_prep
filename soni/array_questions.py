@@ -1,5 +1,39 @@
 # Array Questions for Interview Preparation
 
+# =============== QUESTIONS OVERVIEW ===============
+
+# EASY QUESTIONS:
+# 1. Remove Duplicates from Array
+# 2. Remove Duplicates from Sorted Array
+# 3. Two Sum
+# 6. Merge Sorted Array
+# 10. Best Time to Buy and Sell Stock
+# 16. Plus One
+# 22. Maximum Subarray
+
+# MEDIUM QUESTIONS:
+# 4. 3 Sum
+# 5. Rotate Array
+# 7. Insert Delete GetRandom O(1) - Google Phone Screen
+# 8. Sort Array - Startup
+# 9. Product of Array Except Self - Forward Network
+# 11. Container With Most Water
+# 13. Boat Trip - Agoda
+# 14. Rotate Image
+# 15. Set Matrix Zeros - Amazon
+# 17. Kth Largest Element
+# 18. Next Permutation
+# 19. Subsets - Sumo Logic
+# 21. Min Stack - Meta and Google
+# 23. Spiral Matrix - Bird Eye
+
+# HARD QUESTIONS:
+# 12. Longest Consecutive Sequence
+# 20. Trapping Rain Water
+# 24. Merge K Sorted Lists
+
+# =============== DETAILED SOLUTIONS ===============
+
 # ====== EASY QUESTIONS ======
 # 1. Remove Duplicates from Array
 #    - Difficulty: Easy
@@ -160,4 +194,4 @@ console.log(twoSum([2, 7, 11, 15], 9));
 
 # 24. Merge K Sorted Lists
 #    - Difficulty: Hard
-#    - Note: - 
+#    - Note: -
