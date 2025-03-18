@@ -22,3 +22,10 @@ const isValid = (s) => {
 
   return stack.length === 0;
 };
+
+//some valid examples
+console.log(isValid("()"));
+console.log(isValid("()[]{}"));
+console.log(isValid("{[]}"));
+console.log(isValid("{[()]}"));
+console.log(isValid("({[]})"));
