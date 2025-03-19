@@ -147,6 +147,19 @@ const addDigitsSimple = (num) => {
   return num.toString().split("").reduce((acc, digit) => acc + parseInt(digit), 0);
 };
 
+function addDigitsSimple(num) {
+  var numStr = num.toString();
+  var digits = numStr.split("");
+  var sum = 0;
+
+  for (var i = 0; i < digits.length; i++) {
+    sum += parseInt(digits[i]);
+  }
+
+  return sum;
+}
+
+
 console.log(addDigits(38));
 
 //more output input
