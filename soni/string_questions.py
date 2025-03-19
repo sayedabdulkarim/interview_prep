@@ -3,70 +3,90 @@ String Interview Questions:
 
 Easy Level Questions:
 • Valid Anagram
-  - Check if two strings are anagrams of each other
-  - Example: "anagram" and "nagaram" are anagrams
+  - Input: s = "anagram", t = "nagaram"
+  - Output: true
+  - Input: s = "rat", t = "car"
+  - Output: false
 
 • Add Digits
-  - Asked in Apollo.io
-  - Given an integer, repeatedly add its digits until result is single digit
-  - Example: 38 → 3 + 8 = 11 → 1 + 1 = 2
+  - Input: num = 38
+  - Output: 2 (3+8=11, 1+1=2)
+  - Input: num = 0
+  - Output: 0
 
 • Valid Parentheses
-  - Asked in Forward Network
-  - Check if string has valid parentheses pairs (), [], {}
-  - Example: "()[]{}" is valid, "([)]" is not valid
+  - Input: s = "()[]{}"
+  - Output: true
+  - Input: s = "([)]"
+  - Output: false
 
 • Odd String Difference
-  - Find string that is different when comparing character differences
-  - Example: Find odd one out based on character difference pattern
+  - Input: words = ["adc","wzy","abc"]
+  - Output: "abc"
+  - Input: words = ["aaa","bob","ccc","ddd"]
+  - Output: "bob"
 
 Medium Level Questions:
 • Group Anagrams
-  - Group strings that are anagrams of each other
-  - Example: ["eat","tea","tan","ate","nat","bat"] → [["eat","tea","ate"],["tan","nat"],["bat"]]
+  - Input: strs = ["eat","tea","tan","ate","nat","bat"]
+  - Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+  - Input: strs = [""]
+  - Output: [[""]]
 
 • Find All Anagrams in a String
-  - Asked in Uber (frequently asked)
-  - Find all start indices of anagrams of pattern in string
-  - Example: s="cbaebabacd", p="abc" → [0,6]
+  - Input: s = "cbaebabacd", p = "abc"
+  - Output: [0,6]
+  - Input: s = "abab", p = "ab"
+  - Output: [0,1,2]
 
 • Count and Say
-  - Asked in Multiplier
-  - Generate sequence where each term describes previous term
-  - Example: 1 → "one 1" → "11" → "two 1s" → "21"
+  - Input: n = 1
+  - Output: "1"
+  - Input: n = 4
+  - Output: "1211"
 
 • Longest Substring Without Repeating Characters
-  - Asked in ShareChat & Mind Tickle
-  - Find longest substring with unique characters
-  - Example: "abcabcbb" → "abc" (length 3)
+  - Input: s = "abcabcbb"
+  - Output: 3 ("abc")
+  - Input: s = "bbbbb"
+  - Output: 1 ("b")
 
 • Decode String
-  - Decode string with format k[encoded_string]
-  - Example: "3[a]2[bc]" → "aaabcbc"
+  - Input: s = "3[a]2[bc]"
+  - Output: "aaabcbc"
+  - Input: s = "3[a2[c]]"
+  - Output: "accaccacc"
 
 • Search Suggestion System
-  - Design system to suggest products after each character typed
-  - Example: Show suggestions as user types search query
+  - Input: products = ["mobile","mouse","moneypot","monitor","mousepad"], searchWord = "mouse"
+  - Output: [["mobile","moneypot","monitor"],["mobile","moneypot","monitor"],["mouse","mousepad"],["mouse","mousepad"],["mouse","mousepad"]]
+  - Input: products = ["havana"], searchWord = "havana"
+  - Output: [["havana"],["havana"],["havana"],["havana"],["havana"],["havana"]]
 
 • Implement Trie (Prefix Tree)
-  - Concept used in Typeahead
-  - Implement prefix tree with insert, search, startsWith methods
-  - Used for efficient string search and prefix matching
+  - Input: ["Trie", "insert", "search", "search", "startsWith", "insert", "search"], [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+  - Output: [null, null, true, false, true, null, true]
+  - Input: ["Trie", "insert", "insert", "insert", "search", "startsWith"], [[], ["hello"], ["help"], ["hell"], ["help"], ["hel"]]
+  - Output: [null, null, null, null, true, true]
 
 Hard Level Questions:
 • Minimum Window Substring
-  - Find smallest substring containing all characters of target
-  - Example: Find smallest substring containing all letters of "ABC"
+  - Input: s = "ADOBECODEBANC", t = "ABC"
+  - Output: "BANC"
+  - Input: s = "a", t = "a"
+  - Output: "a"
 
 • Text Justification
-  - Asked in Coursera
-  - Format text with exact width and proper justification
-  - Example: Align text to both left and right margins
+  - Input: words = ["This", "is", "an", "example"], maxWidth = 16
+  - Output: ["This    is    an","example        "]
+  - Input: words = ["What","must","be"], maxWidth = 6
+  - Output: ["What  ","must  ","be    "]
 
 • Basic Calculator
-  - Asked in machine coding rounds
-  - Evaluate string expressions with numbers and basic operations
-  - Example: Evaluate "3 + 5 * (2 - 1)"
+  - Input: s = "1 + 1"
+  - Output: 2
+  - Input: s = " 2-1 + 2 "
+  - Output: 3
 '''
 
 # String Questions for Interview Preparation
@@ -213,4 +233,4 @@ console.log(addDigits(123456789012345)); // 46 -> 10 -> 1
 #    - Note: Asked in machine coding to build a calculator
 #    Question: Given a string s representing a valid expression, implement a basic calculator to evaluate it.
 #    The expression string may contain open ( and closing parentheses ), the plus + or minus sign -,
-#    non-negative integers and empty spaces. 
+#    non-negative integers and empty spaces.

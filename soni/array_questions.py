@@ -3,34 +3,35 @@
 # =============== QUESTIONS OVERVIEW ===============
 
 # EASY QUESTIONS:
-# 1. Remove Duplicates from Array
-# 2. Remove Duplicates from Sorted Array
-# 3. Two Sum
-# 6. Merge Sorted Array
-# 10. Best Time to Buy and Sell Stock
-# 16. Plus One
-# 22. Maximum Subarray
+# 1. Remove Duplicates from Array           # [1,1,2,2,3] → [1,2,3] | [1,2,2,3,3,3,4] → [1,2,3,4]
+# 2. Remove Duplicates from Sorted Array    # [1,1,2,3,3] → [1,2,3] | [0,0,1,1,1,2,2] → [0,1,2]
+# 3. Two Sum                               # [2,7,11,15], 9 → [0,1] | [3,2,4], 6 → [1,2]
+# /////
+# 6. Merge Sorted Array                    # [1,3,5],[2,4,6] → [1,2,3,4,5,6] | [1,2,3],[4,5] → [1,2,3,4,5]
+# 10. Best Time to Buy and Sell Stock      # [7,1,5,3,6,4] → 5 | [7,6,4,3,1] → 0
+# 16. Plus One                            # [1,2,3] → [1,2,4] | [9,9,9] → [1,0,0,0]
+# 22. Maximum Subarray                     # [-2,1,-3,4,-1,2,1,-5,4] → 6 | [1] → 1
 
 # MEDIUM QUESTIONS:
-# 4. 3 Sum
-# 5. Rotate Array
-# 7. Insert Delete GetRandom O(1) - Google Phone Screen
-# 8. Sort Array - Startup
-# 9. Product of Array Except Self - Forward Network
-# 11. Container With Most Water
-# 13. Boat Trip - Agoda
-# 14. Rotate Image
-# 15. Set Matrix Zeros - Amazon
-# 17. Kth Largest Element
-# 18. Next Permutation
-# 19. Subsets - Sumo Logic
-# 21. Min Stack - Meta and Google
-# 23. Spiral Matrix - Bird Eye
+# 4. 3 Sum                                # [-1,0,1,2,-1,-4] → [[-1,-1,2],[-1,0,1]] | [0,0,0] → [[0,0,0]]
+# 5. Rotate Array                         # [1,2,3,4,5],k=2 → [4,5,1,2,3] | [1,2],k=3 → [2,1]
+# 7. Insert Delete GetRandom O(1)         # add(1),remove(2),getRandom() | add(2),remove(1),getRandom()
+# 8. Sort Array                          # [5,2,3,1] → [1,2,3,5] | [5,1,1,2,0,0] → [0,0,1,1,2,5]
+# 9. Product of Array Except Self        # [1,2,3,4] → [24,12,8,6] | [-1,1,0,-3,3] → [0,0,9,0,0]
+# 11. Container With Most Water          # [1,8,6,2,5,4,8,3,7] → 49 | [1,1] → 1
+# 13. Boat Trip                          # [2,2,2,3],3,3 → true | [3,2,2,1],3,3 → false
+# 14. Rotate Image                       # [[1,2],[3,4]] → [[3,1],[4,2]] | [[1]] → [[1]]
+# 15. Set Matrix Zeros                   # [[1,1,1],[1,0,1]] → [[1,0,1],[0,0,0]] | [[0,1],[1,1]] → [[0,0],[0,1]]
+# 17. Kth Largest Element               # [3,2,1,5,6,4],k=2 → 5 | [3,2,3,1,2,4,5,5,6],k=4 → 4
+# 18. Next Permutation                  # [1,2,3] → [1,3,2] | [3,2,1] → [1,2,3]
+# 19. Subsets                          # [1,2,3] → [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]] | [0] → [[],[0]]
+# 21. Min Stack                        # push(-2),push(0),push(-3),getMin(),pop(),top() | push(0),getMin()
+# 23. Spiral Matrix                    # [[1,2,3],[4,5,6],[7,8,9]] → [1,2,3,6,9,8,7,4,5] | [[1]] → [1]
 
 # HARD QUESTIONS:
-# 12. Longest Consecutive Sequence
-# 20. Trapping Rain Water
-# 24. Merge K Sorted Lists
+# 12. Longest Consecutive Sequence     # [100,4,200,1,3,2] → 4 | [0,3,7,2,5,8,4,6,0,1] → 9
+# 20. Trapping Rain Water             # [0,1,0,2,1,0,1,3,2,1,2,1] → 6 | [4,2,0,3,2,5] → 9
+# 24. Merge K Sorted Lists           # [[1,4,5],[1,3,4],[2,6]] → [1,1,2,3,4,4,5,6] | [[1]] → [1]
 
 # =============== DETAILED SOLUTIONS ===============
 
