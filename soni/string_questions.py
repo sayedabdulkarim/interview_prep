@@ -180,6 +180,35 @@ console.log(addDigits(123456789012345)); // 46 -> 10 -> 1
 #    determine if the input string is valid. The string is valid if all open brackets are closed 
 #    in the correct order.
 
+'''
+const isValid = (s) => {
+  const stack = [];
+  const map = {
+    "(": ")",
+    "[": "]",
+    "{": "}",
+  };
+
+  for (let char of s) {
+    if (map[char]) {
+      stack.push(char);
+    } else if (stack.pop() !== char) {
+      return false;
+    }
+  }
+
+  return stack.length === 0;
+};
+
+//some valid examples
+console.log(isValid("()"));
+console.log(isValid("()[]{}"));
+console.log(isValid("{[]}"));
+console.log(isValid("{[()]}"));
+console.log(isValid("({[]})"));
+
+'''
+
 # 10. Odd String Difference
 #    - Difficulty: Easy
 #    - Note: -
