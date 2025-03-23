@@ -5,12 +5,39 @@
 //   - Output: "bob"
 
 function oddStringDifference(words) {
-  let oddString = words.filter((word) => word.length % 2 !== 0);
-  let oddStringSorted = oddString.sort((a, b) => a.localeCompare(b));
-  return oddStringSorted[Math.floor(oddStringSorted.length / 2)];
+  // Helper function to calculate character differences
+  const getCharDifferences = (word) => {
+    const differences = [];
+    for (let i = 1; i < word.length; i++) {
+      differences.push(word.charCodeAt(i) - word.charCodeAt(i - 1));
+    }
+    return differences;
+  };
+
+  // Calculate differences for each word
+  const differencesMap = words.map(getCharDifferences);
+
+  // Find the unique pattern
+  const patternCount = {};
+  for (let i = 0; i < differencesMap.length; i++) {
+    const pattern = differencesMap[i].toString();
+    if (!patternCount[pattern]) {
+      patternCount[pattern] = [];
+    }
+    patternCount[pattern].push(i);
+  }
+
+  // Identify the word with the unique pattern
+  for (const pattern in patternCount) {
+    if (patternCount[pattern].length === 1) {
+      return words[patternCount[pattern][0]];
+    }
+  }
+
+  return null; // In case no unique pattern is found
 }
 
 console.log(oddStringDifference(["adc", "wzy", "abc"])); // abc
 console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd"])); // bob
-console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd", "eee"])); // ccc
-console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd", "eee", "fff"])); // ddd
+console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd", "eee"])); // bob
+console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd", "eee", "fff"])); // bob
