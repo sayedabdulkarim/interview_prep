@@ -14,6 +14,7 @@ Easy Level Questions:
   - Input: num = 0
   - Output: 0
 
+  //
 • Valid Parentheses
   - Input: s = "()[]{}"
   - Output: true
@@ -192,11 +193,14 @@ const isValid = (s) => {
   for (let char of s) {
     if (map[char]) {
       stack.push(char);
-    } else if (stack.pop() !== char) {
-      return false;
+    } else {
+      const last = stack.pop();
+      if (map[last] !== char) {
+        return false;
+      }
     }
   }
-
+  
   return stack.length === 0;
 };
 

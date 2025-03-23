@@ -1,31 +1,16 @@
-// • Valid Parentheses
-//   - Asked in Forward Network
-//   - Check if string has valid parentheses pairs (), [], {}
-//   - Example: "()[]{}" is valid, "([)]" is not valid
+// • Odd String Difference
+//   - Input: words = ["adc","wzy","abc"]
+//   - Output: "abc"
+//   - Input: words = ["aaa","bob","ccc","ddd"]
+//   - Output: "bob"
 
-//solution
-const isValid = (s) => {
-  const stack = [];
-  const map = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
-  };
+function oddStringDifference(words) {
+  let oddString = words.filter((word) => word.length % 2 !== 0);
+  let oddStringSorted = oddString.sort((a, b) => a.localeCompare(b));
+  return oddStringSorted[Math.floor(oddStringSorted.length / 2)];
+}
 
-  for (let char of s) {
-    if (map[char]) {
-      stack.push(char);
-    } else if (stack.pop() !== char) {
-      return false;
-    }
-  }
-
-  return stack.length === 0;
-};
-
-//some valid examples
-console.log(isValid("()"));
-console.log(isValid("()[]{}"));
-console.log(isValid("{[]}"));
-console.log(isValid("{[()]}"));
-console.log(isValid("({[]})"));
+console.log(oddStringDifference(["adc", "wzy", "abc"])); // abc
+console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd"])); // bob
+console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd", "eee"])); // ccc
+console.log(oddStringDifference(["aaa", "bob", "ccc", "ddd", "eee", "fff"])); // ddd
