@@ -32,6 +32,11 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     "this" inherits the global objects i.e window,
     but it behaves differently in some cases lyk when we call inside an obj, this represents the current object not the window
 
+    OR
+
+    "this" keyword represent window object, but it behave differently in the case of object.
+    so if we define this, inside an object it target the parent as the object. because of this reason like in react class component , we can able to use like this.state and this.methodName
+
 ## Explain the concept of prototypal inheritance.
 
 ## Differentiate between a variable that is null, undefined, or undeclared.
@@ -96,6 +101,7 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
         }
 
 ## Define the concept of "hoisting." - Its a way of moving variables and function to the top of the scope, so the compiler can understand properly like they belong.
+
 But ther is a caveat like the hoisting behaves differently for var, let n const.
 So if we r using var, it moves to the top and before ny code executes, it will assign the value as undefined.
 But in the case of let n const , they will hoist to the top but they will wait for reinitialozation or redifing.
@@ -130,6 +136,7 @@ we get a reference error .
 ## Explain the disparities between variables created using let, var, or const.
 
 ## Compare ES6 classes and ES5 function constructors, and furnish a use case for the arrow (=>) function syntax.
+
 ## Describe the advantages of using the arrow syntax for methods in constructors.
 
 ## Define a higher-order function and provide an example of object or array destructuring.
@@ -156,6 +163,7 @@ we get a reference error .
         console.log(result); // Output: 22
 
 ## Discuss the benefits of using spread syntax and differentiate it from rest syntax. - Spread ( cloning )
+
 const originalArray = [1, 2, 3];
 const copyArray = [...originalArray];
 
@@ -230,9 +238,13 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
                         => code runs
 
 ## Web Components ( https://www.youtube.com/watch?v=STZA_qtm1XU&list=PLEtjGa9VEukPRU9N_qHL-OAq5PZGVunNB&index=6&ab_channel=AnujSingla )
+
 ## shadow DOM
+
 ## create slots in DOM ( reusable component like react )
+
 ## Lifecycle of Web component
+
 ## TodoList with Web component
 
 ## - ( Factory, SingleTon, Memoize, Prototype)

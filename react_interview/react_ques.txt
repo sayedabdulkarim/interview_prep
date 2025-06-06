@@ -104,7 +104,7 @@ REACT
 
 - ref - https://www.youtube.com/watch?v=ScT4ElKd6eo
 
-- event delegation 
+- event delegation ( technique for handling events by taking advantage of eventBubbling ) 
     - https://www.youtube.com/watch?v=abbdJ4Yfm54 ( JS ) 
         
         - https://www.youtube.com/watch?v=rS_4YfbEo2U&ab_channel=RoadsideCoder
