@@ -39,6 +39,8 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
 
 ## Explain the concept of prototypal inheritance.
 
+    - https://www.youtube.com/watch?v=eDxrLEQbLv0&ab_channel=CodeWithHarry
+
 ## Differentiate between a variable that is null, undefined, or undeclared.
 
 ## Define what a closure is and describe its uses and advantages.
