@@ -1,10 +1,34 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 
-const App = () => {
-  const [seconds, setSeconds] = React.useState(0);
-  const [minutes, setMinutes] = React.useState(0);
+const Parent = () => {
+  const childRef = React.useRef();
 
-  return <div>App</div>;
+  const handleClick = () => {
+    console.log(childRef, " ccc");
+    if (childRef.current && childRef.current.childClick) {
+      childRef.current.childClick();
+    }
+  };
+
+  return (
+    <div>
+      <h1>Parent</h1>
+      <button onClick={handleClick}>Child Click from Parent</button>
+      <Child ref={childRef} />
+    </div>
+  );
 };
 
-export default App;
+const Child = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("Child Clicked from Parent");
+      },
+    };
+  });
+
+  return <h1>Child</h1>;
+});
+
+export default Parent;
