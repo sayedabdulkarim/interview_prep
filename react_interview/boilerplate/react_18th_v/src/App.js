@@ -34,7 +34,7 @@ const ChildOne = ({ count, handleCount }) => {
 };
 
 const ChildTwo = () => {
-  console.log(" cliked from childOne");
+  console.log(" cliked from childTwo");
   return <div>ChildTwo</div>;
 };
 
