@@ -1,44 +1,41 @@
-import React, { createContext, useContext } from "react";
+import React from "react";
 
-// Create a Context
-const UserContext = createContext();
-
-// A component that provides the context value
-const UserProvider = ({ children }) => {
-  const [count, setCount] = React.useState(0); // Example state management
-
-  const handleIncrement = () => {
-    setCount(count + 1);
+const App = () => {
+  //state
+  const [count, setCount] = React.useState(0);
+  //methods
+  const handleCount = () => {
+    setCount((prev) => prev + 1);
   };
 
-  const user = { name: "John Doe", age: 30 }; // Example data
-  return (
-    <UserContext.Provider value={{ user, count, handleIncrement }}>
-      {children}
-    </UserContext.Provider>
-  );
-};
-
-// A component that consumes the context value
-const UserProfile = () => {
-  const { user, count, handleIncrement } = useContext(UserContext); // Access the context value
   return (
     <div>
-      <h1>User Profile - {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
-      <p>Name: {user.name}</p>
-      <p>Age: {user.age}</p>
+      <h1>Parent</h1>
+      <br />
+      <hr />
+      <br />
+      <ChildOne count={count} handleCount={handleCount} />
+      <br />
+      <hr />
+      <br />
+      <ChildTwo />
     </div>
   );
 };
 
-// Main App component
-const App = () => {
+const ChildOne = ({ count, handleCount }) => {
+  console.log(" cliked from childOne");
   return (
-    <UserProvider>
-      <UserProfile />
-    </UserProvider>
+    <div>
+      <h1>ChildOne - {count}</h1>
+      <button onClick={handleCount}>SET COUNT</button>
+    </div>
   );
+};
+
+const ChildTwo = () => {
+  console.log(" cliked from childOne");
+  return <div>ChildTwo</div>;
 };
 
 export default App;
