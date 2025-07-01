@@ -1,0 +1,19 @@
+Most backend MERN interviews cover:
+
+Node.js (event loop, async, modules, error handling)
+
+Express.js (routing, middleware, REST APIs, error middleware)
+
+MongoDB (CRUD, indexing, schema design, aggregation)
+
+Auth (JWT, bcrypt, sessions)
+
+File uploads (multer, cloud storage basics)
+
+Best practices (folder structure, error handling, env configs)
+
+Caching (Redis basics)
+
+Testing basics (Jest, Supertest – optional but +points)
+
+Security (CORS, helmet, rate-limiter)
