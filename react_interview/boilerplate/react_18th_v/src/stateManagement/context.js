@@ -5,27 +5,16 @@ const UserContext = createContext();
 
 // A component that provides the context value
 const UserProvider = ({ children }) => {
-  const [count, setCount] = React.useState(0); // Example state management
-
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
-
   const user = { name: "John Doe", age: 30 }; // Example data
-  return (
-    <UserContext.Provider value={{ user, count, handleIncrement }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
 };
 
 // A component that consumes the context value
 const UserProfile = () => {
-  const { user, count, handleIncrement } = useContext(UserContext); // Access the context value
+  const user = useContext(UserContext); // Access the context value
   return (
     <div>
-      <h1>User Profile - {count}</h1>
-      <button onClick={handleIncrement}>Increment</button>
+      <h1>User Profile</h1>
       <p>Name: {user.name}</p>
       <p>Age: {user.age}</p>
     </div>
