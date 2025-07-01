@@ -42,6 +42,14 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     - https://www.youtube.com/watch?v=eDxrLEQbLv0&ab_channel=CodeWithHarry
     - https://www.youtube.com/watch?v=AOPmqw9scfc
 
+    - prototype inhertirence if, lets say we create an object a and from that object we create an another object , using b = object.create(a), then b doesnt hv its own keys but if we check in __proto__ it has keys of a . so this we called as prototypr inheritence .
+
+    - and Wrapper class means , supose we create a string called a = 'sdfff', then we can able to do like a.at(2), so here we r creating string , but under the hood , it is creating like a = new String('sdff').
+    so here it is usig wrapper class i.e  String .
+
+
+    prototype is used by functions, and prototypal inheritance is used by objects 🔥
+
 ## Differentiate between a variable that is null, undefined, or undeclared.
 
 ## Define what a closure is and describe its uses and advantages.
