@@ -75,6 +75,11 @@ An array is a data structure that stores a collection of items, which can be of 
      for (let i = count; i >= 0; i--) {
        arr[i] = 0;
      }
+
+     // or below
+     <!-- for (let i = 0; i <= count; i++) {
+       arr[i] = 0;
+     } -->
      return arr;
    }
    ```
