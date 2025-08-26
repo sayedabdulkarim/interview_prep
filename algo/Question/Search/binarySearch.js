@@ -71,6 +71,10 @@ function binarySearch(arr, x) {
   return -1;
 }
 
+// Examples:
+// Input: ([2, 4, 5, 6, 7, 8, 9], 5) → Output: 2
+// Input: ([1, 3, 5, 7, 9], 7) → Output: 3
+// Input: ([1, 2, 3, 4, 5], 6) → Output: -1
 console.log(binarySearch([2, 4, 5, 6, 7, 8, 9], 5));
 
 function firstOccurrence(arr, val) {
@@ -92,6 +96,11 @@ function firstOccurrence(arr, val) {
   return result;
 }
 
+// Examples:
+// Input: ([1, 2, 2, 2, 3, 4, 5], 2) → Output: 1
+// Input: ([1, 1, 1, 2, 3], 1) → Output: 0
+// Input: ([1, 2, 3, 4, 5], 6) → Output: -1
+
 function lastOccurrence(arr, val) {
   let left = 0;
   let right = arr.length - 1;
@@ -111,6 +120,11 @@ function lastOccurrence(arr, val) {
   return result;
 }
 
+// Examples:
+// Input: ([1, 2, 2, 2, 3, 4, 5], 2) → Output: 3
+// Input: ([1, 1, 1, 2, 3], 1) → Output: 2
+// Input: ([1, 2, 3, 4, 5], 6) → Output: -1
+
 function range(arr, val) {
   let first = -1,
     last = -1;
@@ -128,3 +142,8 @@ function range(arr, val) {
     last,
   };
 }
+
+// Examples:
+// Input: ([1, 2, 2, 2, 3, 4, 5], 2) → Output: {first: 1, last: 3}
+// Input: ([1, 1, 1, 2, 3], 1) → Output: {first: 0, last: 2}
+// Input: ([1, 2, 3, 4, 5], 6) → Output: {first: -1, last: -1}
