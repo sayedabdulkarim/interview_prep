@@ -19,6 +19,12 @@ An array is a data structure that stores a collection of items, which can be of 
    }
    ```
 
+   **Examples:**
+
+   - Input: `[3, 7, 2, 9, 1]` → Output: `9`
+   - Input: `[-5, -2, -10, -1]` → Output: `-1`
+   - Input: `[42]` → Output: `42`
+
 2. **Find Minimum Element**
 
    ```javascript
@@ -32,6 +38,12 @@ An array is a data structure that stores a collection of items, which can be of 
    }
    ```
 
+   **Examples:**
+
+   - Input: `[3, 7, 2, 9, 1]` → Output: `1`
+   - Input: `[-5, -2, -10, -1]` → Output: `-10`
+   - Input: `[100, 50, 25]` → Output: `25`
+
 3. **Reverse Array**
 
    ```javascript
@@ -43,6 +55,12 @@ An array is a data structure that stores a collection of items, which can be of 
      return arr;
    }
    ```
+
+   **Examples:**
+
+   - Input: `[1, 2, 3, 4, 5]` → Output: `[5, 4, 3, 2, 1]`
+   - Input: `['a', 'b', 'c']` → Output: `['c', 'b', 'a']`
+   - Input: `[10, 20]` → Output: `[20, 10]`
 
 4. **Move Zeroes to Right**
 
@@ -59,6 +77,12 @@ An array is a data structure that stores a collection of items, which can be of 
      return arr;
    }
    ```
+
+   **Examples:**
+
+   - Input: `[0, 1, 0, 3, 12]` → Output: `[1, 3, 12, 0, 0]`
+   - Input: `[1, 2, 0, 0, 3, 0, 4]` → Output: `[1, 2, 3, 4, 0, 0, 0]`
+   - Input: `[0, 0, 0]` → Output: `[0, 0, 0]`
 
 5. **Move Zeroes to Left**
 
@@ -84,6 +108,12 @@ An array is a data structure that stores a collection of items, which can be of 
    }
    ```
 
+   **Examples:**
+
+   - Input: `[0, 1, 0, 3, 12]` → Output: `[0, 0, 1, 3, 12]`
+   - Input: `[1, 2, 0, 0, 3, 0, 4]` → Output: `[0, 0, 0, 1, 2, 3, 4]`
+   - Input: `[5, 0, 0, 7]` → Output: `[0, 0, 5, 7]`
+
 6. **Remove Duplicates**
 
    ```javascript
@@ -106,6 +136,12 @@ An array is a data structure that stores a collection of items, which can be of 
    }
    ```
 
+   **Examples:**
+
+   - Input: `[1, 2, 2, 3, 4, 4, 5]` → Output: `[1, 2, 3, 4, 5]`
+   - Input: `[7, 7, 7, 7]` → Output: `[7]`
+   - Input: `[1, 3, 2, 3, 1, 5]` → Output: `[1, 2, 3, 5]`
+
 7. **Check for Duplicates**
 
    ```javascript
@@ -114,6 +150,12 @@ An array is a data structure that stores a collection of items, which can be of 
      return sets.size !== nums.length;
    }
    ```
+
+   **Examples:**
+
+   - Input: `[1, 2, 3, 4, 5]` → Output: `false`
+   - Input: `[1, 2, 3, 1]` → Output: `true`
+   - Input: `[7, 7, 8, 9]` → Output: `true`
 
 8. **Chunk Array**
 
@@ -127,7 +169,14 @@ An array is a data structure that stores a collection of items, which can be of 
    }
    ```
 
+   **Examples:**
+
+   - Input: `([1, 2, 3, 4, 5, 6, 7, 8], 3)` → Output: `[[1, 2, 3], [4, 5, 6], [7, 8]]`
+   - Input: `(['a', 'b', 'c', 'd'], 2)` → Output: `[['a', 'b'], ['c', 'd']]`
+   - Input: `([1, 2, 3, 4, 5], 5)` → Output: `[[1, 2, 3, 4, 5]]`
+
 9. **Convert Number to Excel Column**
+
    ```javascript
    function numberToExcelColumn(number) {
      let result = "";
@@ -139,6 +188,12 @@ An array is a data structure that stores a collection of items, which can be of 
      return result;
    }
    ```
+
+   **Examples:**
+
+   - Input: `1` → Output: `"A"`
+   - Input: `26` → Output: `"Z"`
+   - Input: `28` → Output: `"AB"`
 
 ## Medium Problems
 
@@ -157,6 +212,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return map;
     }
     ```
+
+    **Examples:**
+
+    - Input: `([2, 7, 11, 15], 9)` → Output: `[0, 1]`
+    - Input: `([3, 2, 4], 6)` → Output: `[1, 2]`
+    - Input: `([3, 3], 6)` → Output: `[0, 1]`
 
 11. **Two Sum (Sorted Array)**
 
@@ -177,6 +238,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return null;
     }
     ```
+
+    **Examples:**
+
+    - Input: `([2, 7, 11, 15], 9)` → Output: `[0, 1]`
+    - Input: `([2, 3, 4], 6)` → Output: `[0, 2]`
+    - Input: `([-1, 0], -1)` → Output: `[0, 1]`
 
 12. **Three Sum**
 
@@ -207,6 +274,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `([-1, 0, 1, 2, -1, -4], 0)` → Output: `[[-1, -1, 2], [-1, 0, 1]]`
+    - Input: `([0, 1, 1], 0)` → Output: `[]`
+    - Input: `([0, 0, 0], 0)` → Output: `[[0, 0, 0]]`
+
 13. **Single Number**
 
     ```javascript
@@ -228,6 +301,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `[2, 2, 1]` → Output: `"1"`
+    - Input: `[4, 1, 2, 1, 2]` → Output: `"4"`
+    - Input: `[1]` → Output: `"1"`
+
 14. **Rotate Array by K**
 
     ```javascript
@@ -241,6 +320,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `([1, 2, 3, 4, 5, 6, 7], 3)` → Output: `[5, 6, 7, 1, 2, 3, 4]`
+    - Input: `([-1, -100, 3, 99], 2)` → Output: `[3, 99, -1, -100]`
+    - Input: `([1, 2], 1)` → Output: `[2, 1]`
+
 15. **Second Largest Element**
 
     ```javascript
@@ -252,6 +337,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `[3, 2, 1, 5, 6, 4]` → Output: `5`
+    - Input: `[1, 1, 2, 2, 3, 3]` → Output: `2`
+    - Input: `[5, 5, 4, 4, 3]` → Output: `4`
+
 16. **Check Anagram**
 
     ```javascript
@@ -259,6 +350,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return [...str1].sort().join("") === [...str2].sort().join("");
     }
     ```
+
+    **Examples:**
+
+    - Input: `("anagram", "nagaram")` → Output: `true`
+    - Input: `("rat", "car")` → Output: `false`
+    - Input: `("listen", "silent")` → Output: `true`
 
 17. **Find Kth Largest Element**
 
@@ -286,6 +383,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `([3, 2, 1, 5, 6, 4], 2)` → Output: `5`
+    - Input: `([3, 2, 3, 1, 2, 4, 5, 5, 6], 4)` → Output: `3`
+    - Input: `([1], 1)` → Output: `1`
+
 18. **Maximum Subarray Sum (Kadane's Algorithm)**
 
     ```javascript
@@ -301,6 +404,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return maxGlobal;
     }
     ```
+
+    **Examples:**
+
+    - Input: `[-2, 1, -3, 4, -1, 2, 1, -5, 4]` → Output: `6`
+    - Input: `[1]` → Output: `1`
+    - Input: `[5, 4, -1, 7, 8]` → Output: `23`
 
 19. **Container With Most Water**
 
@@ -324,7 +433,14 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `[1, 8, 6, 2, 5, 4, 8, 3, 7]` → Output: `49`
+    - Input: `[1, 1]` → Output: `1`
+    - Input: `[4, 3, 2, 1, 4]` → Output: `16`
+
 20. **Product of Array Except Self**
+
     ```javascript
     function productExceptSelf(nums) {
       const n = nums.length;
@@ -342,6 +458,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return output;
     }
     ```
+
+    **Examples:**
+
+    - Input: `[1, 2, 3, 4]` → Output: `[24, 12, 8, 6]`
+    - Input: `[-1, 1, 0, -3, 3]` → Output: `[0, 0, 9, 0, 0]`
+    - Input: `[2, 3, 4]` → Output: `[12, 8, 6]`
 
 ## Additional Problems
 
@@ -368,6 +490,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `([1, -1, 5, -2, 3], 3)` → Output: `4`
+    - Input: `([-2, -1, 2, 1], 1)` → Output: `2`
+    - Input: `([1, 2, 3], 3)` → Output: `2`
+
 22. **Majority Element**
 
     ```javascript
@@ -392,6 +520,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `[3, 2, 3]` → Output: `3`
+    - Input: `[2, 2, 1, 1, 1, 2, 2]` → Output: `2`
+    - Input: `[1]` → Output: `1`
+
 23. **Remove Element**
 
     ```javascript
@@ -406,6 +540,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return newLength;
     }
     ```
+
+    **Examples:**
+
+    - Input: `([3, 2, 2, 3], 3)` → Output: `2` (array becomes `[2, 2]`)
+    - Input: `([0, 1, 2, 2, 3, 0, 4, 2], 2)` → Output: `5` (array becomes `[0, 1, 3, 0, 4]`)
+    - Input: `([1], 1)` → Output: `0` (array becomes `[]`)
 
 24. **Find Common Elements**
 
@@ -422,6 +562,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return common;
     }
     ```
+
+    **Examples:**
+
+    - Input: `([1, 2, 2, 1], [2, 2])` → Output: `[2, 2]`
+    - Input: `([4, 9, 5], [9, 4, 9, 8, 4])` → Output: `[9, 4]`
+    - Input: `([1, 2, 3], [4, 5, 6])` → Output: `[]`
 
 25. **Merge Sorted Arrays**
 
@@ -451,6 +597,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `([1, 2, 3, 0, 0, 0], [2, 5, 6])` → Output: `[1, 2, 2, 3, 5, 6]`
+    - Input: `([1], [])` → Output: `[1]`
+    - Input: `([], [1])` → Output: `[1]`
+
 26. **Merge Intervals**
 
     ```javascript
@@ -470,6 +622,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `[[1, 3], [2, 6], [8, 10], [15, 18]]` → Output: `[[1, 6], [8, 10], [15, 18]]`
+    - Input: `[[1, 4], [4, 5]]` → Output: `[[1, 5]]`
+    - Input: `[[1, 4], [0, 4]]` → Output: `[[0, 4]]`
+
 27. **Most Frequent Elements**
 
     ```javascript
@@ -483,6 +641,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return kMostFrequent;
     }
     ```
+
+    **Examples:**
+
+    - Input: `([1, 1, 1, 2, 2, 3], 2)` → Output: `[1, 2]`
+    - Input: `([1], 1)` → Output: `[1]`
+    - Input: `([1, 2, 3, 1, 2, 1], 3)` → Output: `[1, 2, 3]`
 
 28. **Longest Increasing Subsequence**
 
@@ -502,6 +666,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return max;
     }
     ```
+
+    **Examples:**
+
+    - Input: `[10, 9, 2, 5, 3, 7, 101, 18]` → Output: `4`
+    - Input: `[0, 1, 0, 3, 2, 3]` → Output: `4`
+    - Input: `[7, 7, 7, 7, 7, 7, 7]` → Output: `1`
 
 29. **Find All Elements That Appear Twice**
 
@@ -524,6 +694,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return getTwiceArr;
     }
     ```
+
+    **Examples:**
+
+    - Input: `[4, 3, 2, 7, 8, 2, 3, 1]` → Output: `[2, 3]`
+    - Input: `[1, 1, 2]` → Output: `[1]`
+    - Input: `[1, 1, 2, 2, 3, 3]` → Output: `[1, 2, 3]`
 
 30. **Next Permutation**
 
@@ -552,6 +728,12 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `[1, 2, 3]` → Output: `[1, 3, 2]`
+    - Input: `[3, 2, 1]` → Output: `[1, 2, 3]`
+    - Input: `[1, 1, 5]` → Output: `[1, 5, 1]`
+
 31. **Remove Occurrences**
 
     ```javascript
@@ -567,6 +749,12 @@ An array is a data structure that stores a collection of items, which can be of 
       return j;
     }
     ```
+
+    **Examples:**
+
+    - Input: `([3, 2, 2, 3], 3)` → Output: `2` (array becomes `[2, 2]`)
+    - Input: `([0, 1, 2, 2, 3, 0, 4, 2], 2)` → Output: `5` (array becomes `[0, 1, 3, 0, 4]`)
+    - Input: `([1, 1, 1], 1)` → Output: `0` (array becomes `[]`)
 
 32. **Longest Palindromic Substring**
 
@@ -595,7 +783,14 @@ An array is a data structure that stores a collection of items, which can be of 
     }
     ```
 
+    **Examples:**
+
+    - Input: `"babad"` → Output: `"bab"` (or `"aba"`)
+    - Input: `"cbbd"` → Output: `"bb"`
+    - Input: `"a"` → Output: `"a"`
+
 33. **Convert Array to JSON by Property**
+
     ```javascript
     function getJson(arr) {
       const data = {};
@@ -609,3 +804,9 @@ An array is a data structure that stores a collection of items, which can be of 
       return data;
     }
     ```
+
+    **Examples:**
+
+    - Input: `[{id: 1, phase: 1}, {id: 2, phase: 2}, {id: 3, phase: 1}]` → Output: `{phase1: [{id: 1, phase: 1}, {id: 3, phase: 1}], phase2: [{id: 2, phase: 2}]}`
+    - Input: `[{name: "A", phase: 3}, {name: "B", phase: 3}]` → Output: `{phase3: [{name: "A", phase: 3}, {name: "B", phase: 3}]}`
+    - Input: `[]` → Output: `{}`
