@@ -14,6 +14,12 @@
    }
    ```
 
+   **Examples:**
+
+   - Input: `"hello"` → Output: `"olleh"`
+   - Input: `"JavaScript"` → Output: `"tpircSavaJ"`
+   - Input: `"a"` → Output: `"a"`
+
 2. **Clean String (Remove Non-Alphanumeric)**
 
    ```javascript
@@ -29,6 +35,12 @@
    }
    ```
 
+   **Examples:**
+
+   - Input: `"A man, a plan, a canal: Panama"` → Output: `"amanaplanacanalpanama"`
+   - Input: `"race a car"` → Output: `"raceacar"`
+   - Input: `"hello123!@#"` → Output: `"hello123"`
+
 3. **Check if String is Palindrome**
 
    ```javascript
@@ -38,6 +50,12 @@
      return cleanedStr === reversedStr;
    }
    ```
+
+   **Examples:**
+
+   - Input: `"A man, a plan, a canal: Panama"` → Output: `true`
+   - Input: `"race a car"` → Output: `false`
+   - Input: `"Madam"` → Output: `true`
 
 4. **Find First Unique Character**
 
@@ -60,13 +78,26 @@
    }
    ```
 
+   **Examples:**
+
+   - Input: `"leetcode"` → Output: `0` (first unique char 'l' at index 0)
+   - Input: `"loveleetcode"` → Output: `2` (first unique char 'v' at index 2)
+   - Input: `"aabb"` → Output: `-1` (no unique characters)
+
 5. **Length of Last Word**
+
    ```javascript
    function lengthOfLastWord(str) {
      str = str.trim().split(" ");
      return str[str.length - 1].length;
    }
    ```
+
+   **Examples:**
+
+   - Input: `"Hello World"` → Output: `5`
+   - Input: `"   fly me   to   the moon  "` → Output: `4`
+   - Input: `"luffy is still joyboy"` → Output: `6`
 
 ## Parentheses and Brackets
 
@@ -96,6 +127,12 @@
    }
    ```
 
+   **Examples:**
+
+   - Input: `"()"` → Output: `true`
+   - Input: `"()[]{}"` → Output: `true`
+   - Input: `"(]"` → Output: `false`
+
 7. **Another Approach to Valid Parentheses**
 
    ```javascript
@@ -119,6 +156,12 @@
      return stack.length == 0;
    }
    ```
+
+   **Examples:**
+
+   - Input: `"{[()]}"` → Output: `true`
+   - Input: `"([)]"` → Output: `false`
+   - Input: `"((("` → Output: `false`
 
 ## String Conversion and Manipulation
 
@@ -153,6 +196,12 @@
    }
    ```
 
+   **Examples:**
+
+   - Input: `"42"` → Output: `42`
+   - Input: `"   -42"` → Output: `-42`
+   - Input: `"4193 with words"` → Output: `4193`
+
 9. **Count and Say**
 
    ```javascript
@@ -179,6 +228,12 @@
    }
    ```
 
+   **Examples:**
+
+   - Input: `1` → Output: `"1"`
+   - Input: `4` → Output: `"1211"` (sequence: "1" → "11" → "21" → "1211")
+   - Input: `5` → Output: `"111221"`
+
 10. **Longest Common Prefix**
 
     ```javascript
@@ -199,6 +254,12 @@
       return firstStr;
     }
     ```
+
+    **Examples:**
+
+    - Input: `["flower", "flow", "flight"]` → Output: `"fl"`
+    - Input: `["dog", "racecar", "car"]` → Output: `""`
+    - Input: `["interspecies", "interstellar", "interstate"]` → Output: `"inters"`
 
 ## Substring Operations
 
@@ -225,6 +286,12 @@
       return longest;
     }
     ```
+
+    **Examples:**
+
+    - Input: `"abcabcbb"` → Output: `3` (substring "abc")
+    - Input: `"bbbbb"` → Output: `1` (substring "b")
+    - Input: `"pwwkew"` → Output: `3` (substring "wke")
 
 12. **Longest Substring Without Repeating Characters (Return Substring)**
 
@@ -254,6 +321,12 @@
     }
     ```
 
+    **Examples:**
+
+    - Input: `"abcabcbb"` → Output: `{length: 3, substring: "abc"}`
+    - Input: `"bbbbb"` → Output: `{length: 1, substring: "b"}`
+    - Input: `"pwwkew"` → Output: `{length: 3, substring: "wke"}`
+
 ## String Arithmetic
 
 13. **Multiply Strings (Basic Approach)**
@@ -273,6 +346,12 @@
       return productStr;
     }
     ```
+
+    **Examples:**
+
+    - Input: `("2", "3")` → Output: `"6"`
+    - Input: `("123", "456")` → Output: `"56088"`
+    - Input: `("0", "123")` → Output: `"0"`
 
 14. **Multiply Strings (Digit-by-Digit)**
 
@@ -304,6 +383,12 @@
     }
     ```
 
+    **Examples:**
+
+    - Input: `("2", "3")` → Output: `"6"`
+    - Input: `("123", "456")` → Output: `"56088"`
+    - Input: `("999", "999")` → Output: `"998001"`
+
 ## Pattern Matching
 
 15. **Regular Expression Matching**
@@ -332,6 +417,12 @@
     }
     ```
 
+    **Examples:**
+
+    - Input: `("aa", "a")` → Output: `false`
+    - Input: `("aa", "a*")` → Output: `true`
+    - Input: `("ab", ".*")` → Output: `true`
+
 16. **Wildcard Matching**
 
     ```javascript
@@ -356,3 +447,9 @@
       }
     }
     ```
+
+    **Examples:**
+
+    - Input: `("aa", "a")` → Output: `false`
+    - Input: `("aa", "*")` → Output: `true`
+    - Input: `("cb", "?a")` → Output: `false`
