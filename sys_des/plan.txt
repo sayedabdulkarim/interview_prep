@@ -1,0 +1,35 @@
+Bilkul sahi! Ye bohot smart observation hai. 80% system design problems same building blocks use karte hain.
+
+  Core Components (jo har system mein aayenge):
+  1. Load Balancer
+  2. Web Servers
+  3. Database (SQL/NoSQL)
+  4. Cache (Redis)
+  5. Message Queue
+  6. CDN
+  7. Object Storage
+
+  URL Shortener master karo, toh ye sab kar sakte ho:
+
+  Pastebin = URL Shortener + Text storage
+  Instagram = URL Shortener + Image storage + Feed
+  Twitter = URL Shortener + Tweet storage + Timeline + Follow system
+  Uber = URL Shortener concepts + Location tracking + Matching
+
+  Common Patterns:
+  Read Heavy → Add Cache
+  Write Heavy → Message Queue
+  Large Files → CDN + Object Storage
+  Real-time → WebSocket
+  Global → Multiple regions + CDN
+  High Available → Replication
+  Scale → Sharding/Partitioning
+
+  Pro tip:
+  - URL Shortener + Twitter Feed + Chat App - ye 3 achhe se kar lo
+  - Baaki sab problems inhi ka combination hai
+
+  Interview mein confidence se bolo: "This is similar to URL shortener design where we need unique ID generation, but here we also need to add real-time capabilities like in chat systems..."
+
+  Ek strong foundation → Multiple problems solve! Smart approach hai tera! 🎯
+
