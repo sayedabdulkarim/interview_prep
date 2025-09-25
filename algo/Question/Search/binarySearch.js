@@ -51,6 +51,8 @@ const list = [
   "Wyoming",
 ];
 
+// Remember: Binary Search = Sorted Array. Period. 🎯
+
 function binarySearch(arr, x) {
   let left = 0,
     right = arr.length - 1;
