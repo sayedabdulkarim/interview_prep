@@ -1,38 +1,33 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React, { forwardRef, useImperativeHandle, useRef } from "react";
 
 const App = () => {
-  const [count, setCount] = React.useState(0);
-  const childRef = React.useRef();
+  const childRef = useRef(null);
 
   const handleClick = () => {
     if (childRef.current) {
-      console.log("clicked from child");
       childRef.current.childClick();
     }
   };
 
   return (
     <div>
-      <h1>App Component</h1>
-      <ChildrenComp ref={childRef} />
-      <button onClick={handleClick}>Click Me</button>
+      <h1>Parent</h1>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleClick}>Click</button>
     </div>
   );
 };
 
-const ChildrenComp = forwardRef((props, ref) => {
-  useImperativeHandle(
-    ref,
-    () => {
-      return {
-        childClick() {
-          console.log("clicked from child");
-        },
-      };
-    },
-    []
-  );
-  return <div>children</div>;
+const ChildComponent = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick() {
+        console.log("Child Clicked");
+      },
+    };
+  });
+
+  return <div>Child Component</div>;
 });
 
 export default App;
