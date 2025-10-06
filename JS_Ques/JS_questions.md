@@ -5,19 +5,19 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     To ensuring that websites and web applications are usable by everyone, including people with disabilities.
     Here are some key things to consider for web accessibility:
 
-        - Semantic HTML
-        - adding alt text in image <img src="" alt="">
+    - Semantic HTML
+        - adding alt text in image`<img src="" alt="">`
         - Contrast and Colors
-        - Accessible Forms: using label, htmlFor  <label htmlFor="username"></label>
+        - Accessible Forms: using label, htmlFor  `<label htmlFor="username"></label>`
         - ARIA (Accessible Rich Internet Applications)
 
-            - using aria to provide details
+    - using aria to provide details
             - using role , like in wrting test cases we can use role attribute
 
-            <button aria-controls="details" aria-expanded="false" onclick="toggleContent()">Toggle Details</button>
-            <div id="details" role="region" aria-hidden="true" style="display:none;">
+    `<button aria-controls="details" aria-expanded="false" onclick="toggleContent()">`Toggle Details`</button>`
+            `<div id="details" role="region" aria-hidden="true" style="display:none;">`
                 Here are more details about the product.
-            </div>
+            `</div>`
 
 ## What is event delegation, and how does it function in JavaScript?
 
@@ -42,11 +42,10 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     - https://www.youtube.com/watch?v=eDxrLEQbLv0&ab_channel=CodeWithHarry
     - https://www.youtube.com/watch?v=AOPmqw9scfc
 
-    - prototype inhertirence if, lets say we create an object a and from that object we create an another object , using b = object.create(a), then b doesnt hv its own keys but if we check in __proto__ it has keys of a . so this we called as prototypr inheritence .
+    - prototype inhertirence if, lets say we create an object a and from that object we create an another object , using b = object.create(a), then b doesnt hv its own keys but if we check in__proto__ it has keys of a . so this we called as prototypr inheritence .
 
     - and Wrapper class means , supose we create a string called a = 'sdfff', then we can able to do like a.at(2), so here we r creating string , but under the hood , it is creating like a = new String('sdff').
     so here it is usig wrapper class i.e  String .
-
 
     prototype is used by functions, and prototypal inheritance is used by objects 🔥
 
@@ -90,7 +89,7 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     1. Feature Detection:
         What it is: Feature detection involves checking directly whether a specific feature or method is supported in the browser/runtime environment.
 
-        if ('querySelector' in document) {
+    if ('querySelector' in document) {
             document.querySelector("#id");
         } else {
             document.getElementById("id");
@@ -99,7 +98,7 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     2. Feature Inference:
         What it is: Feature inference is about making an assumption that if one feature exists, another related feature probably exists too.
 
-        if (document.querySelector) {
+    if (document.querySelector) {
             // If querySelector exists, then probably querySelectorAll also exists
             var elements = document.querySelectorAll(".class");
         }
@@ -107,11 +106,11 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     3 - 3. Using the User Agent (UA) String:
         What it is: The User Agent string is a text identifier sent with the HTTP headers that provides information about the browser, its version, and the operating system.
 
-        if (navigator.userAgent.indexOf("MSIE") !== -1) {
+    if (navigator.userAgent.indexOf("MSIE") !== -1) {
             // Code specific to Internet Explorer
         }
 
-## Define the concept of "hoisting." - Its a way of moving variables and function to the top of the scope, so the compiler can understand properly like they belong.
+## Define the concept of "hoisting." - Its a way of moving variables and function to the top of the scope, so the compiler can understand properly like where they belong.
 
 But ther is a caveat like the hoisting behaves differently for var, let n const.
 So if we r using var, it moves to the top and before ny code executes, it will assign the value as undefined.
@@ -156,7 +155,7 @@ we get a reference error .
 
 ## Provide an example of a curry function and clarify why this syntax can be advantageous.
 
-        function currying(...args) {
+    function currying(...args) {
             const add = (...newArgs) => {
                 if (newArgs.length === 0) {
                     return args.reduce((a, b) => a + b, 0);
@@ -165,12 +164,12 @@ we get a reference error .
                 }
             };
 
-            return add;
+    return add;
         }
 
-        var addOne = a => b => b ? addOne(a + b) : a;
+    var addOne = a => b => b ? addOne(a + b) : a;
 
-        const result = currying(4)(5)(6)(7)();
+    const result = currying(4)(5)(6)(7)();
         console.log(result); // Output: 22
 
 ## Discuss the benefits of using spread syntax and differentiate it from rest syntax. - Spread ( cloning )
@@ -180,12 +179,12 @@ const copyArray = [...originalArray];
 
     - Rest
 
-        //Collecting Remaining Arguments:
+    //Collecting Remaining Arguments:
         - function sum(...args) {
             return args.reduce((total, num) => total + num, 0);
           }
 
-        //Collecting Remaining Array Elements:
+    //Collecting Remaining Array Elements:
         - const [first, second, ...rest] = [1, 2, 3, 4, 5];
 
 ## Explain how code sharing between files can be accomplished.
@@ -225,24 +224,18 @@ Client (e.g., Web Browser)              Web Server (e.g., Node.js, Apache, Nginx
 Explanation:
 
 - The process begins when the client (e.g., a web browser) sends an HTTP request to the web server.
-
 - The web server's routing system determines how to handle the request, including which part of the application should process it. Middleware functions may also run at this stage.
-
 - The main request handler, often referred to as a controller in web frameworks, processes the request. This step may involve accessing databases, executing business logic, or performing other tasks to generate a response.
-
 - The server generates an HTTP response, which includes the requested content, status codes, headers, and any necessary data. This response can be in various formats (e.g., HTML, JSON).
-
 - The server sends the response back to the client over the network.
-
 - The client (web browser) receives the response and processes it, rendering HTML content, executing JavaScript, and handling additional resources.
-
 - The request lifecycle is considered complete when the client has fully processed the response. Depending on the client's behavior, additional actions may follow, such as user interactions or making subsequent requests.
 
 This diagram provides a high-level overview of the request lifecycle, illustrating the flow of data and interactions between the client and the web server during the request and response process.
 
 ## How JavaScript Works - ( https://www.youtube.com/watch?v=VaBP6_pBOgM&t=41s&ab_channel=ThapaTechnical )
 
-     - js
+    - js
             => parser ( checkig everylines, and if ny issue, stop there and throws the error, otherwise  if everything goes well move to AST )
                 => AST ( Abstract Syntax Tree )
                     => Conversion to machine code
@@ -262,21 +255,21 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
 
     - Factory Pattern ( like a creator or producer that knows how to construct various objects. ) - https://www.youtube.com/watch?v=kRHtmrqZa18&ab_channel=CodingScenes
 
-        The Factory Pattern is a creational design pattern used in object-oriented programming. It provides a way to create objects without specifying the exact class of object that will be created. This is done by creating a separate component (the factory) whose responsibility is to encapsulate the object creation process.
+    The Factory Pattern is a creational design pattern used in object-oriented programming. It provides a way to create objects without specifying the exact class of object that will be created. This is done by creating a separate component (the factory) whose responsibility is to encapsulate the object creation process.
 
-        The idea is to use a factory method to manage and manipulate the creation of objects, and this method typically replaces direct object creation (using the new keyword).
+    The idea is to use a factory method to manage and manipulate the creation of objects, and this method typically replaces direct object creation (using the new keyword).
 
 ## SOLID principles - https://www.youtube.com/watch?v=m2GCb-x8e5s&ab_channel=RethinkingUI - Each letter in "SOLID" stands for a different principle:
 
-            - Single Responsibility Principle (SRP): This principle suggests that a class should have only one reason to change. In other words, a class should have a single responsibility or job. When a class has multiple responsibilities, changes to one of them can affect the others, making the code less maintainable.
+    - Single Responsibility Principle (SRP): This principle suggests that a class should have only one reason to change. In other words, a class should have a single responsibility or job. When a class has multiple responsibilities, changes to one of them can affect the others, making the code less maintainable.
 
-            - Open-Closed Principle (OCP): The Open-Closed Principle encourages software entities (classes, modules, functions, etc.) to be open for extension but closed for modification. It means that you should be able to add new functionality to a system without changing the existing code.
+    - Open-Closed Principle (OCP): The Open-Closed Principle encourages software entities (classes, modules, functions, etc.) to be open for extension but closed for modification. It means that you should be able to add new functionality to a system without changing the existing code.
 
-            - Liskov Substitution Principle (LSP): Named after Barbara Liskov, this principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. In other words, if a class is a subtype of another class, it should be able to be used in place of its parent class without breaking the code.
+    - Liskov Substitution Principle (LSP): Named after Barbara Liskov, this principle states that objects of a superclass should be replaceable with objects of a subclass without affecting the correctness of the program. In other words, if a class is a subtype of another class, it should be able to be used in place of its parent class without breaking the code.
 
-            - Interface Segregation Principle (ISP): This principle emphasizes that clients should not be forced to depend on interfaces they do not use. It suggests that interfaces should be specific to the needs of the clients, and classes should not be required to implement methods they don't need.
+    - Interface Segregation Principle (ISP): This principle emphasizes that clients should not be forced to depend on interfaces they do not use. It suggests that interfaces should be specific to the needs of the clients, and classes should not be required to implement methods they don't need.
 
-            - Dependency Inversion Principle (DIP): The Dependency Inversion Principle advocates that high-level modules should not depend on low-level modules. Both should depend on abstractions. It also encourages abstractions not to depend on details but rather the other way around.
+    - Dependency Inversion Principle (DIP): The Dependency Inversion Principle advocates that high-level modules should not depend on low-level modules. Both should depend on abstractions. It also encourages abstractions not to depend on details but rather the other way around.
 
 1. ‘this’ keyword
 
@@ -286,9 +279,7 @@ This diagram provides a high-level overview of the request lifecycle, illustrati
    but it behaves differently in some cases lyk when we call inside an obj, this represents the current object not the window
 
 2. Closure chaining
-
 3. Prototypal inheritance
-
 4. Microtask and callback queues
 5. Currying
 6. Functional binding - call, apply, bind
