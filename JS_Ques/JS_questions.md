@@ -14,14 +14,14 @@ Important list of questions to prepare for JavaScript in## Clarify the distincti
     - using aria to provide details
             - using role , like in wrting test cases we can use role attribute
 
-    `<button aria-controls="details" aria-expanded="false" onclick="toggleContent()">`Toggle Details`</button>`
+    `<button aria-controls="details" aria-expanded="false" onclick="toggleContent()">`Toggle Details `</button>`
             `<div id="details" role="region" aria-hidden="true" style="display:none;">`
                 Here are more details about the product.
             `</div>`
 
 ## What is event delegation, and how does it function in JavaScript?
 
-    - In JS Event delegation is a technique in JavaScript for handling events efficiently by taking advantage of the event bubbling mechanism. Instead of assigning event listeners directly to individual elements, you attach a single event listener to a common parent of those elements. Then, when the event occurs on any of the child elements, the event bubbles up to the parent, where it's handled.
+    - In JS Event delegation is a technique in JavaScript for handling events efficiently by taking advantage of the event bubbling mechanism. Instead of assigning event listeners directly to individual elements, you attach a single event listener to a common parent of those elements. Then, when the event occurs on any of the child elements, the event bubbles up to the parent, where it's handled. https://www.youtube.com/watch?v=pKzf80F3O0U
 
     - In React implements its own event system called the synthetic event system. When you attach an event handler in a React component, you're actually attaching it to a virtual representation of the DOM element, not the real DOM element itself. React wraps native browser events into instances of synthetic events to ensure events have consistent properties and behaviors across different browsers.
 
