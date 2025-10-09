@@ -1,30 +1,30 @@
 import React from "react";
 
 const App = () => {
-  const childRef = React.useRef();
+  const childRef = React.useRef(null);
 
   const handleClick = () => {
     if (childRef.current) {
-      childRef.current.childClicked();
+      childRef.current.childClick();
     }
   };
 
   return (
     <div>
       <h1>Parent Component</h1>
-      <ChildComponent ref={childRef} />
+      <ChildComp ref={childRef} />
       <button onClick={handleClick}>Call Child Method</button>
     </div>
   );
 };
 
-const ChildComponent = React.forwardRef((props, ref) => {
+const ChildComp = React.forwardRef((props, ref) => {
   React.useImperativeHandle(
     ref,
     () => {
       return {
-        childClicked: () => {
-          console.log("Child method called from Parent");
+        childClick: () => {
+          console.log("Child component method called!");
         },
       };
     },
