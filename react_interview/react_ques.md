@@ -231,6 +231,20 @@ function Page({ commentsPromise }) {
 
   **#### Verbal talk ####**
 
+////
+
+**React Fiber** is we can say new engine for react which comes react 15 , which runs without interupption and also in asynchronouus manner .
+
+So methods like batching , useTranstion , useDeffered are part of fiber .
+
+like batching introduces in react17 , but that time it suppoorts only for events or limited to events only , but in react 18 , batching works for all scenarios. i.e for event as well as async .
+
+and useTransition use to priotize task .
+
+and useDeffered use to render the Ui without lag while performing heavy task
+
+###### ////
+
 ok, jaise before react 18, agar humlog same setter function multi call krte the in a block then teeno call hota tha, but in react18 me batch aa gaya . that means if
 same setter than it will skip and run the last .
 setCount(1)
