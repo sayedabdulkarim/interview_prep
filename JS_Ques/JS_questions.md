@@ -296,3 +296,9 @@ https://www.youtube.com/watch?v=msWLFE5K1sQ&list=PLNYURJT_hZOlW-ZV1osN3fHJDYiK-J
 
 https://azar-portfolio.vercel.app/
 https://animesh-rawat.web.app/#contact
+
+CSS
+
+===
+
+critical css : https://www.youtube.com/watch?v=vtb3DzXKvCs
