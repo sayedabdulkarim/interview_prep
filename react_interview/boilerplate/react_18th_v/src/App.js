@@ -1,34 +1,59 @@
-import React, { useImperativeHandle, forwardRef, useRef } from "react";
+import React from "react";
+
+const populateData = (num) => {
+  const arr = [];
+  for (let i = 0; i < num; i++) {
+    arr.push(i);
+  }
+  return arr;
+};
+
+const getData = populateData(20000);
+
+const filterData = (val) => {
+  if (!val) return getData;
+  return getData.filter((item) => item.toString().includes(val));
+};
 
 const App = () => {
-  const childRef = useRef(null);
+  const [isPending, startTransition] = React.useTransition();
+  //state
+  const [inp, setInp] = React.useState("");
 
-  const handleClick = () => {
-    if (childRef.current) {
-      childRef.current.chlldClick();
-    }
+  const filteredData = filterData(inp);
+
+  const handleChange = (e) => {
+    startTransition(() => {
+      setInp(e.target.value);
+    });
+    // setInp(e.target.value);
   };
 
   return (
     <div>
-      <h1>Parent Component</h1>
-      <ChildComp ref={childRef} />
-      <button onClick={handleClick}>Click Me</button>
+      <input
+        type="text"
+        placeholder="Enter"
+        autoFocus
+        value={inp}
+        onChange={handleChange}
+      />
+      {isPending ? <h1>Loading...</h1> : <ChildComp data={filteredData} />}
     </div>
   );
 };
 
-// const ChildComp = useForwardRef((props, ref) => {
-const ChildComp = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => {
-    return {
-      chlldClick: () => {
-        console.log("child click");
-      },
-    };
-  });
-
-  return <div>ChildComp</div>;
-}, []);
+const ChildComp = ({ data }) => {
+  const deferredData = React.useDeferredValue(data);
+  return (
+    <div>
+      <ul>
+        {deferredData.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default App;
