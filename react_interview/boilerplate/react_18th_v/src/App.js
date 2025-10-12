@@ -1,58 +1,52 @@
 import React from "react";
 
-const populateData = (num) => {
-  const arr = [];
-  for (let i = 0; i < num; i++) {
-    arr.push(i);
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
-  return arr;
-};
 
-const getData = populateData(20000);
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
 
-const filterData = (val) => {
-  if (!val) return getData;
-  return getData.filter((item) => item.toString().includes(val));
-};
+  componentDidCatch(error, info) {
+    console.error("Caught an error:", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
 
 const App = () => {
-  const [isPending, startTransition] = React.useTransition();
-  //state
-  const [inp, setInp] = React.useState("");
-
-  const filteredData = filterData(inp);
-
-  const handleChange = (e) => {
-    startTransition(() => {
-      setInp(e.target.value);
-    });
-    // setInp(e.target.value);
-  };
-
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Enter"
-        autoFocus
-        value={inp}
-        onChange={handleChange}
-      />
-      {isPending ? <h1>Loading...</h1> : <ChildComp data={filteredData} />}
+      <h1>Parent Component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
   );
 };
 
-const ChildComp = ({ data }) => {
-  const deferredData = React.useDeferredValue(data);
+const ButtonThatBreaks = () => {
+  const [shouldBreak, setShouldBreak] = React.useState(false);
+
+  if (shouldBreak) {
+    throw new Error("I broke!");
+  }
+
+  const handleClick = () => {
+    setShouldBreak((prev) => !prev);
+  };
+
   return (
-    <div>
-      <ul>
-        {deferredData.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </div>
+    <button onClick={handleClick}>{shouldBreak ? "Unbreak" : "Break"}</button>
   );
 };
 
