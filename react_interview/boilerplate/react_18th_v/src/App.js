@@ -1,52 +1,49 @@
 import React from "react";
-
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    console.error("Caught an error:", error, info);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-
-    return this.props.children;
-  }
-}
+import { useEffect } from "react";
+import { useState } from "react";
 
 const App = () => {
-  return (
-    <div>
-      <h1>Parent Component</h1>
-      <ErrorBoundary>
-        <ButtonThatBreaks />
-      </ErrorBoundary>
-    </div>
-  );
-};
+  const [seconds, setSeconds] = useState(10);
+  const [minutes, setMinutes] = useState(0);
+  const [hours, setHours] = useState(0);
+  const [isStart, setIsStart] = useState(false);
 
-const ButtonThatBreaks = () => {
-  const [shouldBreak, setShouldBreak] = React.useState(false);
-
-  if (shouldBreak) {
-    throw new Error("I broke!");
-  }
-
-  const handleClick = () => {
-    setShouldBreak((prev) => !prev);
+  const handleTimer = (sec, min, hour) => {
+    if (sec > 0) {
+      setSeconds((prev) => prev - 1);
+    } else if (sec === 0 && min >= 1) {
+      setSeconds(59);
+      setMinutes((prev) => prev - 1);
+    } else if (sec === 0 && min === 0 && hour === 0) {
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
+    } else {
+      setHours((prev) => prev - 1);
+      setMinutes(59);
+      setSeconds(59);
+    }
   };
 
+  useEffect(() => {
+    if (isStart) {
+      let startTimer = setInterval(() => {
+        handleTimer(seconds, minutes, hours);
+      }, 1000);
+      return () => clearInterval(startTimer);
+    }
+  }, [hours, isStart, minutes, seconds]);
+
   return (
-    <button onClick={handleClick}>{shouldBreak ? "Unbreak" : "Break"}</button>
+    <div>
+      <h1>Timer</h1>
+      <div>
+        {hours}:{minutes}:{seconds}
+      </div>
+      <button onClick={() => setIsStart(!isStart)}>
+        {isStart ? "Stop" : "Start"}
+      </button>
+    </div>
   );
 };
 
