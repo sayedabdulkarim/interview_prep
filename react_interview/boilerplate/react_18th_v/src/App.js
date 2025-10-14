@@ -1,53 +1,49 @@
 import React from "react";
+import { Component } from "react";
+import { useState } from "react";
 
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
   constructor(props) {
     super(props);
     this.state = { hasError: false };
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
     return { hasError: true };
   }
 
-  componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
-    console.log({ error, errorInfo }, " from componentDidCatch");
+  componentDidCatch(error, info) {
+    console.error("Caught an error:", error, info);
   }
 
   render() {
-    return (
-      <div>
-        {this.state.hasError ? (
-          <h1>Something went wrong.</h1>
-        ) : (
-          this.props.children
-        )}
-      </div>
+    return this.state.hasError ? (
+      <h1>Something went wrong.</h1>
+    ) : (
+      this.props.children
     );
   }
 }
 
 const App = () => {
   return (
-    <div>
+    <>
       <h1>Parent Component</h1>
       <ErrorBoundary>
-        <ButtonComp />
+        <ButtonThatBreaks />
       </ErrorBoundary>
-    </div>
+    </>
   );
 };
 
-const ButtonComp = () => {
-  const [isBreaking, setIsBreaking] = React.useState(false);
+const ButtonThatBreaks = () => {
+  const [isBreak, setIsBreak] = useState(false);
 
-  if (isBreaking) {
+  if (isBreak) {
     throw new Error("I am broken");
   }
 
-  return <button onClick={() => setIsBreaking(true)}>Break me</button>;
+  return <button onClick={() => setIsBreak(true)}>Break Me</button>;
 };
 
 export default App;
