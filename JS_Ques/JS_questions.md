@@ -1,5 +1,9 @@
 Important list of questions to prepare for JavaScript in## Clarify the distinctions among 'function User(){}', 'var user = User()', and 'var user = new User()'erviews.
 
+How JS works ?
+
+\*\* **w**hen we run a script, then js interperor runs it and if it founds any async code ,den webApis me full async code jaata , and webAPis after completion bas async function ka andar ka code jo ki callback hai usko task Quue me push kr deta .phir event-loop as per micro or macro task utna k call Stack me forward krta ...\*\*
+
 ## Web Accessibility ?
 
     To ensuring that websites and web applications are usable by everyone, including people with disabilities.
