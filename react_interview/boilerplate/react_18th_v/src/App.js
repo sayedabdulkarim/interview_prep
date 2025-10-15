@@ -1,48 +1,49 @@
-import React from "react";
-import { useEffect } from "react";
+import React, { Component } from "react";
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // You can also log the error to an error reporting service
+    console.log(error, errorInfo);
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Something went wrong.</h1>
+    ) : (
+      this.props.children
+    );
+  }
+}
 
 const App = () => {
-  const [seconds, setSeconds] = React.useState(10);
-  const [minutes, setMinutes] = React.useState(1);
-  const [hours, setHours] = React.useState(0);
-  const [isStart, setIsStart] = React.useState(false);
-
-  const createTimer = (sec, min, hours) => {
-    if (sec > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (sec === 0 && min >= 1) {
-      setSeconds(59);
-      setMinutes((prev) => prev - 1);
-    } else if (sec === 0 && min === 0 && hours === 0) {
-      setHours(0);
-      setMinutes(0);
-      setSeconds(0);
-    } else {
-      setHours((prev) => prev - 1);
-      setMinutes(0);
-      setSeconds(0);
-    }
-  };
-
-  useEffect(() => {
-    let timer = setInterval(() => {
-      if (isStart) {
-        createTimer(seconds, minutes, hours);
-      }
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, [isStart, seconds, minutes, hours]);
-
   return (
     <div>
-      <h1>Hello World!</h1>
-      <strong>{`${hours}:${minutes}:${seconds}`}</strong>
-      <button onClick={() => setIsStart(!isStart)}>
-        {isStart ? "Stop" : "Start"}
-      </button>
+      <h1>Parent Component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
   );
+};
+
+const ButtonThatBreaks = () => {
+  const [isBreak, setIsBreak] = React.useState(false);
+
+  if (isBreak) {
+    throw new Error("I am broken");
+  }
+
+  return <button onClick={() => setIsBreak(!isBreak)}>Break</button>;
 };
 
 export default App;
