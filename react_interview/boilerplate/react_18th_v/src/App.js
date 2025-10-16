@@ -1,60 +1,47 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { Component } from "react";
 
-function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
 
-  return (
-    <div className="p-8">
-      <button
-        onClick={() => setIsModalOpen(true)}
-        className="bg-blue-500 text-white px-4 py-2 rounded"
-      >
-        Open Modal
-      </button>
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
 
-      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
-    </div>
-  );
+  componentDidCatch(error, info) {
+    console.error("Caught an error:", { error, info });
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <h1>Something went wrong.</h1>
+    ) : (
+      this.props.children
+    );
+  }
 }
 
-function Modal({ onClose }) {
-  const modalRef = useRef(null);
-
-  useEffect(() => {
-    // handle clicks outside
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        onClose(); // close when clicked outside
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [onClose]);
-
+const App = () => {
   return (
-    <div
-      className="fixed inset-0 bg-black/40 flex justify-center items-center"
-      style={{ border: "2px red solid" }}
-    >
-      <div
-        ref={modalRef}
-        className="bg-white p-6 rounded-xl shadow-xl w-80 relative"
-      >
-        <h2 className="text-xl font-bold mb-4">This is a Modal</h2>
-        <p className="mb-4">Click outside to close me 🚪</p>
-        <button
-          onClick={onClose}
-          className="bg-red-500 text-white px-4 py-2 rounded"
-        >
-          Close
-        </button>
-      </div>
+    <div>
+      <h1>Parent Component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
   );
-}
+};
+
+const ButtonThatBreaks = () => {
+  const [isBreak, setIsBreak] = React.useState(false);
+
+  if (isBreak) {
+    throw new Error("I broke!");
+  }
+
+  return <button onClick={() => setIsBreak(true)}>Break Me</button>;
+};
 
 export default App;
