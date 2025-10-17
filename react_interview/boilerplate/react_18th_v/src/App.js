@@ -1,48 +1,51 @@
 import React from "react";
-import { Component } from "react";
-
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    console.error("Error caught in Error Boundary:", { error, info });
-  }
-
-  render() {
-    return this.state.hasError ? (
-      <p>Something went wrong</p>
-    ) : (
-      this.props.children
-    );
-  }
-}
+import { useCallback } from "react";
+import { useEffect } from "react";
 
 const App = () => {
+  const [second, setSecond] = React.useState(10);
+  const [minute, setMinute] = React.useState(1);
+  const [hour, setHour] = React.useState(0);
+  const [isStart, setIsStart] = React.useState(false);
+
+  const handleTimer = useCallback(() => {
+    if (second > 0) {
+      setSecond((prev) => prev - 1);
+    } else if (second === 0 && minute > 0) {
+      setSecond(59);
+      setMinute((prev) => prev - 1);
+    } else if (second === 0 && minute === 0 && hour === 0) {
+      setSecond(0);
+      setMinute(0);
+      setHour(0);
+    } else if (second === 0 && minute === 0 && hour > 0) {
+      setSecond(59);
+      setMinute(59);
+      setHour((prev) => prev - 1);
+    }
+  }, [second, minute, hour]);
+
+  useEffect(() => {
+    if (isStart) {
+      const timer = setInterval(() => {
+        handleTimer();
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [isStart, second, minute, hour, handleTimer]);
+
   return (
     <div>
-      <h1>Parent component</h1>
-      <ErrorBoundary>
-        <ButtonThatBreaks />
-      </ErrorBoundary>
+      <h1>Timer</h1>
+      <div>
+        {hour}:{minute}:{second}
+      </div>
+      <button onClick={() => setIsStart(!isStart)}>
+        {isStart ? "Stop" : "Start"}
+      </button>
     </div>
   );
-};
-
-const ButtonThatBreaks = () => {
-  const [isBreak, setIsBreak] = React.useState(false);
-
-  if (isBreak) {
-    throw new Error("Button component has been broken!");
-  }
-
-  return <button onClick={() => setIsBreak(true)}>Break the App</button>;
 };
 
 export default App;
