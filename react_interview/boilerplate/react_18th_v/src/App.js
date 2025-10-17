@@ -1,48 +1,48 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { Component } from "react";
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.error("Error caught in Error Boundary:", { error, info });
+  }
+
+  render() {
+    return this.state.hasError ? (
+      <p>Something went wrong</p>
+    ) : (
+      this.props.children
+    );
+  }
+}
 
 const App = () => {
   return (
     <div>
-      <h1>Parent</h1>
-      <Modal />
+      <h1>Parent component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
   );
 };
 
-const Modal = () => {
-  const modalRef = React.useRef(null);
-  const [isShow, setIsShow] = React.useState(false);
+const ButtonThatBreaks = () => {
+  const [isBreak, setIsBreak] = React.useState(false);
 
-  const handleClose = () => {
-    setIsShow(false);
-  };
+  if (isBreak) {
+    throw new Error("Button component has been broken!");
+  }
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        handleClose();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div>
-      <h1>Modal</h1>
-      <button onClick={() => setIsShow(true)}>Open Modal</button>
-
-      {isShow && (
-        <div style={{ border: "1px solid red" }} ref={modalRef}>
-          {<p>This is modal content</p>}
-          <button onClick={handleClose}>Close</button>
-        </div>
-      )}
-    </div>
-  );
+  return <button onClick={() => setIsBreak(true)}>Break the App</button>;
 };
 
 export default App;
