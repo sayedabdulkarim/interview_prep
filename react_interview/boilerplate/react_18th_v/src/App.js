@@ -1,50 +1,33 @@
-import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 
 const App = () => {
+  const childRef = useRef();
+
+  const handleClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
+  };
+
   return (
     <div>
       <h1>Parent Component</h1>
-      <ModalComponent />
+      <ChildComponent ref={childRef} />
+      <button onClick={handleClick}>Click Child from Parent</button>
     </div>
   );
 };
 
-const ModalComponent = () => {
-  const modalRef = useRef();
-  const [isShow, setIsShow] = useState(false);
-
-  const handleClose = () => {
-    setIsShow(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && modalRef.current.contains(e.target) === false) {
-        handleClose();
-      }
+const ChildComponent = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick: () => {
+        console.log("Child Clicked");
+      },
     };
+  });
 
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div>
-      <button onClick={() => setIsShow(true)}>Show Modal</button>
-      {isShow && (
-        <div ref={modalRef} style={{ border: "2px solid red" }}>
-          <h1>Modal Component</h1>
-          <p>This is modal content</p>
-          <button onClick={handleClose}>Close Modal</button>
-        </div>
-      )}
-    </div>
-  );
-};
+  return <h1>Child Component</h1>;
+});
 
 export default App;
