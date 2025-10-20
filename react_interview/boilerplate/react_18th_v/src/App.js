@@ -1,52 +1,64 @@
-import React, { Component } from "react";
-
-class ErrorBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, info) {
-    console.log("Error caught in Error Boundary:", error, info);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
-    }
-    return this.props.children;
-  }
-}
+import React, { useCallback, useEffect } from "react";
 
 const App = () => {
+  const [seconds, setSeconds] = React.useState(10);
+  const [minutes, setMinutes] = React.useState(1);
+  const [hours, setHours] = React.useState(0);
+  const [isStart, setIsStart] = React.useState(false);
+
+  const handleTimer = () => {
+    if (seconds > 0) {
+      setSeconds((prev) => prev - 1);
+    } else if (seconds === 0 && minutes >= 1) {
+      setMinutes((prev) => prev - 1);
+      setSeconds(59);
+    } else if (seconds === 0 && minutes === 0 && hours === 0) {
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
+    } else {
+      setHours((prev) => prev - 1);
+      setMinutes(59);
+      setSeconds(59);
+    }
+  };
+
+  // const handleTimer = useCallback(() => {
+  //   if (seconds > 0) {
+  //     setSeconds((prev) => prev - 1);
+  //   } else if (seconds === 0 && minutes >= 1) {
+  //     setMinutes((prev) => prev - 1);
+  //     setSeconds(59);
+  //   } else if (seconds === 0 && minutes === 0 && hours === 0) {
+  //     setHours(0);
+  //     setMinutes(0);
+  //     setSeconds(0);
+  //   } else {
+  //     setHours((prev) => prev - 1);
+  //     setMinutes(59);
+  //     setSeconds(59);
+  //   }
+  // }, [seconds, minutes, hours]);
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      if (isStart) {
+        handleTimer();
+      }
+    }, 1000);
+    return () => clearInterval(timerId);
+  });
+
   return (
     <div>
-      <h1>Parent Component</h1>
-      <ErrorBoundary>
-        <ButtonThatBreaks />
-      </ErrorBoundary>
+      <h1>Timer</h1>
+      <div>
+        {hours}:{minutes}:{seconds}
+      </div>
+      <button onClick={() => setIsStart(!isStart)}>
+        {isStart ? "Stop" : "Start"}
+      </button>
     </div>
-  );
-};
-
-const ButtonThatBreaks = () => {
-  const [isBreak, setIsBreak] = React.useState(false);
-
-  if (isBreak) {
-    throw new Error("ButtonThatBreaks has crashed!");
-  }
-
-  return (
-    <button
-      onClick={() => setIsBreak(true)}
-      className="bg-red-500 text-white px-4 py-2 rounded"
-    >
-      Break the App
-    </button>
   );
 };
 
