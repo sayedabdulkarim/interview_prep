@@ -1,33 +1,53 @@
-import { forwardRef, useImperativeHandle, useRef } from "react";
+import React from "react";
 
-const App = () => {
-  const childRef = useRef();
+const generateProductList = (num) => {
+  const arr = [];
+  for (let i = 1; i <= num; i++) {
+    arr.push(`Product ${i}`);
+  }
+  return arr;
+};
 
-  const handleClick = () => {
-    if (childRef.current) {
-      childRef.current.childClick();
-    }
+const generatedData = generateProductList(10000);
+
+const Parent = () => {
+  const [isPending, startTransition] = React.useTransition();
+  const [input, setInput] = React.useState("");
+
+  const filteredData = generatedData.filter((item) =>
+    item.toLowerCase().includes(input.toLowerCase())
+  );
+
+  const handleInput = (e) => {
+    // setInput(e.target.value);
+    startTransition(() => {
+      setInput(e.target.value);
+    });
   };
 
   return (
     <div>
-      <h1>Parent Component</h1>
-      <ChildComponent ref={childRef} />
-      <button onClick={handleClick}>Click Child from Parent</button>
+      <input
+        type="text"
+        value={input}
+        onChange={handleInput}
+        placeholder="Type something..."
+        className="border p-2 mb-4 w-full"
+      />
+      {isPending ? <div>Loading...</div> : <Child data={filteredData} />}
     </div>
   );
 };
 
-const ChildComponent = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => {
-    return {
-      childClick: () => {
-        console.log("Child Clicked");
-      },
-    };
-  });
+const Child = ({ data }) => {
+  const deferredData = React.useDeferredValue(data);
+  return (
+    <ul>
+      {deferredData.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+};
 
-  return <h1>Child Component</h1>;
-});
-
-export default App;
+export default Parent;
