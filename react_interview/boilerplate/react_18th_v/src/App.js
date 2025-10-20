@@ -1,53 +1,53 @@
-import React from "react";
+import React, { Component } from "react";
 
-const generateProductList = (num) => {
-  const arr = [];
-  for (let i = 1; i <= num; i++) {
-    arr.push(`Product ${i}`);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
-  return arr;
-};
 
-const generatedData = generateProductList(10000);
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
 
-const Parent = () => {
-  const [isPending, startTransition] = React.useTransition();
-  const [input, setInput] = React.useState("");
+  componentDidCatch(error, info) {
+    console.log("Error caught in Error Boundary:", error, info);
+  }
 
-  const filteredData = generatedData.filter((item) =>
-    item.toLowerCase().includes(input.toLowerCase())
-  );
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+    return this.props.children;
+  }
+}
 
-  const handleInput = (e) => {
-    // setInput(e.target.value);
-    startTransition(() => {
-      setInput(e.target.value);
-    });
-  };
-
+const App = () => {
   return (
     <div>
-      <input
-        type="text"
-        value={input}
-        onChange={handleInput}
-        placeholder="Type something..."
-        className="border p-2 mb-4 w-full"
-      />
-      {isPending ? <div>Loading...</div> : <Child data={filteredData} />}
+      <h1>Parent Component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
   );
 };
 
-const Child = ({ data }) => {
-  const deferredData = React.useDeferredValue(data);
+const ButtonThatBreaks = () => {
+  const [isBreak, setIsBreak] = React.useState(false);
+
+  if (isBreak) {
+    throw new Error("ButtonThatBreaks has crashed!");
+  }
+
   return (
-    <ul>
-      {deferredData.map((item, index) => (
-        <li key={index}>{item}</li>
-      ))}
-    </ul>
+    <button
+      onClick={() => setIsBreak(true)}
+      className="bg-red-500 text-white px-4 py-2 rounded"
+    >
+      Break the App
+    </button>
   );
 };
 
-export default Parent;
+export default App;
