@@ -1,63 +1,44 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const App = () => {
-  const [seconds, setSeconds] = React.useState(10);
-  const [minutes, setMinutes] = React.useState(1);
-  const [hours, setHours] = React.useState(0);
-  const [isStart, setIsStart] = React.useState(false);
+  return (
+    <div>
+      <h1>Parent Component</h1>
+      <ModalComponent />
+    </div>
+  );
+};
 
-  const handleTimer = () => {
-    if (seconds > 0) {
-      setSeconds((prev) => prev - 1);
-    } else if (seconds === 0 && minutes >= 1) {
-      setMinutes((prev) => prev - 1);
-      setSeconds(59);
-    } else if (seconds === 0 && minutes === 0 && hours === 0) {
-      setHours(0);
-      setMinutes(0);
-      setSeconds(0);
-    } else {
-      setHours((prev) => prev - 1);
-      setMinutes(59);
-      setSeconds(59);
-    }
+const ModalComponent = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const modalRef = React.useRef();
+
+  const handleClose = () => {
+    setIsOpen(false);
   };
 
-  // const handleTimer = useCallback(() => {
-  //   if (seconds > 0) {
-  //     setSeconds((prev) => prev - 1);
-  //   } else if (seconds === 0 && minutes >= 1) {
-  //     setMinutes((prev) => prev - 1);
-  //     setSeconds(59);
-  //   } else if (seconds === 0 && minutes === 0 && hours === 0) {
-  //     setHours(0);
-  //     setMinutes(0);
-  //     setSeconds(0);
-  //   } else {
-  //     setHours((prev) => prev - 1);
-  //     setMinutes(59);
-  //     setSeconds(59);
-  //   }
-  // }, [seconds, minutes, hours]);
-
   useEffect(() => {
-    const timerId = setInterval(() => {
-      if (isStart) {
-        handleTimer();
+    const handleClickOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        handleClose();
       }
-    }, 1000);
-    return () => clearInterval(timerId);
-  });
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
-      <h1>Timer</h1>
-      <div>
-        {hours}:{minutes}:{seconds}
-      </div>
-      <button onClick={() => setIsStart(!isStart)}>
-        {isStart ? "Stop" : "Start"}
-      </button>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {isOpen && (
+        <div style={{ border: "2px solid red" }} ref={modalRef}>
+          <h1>Modal title</h1>
+          <p>This is modal content</p>
+          <button onClick={handleClose}>Close</button>
+        </div>
+      )}
     </div>
   );
 };
