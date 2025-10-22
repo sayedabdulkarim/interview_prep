@@ -6,6 +6,21 @@ An array is a data structure that stores a collection of items, which can be of 
 
 ## Basic Operations
 
+## filter unique objects
+
+var test = arr.filter((item, index, self) => {
+// console.log({ item, self });
+return index === arr.findIndex(obj => obj.name === item.name && obj.age === item.age);
+});
+
+var arr = [
+{name: "sai", age: 10},
+{name:"Nang", age : 22},
+{name: "sai", age: 10},
+{name:"Nang", age: 22},
+{name: "111111", age: 21}
+];
+
 1. **Find Maximum Element**
 
    ```javascript
