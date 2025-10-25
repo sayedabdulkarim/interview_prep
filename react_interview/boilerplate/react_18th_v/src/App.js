@@ -1,48 +1,46 @@
-import React, { useState } from "react";
+import React, { Component } from "react";
 
-const getProd = (num) => {
-  const arr = [];
-  for (let i = 1; i <= num; i++) {
-    arr.push(i);
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
   }
-  return arr;
-};
 
-const prod = getProd(10000);
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
 
-const filterProd = (arg) => prod.filter((i) => i.toString().includes(arg));
+  componentDidCatch(error, info) {
+    console.log("Error caught in ErrorBoundary:", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+    return this.props.children;
+  }
+}
 
 const App = () => {
-  const [isPending, startTransition] = React.useTransition();
-  const [inp, setInp] = useState("");
-  const myProd = filterProd(inp);
-
-  const handleChange = (e) => {
-    startTransition(() => {
-      setInp(e.target.value);
-    });
-    // setInp(e.target.value);
-  };
-
   return (
     <div>
-      <input type="text" value={inp} onChange={handleChange} autoFocus />
-      {isPending ? <h2>Loading...</h2> : <ChildComponent data={myProd} />}
+      <h1>Parent Component</h1>
+      <ErrorBoundary>
+        <ButtonThatBreaks />
+      </ErrorBoundary>
     </div>
   );
 };
 
-const ChildComponent = ({ data }) => {
-  const deferredData = React.useDeferredValue(data);
-  return (
-    <div>
-      <ul>
-        {deferredData.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
-  );
+const ButtonThatBreaks = () => {
+  const [isBreak, setIsBreak] = React.useState(false);
+
+  if (isBreak) {
+    throw new Error("ButtonThatBreaks has crashed!");
+  }
+
+  return <button onClick={() => setIsBreak(true)}>Click to break me!</button>;
 };
 
 export default App;
