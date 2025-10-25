@@ -1,50 +1,31 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 
 const App = () => {
-  return (
-    <div>
-      {/* 1 */}
-      <RenderProps
-        render={(count, handleCount) => (
-          <Render1Props count={count} handleCount={handleCount} />
-        )}
-      />
-      {/* 2 */}
-      <RenderProps
-        render={(count, handleCount) => (
-          <Render2Props count={count} handleCount={handleCount} />
-        )}
-      />
-    </div>
-  );
-};
+  const childRef = React.useRef();
 
-export default App;
-
-const RenderProps = (props) => {
-  const [count, setCount] = React.useState(0);
-
-  const handleCount = () => {
-    setCount((prev) => (prev += 1));
+  const handleClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
   };
 
-  return <div>{props.render(count, handleCount)}</div>;
-};
-
-const Render1Props = ({ count, handleCount }) => {
   return (
     <div>
-      <h1>Render1Props</h1>
-      <button onClick={handleCount}>Render Props 1 = {count}</button>
+      <h1>Parent Component</h1>
+      <button onClick={handleClick}>Call Child Method</button>
+      <ChildComponent ref={childRef} />
     </div>
   );
 };
 
-const Render2Props = ({ count, handleCount }) => {
-  return (
-    <div>
-      <h1>Render2Props</h1>
-      <button onClick={handleCount}>Render Props 2 = {count}</button>
-    </div>
-  );
-};
+const ChildComponent = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick: () => {
+        console.log("Child component method called");
+      },
+    };
+  });
+  return <div>Child Component</div>;
+});
+export default App;
