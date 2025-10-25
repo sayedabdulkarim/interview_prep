@@ -1,43 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useMemo } from "react";
 
 const App = () => {
+  const [isShow, setIsShow] = React.useState(true);
+  const [numbers, setNumbers] = React.useState([
+    44, 55, 66, 65, 105, 77, 88, 99, 100, 101, 102,
+  ]); // random numbers array of lenght 10
+
+  const maxNum = useMemo(() => {
+    console.log("Calculating Max Number");
+    return Math.max(...numbers);
+  }, [numbers]);
+
+  console.log("App Rendered");
   return (
     <div>
-      <ModalComponent />
-    </div>
-  );
-};
-
-const ModalComponent = () => {
-  const modalRef = React.useRef();
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        handleClose();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
-      {isOpen && (
-        <div style={{ border: "2px solid red" }} ref={modalRef}>
-          <h1>This is a Modal</h1>
-          <p>Modal Content</p>
-          <button onClick={handleClose}>Close Modal</button>
-        </div>
-      )}
+      <button onClick={() => setIsShow(!isShow)}>
+        {isShow ? "Hide" : "Show"}
+      </button>
+      <hr />
+      <hr />
+      <hr />
+      <h1>Max : {maxNum}</h1>
+      <button
+        onClick={() =>
+          setNumbers([...numbers, Math.floor(Math.random() * 150)])
+        }
+      >
+        Add Random Number
+      </button>
     </div>
   );
 };
