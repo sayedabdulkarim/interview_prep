@@ -1,35 +1,56 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 const App = () => {
-  const [isShow, setIsShow] = React.useState(true);
-  const [numbers, setNumbers] = React.useState([
-    44, 55, 66, 65, 105, 77, 88, 99, 100, 101, 102,
-  ]); // random numbers array of lenght 10
-
-  const maxNum = useMemo(() => {
-    console.log("Calculating Max Number");
-    return Math.max(...numbers);
-  }, [numbers]);
-
-  console.log("App Rendered");
   return (
     <div>
-      <button onClick={() => setIsShow(!isShow)}>
-        {isShow ? "Hide" : "Show"}
-      </button>
+      <h1>Render1 Props</h1>
+      {/* <RenderProps
+        render={(count, handleCount) => (
+          <Render1Props count={count} handleCount={handleCount} />
+        )}
+      /> */}
+      <RenderProps
+        render={(count, handleCount) => (
+          <Render1Props count={count} handleCount={handleCount} />
+        )}
+      />
       <hr />
-      <hr />
-      <hr />
-      <h1>Max : {maxNum}</h1>
-      <button
-        onClick={() =>
-          setNumbers([...numbers, Math.floor(Math.random() * 150)])
-        }
-      >
-        Add Random Number
-      </button>
+      <h1>Render2 Props</h1>
+      <RenderProps
+        render={(count, handleCount) => (
+          <Render2Props count={count} handleCount={handleCount} />
+        )}
+      />
     </div>
   );
+};
+
+const Render1Props = ({ count, handleCount }) => {
+  return (
+    <div>
+      <h2>Render Props - 1</h2>
+      <h3>Count: {count}</h3>
+      <button onClick={handleCount}>Increment</button>
+    </div>
+  );
+};
+const Render2Props = ({ count, handleCount }) => {
+  return (
+    <div>
+      <h2>Render Props - 2</h2>
+      <h3>Count: {count}</h3>
+      <button onClick={handleCount}>Increment</button>
+    </div>
+  );
+};
+
+const RenderProps = ({ render }) => {
+  const [count, setCount] = React.useState(0);
+
+  const handleCount = () => {
+    setCount((prev) => prev + 1);
+  };
+  return <div>{render(count, handleCount)}</div>;
 };
 
 export default App;
