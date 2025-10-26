@@ -1,34 +1,41 @@
-import React from "react";
+// CounterContext.jsx
+import React, { createContext, useContext, useState } from "react";
 
-const useFetch = (url) => {
-  const [data, setData] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
+const CounterContext = createContext();
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const result = await response.json();
-        setData(result);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+export const CounterProvider = ({ children }) => {
+  const [count, setCount] = useState(0);
 
-    fetchData();
-  }, [url]);
-
-  return { data, loading, error };
+  return (
+    <CounterContext.Provider value={{ count, setCount }}>
+      {children}
+    </CounterContext.Provider>
+  );
 };
 
+export const useCounter = () => useContext(CounterContext);
+
+// Counter.jsx
+const Counter = () => {
+  const { count, setCount } = useCounter();
+
+  return (
+    <div>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(0)}>Reset</button>
+    </div>
+  );
+};
+
+// App.jsx
 const App = () => {
-  return <div>App</div>;
+  return (
+    <CounterProvider>
+      <Counter />
+    </CounterProvider>
+  );
 };
 
 export default App;
