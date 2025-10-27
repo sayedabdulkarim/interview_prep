@@ -1,27 +1,49 @@
-import React, { useMemo } from "react";
+import React from "react";
 
 const App = () => {
-  const [isShow, setIsShow] = React.useState(true);
-  const [numbers, setNumbers] = React.useState([
-    44, 12, 78, 5, 99, 23, 56, 1, 100, 34,
-  ]); // random numbers in jiggling orders from 1-100
-
-  const getMax = useMemo(() => {
-    console.log("get max called");
-    return Math.max(...numbers);
-  }, [numbers]);
-
-  console.log("App rendered");
-
   return (
     <div>
-      {/* <h1>Max Number: {getMax()}</h1> */}
-      <h1>Max Number: {getMax}</h1>
-      <button onClick={() => setIsShow(!isShow)}>
-        {isShow ? "Hide" : "Show"} Component
-      </button>
+      <h1>Render1Props</h1>
+      <RenderProps
+        render={(count, setCount) => (
+          <Render1Props count={count} setCount={setCount} />
+        )}
+      />
+      <hr />
+      <h1>Render2Props</h1>
+      <RenderProps
+        render={(count, setCount) => (
+          <Render2Props count={count} setCount={setCount} />
+        )}
+      />
     </div>
   );
+};
+
+const Render1Props = ({ count, setCount }) => {
+  return (
+    <div>
+      <h2>Render1Props</h2>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+const Render2Props = ({ count, setCount }) => {
+  return (
+    <div>
+      <h2>Render2Props</h2>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+};
+
+const RenderProps = ({ render }) => {
+  const [count, setCount] = React.useState(0);
+
+  return render(count, setCount);
 };
 
 export default App;
