@@ -1,49 +1,41 @@
 import React from "react";
 
+const useFetch = (url) => {
+  const [data, setData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
+  const [error, setError] = React.useState(null);
+
+  React.useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        setData(result);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+};
+
 const App = () => {
+  const { data, loading, error } = useFetch("https://api.example.com/data");
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
     <div>
-      <h1>Render1Props</h1>
-      <RenderProps
-        render={(count, setCount) => (
-          <Render1Props count={count} setCount={setCount} />
-        )}
-      />
-      <hr />
-      <h1>Render2Props</h1>
-      <RenderProps
-        render={(count, setCount) => (
-          <Render2Props count={count} setCount={setCount} />
-        )}
-      />
+      <h1>Data</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
-};
-
-const Render1Props = ({ count, setCount }) => {
-  return (
-    <div>
-      <h2>Render1Props</h2>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-};
-
-const Render2Props = ({ count, setCount }) => {
-  return (
-    <div>
-      <h2>Render2Props</h2>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
-};
-
-const RenderProps = ({ render }) => {
-  const [count, setCount] = React.useState(0);
-
-  return render(count, setCount);
 };
 
 export default App;
