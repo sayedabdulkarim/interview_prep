@@ -1,40 +1,26 @@
-// CounterContext.jsx
-import React, { createContext, useContext, useState } from "react";
+import React, { useMemo } from "react";
 
-const CounterContext = createContext();
+const App = () => {
+  const [isShow, setIsShow] = React.useState(true);
+  const [numbers, setNumbers] = React.useState([
+    44, 12, 78, 5, 99, 23, 56, 1, 100, 34,
+  ]); // random numbers in jiggling orders from 1-100
 
-export const CounterProvider = ({ children }) => {
-  const [count, setCount] = useState(0);
+  const getMax = useMemo(() => {
+    console.log("get max called");
+    return Math.max(...numbers);
+  }, [numbers]);
 
-  return (
-    <CounterContext.Provider value={{ count, setCount }}>
-      {children}
-    </CounterContext.Provider>
-  );
-};
-
-export const useCounter = () => useContext(CounterContext);
-
-// Counter.jsx
-const Counter = () => {
-  const { count, setCount } = useCounter();
+  console.log("App rendered");
 
   return (
     <div>
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count - 1)}>-</button>
-      <button onClick={() => setCount(0)}>Reset</button>
+      {/* <h1>Max Number: {getMax()}</h1> */}
+      <h1>Max Number: {getMax}</h1>
+      <button onClick={() => setIsShow(!isShow)}>
+        {isShow ? "Hide" : "Show"} Component
+      </button>
     </div>
-  );
-};
-
-// App.jsx
-const App = () => {
-  return (
-    <CounterProvider>
-      <Counter />
-    </CounterProvider>
   );
 };
 
