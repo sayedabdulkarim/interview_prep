@@ -1,39 +1,34 @@
-import React from "react";
+import React, { createContext } from "react";
 
-const useFetch = (url) => {
-  const [data, setData] = React.useState(null);
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
+const CounterContext = createContext();
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        const result = await response.json();
-        setData(result);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    };
+const CounterProvider = ({ children }) => {
+  const [count, setCount] = React.useState(0);
 
-    fetchData();
-  }, [url]);
-
-  return { data, loading, error };
+  return (
+    <CounterContext.Provider value={{ count, setCount }}>
+      {children}
+    </CounterContext.Provider>
+  );
 };
 
 const App = () => {
-  const { data, loading, error } = useFetch("https://api.example.com/data");
+  return (
+    <CounterProvider>
+      <CounterComponent />
+    </CounterProvider>
+  );
+};
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+const CounterComponent = () => {
+  const { count, setCount } = React.useContext(CounterContext);
 
   return (
     <div>
-      <h1>Data</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <h1>Count: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(0)}>Reset</button>
     </div>
   );
 };
