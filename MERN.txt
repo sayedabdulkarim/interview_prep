@@ -1,0 +1,62 @@
+
+Top YouTube Channels/Videos:
+
+  1. Akshay Saini (Namaste JavaScript)
+
+  - "Frontend Interview Experience" series
+  - Real Google, Amazon interviews
+  - Deep JS concepts explained
+
+  2. Hitesh Choudhary
+
+  - "MERN Stack Interview Questions" playlist
+  - Practical coding challenges
+  - Hindi/English mix
+
+  3. Code Step By Step
+
+  - "React Interview Questions" (50+ videos)
+  - "Node.js Interview" series
+  - Hindi mein explain karta hai
+
+  4. Tanay Pratap
+
+  - "Mock Interviews" playlist
+  - Live coding rounds
+  - System design for MERN
+
+  5. Specific Videos (Must Watch):
+
+  Beginners:
+  - "MERN Stack Interview - Fresher" by JS Cafe
+  - "Junior Developer Mock Interview" by Traversy Media
+
+  Intermediate:
+  - "React Mock Interview" by Clément Mihailescu
+  - "Node.js Interview Questions" by Coding Ninjas
+
+  Advanced:
+  - "Senior React Developer Interview" by Tech Lead
+  - "System Design: Instagram in MERN" by Gaurav Sen
+
+  6. Interview Prep Platforms:
+
+  Pramp - Free mock interviews
+  Interviewing.io - Anonymous practice
+  Scaler Academy - MERN specific mocks
+
+  Best Free Resources:
+
+  1. freeCodeCamp YouTube - "Full Stack Interview"
+  2. The Net Ninja - "MERN Interview Prep"
+  3. Codevolution - "React Interview Questions"
+  4. PedroTech - "Junior to Senior Interview"
+
+  Hindi Content Creators:
+
+  - Code With Harry
+  - Thapa Technical
+  - Love Babbar (DSA + MERN)
+
+  Pro Tip: Search for "[Company Name] MERN interview experience" for specific company patterns!
+
