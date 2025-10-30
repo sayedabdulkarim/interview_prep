@@ -1,36 +1,31 @@
-import React, { createContext } from "react";
-
-const CounterContext = createContext();
-
-const CounterProvider = ({ children }) => {
-  const [count, setCount] = React.useState(0);
-
-  return (
-    <CounterContext.Provider value={{ count, setCount }}>
-      {children}
-    </CounterContext.Provider>
-  );
-};
+import React, { forwardRef, useImperativeHandle } from "react";
 
 const App = () => {
-  return (
-    <CounterProvider>
-      <CounterComponent />
-    </CounterProvider>
-  );
-};
+  const childRef = React.useRef();
 
-const CounterComponent = () => {
-  const { count, setCount } = React.useContext(CounterContext);
+  const handleChildClick = () => {
+    if (childRef.current) {
+      childRef.current.childClick();
+    }
+  };
 
   return (
     <div>
-      <h1>Count: {count}</h1>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count - 1)}>-</button>
-      <button onClick={() => setCount(0)}>Reset</button>
+      <ChildComponent ref={childRef} />
+      <button onClick={handleChildClick}>Call Child Method</button>
     </div>
   );
 };
+
+const ChildComponent = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => {
+    return {
+      childClick: () => {
+        console.log("Child component method called");
+      },
+    };
+  });
+  return <div>Child Component</div>;
+});
 
 export default App;
