@@ -1,31 +1,40 @@
-import React, { forwardRef, useImperativeHandle } from "react";
+import React from "react";
 
-const App = () => {
-  const childRef = React.useRef();
+const CounterContext = React.createContext();
 
-  const handleChildClick = () => {
-    if (childRef.current) {
-      childRef.current.childClick();
-    }
-  };
+const CounterProvider = ({ children }) => {
+  const [count, setCount] = React.useState(0);
+
+  const increment = () => setCount((prev) => prev + 1);
+  const decrement = () => setCount((prev) => prev - 1);
 
   return (
+    <CounterContext.Provider value={{ count, increment, decrement }}>
+      {children}
+    </CounterContext.Provider>
+  );
+};
+
+const App = () => {
+  return (
     <div>
-      <ChildComponent ref={childRef} />
-      <button onClick={handleChildClick}>Call Child Method</button>
+      <CounterProvider>
+        <Counter />
+      </CounterProvider>
     </div>
   );
 };
 
-const ChildComponent = forwardRef((props, ref) => {
-  useImperativeHandle(ref, () => {
-    return {
-      childClick: () => {
-        console.log("Child component method called");
-      },
-    };
-  });
-  return <div>Child Component</div>;
-});
+const Counter = () => {
+  const { count, increment, decrement } = React.useContext(CounterContext);
+
+  return (
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+};
 
 export default App;
