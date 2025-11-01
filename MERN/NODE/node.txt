@@ -1,8 +1,19 @@
+- what is nodeJs 
 - eventLoop
 - middleware
 - streams
 - suppose , i want to uplload 1 or 2gb file in the server, then how we can handle ?
 - how do u manage multiple role , in a single table (like admin, superadmin, customersupport, merchants)
 - how do we optimise the performance in nodejs ( to get the response faster )
-- process.nexttick and setImmediate 
+- process.nexttick and setImmediate and setTimeout
 - payment gateway integratiob
+- worker threads
+- monolithic and microservice architecture
+- write a basic code, how to create server in nodeJS
+- bodyParser
+- fileSystem module
+- webSocket
+- callBackHell
+- require and Import difference 
+- how to connect mongo in our node
+- authentication and authorization
