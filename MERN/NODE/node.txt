@@ -1,0 +1,8 @@
+- eventLoop
+- middleware
+- streams
+- suppose , i want to uplload 1 or 2gb file in the server, then how we can handle ?
+- how do u manage multiple role , in a single table (like admin, superadmin, customersupport, merchants)
+- how do we optimise the performance in nodejs ( to get the response faster )
+- process.nexttick and setImmediate 
+- payment gateway integratiob
