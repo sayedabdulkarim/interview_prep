@@ -9,6 +9,8 @@
 
 - middleware
     - it is a function that runs before the final route handler 
+        - https://www.youtube.com/watch?v=zM9R6aioOuQ&t=604s
+        - https://www.youtube.com/watch?v=n2c0mf1sza4
 
 - streams
 
