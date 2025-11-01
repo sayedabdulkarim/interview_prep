@@ -1,16 +1,35 @@
 - what is nodeJs 
+    - Node.js is a runtime environment that lets you run JavaScript outside the browser — mainly on the server.
+        - https://www.youtube.com/watch?v=y0aTs56DJWk
+        - https://www.youtube.com/watch?v=QOfROjXytok
+
 - eventLoop
+        - https://www.youtube.com/watch?v=y0aTs56DJWk
+        - https://www.youtube.com/watch?v=QOfROjXytok
+
 - middleware
+    - it is a function that runs before the final route handler 
+
 - streams
+
 - suppose , i want to uplload 1 or 2gb file in the server, then how we can handle ?
+
 - how do u manage multiple role , in a single table (like admin, superadmin, customersupport, merchants)
+
 - how do we optimise the performance in nodejs ( to get the response faster )
+
 - process.nexttick and setImmediate and setTimeout
+
 - payment gateway integratiob
+
 - worker threads
+
 - monolithic and microservice architecture
+
 - write a basic code, how to create server in nodeJS
+
 - bodyParser
+
 - fileSystem module
 - webSocket
 - callBackHell
