@@ -13,6 +13,25 @@
         - https://www.youtube.com/watch?v=n2c0mf1sza4
 
 - streams
+    - https://www.youtube.com/watch?v=m118HulDXOk
+
+- worker threads
+
+- monolithic and microservice architecture
+
+- bodyParser
+
+- fileSystem module
+
+- webSocket
+
+- callBackHell
+
+- require and Import difference 
+
+- how to connect mongo in our node
+
+- authentication and authorization
 
 - suppose , i want to uplload 1 or 2gb file in the server, then how we can handle ?
 
@@ -24,17 +43,5 @@
 
 - payment gateway integratiob
 
-- worker threads
-
-- monolithic and microservice architecture
 
 - write a basic code, how to create server in nodeJS
-
-- bodyParser
-
-- fileSystem module
-- webSocket
-- callBackHell
-- require and Import difference 
-- how to connect mongo in our node
-- authentication and authorization
