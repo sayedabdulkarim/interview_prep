@@ -1,0 +1,80 @@
+//
+
+1- AsyncStorage / keyChain
+
+AsyncStorage : 
+    - not encrypted 
+    - Use for normal stuff: theme (dark/light mode), user settings, flags (firstTimeUser)
+
+keyChain : 
+    - OS-level encrypted
+    - Use for : JWT Token, Refresh Token, API Keys
+    
+
+2- what are Animation in ReactNative
+
+3- When would you use FlatList over ScrollView or viceversa
+
+4 - How do you rereder a FlatList  ? 
+    from extradata props , flatlist can rerendr. means we can think it as a dependency in react useefect, which act as a componentDidUpdate, if we pass any dependecy to our second arg i.e [selectId ]
+
+
+
+
+//
+
+
+What is Flexbox, and how does it work in RN?
+
+What is the React Native Bridge?
+
+    JS code (React Native):
+
+    "JavaScript/TypeScript code jo UI aur app logic handle karta hai."
+
+    Native code:
+
+    "Java/Kotlin (Android) aur Swift/Obj-C (iOS) jo hardware-level features access karta hai."
+
+
+    So, bridge is like communication layer between Js and  native code ...
+
+
+What is the new architecture (Fabric + TurboModules) in RN?
+
+React Native’s new architecture consists of Fabric and TurboModules, built on top of JSI.
+Fabric is the new rendering system that gives faster and synchronous UI updates.
+TurboModules make native modules lazy-loaded & faster.
+JSI removes the old bridge, allowing JS and native to talk directly.
+Together, the app becomes faster, smoother, and more memory efficient.
+
+What is the role of JSI (JavaScript Interface)?
+    - JSI removes the old bridge, allowing JS and native to talk directly.
+
+What navigation libraries are commonly used in RN?
+React navigation
+
+What is the difference between ScrollView and FlatList?
+
+How do you optimize FlatList performance?
+        - adding keyExtractor, 
+
+        - At once 100 items load mat karo, Thoda-thoda load karo: 
+        initialNumToRender={10}
+        maxToRenderPerBatch={5}
+
+What is the difference between TouchableOpacity and Pressable?
+
+    - TouchableOpacity → sirf opacity change deta hai.
+    - Pressable → advanced control, better performance, pressed-state styling.
+
+
+How do you handle permissions in React Native?
+
+How do you debug a React Native application?
+
+What is Metro bundler in RN?
+
+How do you build APK and IPA in React Native?
+
+What is the difference between iOS and Android behavior in RN apps?
