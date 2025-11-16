@@ -1,0 +1,180 @@
+Resources: 
+    - https://namastedev.com/learn/namaste-frontend-system-design
+
+================================================================================
+                        REACT INTERVIEW QUESTIONS
+================================================================================
+
+1. Why is reducer a pure function?
+
+Ans: -
+  | Pure Function Rule       | Reducer Example                                    |
+  |--------------------------|----------------------------------------------------|
+  | Same input → Same output | state + action always produces same new state      |
+  | No side effects          | No API calls, no logging, no DOM manipulation      |
+  | No mutations             | Always return new object/array, never modify input |
+
+--------------------------------------------------------------------------------
+
+2. How to add a className to children components dynamically?
+
+Example Scenario:
+  <Comp>
+    <button>Save</button>
+    <button>close</button>
+  </Comp>
+
+  Inside the Comp component I want to add a class "border border-red" to these buttons
+
+Ans: -
+  const Comp = ({ children, className }) => {
+    const updatedChildren = React.Children.map(children, child =>
+      React.cloneElement(child, {
+        className: `border border-red ${child.props.className}`
+      })
+    );
+
+    return <div>{updatedChildren}</div>;
+  };
+
+  const Parent = () => {
+    return (
+      <Comp>
+        <button>Save</button>
+        <button>Close</button>
+      </Comp>
+    );
+  };
+
+--------------------------------------------------------------------------------
+
+3. What is RTK (Redux Toolkit) createSlice?
+
+Ans: -
+  import { createSlice } from '@reduxjs/toolkit';
+
+  const counterSlice = createSlice({
+    name: 'counter',                    // Used to generate action types
+    initialState: { value: 0 },         // Initial state
+    reducers: {
+      increment: (state) => {
+        state.value += 1;                // Looks like mutation, but it's safe!
+      },
+      decrement: (state) => {
+        state.value -= 1;
+      },
+      addByAmount: (state, action) => {
+        state.value += action.payload;
+      }
+    }
+  });
+
+  // Automatically generated!
+  export const { increment, decrement, addByAmount } = counterSlice.actions;
+  export default counterSlice.reducer;
+
+  Same functionality, 60% less code than redux! 🎉
+
+--------------------------------------------------------------------------------
+
+4. Does React use bubbling or capturing?
+
+Ans: -
+  When an event occurs, it goes through 3 phases:
+
+  1. CAPTURING (top → bottom)  ⬇️
+  2. TARGET (the element itself) 🎯
+  3. BUBBLING (bottom → top)  ⬆️
+
+  Visual Example:
+
+          ┌─────────────────┐
+          │   <div> (1)     │  ← Capturing starts here
+          │  ┌───────────┐  │
+          │  │ <div> (2) │  │  ← Goes down
+          │  │ ┌───────┐ │  │
+          │  │ │Button │ │  │  ← Target reached
+          │  │ └───────┘ │  │
+          │  └───────────┘  │  ← Bubbling starts
+          └─────────────────┘  ← Bubbles up
+
+  React uses BUBBLING by default.
+  To use capturing: onClickCapture={handler}
+
+--------------------------------------------------------------------------------
+
+5. How to inject a script from a component to index.html in React?
+
+Ans: -
+  useEffect(() => {
+    // Add gtag.js script
+    const script1 = document.createElement('script');
+    script1.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
+    script1.async = true;
+    document.head.appendChild(script1);
+
+    // Add initialization script
+    const script2 = document.createElement('script');
+    script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${trackingId}';
+    `;
+    document.head.appendChild(script2);
+
+    // Cleanup
+    return () => {
+      document.head.removeChild(script1);
+      document.head.removeChild(script2);
+    };
+  }, [trackingId]);
+
+--------------------------------------------------------------------------------
+
+6. When to use useLayoutEffect and useEffect?
+
+Ans: -
+  // ✅ DEFAULT: Use useEffect (99% of cases)
+  useEffect(() => {
+    // Runs AFTER paint
+    // Non-blocking
+    // Good for: data fetching, subscriptions, events
+  }, [dependencies]);
+
+  // ⚠️ SPECIAL: Use useLayoutEffect (1% of cases)
+  useLayoutEffect(() => {
+    // Runs BEFORE paint
+    // Blocking (can hurt performance)
+    // Good for: DOM measurements, preventing flicker
+  }, [dependencies]);
+
+  Key Difference:
+  - useEffect: Async, runs after browser paints
+  - useLayoutEffect: Sync, runs before browser paints (can cause performance issues)
+
+--------------------------------------------------------------------------------
+
+7. Difference between Flexbox and Grid?
+
+Ans: -
+
+--------------------------------------------------------------------------------
+
+8. What is transition in CSS?
+
+Ans: -
+
+--------------------------------------------------------------------------------
+
+9. Performance optimization techniques in React?
+
+Ans: -
+
+--------------------------------------------------------------------------------
+
+10. Shallow copy vs Deep copy of Date and Function?
+
+Ans: -
+
+--------------------------------------------------------------------------------
