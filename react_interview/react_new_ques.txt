@@ -58,6 +58,12 @@ Ans: -
 3. What is RTK (Redux Toolkit) createSlice?
 
 Ans: -
+
+reateSlice is a function from Redux Toolkit that simplifies Redux state management. Instead of writing action types,
+  action creators, and reducers separately, createSlice combines them into one. It auto-generates action creators and
+  types, and allows direct state mutation using Immer library behind the scenes. It reduces boilerplate code by 60-70%.
+
+
   import { createSlice } from '@reduxjs/toolkit';
 
   const counterSlice = createSlice({
