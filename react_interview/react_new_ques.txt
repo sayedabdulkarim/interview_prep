@@ -8,6 +8,13 @@ Resources:
 1. Why is reducer a pure function?
 
 Ans: -
+
+ok, so this is an example of reduxToolkit. so here all the async we r doing in homeApiSlice, but all the stateManagement we
+ r doing in homeSLice, where we r not calling any fetch etc. means homeSlice is pureFunction ..
+
+ Reducer mein sirf state ko update karo, kuch bhi bahar se touch mat karo (no console, no API, no
+  localStorage)!
+
   | Pure Function Rule       | Reducer Example                                    |
   |--------------------------|----------------------------------------------------|
   | Same input → Same output | state + action always produces same new state      |
