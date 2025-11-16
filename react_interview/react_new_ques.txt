@@ -1,8 +1,23 @@
-Resources: 
+Resources:
     - https://namastedev.com/learn/namaste-frontend-system-design
 
 ================================================================================
                         REACT INTERVIEW QUESTIONS
+================================================================================
+
+📋 QUESTIONS LIST:
+------------------
+1. Why is reducer a pure function?
+2. How to add a className to children components dynamically?
+3. What is RTK (Redux Toolkit) createSlice?
+4. Does React use bubbling or capturing?
+5. How to inject a script from a component to index.html in React?
+6. When to use useLayoutEffect and useEffect?
+7. Difference between Flexbox and Grid?
+8. What is transition in CSS?
+9. Performance optimization techniques in React?
+10. Shallow copy vs Deep copy of Date and Function?
+
 ================================================================================
 
 1. Why is reducer a pure function?
@@ -183,11 +198,33 @@ Ans: -
 9. Performance optimization techniques in React?
 
 Ans: -
+  Heavy calculation? → useMemo
+  Passing function to child? → useCallback
+  Expensive component? → React.memo
+  Large app? → Code splitting
+  Long list (1000+ items)? → Virtualization
+  Route-based pages? → React.lazy
 
 --------------------------------------------------------------------------------
 
 10. Shallow copy vs Deep copy of Date and Function?
 
-Ans: -
+Ans: - date string ho and function undefined ho jayega
 
+const obj_a = {
+  name: 'sdf',
+  data: {
+    age: 234
+    birthDate: new Date(),
+    getDetail: function(){
+      console.log('hello')
+    }
+  },
+  applyDate: new Date(),
+  greet: function(){
+    console.log('hello')
+  }
+}
+
+const obj_b = JSON.parse(JSON.stringify(a))
 --------------------------------------------------------------------------------
