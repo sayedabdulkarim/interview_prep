@@ -7,16 +7,105 @@ Resources:
 
 📋 QUESTIONS LIST:
 ------------------
-1. Why is reducer a pure function?
-2. How to add a className to children components dynamically?
+k 1. Why is reducer a pure function?
+  - A reducer must be a pure function because it should always return the same output for the same input, without
+  any side effects. This ensures predictable state updates, enables proper change detection through reference comparison, and supports features like time-travel debugging in Redux DevTools.
+
+k 2. How to add a className to children components dynamically?
+  - with the help of React.Children.map and React.cloneElement
+
 3. What is RTK (Redux Toolkit) createSlice?
-4. Does React use bubbling or capturing?
-5. How to inject a script from a component to index.html in React?
+
+k 4. Does React use bubbling or capturing?
+
+k 5. How to inject a script from a component to index.html in React?
 6. When to use useLayoutEffect and useEffect?
 7. Difference between Flexbox and Grid?
-8. What is transition in CSS?
-9. Performance optimization techniques in React?
+k 8. What is transition in CSS?
+k 9. Performance optimization techniques in React?
 10. Shallow copy vs Deep copy of Date and Function?
+===
+11. useReducer
+  useReducer is a hook for managing complex state logic. Instead of updating state directly like useState, we
+  dispatch actions to a reducer function which returns the new state.
+
+  // Reducer (pure function)
+  function reducer(state, action) {
+    switch(action.type) {
+      case 'increment': return { count: state.count + 1 }
+      case 'reset': return { count: 0 }
+      default: return state
+    }
+  }
+  // Component
+  function Counter() {
+    const [state, dispatch] = useReducer(reducer, { count: 0 })
+    return (
+      <div>
+        <h1>Count: {state.count}</h1>
+        <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+        <button onClick={() => dispatch({ type: 'reset' })}>Reset</button>
+      </div>
+    )
+  }
+
+12. useContext example
+   // 1. Create
+  const ThemeContext = createContext()
+
+  // 2. Provider — wrap at top level
+  function App() {
+    const [theme, setTheme] = useState('light')
+
+    return (
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <Home />
+      </ThemeContext.Provider>
+    )
+  }
+
+  // 3. Consume — kahi bhi use karo, props drilling nahi chahiye
+  function Home() {
+    return <Navbar />
+  }
+
+  function Navbar() {
+    const { theme, setTheme } = useContext(ThemeContext)
+
+    return (
+      <div>
+        <p>Current theme: {theme}</p>
+        <button onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}>
+          Toggle Theme
+        </button>
+      </div>
+    )
+  }
+
+13. useImperativeHandle
+  useImperativeHandle is used to expose specific methods from a child component's ref to the parent,
+
+14. forwardRef / useImperativeHandle
+
+  forwardRef passes the entire ref of a child's DOM node to the parent. useImperativeHandle is used with
+  forwardRef to expose only specific methods instead of the whole DOM node.
+
+15. CSR n SSR
+16. React one way or 2 way ??
+  react one way hai i.e top to bottom data flow krta hai.... but screen se state Values change krte and
+  state change hone se UI update hota .. to islly 2 way lagta
+
+17. React Fiber 
+  React 15 mein ek kaam shuru ho jaye toh poora khatam hone tak rukta nahi tha — agar heavy kaam ho toh screen jam
+  ho jaati thi.
+  React Fiber ne kya kiya — kaam ko chhote chhote tukdo mein tod diya. Ab React beech mein ruk sakta hai, pehle
+  urgent kaam kare (jaise typing), phir baki kaam kare.
+  Bas itna yaad rakh: Fiber = rendering rok ke, important kaam pehle kar sakta hai.
+
+18.useID 
+  unique ID generate karta hai jo server aur client dono pe same rehti hai. SSR mein hydration mismatch
+  nahi hota.
+
 
 ================================================================================
 
